@@ -1,4 +1,10 @@
 {
+	"NAV": {
+		"DESIGNER": "Designer",
+		"DEVELOPER": "Developer",
+		"ABOUT": "About",
+		"CONTACTS": "Contacts"
+	},
 	"HOME": {
 		"TITLE": "Hello world!"
 	},
