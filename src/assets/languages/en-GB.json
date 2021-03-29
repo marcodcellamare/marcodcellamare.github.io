@@ -1,0 +1,11 @@
+{
+	"HOME": {
+		"TITLE": "Hello world!"
+	},
+	"ABOUT": {
+		"TITLE": "Hello, it's me"
+	},
+	"PAGE404": {
+		"TITLE": "404"
+	}
+}
