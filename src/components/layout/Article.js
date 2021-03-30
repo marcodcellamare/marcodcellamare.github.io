@@ -1,18 +1,18 @@
-import React, { setState } from 'react';
-import Router from './Router';
+import React from 'react';
+import Router from '../Router';
 
 class Article extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { className: '' };
-		this.changeClassName = this.changeClassName.bind(this);
+		this.setClassName = this.setClassName.bind(this);
 	}
-	changeClassName(className) {
+	setClassName(className) {
 		this.setState({ className: className });
 	}
 	render() {
 		return <article className={this.props.className + (this.state.className ? ' ' + this.state.className : '')}>
-			<Router changeClassName={this.changeClassName} />
+			<Router setClassName={this.setClassName} />
 		</article>
 	}
 }

@@ -1,17 +1,17 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import Config from './assets/config.json';
 import { Header, Footer } from './components/layout';
-import Article from './components/pages/Article';
+import Article from './components/layout/Article';
 import './assets/scss/main.scss';
 
 class App extends React.Component {
 	render() {
 		return <div className='app d-flex flex-column'>
-			<BrowserRouter>
+			<Router>
 				<Header className="d-flex" />
 				<Article className="d-flex" />
-			</BrowserRouter>
+			</Router>
 			<Footer className="d-flex" />
 		</div>
 	}
@@ -19,6 +19,5 @@ class App extends React.Component {
 		document.documentElement.lang = Config.LOCALE_HTML;
 	}
 }
-
 
 export default App;

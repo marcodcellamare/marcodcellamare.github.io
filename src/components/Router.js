@@ -1,20 +1,21 @@
 import { useEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import * as Page from '.';
+import * as Page from './pages';
 
 function Router(props) {
 	let location = useLocation();
+	let setClassName = props.setClassName;
 
 	useEffect(() => {
 		let path = location.pathname.replace(/\//g, '_');
-		props.changeClassName(path);
-	}, [location]);
+		setClassName(path);
+	}, [location, setClassName]);
 
 	return (
 		<TransitionGroup component={null}>
 			<CSSTransition
-				key={location.key}
+				key={location.pathname}
 				classNames="fade"
 				timeout={300}>
 				<Switch location={location}>
