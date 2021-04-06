@@ -5,12 +5,12 @@ import * as Page from './pages';
 
 function Router(props) {
 	let location = useLocation();
-	let setClassName = props.setClassName;
+	let SetClassName = props.SetClassName;
 
 	useEffect(() => {
 		let path = location.pathname.replace(/\//g, '_');
-		setClassName(path);
-	}, [location, setClassName]);
+		SetClassName(path);
+	}, [location, SetClassName]);
 
 	return (
 		<TransitionGroup component={null}>

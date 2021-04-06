@@ -13,5 +13,21 @@
 	},
 	"PAGE404": {
 		"TITLE": "404"
+	},
+	"COM": {
+		"I": "I",
+		"AND": "And",
+		"YEAR": "Year",
+		"YEARS": "Years",
+		"MONTH": "Month",
+		"MONTHS": "Months",
+		"DAY": "Day",
+		"DAYS": "Days",
+		"HOUR": "Hour",
+		"HOURS": "Hours",
+		"MINUTE": "Minute",
+		"MINUTES": "Minutes",
+		"SECOND": "Second",
+		"SECONDS": "Seconds"
 	}
 }

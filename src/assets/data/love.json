@@ -1,0 +1,152 @@
+[
+	{
+		"type": "hate",
+		"title": "Comic Sans",
+		"link": "https://en.wikipedia.org/wiki/Comic_Sans"
+	},
+	{
+		"type": "hate",
+		"title": "Facebook",
+		"link": "https://www.facebook.com"
+	},
+	{
+		"type": "hate",
+		"title": "Adobe Flash",
+		"link": "https://www.adobe.com/products/flashplayer/end-of-life.html"
+	},
+	{
+		"type": "music",
+		"title": "7Peccati",
+		"link": "https://7peccati.tumblr.com"
+	},
+	{
+		"type": "love",
+		"title": "Adidas",
+		"link": "https://www.adidas.com"
+	},
+	{
+		"type": "love",
+		"title": "Amiga 500",
+		"link": "https://en.wikipedia.org/wiki/Amiga_500"
+	},
+	{
+		"type": "love",
+		"title": "C=64",
+		"link": "https://en.wikipedia.org/wiki/Commodore_64"
+	},
+	{
+		"type": "love",
+		"title": "MOS SID",
+		"link": "https://en.wikipedia.org/wiki/MOS_Technology_6581"
+	},
+	{
+		"type": "love",
+		"title": "Bootstrap",
+		"link": "https://getbootstrap.com"
+	},
+	{
+		"type": "love",
+		"title": "Hip Hop",
+		"link": "https://en.wikipedia.org/wiki/Hip_hop_music"
+	},
+	{
+		"type": "love",
+		"title": "Native Instruments",
+		"link": "https://www.native-instruments.com"
+	},
+	{
+		"type": "love",
+		"title": "Akai Professional",
+		"link": "https://www.akaipro.com"
+	},
+	{
+		"type": "love",
+		"title": "FL Studio",
+		"link": "https://www.image-line.com"
+	},
+	{
+		"type": "love",
+		"title": "eBoy",
+		"link": "https://hello.eboy.com"
+	},
+	{
+		"type": "play",
+		"title": "Maniac Mansion",
+		"link": "https://en.wikipedia.org/wiki/Maniac_Mansion"
+	},
+	{
+		"type": "play",
+		"title": "Zak McKracken",
+		"link": "https://en.wikipedia.org/wiki/Zak_McKracken_and_the_Alien_Mindbenders"
+	},
+	{
+		"type": "play",
+		"title": "Woodruff and the Schnibble of Azimuth",
+		"link": "https://en.wikipedia.org/wiki/The_Bizarre_Adventures_of_Woodruff_and_the_Schnibble"
+	},
+	{
+		"type": "play",
+		"title": "Monkey Island",
+		"link": "https://en.wikipedia.org/wiki/Monkey_Island_(series)"
+	},
+	{
+		"type": "love",
+		"title": "Nintendo",
+		"link": "https://www.nintendo.com"
+	},
+	{
+		"type": "play",
+		"title": "Zelda",
+		"link": "https://www.zelda.com"
+	},
+	{
+		"type": "play",
+		"title": "Mario",
+		"link": "https://mario.nintendo.com"
+	},
+	{
+		"type": "love",
+		"title": "Zzap!",
+		"link": "https://www.zzap.it"
+	},
+	{
+		"type": "music",
+		"title": "Zapp",
+		"link": "https://open.spotify.com/artist/396Kh0m4wGUvcMUULw71yi"
+	},
+	{
+		"type": "music",
+		"title": "Chromeo",
+		"link": "https://open.spotify.com/artist/2mV8aJphiSHYJf43DxL7Gt"
+	},
+	{
+		"type": "music",
+		"title": "Giorgio Moroder",
+		"link": "https://open.spotify.com/artist/6jU2Tt13MmXYk0ZBv1KmfO"
+	},
+	{
+		"type": "love",
+		"title": "Foosball",
+		"link": "https://en.wikipedia.org/wiki/Table_football"
+	},
+	{
+		"type": "code",
+		"title": "React",
+		"link": "https://reactjs.org"
+	},
+	{
+		"type": "code",
+		"title": "JavaScript",
+		"link": "https://www.javascript.com"
+	},
+	{
+		"type": "code",
+		"title": "PHP",
+		"link": "https://www.php.net"
+	},
+	{
+		"type": "code",
+		"title": "MySQL",
+		"link": "https://www.mysql.com/"
+	}
+]

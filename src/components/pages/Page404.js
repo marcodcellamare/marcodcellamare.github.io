@@ -8,8 +8,6 @@ class Page404 extends React.Component {
 	}
 	componentDidMount() {
 		document.title = '404 - ' + Config.NAME;
-
-		console.log('404')
 	}
 }
 
