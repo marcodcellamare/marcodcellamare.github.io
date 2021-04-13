@@ -6,7 +6,10 @@
 		"CONTACTS": "Contacts"
 	},
 	"HOME": {
-		"TITLE": "Hello world!"
+		"TITLE": "Ciao",
+		"SUBTITLE": "I'm Marco!",
+		"COUNTER_PREFIX": "Creative, Digital Designer and Full Stack Developer for ",
+		"COUNTER_SUFFIX": "."
 	},
 	"ABOUT": {
 		"TITLE": "Hello, it's me"

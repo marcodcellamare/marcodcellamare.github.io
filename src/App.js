@@ -9,7 +9,7 @@ class App extends React.Component {
 	render() {
 		return <div className='app d-flex flex-column'>
 			<Router>
-				<Header className="d-flex" />
+				{/*<Header className="d-flex" />*/}
 				<Article className="d-flex" />
 			</Router>
 			<Footer className="d-flex" />

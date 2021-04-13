@@ -1,0 +1,117 @@
+body {
+	height: -webkit-fill-available;
+	color: $c-gray-dark;
+}
+.root {
+	position: static;
+}
+.app {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	article {
+		position: relative;
+		flex: 1;
+		transition: background-color 0.4s ease-in-out;
+		background-color: #f00;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: $yellow;
+			background: linear-gradient(
+				-45deg,
+				rgba($yellow, 1) 0%,
+				rgba($yellow, 0) 100%
+			);
+			mix-blend-mode: hard-light;
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		&._ {
+			background-color: $c-green;
+		}
+		&._designer {
+			background-color: #0f0;
+		}
+		&._developer {
+			background-color: #0ff;
+		}
+		&._about {
+			background-color: #ff0;
+		}
+		&._contacts {
+			background-color: #666;
+		}
+
+		> .article {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+
+			&.fade-enter,
+			&.fade-exit {
+				transition: transform 0.3s ease-in-out;
+			}
+			&.fade-enter {
+				transform: translateY(100%);
+
+				&.fade-enter-active {
+					transform: translateY(0);
+				}
+			}
+			&.fade-exit {
+				transform: translateY(0);
+
+				&.fade-exit-active {
+					transform: translateY(-100%);
+				}
+			}
+		}
+	}
+}
+
+.love {
+	.love-icons {
+		position: relative;
+		width: 1em;
+		height: 1em;
+		vertical-align: middle;
+		font-size: 1.35em;
+
+		svg {
+			position: absolute;
+			opacity: 0;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(1.5);
+			transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+
+			&.active {
+				opacity: 1;
+				transform: translate(-50%, -50%) scale(1);
+			}
+		}
+	}
+	.love-cursor {
+		animation: BLINKER 1s linear infinite;
+
+		@keyframes BLINKER {
+			0%,
+			50% {
+				opacity: 1;
+			}
+			51%,
+			100% {
+				opacity: 0;
+			}
+		}
+	}
+}

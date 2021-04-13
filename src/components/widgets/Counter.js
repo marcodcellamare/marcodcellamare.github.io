@@ -1,7 +1,7 @@
 import React from 'react';
 import Locale from '../../assets/languages';
 
-class Experience extends React.Component {
+class Counter extends React.Component {
 	constructor(props) {
 		super(props);
 		this.date = this.props.date;
@@ -26,16 +26,18 @@ class Experience extends React.Component {
 		}
 	}
 	render() {
-		return <div className="experience">
+		return <p className={'counter' + (this.props.className ? ' ' + this.props.className : '')}>
+			{this.props.prefix ? this.props.prefix : null}
 			{this.state.years > 0 ? (this.state.years + ' ' + (this.state.years === 1 ? Locale.COM.YEAR : Locale.COM.YEARS).toLowerCase()) + ', ' : null}
 			{this.state.months > 0 ? (this.state.months + ' ' + (this.state.months === 1 ? Locale.COM.MONTH : Locale.COM.MONTHS).toLowerCase()) + ', ' :
 				null}
-			{this.state.days + ' ' + (this.state.days === 1 ? Locale.COM.DAY : Locale.COM.DAYS).toLowerCase() + ', '}
-			{this.state.hours + ' ' + (this.state.hours === 1 ? Locale.COM.HOUR : Locale.COM.HOURS).toLowerCase() + ', '}
-			{this.state.minutes + ' ' + (this.state.minutes === 1 ? Locale.COM.MINUTE : Locale.COM.MINUTES).toLowerCase() + ' '}
-			{(Locale.COM.AND).toLowerCase() + ' '}
+			{this.state.days > 0 ? this.state.days + ' ' + (this.state.days === 1 ? Locale.COM.DAY : Locale.COM.DAYS).toLowerCase() + ', ' : null}
+			{this.state.hours > 0 ? this.state.hours + ' ' + (this.state.hours === 1 ? Locale.COM.HOUR : Locale.COM.HOURS).toLowerCase() + ', ' : null}
+			{this.state.minutes > 0 ? this.state.minutes + ' ' + (this.state.minutes === 1 ? Locale.COM.MINUTE : Locale.COM.MINUTES).toLowerCase() + ' ' : null}
+			{this.state.minutes > 0 ? (Locale.COM.AND).toLowerCase() + ' ' : null}
 			{this.state.seconds + ' ' + (this.state.seconds === 1 ? Locale.COM.SECOND : Locale.COM.SECONDS).toLowerCase()}
-		</div>;
+			{this.props.suffix ? this.props.suffix : null}
+		</p>;
 	}
 	componentDidMount() {
 		this.CounterInit();
@@ -67,4 +69,4 @@ class Experience extends React.Component {
 	}
 }
 
-export default Experience;
+export default Counter;

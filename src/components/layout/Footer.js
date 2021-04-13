@@ -11,7 +11,6 @@ class Footer extends React.Component {
 						<Love />
 					</Col>
 					<Col xs={4}>
-						x
 					</Col>
 				</Row>
 			</Container>
