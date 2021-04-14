@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
+import firebase from 'firebase';
 import Config from './assets/config.json';
 import { Header, Footer } from './components/layout';
 import Article from './components/layout/Article';
@@ -17,6 +18,8 @@ class App extends React.Component {
 	}
 	componentDidMount(prevProps) {
 		document.documentElement.lang = Config.LOCALE_HTML;
+		firebase.initializeApp(Config.FIREBASE);
+		firebase.analytics();
 	}
 }
 

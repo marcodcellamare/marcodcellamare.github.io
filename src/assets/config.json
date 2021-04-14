@@ -1,5 +1,14 @@
 {
 	"NAME": "Marco D. Cellamare",
 	"LOCALE": "en-GB",
-	"LOCALE_HTML": "en"
+	"LOCALE_HTML": "en",
+	"FIREBASE": {
+		"apiKey": "AIzaSyAilqFf5rRbgfnNcO00sBvuR1Hj8uiIK6k",
+		"authDomain": "marcodcellamare-github-io.firebaseapp.com",
+		"projectId": "marcodcellamare-github-io",
+		"storageBucket": "marcodcellamare-github-io.appspot.com",
+		"messagingSenderId": "210747835166",
+		"appId": "1:210747835166:web:cf8927b5747f07af0c7f0f",
+		"measurementId": "G-1MRGG9108E"
+	}
 }
