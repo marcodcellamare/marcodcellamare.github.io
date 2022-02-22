@@ -1,0 +1,39 @@
+{
+	"menu": [
+		{
+			"title": "Creative",
+			"link": "/creative",
+			"icon": "icon icon-creative"
+		},
+		{
+			"title": "Logo",
+			"link": "/logo",
+			"icon": "icon icon-logo"
+		},
+		{
+			"title": "Illustrations",
+			"link": "/illustrations",
+			"icon": "icon icon-illustrations"
+		},
+		{
+			"title": "Branding",
+			"link": "/branding",
+			"icon": "icon icon-branding"
+		},
+		{
+			"title": "UX",
+			"link": "/ux",
+			"icon": "icon icon-ux"
+		},
+		{
+			"title": "UI",
+			"link": "/ui",
+			"icon": "icon icon-ui"
+		},
+		{
+			"title": "Dev",
+			"link": "/dev",
+			"icon": "icon icon-dev"
+		}
+	]
+}

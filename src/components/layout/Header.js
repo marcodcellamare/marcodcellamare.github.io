@@ -7,6 +7,10 @@ import Locale from '../../assets/languages';
 class Header extends React.Component {
 	render() {
 		return <header className={this.props.className}>
+
+
+			{
+				/*
 			<Navbar bg="light" expand="lg" className="w-100">
 				<Navbar.Brand as={NavLink} to="/" replace>{Config.NAME}</Navbar.Brand>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -19,6 +23,8 @@ class Header extends React.Component {
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
+				*/
+			}
 		</header>;
 	}
 }

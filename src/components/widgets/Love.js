@@ -28,7 +28,7 @@ class Love extends React.Component {
 				<Icon.HandThumbsDown className={this.state.type === 'hate' ? 'active' : ''} />
 				<Icon.PlayCircle className={this.state.type === 'music' ? 'active' : ''} />
 				<Icon.Joystick className={this.state.type === 'play' ? 'active' : ''} />
-				<Icon.Keyboard className={this.state.type === 'code' ? 'active' : ''} />
+				<Icon.CodeSquare className={this.state.type === 'code' ? 'active' : ''} />
 			</span>
 			{this.state.word}
 			<span className="love-cursor">_</span>
