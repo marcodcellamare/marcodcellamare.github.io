@@ -24,7 +24,8 @@
 	},
 	"scripts": {
 		"start": "PORT=1310 env-cmd -f .env.dev react-app-rewired start",
-		"build:prod": "env-cmd -f .env.prod react-app-rewired build"
+		"build": "env-cmd -f .env.prod react-app-rewired build",
+		"deploy": "gh-pages -b master -d build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -45,6 +46,7 @@
 		]
 	},
 	"devDependencies": {
+		"gh-pages": "^6.1.1",
 		"javascript-obfuscator": "^4.1.0",
 		"react-app-rewired": "^2.2.1",
 		"sass": "^1.77.3",
