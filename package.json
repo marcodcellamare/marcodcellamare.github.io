@@ -1,30 +1,30 @@
 {
 	"name": "marcodcellamare.github.io",
 	"version": "0.1.0",
+	"author": {
+		"name": "Marco D. Cellamare",
+		"email": "md.cellamare@gmail.com",
+		"url": "https://github.com/marcodcellamare/"
+	},
+	"license": "UNLICENSED",
+	"created": "2024-05-30",
 	"private": true,
-	"homepage": "/",
+	"homepage": "./",
 	"dependencies": {
-		"@testing-library/jest-dom": "^5.11.10",
-		"@testing-library/react": "^11.2.5",
-		"@testing-library/user-event": "^13.0.16",
-		"bootstrap": "^4.6.0",
-		"firebase": "^8.4.1",
-		"node-sass": "^5.0.0",
-		"react": "^17.0.2",
-		"react-bootstrap": "^1.5.2",
-		"react-bootstrap-icons": "^1.4.0",
-		"react-dom": "^17.0.2",
-		"react-router-dom": "^5.2.0",
-		"react-scripts": "4.0.3",
-		"web-vitals": "^1.1.1"
+		"@testing-library/jest-dom": "^5.17.0",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^13.5.0",
+		"bootstrap": "^5.3.3",
+		"react": "^18.3.1",
+		"react-bootstrap-icons": "^1.11.4",
+		"react-dom": "^18.3.1",
+		"react-router-dom": "^6.23.1",
+		"react-scripts": "5.0.1",
+		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -b master -d build",
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"start": "PORT=1310 env-cmd -f .env.dev react-app-rewired start",
+		"build:prod": "env-cmd -f .env.prod react-app-rewired build"
 	},
 	"eslintConfig": {
 		"extends": [
@@ -45,6 +45,9 @@
 		]
 	},
 	"devDependencies": {
-		"gh-pages": "^3.1.0"
+		"javascript-obfuscator": "^4.1.0",
+		"react-app-rewired": "^2.2.1",
+		"sass": "^1.77.3",
+		"webpack-obfuscator": "^3.5.1"
 	}
 }

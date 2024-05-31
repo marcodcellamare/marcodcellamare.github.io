@@ -1,0 +1,21 @@
+@function Palette($color) {
+	@if map-has-key($palette, $color) {
+		@return map-get($palette, $color);
+	}
+	@warn "Unknown color `#{$color}` in palette.";
+	@return null;
+}
+@function Font($type, $prop) {
+	@if map-has-key($font, $type) {
+		$type: map-get($font, $type);
+
+		@if map-has-key($type, $prop) {
+			$prop: map-get($type, $prop);
+			@return $prop;
+		}
+		@warn "Unknown tone `#{$prop}` in font type.";
+		@return null;
+	}
+	@warn "Unknown color `#{$type}` in font.";
+	@return null;
+}

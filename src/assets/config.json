@@ -1,14 +1,12 @@
 {
-	"NAME": "Marco D. Cellamare",
-	"LOCALE": "en-GB",
-	"LOCALE_HTML": "en",
-	"FIREBASE": {
-		"apiKey": "AIzaSyAilqFf5rRbgfnNcO00sBvuR1Hj8uiIK6k",
-		"authDomain": "marcodcellamare-github-io.firebaseapp.com",
-		"projectId": "marcodcellamare-github-io",
-		"storageBucket": "marcodcellamare-github-io.appspot.com",
-		"messagingSenderId": "210747835166",
-		"appId": "1:210747835166:web:cf8927b5747f07af0c7f0f",
-		"measurementId": "G-1MRGG9108E"
-	}
+	"DEFAULT_LANGUAGE": "en-GB",
+	"LANGUAGES": {
+		"en-GB": {
+			"LABEL": "English",
+			"NAME": "English",
+			"rtl": false,
+			"state": true
+		}
+	},
+	"SINCE": "2002-08-01 09:00:00"
 }

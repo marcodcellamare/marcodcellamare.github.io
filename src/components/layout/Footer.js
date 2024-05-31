@@ -1,21 +1,19 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Love from '../widgets/Love';
 
 class Footer extends React.Component {
 	render() {
-		return <footer className={this.props.className}>
-			<Container fluid className="py-3">
-				<Row>
-					<Col xs={8}>
-						<Love />
-					</Col>
-					<Col xs={4}>
-					</Col>
-				</Row>
-			</Container>
-		</footer>;
+		return <footer className="bg-dark text-light">
+			<div className="container">
+				<div className="row">
+					<div className="col">
+						FOOTER
+					</div>
+					<div className="col-auto">
+						x
+					</div>
+				</div>
+			</div>
+		</footer>
 	}
 }
-
 export default Footer;

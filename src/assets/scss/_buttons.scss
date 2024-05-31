@@ -1,0 +1,113 @@
+/*
+.btn {
+	position: relative;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+		border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+		filter 0.2s ease-in-out;
+
+	* {
+		pointer-events: none;
+	}
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: transparent;
+		pointer-events: none;
+		background-image: repeating-linear-gradient(
+			45deg,
+			transparent,
+			transparent 5px,
+			$black 5px,
+			$black 10px
+		);
+		mix-blend-mode: overlay;
+		opacity: 0;
+		transition: opacity 0.2s ease-in-out;
+	}
+	&[disabled] {
+		position: relative;
+		filter: grayscale(0.8);
+
+		&::after {
+			opacity: 0.2;
+		}
+	}
+
+	//
+
+	&.btn-icon {
+		width: 70px;
+		height: 70px;
+		padding: 0;
+		overflow: hidden;
+
+		&.btn-sm {
+			width: 55px;
+			height: 55px;
+		}
+		&.btn-lg {
+			width: 100px;
+			height: 100px;
+		}
+		> * {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			pointer-events: none;
+		}
+	}
+
+	//
+
+	&.btn-custom-outline-gray {
+		@include button-outline-variant(
+			$gray-600,
+			$gray-600,
+			rgba($gray-600, 0.1),
+			$gray-600,
+			$gray-600
+		);
+	}
+	&.btn-custom-outline-gray-light {
+		@include button-outline-variant(
+			$gray-200,
+			$gray-200,
+			rgba($gray-200, 0.1),
+			$gray-200,
+			$gray-200
+		);
+	}
+
+	/*
+	&.btn-white {
+		@include button-variant(
+			$white,
+			$white,
+			$c-bat-blue-dark,
+			rgba($c-white, 0.85),
+			rgba($c-white, 0.85),
+			$c-bat-blue-dark
+		);
+	}
+	&.btn-outline-white {
+		@include button-outline-variant($c-white, $c-bat-blue-dark);
+	}
+	/*
+	&.btn-link-blue-light {
+		@include button-variant(
+			transparent,
+			transparent,
+			$c-bat-blue-light,
+			transparent,
+			transparent,
+			$c-bat-blue-mid
+		);
+	}
+	* /
+}
+*/
