@@ -1,5 +1,13 @@
 {
 	"TITLE": "The portfolio of Marco D. Cellamare",
+	"com": {
+		"I": "I",
+		"LOVE": "Love",
+		"HATE": "Hate",
+		"MUSIC": "Listen to",
+		"PLAY": "Play",
+		"CODE": "Code in"
+	},
 	"nav": [
 		{
 			"title": "Creative",

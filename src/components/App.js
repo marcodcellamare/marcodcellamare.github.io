@@ -81,15 +81,20 @@ class App extends React.Component {
 		*/
 	}
 	render() {
-		return <div className="app d-flex position-absolute top-0 bottom-0 start-0 end-0 overflow-hidden">
-			<div className="d-flex flex-column flex-grow-1">
-				<Header />
-				<Router>
-					<Main />
-				</Router>
-				<Footer />
+		return Object.keys(this.state.Locale).length > 0
+			? <div className="app d-flex position-absolute top-0 bottom-0 start-0 end-0 overflow-hidden">
+				<div className="d-flex flex-column flex-grow-1">
+					<Header
+						Locale={this.state.Locale} />
+					<Router>
+						<Main
+							Locale={this.state.Locale} />
+					</Router>
+					<Footer
+						Locale={this.state.Locale} />
+				</div>
 			</div>
-		</div>
+			: null
 	}
 }
 export default App;
