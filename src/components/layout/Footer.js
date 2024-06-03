@@ -6,7 +6,7 @@ class Footer extends React.Component {
 		return <footer className="bg-dark text-light py-15">
 			<div className="container">
 				<div className="row">
-					<div className="col">
+					<div className="col text-truncate">
 						<Love
 							Locale={this.props.Locale} />
 					</div>
