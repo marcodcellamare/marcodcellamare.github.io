@@ -2,7 +2,7 @@ import React from 'react';
 
 class Header extends React.Component {
 	render() {
-		return <header className="bg-dark text-light">
+		return <header className="text-light">
 			<div className="container">
 				<div className="row">
 					<div className="col">

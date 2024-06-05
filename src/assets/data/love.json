@@ -1,13 +1,11 @@
 [
 	{
 		"type": "hate",
-		"title": "Comic Sans",
-		"link": "https://en.wikipedia.org/wiki/Comic_Sans"
+		"title": "Comic Sans"
 	},
 	{
 		"type": "hate",
-		"title": "Facebook",
-		"link": "https://www.facebook.com"
+		"title": "Facebook"
 	},
 	{
 		"type": "music",
@@ -15,9 +13,13 @@
 		"link": "https://7peccati.tumblr.com"
 	},
 	{
+		"type": "music",
+		"title": "Ruffiano / Stuta P",
+		"link": "https://beacons.ai/ruffiano.stuta.p"
+	},
+	{
 		"type": "love",
-		"title": "Adidas",
-		"link": "https://www.adidas.com"
+		"title": "Adidas"
 	},
 	{
 		"type": "love",
@@ -40,9 +42,14 @@
 		"link": "https://getbootstrap.com"
 	},
 	{
-		"type": "love",
+		"type": "music",
 		"title": "Hip Hop",
-		"link": "https://en.wikipedia.org/wiki/Hip_hop_music"
+		"link": "https://open.spotify.com/artist/3q3COQHkJ92c3bQkClU7Cc?si=XX8kIoqOSN-8yH_OHJ4Y9w"
+	},
+	{
+		"type": "music",
+		"title": "Electro Funk",
+		"link": "https://open.spotify.com/album/5Ywv0XUdfv4YqTitjXdDr8?si=29d0cbTDTdOeG2HFC8xLOw"
 	},
 	{
 		"type": "love",
@@ -51,8 +58,22 @@
 	},
 	{
 		"type": "love",
+		"title": "Maschine+",
+		"link": "https://www.native-instruments.com/en/products/maschine/production-systems/maschine-plus/"
+	},
+	{
+		"type": "love",
+		"title": "microKORG",
+		"link": "https://www.korg.com/us/products/synthesizers/microkorg/"
+	},
+	{
+		"type": "love",
 		"title": "Akai Professional",
 		"link": "https://www.akaipro.com"
+	},
+	{
+		"type": "love",
+		"title": "Copenhagen"
 	},
 	{
 		"type": "love",
@@ -118,6 +139,21 @@
 		"type": "music",
 		"title": "Giorgio Moroder",
 		"link": "https://open.spotify.com/artist/6jU2Tt13MmXYk0ZBv1KmfO"
+	},
+	{
+		"type": "music",
+		"title": "Todd Terje",
+		"link": "https://open.spotify.com/artist/49gaZqfow2v8EEQmjGyEIw?si=AjFqp_UDR9Oa71Unas7s9g"
+	},
+	{
+		"type": "music",
+		"title": "Yellow Magic Orchestra",
+		"link": "https://open.spotify.com/artist/2JIf5JxI3ypOSfrfNIIMQE?si=j-G38uObS5GpIVQTLrKA_w"
+	},
+	{
+		"type": "music",
+		"title": "City Pop",
+		"link": "https://open.spotify.com/playlist/0XGPYjObKCorCfpD3orLP0?si=8cfefb2fa21a40d4"
 	},
 	{
 		"type": "love",

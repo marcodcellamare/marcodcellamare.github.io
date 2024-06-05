@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeSquare, HandThumbsDown, Heart, Joystick, PlayCircle } from 'react-bootstrap-icons';
+import { ArrowRightShort, Boombox, CodeSquare, HandThumbsDown, Heart, Joystick } from 'react-bootstrap-icons';
 import Data from '../../assets/data/love.json';
 
 class Love extends React.Component {
@@ -84,22 +84,38 @@ class Love extends React.Component {
 		this.Clear();
 		this.status = 'typing';
 
-		const title = this.state.title.split('');
-		let idx = 0;
+		let typed = [];
 
 		this.intervalTyping = setInterval(() => {
-			let _title = title.slice();
-			let char = _title.splice(0, idx);
+			const wrong = typed.length > 0 && Math.random() * 10 < 3;
+			const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			let wrongCharacter = '';
 
-			if (idx <= title.length) {
-				this.setState({
-					titleTyping: char.join('')
-				});
+			if (wrong) {
+				do {
+					wrongCharacter = characters.charAt(Math.floor(Math.random() * characters.length));
+				}
+				while (wrongCharacter === this.state.title[typed.length]);
+
+				typed.push(wrongCharacter);
 			}
 			else
-				this.onTyped(false);
+				typed.push(this.state.title[typed.length]);
 
-			idx++;
+			//
+
+			if (typed.length <= this.state.title.length) {
+				this.setState({
+					titleTyping: typed.join('')
+				}, () => {
+					if (wrong)
+						typed.pop();
+				});
+			}
+			else {
+				this.Clear();
+				this.onTyped(false);
+			}
 		}, 80);
 	}
 	onTyped(fromOver) {
@@ -146,7 +162,7 @@ class Love extends React.Component {
 					{...props} />
 
 			case 'music':
-				return <PlayCircle
+				return <Boombox
 					{...props} />
 
 			case 'play':
@@ -173,12 +189,9 @@ class Love extends React.Component {
 	render() {
 		return this.state.type
 			&& this.props.Locale.com[this.state.type.toUpperCase()]
-			? <a
-				className={'love link-light link-underline-opacity-0'
+			? <div
+				className={'love text-success fw-bold'
 					+ (this.state.show ? ' show' : '')}
-				href={this.state.link}
-				target="_blank"
-				rel="noreferrer"
 				onMouseEnter={() => this.onHover(true)}
 				onMouseLeave={() => this.onHover(false)}
 				onTransitionEnd={this.onTransitionEnd}
@@ -187,9 +200,19 @@ class Love extends React.Component {
 				{this.Icon()}
 				{this.state.titleTyping}
 				<span className="love-cursor">_</span>
-			</a>
+
+				{this.state.link
+					&& this.state.titleTyping.length === this.state.title.length
+					? <a
+						className="link-success link-underline-opacity-0"
+						href={this.state.link}
+						target="_blank"
+						rel="noreferrer">
+						<ArrowRightShort />
+					</a>
+					: null}
+			</div>
 			: null
 	}
 }
-
 export default Love;

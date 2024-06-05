@@ -3,7 +3,7 @@ import { Love } from '../widgets';
 
 class Footer extends React.Component {
 	render() {
-		return <footer className="bg-dark text-light py-15">
+		return <footer className="bg-dark text-light py-5 py-md-10">
 			<div className="container">
 				<div className="row">
 					<div className="col text-truncate">
