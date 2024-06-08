@@ -31,6 +31,7 @@ class App extends React.Component {
 		this.Locale = new Locale();
 
 		this.onScroll = this.onScroll.bind(this);
+		this.onScrollStart = this.onScrollStart.bind(this);
 		this.onScrollEnd = this.onScrollEnd.bind(this);
 		this.onSlide = this.onSlide.bind(this);
 		this.Init = this.Init.bind(this);
@@ -43,17 +44,18 @@ class App extends React.Component {
 
 		this.Init();
 	}
-	onScroll(e) {
+	onScroll(slide) {
+
+	}
+	onScrollStart(slide) {
 		clearTimeout(this.timeoutTitle);
 
 		this.Mount('title', () => {
-
 			if (this.ref.title)
 				this.ref.title.Show();
-
 		});
 	}
-	onScrollEnd(e, newSlide) {
+	onScrollEnd(slide, _new) {
 		clearTimeout(this.timeoutTitle);
 
 		if (this.ref.title) {
@@ -61,18 +63,8 @@ class App extends React.Component {
 				this.ref.title.Hide();
 			}, 1000);
 		}
-		/*
-		this.setState(prevState => {
-			return {
-				current: {
-					...prevState.current,
-					showTitle: false
-				}
-			}
-		});
-		*/
 	}
-	onSlide(slide) {
+	onSlide(slide, load) {
 		clearTimeout(this.timeoutTitle);
 
 		this.setState(prevState => {
@@ -89,6 +81,9 @@ class App extends React.Component {
 		}, () => {
 			this.html.classList = '';
 			this.html.classList.add(this.state.current.theme);
+
+			if (!load)
+				this.html.classList.add('transition');
 		});
 	}
 	Init() {
@@ -184,6 +179,7 @@ class App extends React.Component {
 							sinceDate={Config.SINCE}
 							current={this.state.current}
 							onScroll={this.onScroll}
+							onScrollStart={this.onScrollStart}
 							onScrollEnd={this.onScrollEnd}
 							onSlide={this.onSlide} />
 					</Router>

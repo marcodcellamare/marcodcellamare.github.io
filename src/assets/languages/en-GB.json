@@ -1,27 +1,5 @@
 {
 	"TITLE": "The portfolio of Marco D. Cellamare",
-	"com": {
-		"I": "I",
-		"LOVE": "Love",
-		"HATE": "Hate",
-		"MUSIC": "Listen to",
-		"PLAY": "Play",
-		"CODE": "Code in",
-		"AND": "And",
-		"YEAR": "Year",
-		"YEARS": "Years",
-		"MONTH": "Month",
-		"MONTHS": "Months",
-		"DAY": "Day",
-		"DAYS": "Days",
-		"HOUR": "Hour",
-		"HOURS": "Hours",
-		"MINUTE": "Minute",
-		"MINUTES": "Minutes",
-		"SECOND": "Second",
-		"SECONDS": "Seconds",
-		"OF_EXPERIENCE": "Of experience"
-	},
 	"nav": [
 		{
 			"title": "Creative",
@@ -59,6 +37,50 @@
 			"icon": "icon icon-dev"
 		}
 	],
+	"com": {
+		"I": "I",
+		"LOVE": "Love",
+		"HATE": "Hate",
+		"MUSIC": "Listen to",
+		"PLAY": "Play",
+		"CODE": "Code in",
+		"AND": "And",
+		"YEAR": "Year",
+		"YEARS": "Years",
+		"MONTH": "Month",
+		"MONTHS": "Months",
+		"DAY": "Day",
+		"DAYS": "Days",
+		"HOUR": "Hour",
+		"HOURS": "Hours",
+		"MINUTE": "Minute",
+		"MINUTES": "Minutes",
+		"SECOND": "Second",
+		"SECONDS": "Seconds",
+		"OF_EXPERIENCE": "Of experience",
+		"PHONE": "Phone",
+		"EMAIL": "Email",
+		"PORTFOLIO": "Portfolio",
+		"LINKEDIN": "LinkedIn",
+		"GITHUB": "GitHub",
+		"BEHANCE": "Behance",
+		"INSTAGRAM": "Instagram",
+		"CONTACTS": "Contacts",
+		"LINKS": "Links"
+	},
+	"info": {
+		"contacts": {
+			"phone": "+45 52 11 33 61",
+			"email": "md.cellamare@gmail.com"
+		},
+		"links": {
+			"portfolio": "https://drive.google.com/file/d/1OWAXKrTSuLgLejPJ3p-jRFR_bp7ZbROT/view?usp=drive_link",
+			"linkedin": "https://www.linkedin.com/in/marcocellamare",
+			"github": "https://github.com/marcodcellamare",
+			"behance": "https://www.behance.net/marco-cellamare",
+			"instagram": "https://www.instagram.com/marcod.cellamare"
+		}
+	},
 	"pages": {
 		"home": [
 			{
@@ -73,6 +95,94 @@
 				"theme": "success",
 				"side": "right",
 				"TITLE": "Hello2",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "light",
+				"side": "left",
+				"TITLE": "Hello3",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "white",
+				"TITLE": "Hello4",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "light",
+				"side": "left",
+				"TITLE": "Hello3",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "white",
+				"TITLE": "Hello4",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "light",
+				"side": "left",
+				"TITLE": "Hello3",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "white",
+				"TITLE": "Hello4",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "light",
+				"side": "left",
+				"TITLE": "Hello3",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "white",
+				"TITLE": "Hello4",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "light",
+				"side": "left",
+				"TITLE": "Hello3",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "white",
+				"TITLE": "Hello4",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "light",
+				"side": "left",
+				"TITLE": "Hello3",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "white",
+				"TITLE": "Hello4",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "light",
+				"side": "left",
+				"TITLE": "Hello3",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "white",
+				"TITLE": "Hello4",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "light",
+				"side": "left",
+				"TITLE": "Hello3",
+				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			},
+			{
+				"theme": "white",
+				"TITLE": "Hello4",
 				"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 			},
 			{

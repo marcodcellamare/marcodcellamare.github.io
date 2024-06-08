@@ -8,6 +8,7 @@ class Love extends React.Component {
 
 		this.state = {
 			show: false,
+			showLink: false,
 			k: false,
 			over: false,
 			type: '',
@@ -19,6 +20,7 @@ class Love extends React.Component {
 		this.timeoutTyping = false;
 		this.timeoutTyped = false;
 		this.timeoutEnded = false;
+		this.timeoutLink = false;
 		this.intervalTyping = false;
 
 		this.status = '';
@@ -61,6 +63,7 @@ class Love extends React.Component {
 		//
 
 		this.setState({
+			showLink: false,
 			k: k,
 			type: Data[k].type,
 			title: Data[k].title,
@@ -130,6 +133,11 @@ class Love extends React.Component {
 				});
 			}, !fromOver ? 3000 : 500);
 		}
+		this.timeoutLink = setTimeout(() => {
+			this.setState({
+				showLink: true
+			});
+		}, 10);
 	}
 	onEnded() {
 		this.Clear();
@@ -184,6 +192,7 @@ class Love extends React.Component {
 		clearTimeout(this.timeoutTyping);
 		clearTimeout(this.timeoutTyped);
 		clearTimeout(this.timeoutEnded);
+		clearTimeout(this.timeoutLink);
 		clearInterval(this.intervalTyping);
 	}
 	render() {
@@ -200,11 +209,12 @@ class Love extends React.Component {
 				{this.Icon()}
 				{this.state.titleTyping}
 				<span className="love-cursor">_</span>
-
 				{this.state.link
 					&& this.state.titleTyping.length === this.state.title.length
 					? <a
-						className="link-success link-underline-opacity-0"
+						className={'love-link link-success link-underline-opacity-0'
+							+ (this.state.showLink ? ' show' : '')
+						}
 						href={this.state.link}
 						target="_blank"
 						rel="noreferrer">
