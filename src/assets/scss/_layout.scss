@@ -66,7 +66,7 @@ body {
 html {
 	&.transition {
 		.app {
-			transition: background-color 0.4s ease-in-out;
+			transition: background-color 0.2s ease-in-out;
 		}
 	}
 	&.danger {
@@ -89,11 +89,6 @@ html {
 			background-color: $white;
 		}
 	}
-	&.dark {
-		.app {
-			background-color: $dark;
-		}
-	}
 }
 main {
 	section {
@@ -105,20 +100,174 @@ main {
 
 		&.section-danger {
 			background-color: $danger;
+
+			.pager {
+				border-color: $light;
+
+				.pager-polygon {
+					background-color: $light;
+
+					&::after {
+						background-color: $danger;
+					}
+				}
+			}
 		}
 		&.section-success {
 			background-color: $success;
+
+			.pager {
+				border-color: $light;
+
+				.pager-polygon {
+					background-color: $light;
+
+					&::after {
+						background-color: $success;
+					}
+				}
+			}
 		}
 		&.section-light {
 			background-color: $light;
+
+			.pager {
+				border-color: $success;
+
+				.pager-polygon {
+					background-color: $success;
+
+					&::after {
+						background-color: $light;
+					}
+				}
+			}
 		}
 		&.section-white {
 			background-color: $white;
+
+			.pager {
+				border-color: $success;
+
+				.pager-polygon {
+					background-color: $success;
+
+					&::after {
+						background-color: $white;
+					}
+				}
+			}
 		}
 	}
 }
 footer {
 	max-width: 100vw;
+}
+nav {
+	background-color: rgba($green, 0.95);
+	backdrop-filter: blur(0.2rem);
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+	pointer-events: none;
+
+	.nav-menu {
+		> li {
+			opacity: 0;
+			transform: translateX(-2rem);
+			transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+		}
+	}
+
+	&.show {
+		opacity: 1;
+		pointer-events: all;
+
+		.nav-menu {
+			> li {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+	}
+}
+
+//
+
+.nav-toggler {
+	top: 2rem;
+	left: 2rem;
+	width: 2.5rem;
+	height: 2.5rem;
+
+	.nav-toggler-icon {
+		pointer-events: none;
+
+		span {
+			position: absolute;
+			display: block;
+			left: 0;
+			right: 0;
+			height: 10%;
+			background-color: $dark;
+			transform: translateY(-50%);
+			transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+				top 0.3s ease-in-out, height 0.3s ease-in-out;
+
+			&:nth-child(1) {
+				top: 25%;
+				transition-delay: 0.2s;
+			}
+			&:nth-child(2) {
+				top: 50%;
+			}
+			&:nth-child(3) {
+				top: 75%;
+				transition-delay: 0.3s;
+			}
+		}
+	}
+	&:hover {
+		.nav-toggler-icon {
+			span {
+				&:nth-child(1) {
+					top: 30%;
+				}
+				&:nth-child(2) {
+					top: 50%;
+				}
+				&:nth-child(3) {
+					top: 70%;
+				}
+			}
+		}
+	}
+	&.active {
+		.nav-toggler-icon {
+			span {
+				&:nth-child(1),
+				&:nth-child(3) {
+					top: 50%;
+				}
+				&:nth-child(1) {
+					transform: translateY(-50%) rotate(-45deg);
+				}
+				&:nth-child(3) {
+					transform: translateY(-50%) rotate(45deg);
+				}
+				&:nth-child(2) {
+					opacity: 0;
+					height: 0;
+				}
+			}
+		}
+		&:hover {
+			.nav-toggler-icon {
+				span {
+					height: 15%;
+				}
+			}
+		}
+	}
 }
 
 //
@@ -148,31 +297,49 @@ footer {
 			bottom: 2px;
 			left: 2px;
 			right: 2px;
-			background-color: $success;
+			background-color: $danger;
 			aspect-ratio: 1;
 		}
-		&.pager-polygon-all {
+	}
+
+	&.pager-all {
+		.pager-polygon {
 			border-radius: 50%;
 
 			&::after {
 				border-radius: 50%;
 			}
 		}
+	}
 
-		&.pager-polygon-1 {
-		}
-		&.pager-polygon-2 {
-			/*
+	&.pager-1 {
+		top: 90%;
+
+		.pager-polygon {
+			bottom: 100%;
+			transform: translateX(-50%) translateY(100%);
+			border-radius: 50%;
+
 			&::after {
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
+				border-radius: 50%;
 			}
-			*/
 		}
+	}
+	&.pager-2 {
+		.pager-polygon {
+		}
+		/*
+		&::after {
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+		*/
+	}
 
-		&.pager-polygon-3 {
+	&.pager-3 {
+		.pager-polygon {
 			clip-path: polygon(93.3% 75%, 6.7% 75%, 50% 0%);
 
 			&::after {
@@ -183,14 +350,18 @@ footer {
 				clip-path: polygon(93.3% 75%, 6.7% 75%, 50% 0%);
 			}
 		}
-		&.pager-polygon-4 {
+	}
+	&.pager-4 {
+		.pager-polygon {
 			clip-path: polygon(100% 50%, 50% 100%, 0% 50%, 50% 0%);
 
 			&::after {
 				clip-path: polygon(100% 50%, 50% 100%, 0% 50%, 50% 0%);
 			}
 		}
-		&.pager-polygon-5 {
+	}
+	&.pager-5 {
+		.pager-polygon {
 			clip-path: polygon(
 				79.39% 90.45%,
 				20.61% 90.45%,
@@ -208,7 +379,9 @@ footer {
 				);
 			}
 		}
-		&.pager-polygon-6 {
+	}
+	&.pager-6 {
+		.pager-polygon {
 			clip-path: polygon(
 				93.3% 75%,
 				50% 100%,
@@ -228,7 +401,9 @@ footer {
 				);
 			}
 		}
-		&.pager-polygon-7 {
+	}
+	&.pager-7 {
+		.pager-polygon {
 			clip-path: polygon(
 				98.75% 61.13%,
 				71.69% 95.05%,
@@ -250,7 +425,9 @@ footer {
 				);
 			}
 		}
-		&.pager-polygon-8 {
+	}
+	&.pager-8 {
+		.pager-polygon {
 			clip-path: polygon(
 				100% 50%,
 				85.36% 85.36%,

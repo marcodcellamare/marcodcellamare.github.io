@@ -1,9 +1,10 @@
 import React from 'react';
-import { HashRouter as Router } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Config from '../assets/config.json';
 import Locale from '../assets/languages';
+import { Footer, Main, Title, Nav } from './layout';
+import { NavToggler } from './widgets';
 import '../assets/scss/main.scss';
-import { Footer, Header, Main, Title } from './layout';
 
 class App extends React.Component {
 	constructor(props) {
@@ -19,11 +20,13 @@ class App extends React.Component {
 				title: ''
 			},
 			mounted: {
-				title: false
+				title: false,
+				nav: false
 			}
 		};
 		this.ref = {
-			title: false
+			title: false,
+			nav: false
 		};
 		this.html = document.documentElement;
 		this.timeoutTitle = false;
@@ -34,6 +37,7 @@ class App extends React.Component {
 		this.onScrollStart = this.onScrollStart.bind(this);
 		this.onScrollEnd = this.onScrollEnd.bind(this);
 		this.onSlide = this.onSlide.bind(this);
+		this.onSlideCenter = this.onSlideCenter.bind(this);
 		this.Init = this.Init.bind(this);
 		this.Language = this.Language.bind(this);
 		this.Mount = this.Mount.bind(this);
@@ -44,10 +48,21 @@ class App extends React.Component {
 
 		this.Init();
 	}
-	onScroll(slide) {
-
+	componentDidUpdate(prevProps) {
+		if (prevProps.location !== this.props.location) {
+			this.setState({
+				current: {
+					page: this.props.location.page,
+					slide: 0,
+					theme: '',
+					title: ''
+				}
+			});
+		}
 	}
-	onScrollStart(slide) {
+	onScroll(slides) {
+	}
+	onScrollStart(slides) {
 		clearTimeout(this.timeoutTitle);
 
 		this.Mount('title', () => {
@@ -55,7 +70,7 @@ class App extends React.Component {
 				this.ref.title.Show();
 		});
 	}
-	onScrollEnd(slide, _new) {
+	onScrollEnd(slides, _new) {
 		clearTimeout(this.timeoutTitle);
 
 		if (this.ref.title) {
@@ -67,24 +82,38 @@ class App extends React.Component {
 	onSlide(slide, load) {
 		clearTimeout(this.timeoutTitle);
 
-		this.setState(prevState => {
-			return {
-				current: {
-					...prevState.current,
-					slide: slide,
-					theme: this.state.Locale.pages[this.state.current.page][slide].theme,
-					title: this.state.Locale.pages[this.state.current.page][slide].SLIDE_TITLE
-						? this.state.Locale.pages[this.state.current.page][slide].SLIDE_TITLE
-						: this.state.Locale.pages[this.state.current.page][slide].TITLE
+		if (this.state.Locale.pages[this.state.current.page]) {
+			this.setState(prevState => {
+				return {
+					current: {
+						...prevState.current,
+						slide: slide,
+						theme: this.state.Locale.pages[this.state.current.page][slide].theme
+					}
 				}
-			}
-		}, () => {
-			this.html.classList = '';
-			this.html.classList.add(this.state.current.theme);
+			}, () => {
+				this.html.classList = '';
+				this.html.classList.add(this.state.current.theme);
 
-			if (!load)
-				this.html.classList.add('transition');
-		});
+				if (!load)
+					this.html.classList.add('transition');
+			});
+		}
+	}
+	onSlideCenter(slide, load) {
+		if (this.state.Locale.pages[this.state.current.page]) {
+			this.setState(prevState => {
+				return {
+					current: {
+						...prevState.current,
+						slide: slide,
+						title: this.state.Locale.pages[this.state.current.page][slide].SLIDE_TITLE
+							? this.state.Locale.pages[this.state.current.page][slide].SLIDE_TITLE
+							: this.state.Locale.pages[this.state.current.page][slide].TITLE
+					}
+				}
+			});
+		}
 	}
 	Init() {
 		let languages = [];
@@ -99,7 +128,6 @@ class App extends React.Component {
 		languages.sort((a, b) => {
 			return a.LABEL.localeCompare(b.LABEL);
 		});
-
 		this.setState({
 			languages: languages,
 			Locale: this.Locale
@@ -171,18 +199,28 @@ class App extends React.Component {
 		return Object.keys(this.state.Locale).length > 0
 			? <div className="app d-flex position-absolute top-0 bottom-0 start-0 end-0 overflow-hidden">
 				<div className="d-flex flex-column flex-grow-1">
-					<Header
-						Locale={this.state.Locale} />
-					<Router>
-						<Main
-							Locale={this.state.Locale}
-							sinceDate={Config.SINCE}
-							current={this.state.current}
-							onScroll={this.onScroll}
-							onScrollStart={this.onScrollStart}
-							onScrollEnd={this.onScrollEnd}
-							onSlide={this.onSlide} />
-					</Router>
+					<Routes>
+						{this.state.Locale.nav.map((item, k) => {
+							return <Route
+								key={k}
+								path={item.path}
+								index={k === 0}
+								element={
+									<Main
+										Locale={this.state.Locale}
+										sinceDate={Config.SINCE}
+										current={this.state.current}
+										onScroll={this.onScroll}
+										onScrollStart={this.onScrollStart}
+										onScrollEnd={this.onScrollEnd}
+										onSlide={this.onSlide}
+										onSlideCenter={this.onSlideCenter} />
+								} />
+						})};
+						<Route
+							path="*"
+							element={<Navigate to={this.state.Locale.nav[0].path} replace />} />
+					</Routes>
 					<Footer
 						Locale={this.state.Locale} />
 				</div>
@@ -191,10 +229,29 @@ class App extends React.Component {
 						ref={e => this.ref.title = e}
 						Locale={this.state.Locale}
 						current={this.state.current}
-						onHidden={() => {
-							this.Unmount('title');
+						onHidden={component => {
+							this.Unmount(component);
 						}} />
 					: null}
+
+				{this.state.mounted.nav
+					? <Nav
+						ref={e => this.ref.nav = e}
+						Locale={this.state.Locale}
+						onHidden={component => {
+							this.Unmount(component);
+						}} />
+					: null}
+
+				<NavToggler
+					active={this.state.mounted.nav ? true : false}
+					onClick={() => {
+						if (!this.state.mounted.nav)
+							this.Mount('nav');
+						else
+							this.ref.nav.Hide();
+					}} />
+
 			</div>
 			: null
 	}

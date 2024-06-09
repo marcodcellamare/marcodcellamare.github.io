@@ -1,5 +1,5 @@
 import React from 'react';
-import { Counter } from '../widgets';
+import { Counter, Pager } from '../widgets';
 
 class Section extends React.Component {
 	constructor(props) {
@@ -12,11 +12,19 @@ class Section extends React.Component {
 			ref={e => this.ref = e}
 			className={'d-flex overflow-hidden position-relative section-' + this.props.slide
 				+ ' section-' + this.props.Locale.pages[this.props.page][this.props.slide].theme}>
-			<div className="container d-flex flex-grow-1 py-20">
+
+			<Pager
+				slide={this.props.slide} />
+
+			<div className="container position-relative d-flex flex-grow-1 py-5 py-md-10 py-lg-20">
 				<div className="row flex-grow-1 align-self-center">
 
 					<div className="col-12 col-md-3 col-lg-4 align-self-center">
 						IMAGE
+
+						{/* NOTE lazy loading
+							<img loading="lazy" src="image.jpg" alt="..." />
+						*/}
 					</div>
 
 					<div className={'col-12 col-md-9 col-lg-8 pe-md-20 align-self-center'
@@ -52,12 +60,6 @@ class Section extends React.Component {
 					</div>
 				</div>
 			</div>
-
-
-			<div className="pager">
-				<div className={'pager-polygon pager-polygon-' + (this.props.slide < 8 ? this.props.slide + 1 : 'all')} />
-			</div>
-
 
 		</section>
 	}

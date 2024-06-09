@@ -2,38 +2,43 @@
 	"TITLE": "The portfolio of Marco D. Cellamare",
 	"nav": [
 		{
+			"title": "Home",
+			"path": "/home",
+			"icon": "icon icon-creative"
+		},
+		{
 			"title": "Creative",
-			"link": "/creative",
+			"path": "/creative",
 			"icon": "icon icon-creative"
 		},
 		{
 			"title": "Logo",
-			"link": "/logo",
+			"path": "/logo",
 			"icon": "icon icon-logo"
 		},
 		{
 			"title": "Illustrations",
-			"link": "/illustrations",
+			"path": "/illustrations",
 			"icon": "icon icon-illustrations"
 		},
 		{
 			"title": "Branding",
-			"link": "/branding",
+			"path": "/branding",
 			"icon": "icon icon-branding"
 		},
 		{
 			"title": "UX",
-			"link": "/ux",
+			"path": "/ux",
 			"icon": "icon icon-ux"
 		},
 		{
 			"title": "UI",
-			"link": "/ui",
+			"path": "/ui",
 			"icon": "icon icon-ui"
 		},
 		{
 			"title": "Dev",
-			"link": "/dev",
+			"path": "/dev",
 			"icon": "icon icon-dev"
 		}
 	],
