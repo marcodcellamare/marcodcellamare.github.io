@@ -20,7 +20,7 @@ class IconLink extends React.Component {
 	onClick() {
 		ReactGA.event({
 			category: 'Links',
-			action: 'Click',
+			action: 'click',
 			label: this.state.title
 		});
 	}

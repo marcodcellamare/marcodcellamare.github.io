@@ -164,7 +164,7 @@ class Love extends React.Component {
 	onClick(e) {
 		ReactGA.event({
 			category: 'Love',
-			action: 'Click',
+			action: 'click',
 			label: this.props.Locale.com.I + ' ' + this.props.Locale.com[this.state.type.toUpperCase()].toLowerCase() + ' ' + this.state.title
 		});
 	}
