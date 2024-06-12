@@ -200,11 +200,12 @@ class Love extends React.Component {
 			&& this.props.Locale.com[this.state.type.toUpperCase()]
 			? <div
 				className={'love text-success fw-bold'
-					+ (this.state.show ? ' show' : '')}
+					+ (this.state.show ? ' show' : '')
+					+ (this.props.className ? ' ' + this.props.className : '')}
 				onMouseEnter={() => this.onHover(true)}
 				onMouseLeave={() => this.onHover(false)}
 				onTransitionEnd={this.onTransitionEnd}
-				title={this.props.Locale.com.I + ' ' + this.props.Locale.com[this.state.type.toUpperCase()].toLowerCase() + ' ' + this.state.title}>
+				title={this.props.Locale.com.I + ' ' + this.props.Locale.com[this.state.type.toUpperCase()].toLowerCase() + ' ' + this.state.title} >
 				{this.props.Locale.com.I}
 				{this.Icon()}
 				{this.state.titleTyping}
@@ -221,7 +222,7 @@ class Love extends React.Component {
 						<ArrowRightShort />
 					</a>
 					: null}
-			</div>
+			</div >
 			: null
 	}
 }

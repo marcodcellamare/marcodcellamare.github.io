@@ -8,6 +8,7 @@ class Footer extends React.Component {
 				<div className="row gx-5 g-md-10 d-flex">
 					<div className="col-12 col-md align-self-center text-truncate">
 						<Love
+							className="my-5 my-md-0"
 							Locale={this.props.Locale} />
 					</div>
 					{Object.keys(this.props.Locale.info).map((col, k) => {
