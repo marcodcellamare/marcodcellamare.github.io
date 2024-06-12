@@ -1,6 +1,6 @@
 {
 	"name": "marcodcellamare.github.io",
-	"version": "0.2.0",
+	"version": "1.0.0",
 	"author": {
 		"name": "Marco D. Cellamare",
 		"email": "md.cellamare@gmail.com",
@@ -26,7 +26,7 @@
 	"scripts": {
 		"start": "PORT=1310 env-cmd -f .env.dev react-app-rewired start",
 		"build": "env-cmd -f .env.prod react-app-rewired build",
-		"deploy": "gh-pages -b master -d build"
+		"deploy": "npm run build && gh-pages -b master -d build"
 	},
 	"eslintConfig": {
 		"extends": [

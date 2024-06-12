@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga4';
 import { ArrowRightShort, Boombox, CodeSquare, HandThumbsDown, Heart, Joystick } from 'react-bootstrap-icons';
 import Data from '../../assets/data/love.json';
 
@@ -32,6 +33,7 @@ class Love extends React.Component {
 		this.onTyped = this.onTyped.bind(this);
 		this.onEnded = this.onEnded.bind(this);
 		this.onHover = this.onHover.bind(this);
+		this.onClick = this.onClick.bind(this);
 		this.Icon = this.Icon.bind(this);
 		this.Clear = this.Clear.bind(this);
 	}
@@ -159,6 +161,13 @@ class Love extends React.Component {
 			}
 		});
 	}
+	onClick(e) {
+		ReactGA.event({
+			category: 'Love',
+			action: 'Click',
+			label: this.props.Locale.com.I + ' ' + this.props.Locale.com[this.state.type.toUpperCase()].toLowerCase() + ' ' + this.state.title
+		});
+	}
 	Icon() {
 		const props = {
 			title: this.props.Locale.com[this.state.type.toUpperCase()],
@@ -218,7 +227,8 @@ class Love extends React.Component {
 						}
 						href={this.state.link}
 						target="_blank"
-						rel="noreferrer">
+						rel="noreferrer"
+						onClick={this.onClick}>
 						<ArrowRightShort />
 					</a>
 					: null}

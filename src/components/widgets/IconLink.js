@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga4';
 import { Behance, EnvelopePaper, FileEarmarkPdf, Github, Instagram, Link, Linkedin, Phone } from 'react-bootstrap-icons';
 
 class IconLink extends React.Component {
@@ -10,10 +11,18 @@ class IconLink extends React.Component {
 			icon: <Link />,
 			title: ''
 		};
+		this.onClick = this.onClick.bind(this);
 		this.Init = this.Init.bind(this);
 	}
 	componentDidMount() {
 		this.Init();
+	}
+	onClick() {
+		ReactGA.event({
+			category: 'Links',
+			action: 'Click',
+			label: this.state.title
+		});
 	}
 	Init() {
 		let link = {};
@@ -90,7 +99,8 @@ class IconLink extends React.Component {
 			className={'link-icon position-relative'
 				+ (this.props.className ? ' ' + this.props.className : '')}
 			target="_blank"
-			rel="noreferrer">
+			rel="noreferrer"
+			onClick={this.onClick}>
 			<span className="link-icon-icon">
 				{this.state.icon}
 			</span>

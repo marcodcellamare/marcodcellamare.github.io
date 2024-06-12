@@ -109,7 +109,6 @@ class Counter extends React.Component {
 					: null}
 				{this.state.show.map((type, k) => {
 					return <React.Fragment key={k}>
-						{console.log(this.state.br)}
 						<span
 							className={'counter-item counter-count counter-count-' + k + ' counter-count-' + type
 								+ (!this.state.postBr.includes(type)
