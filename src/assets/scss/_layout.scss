@@ -75,11 +75,11 @@ h6,
 .display-2,
 .display-3,
 .display-4 {
-	line-height: 0.9em;
+	line-height: 0.75em;
 }
 .display-5,
 .display-6 {
-	line-height: 1em;
+	line-height: 0.9em;
 }
 
 //
@@ -600,6 +600,16 @@ a.link-icon {
 				opacity: 1;
 				transform: translateX(0);
 			}
+		}
+	}
+}
+
+//
+
+.counter {
+	&.experience {
+		.counter-item {
+			//display: block;
 		}
 	}
 }

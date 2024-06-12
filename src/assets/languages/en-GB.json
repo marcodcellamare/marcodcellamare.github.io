@@ -4,7 +4,9 @@
 		{
 			"title": "Resume",
 			"path": "/resume"
-		},
+		}
+	],
+	"nav2": [
 		{
 			"title": "Projects",
 			"path": "/projects"
@@ -43,7 +45,6 @@
 		"MINUTES": "Minutes",
 		"SECOND": "Second",
 		"SECONDS": "Seconds",
-		"OF_EXPERIENCE": "Of experience",
 		"PHONE": "Phone",
 		"EMAIL": "Email",
 		"PORTFOLIO": "Portfolio",
@@ -51,16 +52,20 @@
 		"GITHUB": "GitHub",
 		"BEHANCE": "Behance",
 		"INSTAGRAM": "Instagram",
+		"DOWNLOAD": "Download",
+		"DOWNLOADS": "Downloads",
 		"CONTACTS": "Contacts",
 		"LINKS": "Links"
 	},
 	"info": {
+		"downloads": {
+			"portfolio": "https://drive.google.com/file/d/1OWAXKrTSuLgLejPJ3p-jRFR_bp7ZbROT/view?usp=drive_link"
+		},
 		"contacts": {
 			"phone": "+45 52 11 33 61",
 			"email": "md.cellamare@gmail.com"
 		},
 		"links": {
-			"portfolio": "https://drive.google.com/file/d/1OWAXKrTSuLgLejPJ3p-jRFR_bp7ZbROT/view?usp=drive_link",
 			"linkedin": "https://www.linkedin.com/in/marcocellamare",
 			"github": "https://github.com/marcodcellamare",
 			"behance": "https://www.behance.net/marco-cellamare",
@@ -81,11 +86,27 @@
 					"SUBTITLE": "Creative, Digital Designer and Full Stack Developer with a strong focus on Web / UI Design and Front End Development, since 2002.",
 					"counters": [
 						{
-							"TITLE": "Hello,",
-							"className": "h1",
-							"since": "2002-08-01 09:00:00"
+							"className": "experience fw-bold",
+							"classNamePreBr": "h3 fw-bold",
+							"classNamePostBr": "h6",
+							"since": "2002-08-01 09:00:00",
+							"br": "days",
+							"PREFX": "I got",
+							"SUFFX": "Of experience"
 						}
 					]
+				}
+			]
+		},
+		"projects": {
+			"sections": [
+				{
+					"layout": "left",
+					"theme": "success",
+					"TITLE": "Works",
+					"SLIDE_TITLE": "This are my works",
+					"SUBTITLE": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+					"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 				},
 				{
 					"layout": "left",
@@ -126,18 +147,6 @@
 					"theme": "white",
 					"TITLE": "Hello4",
 					"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-				}
-			]
-		},
-		"projects": {
-			"sections": [
-				{
-					"layout": "left",
-					"theme": "success",
-					"TITLE": "Works",
-					"SLIDE_TITLE": "This are my works",
-					"SUBTITLE": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-					"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 				}
 			]
 		}

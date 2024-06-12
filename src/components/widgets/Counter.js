@@ -11,7 +11,9 @@ class Counter extends React.Component {
 			hours: 0,
 			minutes: 0,
 			seconds: 0,
-			show: []
+			show: [],
+			br: false,
+			postBr: []
 		};
 		this.types = [
 			'years',
@@ -60,42 +62,92 @@ class Counter extends React.Component {
 		let diff = this.diff;
 		let results = {};
 		let show = [];
+		let br = this.props.br;
+		let brFound = false;
+		let postBr = [];
 
-		this.types.forEach(type => {
+		this.types.forEach((type, k) => {
 			results[type] = Math.floor(diff / this.seconds[type]);
 			diff -= results[type] * this.seconds[type];
 
-			if (results[type] > 0)
-				show.push(type)
+			if (results[type] > 0) {
+				if (br) {
+					if (!brFound
+						&& br === type)
+						brFound = true;
+					else if (brFound)
+						postBr.push(type);
+				}
+				show.push(type);
+			}
+			else {
+				if (br
+					&& !brFound
+					&& br === type)
+					br = this.types[k + 1] ? this.types[k + 1] : false;
+			}
 		});
-		this.setState({
-			...results,
-			show: show
+		this.setState(prevState => {
+			return {
+				...prevState,
+				...results,
+				show: show,
+				br: br,
+				postBr: postBr
+			}
 		});
 	}
 	render() {
-		return <div className={'counter'
-			+ (this.props.className ? ' ' + this.props.className : '')}>
-			<p className="fw-bold">
-				{this.state.show.map((type, k) => {
-					return <span key={k}
-						className={'counter-' + type}>
-						{this.state[type]
-							+ ' '
-							+ this.props.Locale.com[this.state[type] === 1 ? type.slice(0, -1).toUpperCase() : type.toUpperCase()].toLowerCase()}
-						{k < this.state.show.length - 2
-							? ', '
-							: (k === this.state.show.length - 2
-								? ' ' + this.props.Locale.com.AND.toLowerCase() + ' '
-								: null)}
+		return this.state.show.length > 0
+			? <p className={'counter'
+				+ (this.props.className ? ' ' + this.props.className : '')}>
+				{this.props.prefx
+					? <span className={'counter-item counter-prefx'
+						+ (this.props.classNamePreBr ? ' ' + this.props.classNamePreBr : '')}>
+						{this.props.prefx + ' '}
 					</span>
+					: null}
+				{this.state.show.map((type, k) => {
+					return <React.Fragment key={k}>
+						{console.log(this.state.br)}
+						<span
+							className={'counter-item counter-count counter-count-' + k + ' counter-count-' + type
+								+ (!this.state.postBr.includes(type)
+									? (' counter-item-pre'
+										+ (this.props.classNamePreBr ? ' ' + this.props.classNamePreBr : ''))
+									: (' counter-item-post'
+										+ (this.props.classNamePostBr ? ' ' + this.props.classNamePostBr : '')))}>
+							<span className="counter-count-number">
+								{this.state[type]}
+							</span>
+							<span className="counter-count-text">
+								{' ' + this.props.Locale.com[this.state[type] === 1 ? type.slice(0, -1).toUpperCase() : type.toUpperCase()].toLowerCase()}
+							</span>
+							<span className="counter-count-separator">
+								{k < this.state.show.length - 2
+									? ', '
+									: (k === this.state.show.length - 2
+										? ' ' + this.props.Locale.com.AND.toLowerCase() + ' '
+										: (!this.props.suffx
+											? '.'
+											: null))}
+							</span>
+						</span>
+						{this.state.br === type
+							? <br />
+							: null}
+					</React.Fragment>
 				})}
-				<span>
-					{(this.state.show.length > 0 ? ' ' : '')
-						+ this.props.Locale.com.OF_EXPERIENCE.toLowerCase()}.
-				</span>
+				{this.props.suffx
+					? <span className={'counter-item counter-suffx'
+						+ (this.state.postBr.length === 0
+							? (this.props.classNamePreBr ? ' ' + this.props.classNamePreBr : '')
+							: (this.props.classNamePostBr ? ' ' + this.props.classNamePostBr : ''))}>
+						{' ' + this.props.suffx.toLowerCase()}.
+					</span>
+					: null}
 			</p>
-		</div>
+			: null
 	}
 }
 export default Counter;

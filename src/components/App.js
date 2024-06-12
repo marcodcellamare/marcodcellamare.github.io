@@ -235,6 +235,7 @@ class App extends React.Component {
 						}} />
 					: null}
 				{this.state.mounted.nav
+					&& this.state.Locale.nav.length > 1
 					? <Nav
 						ref={e => this.ref.nav = e}
 						Locale={this.state.Locale}
@@ -242,14 +243,16 @@ class App extends React.Component {
 							this.Unmount(component);
 						}} />
 					: null}
-				<NavToggler
-					active={this.state.mounted.nav ? true : false}
-					onClick={() => {
-						if (!this.state.mounted.nav)
-							this.Mount('nav');
-						else
-							this.ref.nav.Hide();
-					}} />
+				{this.state.Locale.nav.length > 1
+					? <NavToggler
+						active={this.state.mounted.nav ? true : false}
+						onClick={() => {
+							if (!this.state.mounted.nav)
+								this.Mount('nav');
+							else
+								this.ref.nav.Hide();
+						}} />
+					: null}
 			</div>
 			: null
 	}

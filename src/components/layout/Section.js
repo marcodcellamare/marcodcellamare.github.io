@@ -47,11 +47,15 @@ class Section extends React.Component {
 									{!section.layout
 										|| ['left', 'right'].includes(section.layout)
 										? <div className="col-12 col-md-3 col-lg-4 align-self-center">
-											IMAGE
-
-											{/* NOTE lazy loading
-									<img loading="lazy" src="image.jpg" alt="..." />
-								*/}
+											{section.images
+												&& section.images.length > 0
+												? <div>
+													IMAGE
+													{/* NOTE lazy loading
+														<img loading="lazy" src="image.jpg" alt="..." />
+													*/}
+												</div>
+												: null}
 										</div>
 										: null}
 									<div className={'col-12 col-md-9 col-lg-8 pe-md-20 align-self-center'
@@ -103,7 +107,12 @@ class Section extends React.Component {
 											<Counter
 												Locale={this.props.Locale}
 												className={counter.className}
-												since={counter.since} />
+												classNamePreBr={counter.classNamePreBr}
+												classNamePostBr={counter.classNamePostBr}
+												since={counter.since}
+												br={counter.br}
+												prefx={counter.PREFX}
+												suffx={counter.SUFFX} />
 										</div>
 									})}
 								</div>
