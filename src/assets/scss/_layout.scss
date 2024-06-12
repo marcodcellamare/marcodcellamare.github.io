@@ -59,6 +59,31 @@ body {
 
 //
 
+h3,
+.h3,
+h4,
+.h4 {
+	line-height: 1.1em;
+}
+h5,
+.h5,
+h6,
+.h6 {
+	line-height: 1.25em;
+}
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+	line-height: 0.9em;
+}
+.display-5,
+.display-6 {
+	line-height: 1em;
+}
+
+//
+
 .app {
 	min-width: 300px;
 	background-color: $success;
@@ -97,19 +122,25 @@ main {
 		@include media-breakpoint-up(sm) {
 			padding-left: calc(100vw - 100%);
 		}
-
 		&.section-danger {
 			background-color: $danger;
 
 			.pager {
-				border-color: $light;
+				border-color: $success;
 
 				.pager-polygon {
-					background-color: $light;
+					background-color: $success;
 
 					&::after {
 						background-color: $danger;
 					}
+				}
+			}
+			.cover {
+				color: $light;
+
+				svg {
+					fill: $light;
 				}
 			}
 		}
@@ -175,9 +206,24 @@ nav {
 			opacity: 0;
 			transform: translateX(-2rem);
 			transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+			a {
+				color: $light;
+				text-decoration: none;
+				transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out,
+					transform 0.3s ease-in-out;
+
+				&:hover,
+				&.active {
+					font-size: 150%;
+				}
+				&.active {
+					color: $white;
+					transform: translateX(-1.5rem);
+				}
+			}
 		}
 	}
-
 	&.show {
 		opacity: 1;
 		pointer-events: all;
@@ -194,8 +240,8 @@ nav {
 //
 
 .nav-toggler {
-	top: 2rem;
-	left: 2rem;
+	top: 0;
+	left: 0;
 	width: 2.5rem;
 	height: 2.5rem;
 
@@ -276,10 +322,18 @@ nav {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 10%;
+	left: 2rem;
 	border-left: 1px solid $dark;
 	border-right: 1px solid $dark;
 
+	@include media-breakpoint-up(md) {
+		left: 3rem;
+	}
+	.pager-wrapper {
+		position: absolute;
+		bottom: 10%;
+		left: 0;
+	}
 	.pager-polygon {
 		position: absolute;
 		width: 1.6rem;
@@ -311,42 +365,36 @@ nav {
 			}
 		}
 	}
-
 	&.pager-1 {
 		top: 90%;
 
 		.pager-polygon {
-			bottom: 100%;
-			transform: translateX(-50%) translateY(100%);
-			border-radius: 50%;
+			display: none;
 
 			&::after {
-				border-radius: 50%;
+				display: none;
 			}
 		}
 	}
 	&.pager-2 {
 		.pager-polygon {
-		}
-		/*
-		&::after {
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-		}
-		*/
-	}
+			width: 2px;
+			transform: translateX(-50%) rotate(-45deg);
 
+			&::after {
+				display: none;
+			}
+		}
+	}
 	&.pager-3 {
 		.pager-polygon {
 			clip-path: polygon(93.3% 75%, 6.7% 75%, 50% 0%);
 
 			&::after {
-				top: 3px;
-				bottom: 3px;
-				left: 3px;
-				right: 3px;
+				top: 4px;
+				bottom: 4px;
+				left: 4px;
+				right: 4px;
 				clip-path: polygon(93.3% 75%, 6.7% 75%, 50% 0%);
 			}
 		}
@@ -356,6 +404,10 @@ nav {
 			clip-path: polygon(100% 50%, 50% 100%, 0% 50%, 50% 0%);
 
 			&::after {
+				top: 3px;
+				bottom: 3px;
+				left: 3px;
+				right: 3px;
 				clip-path: polygon(100% 50%, 50% 100%, 0% 50%, 50% 0%);
 			}
 		}

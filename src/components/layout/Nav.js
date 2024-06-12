@@ -58,13 +58,13 @@ class Nav extends React.Component {
 		});
 	}
 	render() {
-		return <nav className={'nav d-flex position-fixed top-0 bottom-0 start-0 end-0'
+		return <nav className={'nav d-flex position-fixed top-0 bottom-0 start-0 end-0 overflow-hidden'
 			+ (this.state.show ? ' show' : '')}
 			onTransitionEnd={this.onTransitionEnd}>
 			<div className="container d-flex flex-grow-1">
 				<div className="row flex-grow-1 align-self-center">
 					<div className="col">
-						<ul className="nav-menu list-unstyled">
+						<ul className="nav-menu list-unstyled display-2 lh-1">
 							{this.props.Locale.nav.map((item, k) => {
 								return <li
 									key={k}
@@ -72,7 +72,7 @@ class Nav extends React.Component {
 									<NavLink
 										to={item.path}
 										className={({ isActive }) => {
-											return 'display-2 fw-bold link-light link-underline-opacity-0'
+											return 'fw-bold d-block position-relative text-nowrap'
 												+ (isActive ? ' active' : '')
 										}}
 										onClick={() => {

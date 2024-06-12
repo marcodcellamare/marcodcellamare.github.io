@@ -1,6 +1,6 @@
 {
 	"name": "marcodcellamare.github.io",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"author": {
 		"name": "Marco D. Cellamare",
 		"email": "md.cellamare@gmail.com",
@@ -46,6 +46,7 @@
 		]
 	},
 	"devDependencies": {
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
 		"gh-pages": "^6.1.1",
 		"javascript-obfuscator": "^4.1.0",
 		"react-app-rewired": "^2.2.1",

@@ -444,6 +444,26 @@ $spacers: (
 	28: $spacer * 7,
 	29: $spacer * 7.25,
 	30: $spacer * 7.5,
+	31: $spacer * 7.75,
+	32: $spacer * 8,
+	33: $spacer * 8.25,
+	34: $spacer * 8.5,
+	35: $spacer * 8.75,
+	36: $spacer * 9,
+	37: $spacer * 9.25,
+	38: $spacer * 9.5,
+	39: $spacer * 9.75,
+	40: $spacer * 10,
+	41: $spacer * 10.25,
+	42: $spacer * 10.5,
+	43: $spacer * 10.75,
+	44: $spacer * 11,
+	45: $spacer * 11.25,
+	46: $spacer * 11.5,
+	47: $spacer * 11.75,
+	48: $spacer * 12,
+	49: $spacer * 12.25,
+	50: $spacer * 12.5,
 ) !default;
 // scss-docs-end spacer-variables-maps
 
@@ -713,13 +733,13 @@ $display-font-sizes: (
 
 $display-font-family: null !default;
 $display-font-style: null !default;
-$display-font-weight: 300 !default;
-$display-line-height: $headings-line-height !default;
+$display-font-weight: null !default; //300 !default;
+$display-line-height: null !default; //$headings-line-height !default;
 // scss-docs-end display-headings
 
 // scss-docs-start type-variables
-$lead-font-size: $font-size-base * 1.25 !default;
-$lead-font-weight: 300 !default;
+$lead-font-size: $font-size-base * 1.5 !default;
+$lead-font-weight: null !default; //300 !default;
 
 //$small-font-size: 0.875em !default;
 $small-font-size: 0.75em !default;

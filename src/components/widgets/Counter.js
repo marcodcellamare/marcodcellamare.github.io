@@ -65,8 +65,7 @@ class Counter extends React.Component {
 			results[type] = Math.floor(diff / this.seconds[type]);
 			diff -= results[type] * this.seconds[type];
 
-			if (results[type] > 0
-				&& type !== 'years')
+			if (results[type] > 0)
 				show.push(type)
 		});
 		this.setState({
@@ -75,32 +74,26 @@ class Counter extends React.Component {
 		});
 	}
 	render() {
-		return <div className="counter">
-			<h3 className="h2">
-				{this.state.years
-					+ ' '
-					+ this.props.Locale.com[this.state.years === 1 ? 'YEAR' : 'YEARS'].toLowerCase()
-					+ (this.state.show.length > 1
-						? ','
-						: '')}
-			</h3>
-			<p className="small fw-bold">
+		return <div className={'counter'
+			+ (this.props.className ? ' ' + this.props.className : '')}>
+			<p className="fw-bold">
 				{this.state.show.map((type, k) => {
-					return <span key={k}>
-						{(k === 0 && this.state.show.length === 1)
-							|| (k === 1 && this.state.show.length === 2)
-							|| k >= this.state.show.length - 1
-							? ' ' + this.props.Locale.com.AND.toLowerCase() + ' '
-							: (k > 0
-								? ', '
-								: '')}
+					return <span key={k}
+						className={'counter-' + type}>
 						{this.state[type]
 							+ ' '
 							+ this.props.Locale.com[this.state[type] === 1 ? type.slice(0, -1).toUpperCase() : type.toUpperCase()].toLowerCase()}
+						{k < this.state.show.length - 2
+							? ', '
+							: (k === this.state.show.length - 2
+								? ' ' + this.props.Locale.com.AND.toLowerCase() + ' '
+								: null)}
 					</span>
 				})}
-				{(this.state.show.length > 0 ? ' ' : '')
-					+ this.props.Locale.com.OF_EXPERIENCE.toLowerCase()}.
+				<span>
+					{(this.state.show.length > 0 ? ' ' : '')
+						+ this.props.Locale.com.OF_EXPERIENCE.toLowerCase()}.
+				</span>
 			</p>
 		</div>
 	}

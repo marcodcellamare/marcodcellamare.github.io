@@ -66,7 +66,8 @@ class App extends React.Component {
 		clearTimeout(this.timeoutTitle);
 
 		this.Mount('title', () => {
-			if (this.ref.title)
+			if (this.ref.title
+				&& this.state.current.title)
 				this.ref.title.Show();
 		});
 	}
@@ -82,13 +83,28 @@ class App extends React.Component {
 	onSlide(slide, load) {
 		clearTimeout(this.timeoutTitle);
 
-		if (this.state.Locale.pages[this.state.current.page]) {
+		if (this.state.Locale.pages[this.state.current.page]
+			&& this.state.Locale.pages[this.state.current.page].sections) {
+			this.setState(prevState => {
+				return {
+					current: {
+						...prevState.current,
+						slide: slide
+					}
+				}
+			});
+		}
+	}
+	onSlideCenter(slide, load) {
+		if (this.state.Locale.pages[this.state.current.page]
+			&& this.state.Locale.pages[this.state.current.page].sections) {
 			this.setState(prevState => {
 				return {
 					current: {
 						...prevState.current,
 						slide: slide,
-						theme: this.state.Locale.pages[this.state.current.page][slide].theme
+						theme: this.state.Locale.pages[this.state.current.page].sections[slide].theme,
+						title: this.state.Locale.pages[this.state.current.page].sections[slide].SLIDE_TITLE
 					}
 				}
 			}, () => {
@@ -97,21 +113,6 @@ class App extends React.Component {
 
 				if (!load)
 					this.html.classList.add('transition');
-			});
-		}
-	}
-	onSlideCenter(slide, load) {
-		if (this.state.Locale.pages[this.state.current.page]) {
-			this.setState(prevState => {
-				return {
-					current: {
-						...prevState.current,
-						slide: slide,
-						title: this.state.Locale.pages[this.state.current.page][slide].SLIDE_TITLE
-							? this.state.Locale.pages[this.state.current.page][slide].SLIDE_TITLE
-							: this.state.Locale.pages[this.state.current.page][slide].TITLE
-					}
-				}
 			});
 		}
 	}
@@ -208,7 +209,7 @@ class App extends React.Component {
 								element={
 									<Main
 										Locale={this.state.Locale}
-										sinceDate={Config.SINCE}
+										location={this.props.location}
 										current={this.state.current}
 										onScroll={this.onScroll}
 										onScrollStart={this.onScrollStart}
@@ -233,7 +234,6 @@ class App extends React.Component {
 							this.Unmount(component);
 						}} />
 					: null}
-
 				{this.state.mounted.nav
 					? <Nav
 						ref={e => this.ref.nav = e}
@@ -242,7 +242,6 @@ class App extends React.Component {
 							this.Unmount(component);
 						}} />
 					: null}
-
 				<NavToggler
 					active={this.state.mounted.nav ? true : false}
 					onClick={() => {
@@ -251,7 +250,6 @@ class App extends React.Component {
 						else
 							this.ref.nav.Hide();
 					}} />
-
 			</div>
 			: null
 	}

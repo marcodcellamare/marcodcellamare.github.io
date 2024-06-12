@@ -12,7 +12,7 @@ class Main extends React.Component {
 			}
 		};
 		this.ref = {
-			main: {},
+			main: false,
 			slides: []
 		};
 		this.timeoutScroll = false;
@@ -31,6 +31,11 @@ class Main extends React.Component {
 	componentDidMount() {
 		this.Init();
 	}
+	componentDidUpdate(prevProps) {
+		if (prevProps !== this.props
+			&& prevProps.location.page !== this.props.location.page)
+			this.Init();
+	}
 	componentWillUnmount() {
 		this.Clear();
 	}
@@ -41,9 +46,11 @@ class Main extends React.Component {
 		this.onScrollStart();
 
 		this.ref.slides.forEach((r, slide) => {
-			this.Top(r.ref, slide, false);
-			this.Center(r.ref, slide, false);
-			newSlide = this.Close(r.ref, slide, newSlide);
+			if (r) {
+				this.Top(r.ref, slide, false);
+				this.Center(r.ref, slide, false);
+				newSlide = this.Close(r.ref, slide, newSlide);
+			}
 		});
 		if (typeof (this.props.onScroll) === 'function')
 			this.props.onScroll(this.state.slides);
@@ -74,7 +81,9 @@ class Main extends React.Component {
 		this.Clear();
 
 		if (this.ref.main
-			&& this.ref.slides[0]) {
+			&& this.ref.slides.length > 0
+			&& this.ref.slides[0]
+			&& this.ref.slides[0].ref) {
 			this.Top(this.ref.slides[0].ref, 0, true);
 			this.Center(this.ref.slides[0].ref, 0, true);
 			this.ref.main.scrollTo({ top: 0, behavior: 'smooth' });
@@ -87,7 +96,8 @@ class Main extends React.Component {
 	Top(ref, slide, load) {
 		// NOTE Slide hits the top
 
-		if (Math.floor(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) > -Math.floor(this.ref.main.getBoundingClientRect().height)
+		if (ref
+			&& Math.floor(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) > -Math.floor(this.ref.main.getBoundingClientRect().height)
 			&& Math.floor(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) <= 0) {
 
 			this.setState(prevState => {
@@ -108,7 +118,8 @@ class Main extends React.Component {
 	Center(ref, slide, load) {
 		// NOTE Slide hits the center
 
-		if (Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) >= -Math.round(this.ref.main.getBoundingClientRect().height / 2)
+		if (ref
+			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) >= -Math.round(this.ref.main.getBoundingClientRect().height / 2)
 			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) < Math.round(this.ref.main.getBoundingClientRect().height / 2)) {
 
 			this.setState(prevState => {
@@ -131,7 +142,8 @@ class Main extends React.Component {
 
 		callback = typeof (callback) === 'function' ? callback : () => { };
 
-		if (Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) >= -Math.round(this.ref.main.getBoundingClientRect().height / 3)
+		if (ref
+			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) >= -Math.round(this.ref.main.getBoundingClientRect().height / 3)
 			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) < Math.round(this.ref.main.getBoundingClientRect().height / 3)) {
 			newSlide = ref;
 			callback(slide, newSlide);
@@ -141,18 +153,32 @@ class Main extends React.Component {
 	render() {
 		return <main className="flex-grow-1 position-relative">
 			{this.props.Locale.pages[this.props.current.page]
-				&& this.props.Locale.pages[this.props.current.page].length > 0
+				&& this.props.Locale.pages[this.props.current.page].sections
+				&& this.props.Locale.pages[this.props.current.page].sections.length > 0
 				? <div className="main-wrapper position-absolute top-0 bottom-0 start-0 end-0 overflow-hidden overflow-y-auto"
-					ref={e => this.ref.main = e}
+					ref={e => {
+						if (e
+							&& this.ref.main !== e) {
+							this.ref.main = e;
+
+							this.Init();
+						}
+					}}
 					onScroll={this.onScroll}>
-					{this.props.Locale.pages[this.props.current.page].map((content, slide) => {
+					{this.props.Locale.pages[this.props.current.page].sections.map((content, slide) => {
 						return <Section
 							key={slide}
-							ref={e => this.ref.slides[slide] = e}
+							ref={e => {
+								if (e
+									&& this.ref.slides[slide] !== e) {
+									this.ref.slides[slide] = e;
+
+									this.Init();
+								}
+							}}
 							Locale={this.props.Locale}
 							page={this.props.current.page}
-							slide={slide}
-							sinceDate={this.props.sinceDate} />
+							slide={slide} />
 					})}
 				</div>
 				: null}
