@@ -66,7 +66,7 @@ class Nav extends React.Component {
 				<div className="container d-flex flex-grow-1">
 					<div className="row flex-grow-1 align-self-center">
 						<div className="col">
-							<ul className="nav-menu list-unstyled display-2 lh-1">
+							<ul className="nav-menu list-unstyled h1 display-2 fw-bold lh-1">
 								{Config.NAV.map((path, k) => {
 									return <li
 										key={k}
@@ -74,7 +74,7 @@ class Nav extends React.Component {
 										<NavLink
 											to={path}
 											className={({ isActive }) => {
-												return 'fw-bold d-block position-relative text-nowrap'
+												return 'd-block position-relative text-nowrap'
 													+ (isActive ? ' active' : '')
 											}}
 											onClick={() => {
