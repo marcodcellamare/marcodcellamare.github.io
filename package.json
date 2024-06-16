@@ -1,6 +1,6 @@
 {
 	"name": "marcodcellamare.github.io",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": {
 		"name": "Marco D. Cellamare",
 		"email": "md.cellamare@gmail.com",
@@ -14,6 +14,7 @@
 		"@testing-library/jest-dom": "^5.17.0",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
+		"blobshape": "^1.0.0",
 		"bootstrap": "^5.3.3",
 		"react": "^18.3.1",
 		"react-bootstrap-icons": "^1.11.4",
@@ -21,11 +22,13 @@
 		"react-ga4": "^2.1.0",
 		"react-router-dom": "^6.23.1",
 		"react-scripts": "5.0.1",
+		"uuid": "^10.0.0",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
 		"start": "PORT=1310 env-cmd -f .env.dev react-app-rewired start",
-		"build": "env-cmd -f .env.prod react-app-rewired build",
+		"sitemap": "node ./src/sitemap.js",
+		"build": "env-cmd -f .env.prod react-app-rewired build && npm run sitemap",
 		"deploy": "npm run build && gh-pages -b master -d build"
 	},
 	"eslintConfig": {
@@ -52,6 +55,7 @@
 		"javascript-obfuscator": "^4.1.0",
 		"react-app-rewired": "^2.2.1",
 		"sass": "^1.77.3",
-		"webpack-obfuscator": "^3.5.1"
+		"webpack-obfuscator": "^3.5.1",
+		"xml-js": "^1.6.11"
 	}
 }

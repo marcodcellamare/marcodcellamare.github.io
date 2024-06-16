@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Config from '../../assets/config.json';
 
 class Nav extends React.Component {
 	constructor(props) {
@@ -58,7 +59,7 @@ class Nav extends React.Component {
 		});
 	}
 	render() {
-		return this.props.Locale.nav.length > 1
+		return Config.NAV.length > 1
 			? <nav className={'nav d-flex position-fixed top-0 bottom-0 start-0 end-0 overflow-hidden'
 				+ (this.state.show ? ' show' : '')}
 				onTransitionEnd={this.onTransitionEnd}>
@@ -66,12 +67,12 @@ class Nav extends React.Component {
 					<div className="row flex-grow-1 align-self-center">
 						<div className="col">
 							<ul className="nav-menu list-unstyled display-2 lh-1">
-								{this.props.Locale.nav.map((item, k) => {
+								{Config.NAV.map((path, k) => {
 									return <li
 										key={k}
 										style={{ transitionDelay: (k / 10) + 's' }}>
 										<NavLink
-											to={item.path}
+											to={path}
 											className={({ isActive }) => {
 												return 'fw-bold d-block position-relative text-nowrap'
 													+ (isActive ? ' active' : '')
@@ -79,7 +80,7 @@ class Nav extends React.Component {
 											onClick={() => {
 												this.Hide();
 											}}>
-											{item.title}
+											{this.props.Locale.nav[path]}
 										</NavLink>
 									</li>
 								})}

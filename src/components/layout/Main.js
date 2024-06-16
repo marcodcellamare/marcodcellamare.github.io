@@ -84,6 +84,7 @@ class Main extends React.Component {
 			&& this.ref.slides.length > 0
 			&& this.ref.slides[0]
 			&& this.ref.slides[0].ref) {
+
 			this.Top(this.ref.slides[0].ref, 0, true);
 			this.Center(this.ref.slides[0].ref, 0, true);
 			this.ref.main.scrollTo({ top: 0, behavior: 'smooth' });
@@ -101,10 +102,10 @@ class Main extends React.Component {
 			&& Math.floor(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) <= 0) {
 
 			this.setState(prevState => {
-				if (prevState.slides.top !== slide) {
-					if (typeof (this.props.onSlide) === 'function')
-						this.props.onSlide(slide, load);
+				if (typeof (this.props.onSlide) === 'function')
+					this.props.onSlide(slide, load);
 
+				if (prevState.slides.top !== slide) {
 					return {
 						slides: {
 							...prevState.slides,
@@ -123,10 +124,10 @@ class Main extends React.Component {
 			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) < Math.round(this.ref.main.getBoundingClientRect().height / 2)) {
 
 			this.setState(prevState => {
-				if (prevState.slides.center !== slide) {
-					if (typeof (this.props.onSlideCenter) === 'function')
-						this.props.onSlideCenter(slide, load);
+				if (typeof (this.props.onSlideCenter) === 'function')
+					this.props.onSlideCenter(slide, load);
 
+				if (prevState.slides.center !== slide) {
 					return {
 						slides: {
 							...prevState.slides,
@@ -177,8 +178,8 @@ class Main extends React.Component {
 								}
 							}}
 							Locale={this.props.Locale}
-							page={this.props.current.page}
-							slide={slide} />
+							slide={slide}
+							_={content} />
 					})}
 				</div>
 				: null}

@@ -8,6 +8,10 @@
 		"title": "Facebook"
 	},
 	{
+		"type": "hate",
+		"title": "Social Networks in general"
+	},
+	{
 		"type": "music",
 		"title": "7Peccati",
 		"link": "https://7peccati.tumblr.com"
@@ -37,11 +41,6 @@
 		"link": "https://en.wikipedia.org/wiki/MOS_Technology_6581"
 	},
 	{
-		"type": "love",
-		"title": "Bootstrap",
-		"link": "https://getbootstrap.com"
-	},
-	{
 		"type": "music",
 		"title": "Hip Hop",
 		"link": "https://open.spotify.com/artist/3q3COQHkJ92c3bQkClU7Cc?si=XX8kIoqOSN-8yH_OHJ4Y9w"
@@ -63,6 +62,23 @@
 	},
 	{
 		"type": "love",
+		"title": "Making Music"
+	},
+	{
+		"type": "love",
+		"title": "Hikes"
+	},
+	{
+		"type": "love",
+		"title": "Nature"
+	},
+	{
+		"type": "love",
+		"title": "Captain Toad (my dog)",
+		"link": "https://www.instagram.com/toad_thecorgi/"
+	},
+	{
+		"type": "love",
 		"title": "microKORG",
 		"link": "https://www.korg.com/us/products/synthesizers/microkorg/"
 	},
@@ -74,6 +90,22 @@
 	{
 		"type": "love",
 		"title": "Copenhagen"
+	},
+	{
+		"type": "love",
+		"title": "Japan"
+	},
+	{
+		"type": "love",
+		"title": "Travelling"
+	},
+	{
+		"type": "love",
+		"title": "Photography"
+	},
+	{
+		"type": "love",
+		"title": "80s"
 	},
 	{
 		"type": "love",
@@ -97,6 +129,11 @@
 	},
 	{
 		"type": "play",
+		"title": "Grim Fandango",
+		"link": "https://en.wikipedia.org/wiki/Grim_Fandango"
+	},
+	{
+		"type": "play",
 		"title": "Woodruff and the Schnibble of Azimuth",
 		"link": "https://en.wikipedia.org/wiki/The_Bizarre_Adventures_of_Woodruff_and_the_Schnibble"
 	},
@@ -112,12 +149,12 @@
 	},
 	{
 		"type": "play",
-		"title": "Zelda",
+		"title": "The legend of Zelda",
 		"link": "https://www.zelda.com"
 	},
 	{
 		"type": "play",
-		"title": "Mario",
+		"title": "Super Mario",
 		"link": "https://mario.nintendo.com"
 	},
 	{
@@ -134,6 +171,16 @@
 		"type": "music",
 		"title": "Chromeo",
 		"link": "https://open.spotify.com/artist/2mV8aJphiSHYJf43DxL7Gt"
+	},
+	{
+		"type": "music",
+		"title": "Breakbot",
+		"link": "https://open.spotify.com/artist/0iui2Be5CP8EWxvHYsVspL"
+	},
+	{
+		"type": "music",
+		"title": "Kavinsky",
+		"link": "https://open.spotify.com/artist/0UF7XLthtbSF2Eur7559oV"
 	},
 	{
 		"type": "music",
@@ -179,5 +226,10 @@
 		"type": "code",
 		"title": "MySQL",
 		"link": "https://www.mysql.com/"
+	},
+	{
+		"type": "code",
+		"title": "Bootstrap",
+		"link": "https://getbootstrap.com"
 	}
 ]

@@ -39,6 +39,7 @@ class App extends React.Component {
 		this.onSlide = this.onSlide.bind(this);
 		this.onSlideCenter = this.onSlideCenter.bind(this);
 		this.Init = this.Init.bind(this);
+		this.Theme = this.Theme.bind(this);
 		this.Language = this.Language.bind(this);
 		this.Mount = this.Mount.bind(this);
 		this.Unmount = this.Unmount.bind(this);
@@ -92,6 +93,8 @@ class App extends React.Component {
 						slide: slide
 					}
 				}
+			}, () => {
+				this.Theme(load);
 			});
 		}
 	}
@@ -108,11 +111,7 @@ class App extends React.Component {
 					}
 				}
 			}, () => {
-				this.html.classList = '';
-				this.html.classList.add(this.state.current.theme);
-
-				if (!load)
-					this.html.classList.add('transition');
+				this.Theme(load);
 			});
 		}
 	}
@@ -135,6 +134,15 @@ class App extends React.Component {
 		}, () => {
 			this.Language();
 		});
+	}
+	Theme(load) {
+		this.html.classList = '';
+
+		if (this.state.current.theme)
+			this.html.classList.add(this.state.current.theme);
+
+		if (!load)
+			this.html.classList.add('transition');
 	}
 	Language() {
 		/*
@@ -201,10 +209,10 @@ class App extends React.Component {
 			? <div className="app d-flex position-absolute top-0 bottom-0 start-0 end-0 overflow-hidden">
 				<div className="d-flex flex-column flex-grow-1">
 					<Routes>
-						{this.state.Locale.nav.map((item, k) => {
+						{Config.NAV.map((path, k) => {
 							return <Route
 								key={k}
-								path={item.path}
+								path={path}
 								index={k === 0}
 								element={
 									<Main
@@ -220,7 +228,7 @@ class App extends React.Component {
 						})};
 						<Route
 							path="*"
-							element={<Navigate to={this.state.Locale.nav[0].path} replace />} />
+							element={<Navigate to={Config.NAV[0]} replace />} />
 					</Routes>
 					<Footer
 						Locale={this.state.Locale} />
@@ -235,7 +243,7 @@ class App extends React.Component {
 						}} />
 					: null}
 				{this.state.mounted.nav
-					&& this.state.Locale.nav.length > 1
+					&& Config.NAV.length > 1
 					? <Nav
 						ref={e => this.ref.nav = e}
 						Locale={this.state.Locale}
@@ -243,7 +251,7 @@ class App extends React.Component {
 							this.Unmount(component);
 						}} />
 					: null}
-				{this.state.Locale.nav.length > 1
+				{Config.NAV.length > 1
 					? <NavToggler
 						active={this.state.mounted.nav ? true : false}
 						onClick={() => {

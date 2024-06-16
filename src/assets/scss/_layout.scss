@@ -59,27 +59,32 @@ body {
 
 //
 
+h1,
+.h1,
+h2,
+.h2,
 h3,
 .h3,
 h4,
 .h4 {
-	line-height: 1.1em;
+	@include rfs(1.25em, line-height);
 }
 h5,
 .h5,
 h6,
 .h6 {
-	line-height: 1.25em;
+	@include rfs(1.4em, line-height);
 }
+
 .display-1,
 .display-2,
-.display-3,
-.display-4 {
-	line-height: 0.75em;
+.display-3 {
+	@include rfs(1em, line-height);
 }
+.display-4,
 .display-5,
 .display-6 {
-	line-height: 0.9em;
+	@include rfs(1.15em, line-height);
 }
 
 //
@@ -122,11 +127,61 @@ main {
 		@include media-breakpoint-up(sm) {
 			padding-left: calc(100vw - 100%);
 		}
+		.section-images {
+			max-width: 400px;
+
+			.section-images-wrapper {
+				transform: scale(1.2) translate(-10%, 15%);
+				transition: transform 0.3s ease-in-out;
+
+				@include media-breakpoint-up(md) {
+					transform: scale(2) translateX(-5%);
+				}
+				@include media-breakpoint-up(lg) {
+					transform: scale(2) translateX(-15%);
+				}
+				.section-images-clip {
+					fill: rgba($dark, 0.15);
+					transition: fill 0.3s ease-in-out;
+
+					path {
+						transition-duration: 0.7s;
+						transition-timing-function: cubic-bezier(
+							0.175,
+							0.885,
+							0.32,
+							1.275
+						);
+						transform-origin: center center;
+					}
+				}
+			}
+			&.hover {
+				.section-images-wrapper {
+					transform: scale(1.3) translate(-10%, 15%);
+
+					@include media-breakpoint-up(md) {
+						transform: scale(2.2) translateX(-5%);
+					}
+					@include media-breakpoint-up(lg) {
+						transform: scale(2.2) translateX(-15%);
+					}
+					.section-images-clip {
+						fill: rgba($dark, 0.3);
+
+						path {
+							transition-duration: 0.3s;
+						}
+					}
+				}
+			}
+		}
 		&.section-danger {
 			background-color: $danger;
 
 			.pager {
 				border-color: $success;
+				color: $success;
 
 				.pager-polygon {
 					background-color: $success;
@@ -149,6 +204,7 @@ main {
 
 			.pager {
 				border-color: $light;
+				color: $light;
 
 				.pager-polygon {
 					background-color: $light;
@@ -164,6 +220,7 @@ main {
 
 			.pager {
 				border-color: $success;
+				color: $success;
 
 				.pager-polygon {
 					background-color: $success;
@@ -179,6 +236,7 @@ main {
 
 			.pager {
 				border-color: $success;
+				color: $success;
 
 				.pager-polygon {
 					background-color: $success;
@@ -200,6 +258,7 @@ nav {
 	opacity: 0;
 	transition: opacity 0.3s ease-in-out;
 	pointer-events: none;
+	z-index: 90;
 
 	.nav-menu {
 		> li {
@@ -240,10 +299,9 @@ nav {
 //
 
 .nav-toggler {
-	top: 0;
-	left: 0;
 	width: 2.5rem;
 	height: 2.5rem;
+	z-index: 100;
 
 	.nav-toggler-icon {
 		pointer-events: none;
@@ -319,9 +377,6 @@ nav {
 //
 
 .pager {
-	position: absolute;
-	top: 0;
-	bottom: 0;
 	left: 2rem;
 	border-left: 1px solid $dark;
 	border-right: 1px solid $dark;
@@ -330,17 +385,12 @@ nav {
 		left: 3rem;
 	}
 	.pager-wrapper {
-		position: absolute;
 		bottom: 10%;
-		left: 0;
 	}
 	.pager-polygon {
-		position: absolute;
-		width: 1.6rem;
-		height: 1.6rem;
-		bottom: 5%;
-		left: 50%;
-		transform: translateX(-50%);
+		width: 2.5rem;
+		height: 2.5rem;
+		transform: translate(-50%, -50%);
 		background-color: $dark;
 		aspect-ratio: 1;
 
@@ -355,7 +405,13 @@ nav {
 			aspect-ratio: 1;
 		}
 	}
+	.pager-title {
+		transform: translateX(calc(var(--bs-gutter-x) * 0.5 - 2rem));
 
+		@include media-breakpoint-up(md) {
+			transform: translateX(calc(var(--bs-gutter-x) * 0.5 - 3rem));
+		}
+	}
 	&.pager-all {
 		.pager-polygon {
 			border-radius: 50%;
@@ -366,7 +422,7 @@ nav {
 		}
 	}
 	&.pager-1 {
-		top: 90%;
+		top: 90% !important;
 
 		.pager-polygon {
 			display: none;
@@ -379,7 +435,7 @@ nav {
 	&.pager-2 {
 		.pager-polygon {
 			width: 2px;
-			transform: translateX(-50%) rotate(-45deg);
+			transform: translate(-50%, -50%) rotate(-45deg);
 
 			&::after {
 				display: none;
@@ -606,10 +662,23 @@ a.link-icon {
 
 //
 
-.counter {
-	&.experience {
-		.counter-item {
-			//display: block;
+.wave {
+	display: inline-block;
+	transform-origin: bottom right;
+
+	animation-name: WAVE;
+	animation-duration: 0.5s;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: both;
+	animation-iteration-count: infinite;
+
+	@keyframes WAVE {
+		0%,
+		100% {
+			transform: rotate(0deg);
+		}
+		50% {
+			transform: rotate(15deg);
 		}
 	}
 }

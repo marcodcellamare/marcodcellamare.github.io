@@ -1,4 +1,5 @@
 {
+	"DOMAIN": "https://marcodcellamare.github.io",
 	"DEFAULT_LANGUAGE": "en-GB",
 	"LANGUAGES": {
 		"en-GB": {
@@ -8,5 +9,9 @@
 			"state": true
 		}
 	},
+	"NAV": [
+		"/resume",
+		"/projects"
+	],
 	"ANALYTICS": "G-W1988ZB70D"
 }

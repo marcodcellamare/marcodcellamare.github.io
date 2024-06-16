@@ -27,6 +27,7 @@ class Footer extends React.Component {
 											className="link-success"
 											classNameTitle="bg-danger text-dark"
 											Locale={this.props.Locale}
+											iconOnly={true}
 											type={type}
 											url={this.props.Locale.info[col][type]} />
 									</li>

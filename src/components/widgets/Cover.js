@@ -17,7 +17,7 @@ class Cover extends React.Component {
 			</Floating>
 			<div className="row position-relative">
 				<div className="col-12 col-md-auto text-center text-md-end align-self-center mb-5 mb-md-0">
-					<h5 className="my-0 text-uppercase">
+					<h5 className="my-0 text-uppercase lh-1">
 						{this.props.Locale.com.THE}
 					</h5>
 				</div>
@@ -25,12 +25,11 @@ class Cover extends React.Component {
 					className="col-12 col-md-4 text-center align-self-center"
 					classNameChildren="w-80 w-sm-70 w-md-auto"
 					ratioX={65}
-					ratioY={65}
-					scrollable={this.props.main}>
+					ratioY={65}>
 					<Logo />
 				</Floating>
 				<div className="col-12 col-md text-center text-md-start align-self-center mt-5 mt-md-0">
-					<h5 className="my-0 text-uppercase">
+					<h5 className="mt-0 mb-1 text-uppercase lh-1">
 						{this.props.Locale.com.OF.toLowerCase()}
 						{' '}
 						<strong className="text-success">

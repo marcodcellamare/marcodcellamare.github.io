@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactGA from 'react-ga4';
-import { Behance, EnvelopePaper, FileEarmarkPdf, Github, Instagram, Link, Linkedin, Phone } from 'react-bootstrap-icons';
+import { ArrowDownCircle, ArrowRightCircle, ArrowUpRightCircle, Behance, EnvelopePaper, FileEarmarkPdf, Github, Instagram, Linkedin, Phone } from 'react-bootstrap-icons';
 
 class IconLink extends React.Component {
 	constructor(props) {
@@ -8,7 +8,7 @@ class IconLink extends React.Component {
 
 		this.state = {
 			href: '',
-			icon: <Link />,
+			icon: '',
 			title: ''
 		};
 		this.onClick = this.onClick.bind(this);
@@ -21,12 +21,40 @@ class IconLink extends React.Component {
 		ReactGA.event({
 			category: 'Links',
 			action: 'click',
-			label: this.state.title
+			label: this.state.title ? this.state.title : this.state.type
 		});
 	}
 	Init() {
 		let link = {};
+		let icon = false;
+		let href = false;
 
+		if (this.props.url
+			&& this.props.url.indexOf('INTERNAL::') === 0) {
+
+			const path = this.props.url.replace('INTERNAL::', '').split('.');
+			href = this.props.Locale;
+
+			path.forEach(k => {
+				if (href[k])
+					href = href[k];
+			});
+		}
+		else
+			href = this.props.url;
+
+		switch (this.props.type) {
+			case 'link':
+				icon = <ArrowUpRightCircle />
+				break;
+
+			case 'download':
+				icon = <ArrowDownCircle />
+				break;
+
+			default:
+				icon = <ArrowRightCircle />
+		}
 		switch (this.props.type) {
 			case 'phone':
 				link = {
@@ -86,9 +114,9 @@ class IconLink extends React.Component {
 
 			default:
 				link = {
-					href: this.props.url,
-					icon: <Link />,
-					title: this.props.Locale.com[this.props.type.toUpperCase()]
+					href: href,
+					icon: icon,
+					title: ''
 				};
 		}
 		this.setState(link);
@@ -101,14 +129,25 @@ class IconLink extends React.Component {
 			target="_blank"
 			rel="noreferrer"
 			onClick={this.onClick}>
-			<span className="link-icon-icon">
+			<span className={'link-icon-icon'
+				+ (!this.props.iconOnly
+					&& this.props.children
+					? ' lead me-2'
+					: '')}>
 				{this.state.icon}
 			</span>
-			{this.state.title
+			{this.props.iconOnly
+				&& this.state.title
 				? <span className={'link-icon-title small position-absolute top-0 start-50 translate-middle pe-none text-nowrap fw-bold px-2 py-1 z-1'
 					+ (this.props.classNameTitle ? ' ' + this.props.classNameTitle : '')}>
 					{this.state.title}
 				</span>
+				: null}
+			{!this.props.iconOnly
+				&& this.props.children
+				? <strong>
+					{this.props.children}
+				</strong>
 				: null}
 		</a>
 	}

@@ -1,25 +1,11 @@
 {
 	"TITLE": "The portfolio of Marco D. Cellamare",
-	"nav": [
-		{
-			"title": "Resume",
-			"path": "/resume"
-		}
-	],
-	"nav2": [
-		{
-			"title": "Projects",
-			"path": "/projects"
-		},
-		{
-			"title": "Skills",
-			"path": "/skills"
-		},
-		{
-			"title": "Contacts",
-			"path": "/contacts"
-		}
-	],
+	"nav": {
+		"/resume": "Resume",
+		"/projects": "Projects",
+		"/skills": "Skills",
+		"/contacts": "Contacts"
+	},
 	"com": {
 		"TITLE": "The portfolio of Marco D. Cellamare: Creative, Digital Designer and Full Stack Developer",
 		"THE": "The",
@@ -81,17 +67,22 @@
 				},
 				{
 					"theme": "success",
-					"TITLE": "Hello,<br/><small>I'm Marco</small>",
+					"TITLE": "<span class=\"wave\">👋</span> Hello,<br/>I'm Marco.",
 					"SLIDE_TITLE": "Hello",
 					"SUBTITLE": "Creative, Digital Designer and Full Stack Developer with a strong focus on Web / UI Design and Front End Development, since 2002.",
+					"imageBlob": true,
+					"images": [
+						{
+							"file": "me.jpg"
+						}
+					],
 					"counters": [
 						{
-							"className": "experience fw-bold",
-							"classNamePreBr": "h3 fw-bold",
-							"classNamePostBr": "h6",
+							"className": "experience",
+							"classNamePreBr": "h5 fw-bold",
+							"classNamePostBr": "",
 							"since": "2002-08-01 09:00:00",
 							"br": "days",
-							"PREFX": "I got",
 							"SUFFX": "Of experience"
 						}
 					]
@@ -99,6 +90,25 @@
 			]
 		},
 		"projects": {
+			"sections": [
+				{
+					"layout": "left",
+					"theme": "success",
+					"TITLE": "Projects",
+					"SUBTITLE": "I'm still working on this website, so be patient 😅.",
+					"TEXT": "If you want to check my projects, download the Portfolio in PDF down here 🤟.",
+					"btns": [
+						{
+							"className": "btn btn-outline-dark border-2",
+							"TEXT": "Portfolio in PDF v2024",
+							"type": "download",
+							"url": "INTERNAL::info.downloads.portfolio"
+						}
+					]
+				}
+			]
+		},
+		"skills": {
 			"sections": [
 				{
 					"layout": "left",

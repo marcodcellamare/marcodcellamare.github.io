@@ -38,17 +38,22 @@ class Floating extends React.Component {
 		return <div ref={e => this.ref = e}
 			className={'floating'
 				+ (this.props.className ? ' ' + this.props.className : '')}>
-			{React.cloneElement(this.props.children,
-				{
-					className: (this.props.children.props.className ? this.props.children.props.className : '')
-						+ (this.props.classNameChildren ? ' ' + this.props.classNameChildren : ''),
-					style: {
-						transform:
-							(this.state.left ? 'translateX(' + this.state.left + 'px) ' : '')
-							+ (this.state.top ? 'translateY(' + this.state.top + 'px) ' : '')
+			{this.props.children
+				? React.cloneElement(this.props.children,
+					{
+						className: (this.props.children.props
+							&& this.props.children.props.className
+							? this.props.children.props.className
+							: '')
+							+ (this.props.classNameChildren ? ' ' + this.props.classNameChildren : ''),
+						style: {
+							transform:
+								(this.state.left ? 'translateX(' + this.state.left + 'px) ' : '')
+								+ (this.state.top ? 'translateY(' + this.state.top + 'px) ' : '')
+						}
 					}
-				}
-			)}
+				)
+				: null}
 		</div>
 	}
 }
