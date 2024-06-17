@@ -8,7 +8,7 @@ class Footer extends React.Component {
 				<div className="row gx-5 g-md-10 d-flex">
 					<div className="col-12 col-md align-self-center text-truncate">
 						<Love
-							className="my-5 my-md-0"
+							className="mb-3 my-md-0"
 							Locale={this.props.Locale} />
 					</div>
 					{Object.keys(this.props.Locale.info).map((col, k) => {
@@ -16,7 +16,7 @@ class Footer extends React.Component {
 							className="col-auto align-self-center">
 							<ul className="links list-inline d-inline-block my-0">
 								<li className="list-inline-item">
-									<p className="small fw-bold text-success mb-0 border-bottom border-2 border-success">
+									<p className="small fw-bold text-success mb-0">
 										{this.props.Locale.com[col.toUpperCase()]}
 									</p>
 								</li>

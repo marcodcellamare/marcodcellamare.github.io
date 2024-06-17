@@ -66,6 +66,7 @@
 					"theme": "danger"
 				},
 				{
+					"layout": "left",
 					"theme": "success",
 					"TITLE": "Hello,<span class=\"wave\">👋</span><br/>I'm Marco.",
 					"SLIDE_TITLE": "Hello",
@@ -84,6 +85,87 @@
 							"since": "2002-08-01 09:00:00",
 							"br": "days",
 							"SUFFX": "Of experience"
+						}
+					]
+				},
+				{
+					"layout": "full",
+					"theme": "light",
+					"TITLE": "Some brands I've been working for",
+					"SLIDE_TITLE": "Brands",
+					"SUBTITLE": "A selection of the most relevant clients, among hundreds.",
+					"brands": [
+						{
+							"NAME": "New York Yankees",
+							"logo": "NewYorkYankees"
+						},
+						{
+							"NAME": "BAT",
+							"logo": "Bat"
+						},
+						{
+							"NAME": "Volvo",
+							"logo": "Volvo"
+						},
+						{
+							"NAME": "Lakrids By Bülow",
+							"logo": "LakridsByBulow"
+						},
+						{
+							"NAME": "Lotto",
+							"logo": "Lotto"
+						},
+						{
+							"NAME": "Natuzzi",
+							"logo": "Natuzzi"
+						},
+						{
+							"NAME": "Adecco",
+							"logo": "Adecco"
+						},
+						{
+							"NAME": "Dansk Retursystem",
+							"logo": "DanskRetursystem"
+						},
+						{
+							"NAME": "GasNatural",
+							"logo": "GasNatural"
+						},
+						{
+							"NAME": "Framesi",
+							"logo": "Framesi"
+						},
+						{
+							"NAME": "Aeroporti di Puglia",
+							"logo": "AeroportiDiPuglia"
+						},
+						{
+							"NAME": "Legambiente",
+							"logo": "Legambiente"
+						},
+						{
+							"NAME": "Banca Popolare di Bari",
+							"logo": "BancaPopolareDiBari"
+						},
+						{
+							"NAME": "ANAS",
+							"logo": "Anas"
+						},
+						{
+							"NAME": "DiLeo",
+							"logo": "DiLeo"
+						},
+						{
+							"NAME": "Mongolfiera",
+							"logo": "Mongolfiera"
+						},
+						{
+							"NAME": "Comune di Bari",
+							"logo": "ComuneDiBari"
+						},
+						{
+							"NAME": "Regione Puglia",
+							"logo": "RegionePuglia"
 						}
 					]
 				}

@@ -119,9 +119,12 @@ class Main extends React.Component {
 	Center(ref, slide, load) {
 		// NOTE Slide hits the center
 
+		const split = 2;
+
+
 		if (ref
-			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) >= -Math.round(this.ref.main.getBoundingClientRect().height / 2)
-			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) < Math.round(this.ref.main.getBoundingClientRect().height / 2)) {
+			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) >= -Math.round(this.ref.main.getBoundingClientRect().height / split)
+			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) < Math.round(this.ref.main.getBoundingClientRect().height / split)) {
 
 			this.setState(prevState => {
 				if (typeof (this.props.onSlideCenter) === 'function')
@@ -138,16 +141,16 @@ class Main extends React.Component {
 			});
 		}
 	}
-	Close(ref, slide, newSlide, callback) {
+	Close(ref, slide, newSlide) {
 		// NOTE Slide hits area close to the top
 
-		callback = typeof (callback) === 'function' ? callback : () => { };
+		const split = 3;
 
 		if (ref
-			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) >= -Math.round(this.ref.main.getBoundingClientRect().height / 3)
-			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) < Math.round(this.ref.main.getBoundingClientRect().height / 3)) {
+			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) >= -Math.round(this.ref.main.getBoundingClientRect().height / split)
+			&& Math.round(ref.getBoundingClientRect().top - this.ref.main.getBoundingClientRect().top) < Math.round(this.ref.main.getBoundingClientRect().height / split)
+			&& Math.round(ref.getBoundingClientRect().height) <= Math.round(this.ref.main.getBoundingClientRect().height)) {
 			newSlide = ref;
-			callback(slide, newSlide);
 		}
 		return newSlide;
 	}

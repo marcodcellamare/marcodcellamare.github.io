@@ -176,6 +176,32 @@ main {
 				}
 			}
 		}
+		.section-brands {
+			transform: translateX(-1.5rem);
+
+			.section-brands-logo {
+				$brand-padding-x: 12px;
+
+				height: 100px;
+				padding: calc($brand-padding-x + 1vw) 6vw;
+				fill: $dark;
+				transition: fill 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+				@include media-breakpoint-up(sm) {
+					padding: calc($brand-padding-x + 1vw) 4vw;
+				}
+				@include media-breakpoint-up(md) {
+					padding: calc($brand-padding-x + 1vw) 3vw;
+				}
+				@include media-breakpoint-up(lg) {
+					padding: calc($brand-padding-x + 1vw) 2vw;
+				}
+				&:hover {
+					fill: $danger;
+					transform: scale(1.4);
+				}
+			}
+		}
 		&.section-danger {
 			background-color: $danger;
 

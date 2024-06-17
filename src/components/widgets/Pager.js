@@ -10,7 +10,7 @@ class Pager extends React.Component {
 			<div className="pager-wrapper position-absolute start-0">
 				<div className="pager-polygon position-absolute top-50 start-0" />
 				{this.props.slide > 0
-					? <div className="pager-title position-relative">
+					? <div className="pager-title position-relative d-none d-md-block">
 						<h2 className="h6 my-0 small lh-1 text-nowrap text-uppercase">
 							{this.props.Locale.com.THE}
 							{' '}

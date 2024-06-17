@@ -1,4 +1,5 @@
 import React from 'react';
+import Brands from '../../assets/images/brands';
 import { Counter, Cover, IconLink, Images, Pager } from '../widgets';
 
 class Section extends React.Component {
@@ -26,6 +27,7 @@ class Section extends React.Component {
 									|| this.props._.TEXT
 									|| (this.props._.counters && this.props._.counters.length > 0)
 									|| (this.props._.btns && this.props._.btns.length > 0)
+									|| (this.props._.brands && this.props._.brands.length > 0)
 									? 'mb-5 mb-md-20'
 									: ''} />
 							: null}
@@ -41,7 +43,15 @@ class Section extends React.Component {
 											files={this.props._.images} />
 									</div>
 									: null}
-								<div className={'col-12 col-md-7 pe-md-20 align-self-center position-relative z-1'
+								<div className={'col-12 align-self-center position-relative z-1'
+									+ (!this.props._.layout
+										|| ['left', 'right'].includes(this.props._.layout)
+										? ' col-md-7 pe-md-20 '
+										: '')
+									+ (!this.props._.layout
+										|| ['full'].includes(this.props._.layout)
+										? ' col-md-9 col-lg-8'
+										: '')
 									+ (!this.props._.layout
 										|| ['left'].includes(this.props._.layout)
 										? ' order-md-first'
@@ -49,6 +59,7 @@ class Section extends React.Component {
 									<div className={'section-content-wrapper'
 										+ ((this.props._.counters && this.props._.counters.length > 0)
 											|| (this.props._.btns && this.props._.btns.length > 0)
+											|| (this.props._.brands && this.props._.brands.length > 0)
 											? ' mb-10 mb-md-10'
 											: '')}>
 										{this.props._.TITLE
@@ -110,7 +121,10 @@ class Section extends React.Component {
 										: null}
 									{this.props._.btns
 										&& this.props._.btns.length > 0
-										? <div className="section-btns">
+										? <div className={'section-btns'
+											+ (this.props._.brands && this.props._.brands.length > 0
+												? ' mb-10 mb-md-10'
+												: '')}>
 											{this.props._.btns.map((btn, k) => {
 												return <IconLink key={k}
 													className={btn.className}
@@ -120,6 +134,25 @@ class Section extends React.Component {
 													url={btn.url}>
 													{btn.TEXT}
 												</IconLink>
+											})}
+										</div>
+										: null}
+									{this.props._.brands
+										&& this.props._.brands.length > 0
+										? <div className="section-brands row g-0">
+											{this.props._.brands.map((brand, k) => {
+												return <div key={k}
+													className="col-4 col-sm-3 col-lg-2 d-flex align-items-center justify-content-center">
+													<div className="section-brands-logo">
+														<Brands
+															className="w-100 h-100"
+															logo={brand.logo}
+															title={brand.NAME} />
+														<h3 hidden={true}>
+															{brand.NAME}
+														</h3>
+													</div>
+												</div>
 											})}
 										</div>
 										: null}

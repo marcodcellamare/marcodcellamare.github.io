@@ -1,6 +1,6 @@
 import React from 'react';
 import Floating from './Floating';
-import { ReactComponent as Logo } from '../../assets/images/logo.svg';
+import { ReactComponent as Logo } from '../../assets/images/portfolio.svg';
 
 class Cover extends React.Component {
 	render() {
