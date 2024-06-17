@@ -1,8 +1,9 @@
-const WebpackObfuscator = require('webpack-obfuscator');
+//const WebpackObfuscator = require('webpack-obfuscator');
 
 module.exports = function override(config, env) {
 	const development = process.env.PRODUCTION === '0' || process.env.PRODUCTION === 0;
 
+	/*
 	config.plugins = [
 		...config.plugins,
 		!development
@@ -11,6 +12,7 @@ module.exports = function override(config, env) {
 			})
 			: false
 	];
+	*/
 	config.performance = {
 		...config.performance,
 		hints: false,

@@ -13,7 +13,7 @@ class Section extends React.Component {
 			ref={e => this.ref = e}
 			className={'d-flex overflow-hidden position-relative section-' + this.props.slide
 				+ ' section-' + this.props._.theme}>
-			<div className="container position-relative d-flex flex-grow-1 flex-row py-5 py-md-20 py-lg-40 py-xl-50">
+			<div className="container position-relative d-flex flex-grow-1 flex-row py-20 py-lg-40 py-xl-50">
 				<Pager
 					Locale={this.props.Locale}
 					slide={this.props.slide} />

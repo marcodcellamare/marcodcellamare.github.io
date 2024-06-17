@@ -74,7 +74,8 @@
 					"imageBlob": true,
 					"images": [
 						{
-							"file": "me.jpg"
+							"file": "me.webp",
+							"fileSm": "me-sm.webp"
 						}
 					],
 					"counters": [
@@ -116,16 +117,16 @@
 							"logo": "Lotto"
 						},
 						{
-							"NAME": "Natuzzi",
-							"logo": "Natuzzi"
+							"NAME": "Dansk Retursystem",
+							"logo": "DanskRetursystem"
 						},
 						{
 							"NAME": "Adecco",
 							"logo": "Adecco"
 						},
 						{
-							"NAME": "Dansk Retursystem",
-							"logo": "DanskRetursystem"
+							"NAME": "Natuzzi",
+							"logo": "Natuzzi"
 						},
 						{
 							"NAME": "GasNatural",

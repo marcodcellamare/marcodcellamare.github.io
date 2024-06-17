@@ -171,6 +171,9 @@ class Images extends React.Component {
 										height: this.state.blob.width
 									}}>
 									<img src={process.env.PUBLIC_URL + '/images/' + image.file}
+										srcSet={process.env.PUBLIC_URL + '/images/' + image.fileSm + ' 800w, '
+											+ process.env.PUBLIC_URL + '/images/' + image.file + ' 1000w'}
+										sizes="(max-width: 800px) 800w, 1000w"
 										className="object-fit-contain w-100 h-100"
 										alt={image.file}
 										loading="lazy" />

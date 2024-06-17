@@ -4,7 +4,7 @@ import { Floating } from './';
 class Pager extends React.Component {
 	render() {
 		return <Floating
-			className={'pager pager-' + (this.props.slide < 8 ? this.props.slide + 1 : 'all')
+			className={'pager pager-' + (this.props.slide <= 8 ? this.props.slide : 'all')
 				+ ' position-absolute top-0 bottom-0'}
 			ratioY={30}>
 			<div className="pager-wrapper position-absolute start-0">

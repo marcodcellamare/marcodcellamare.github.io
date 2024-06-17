@@ -10,9 +10,11 @@ class Cover extends React.Component {
 				className="position-absolute top-0 bottom-0 start-0 end-0 p-10 p-md-20"
 				ratioX={130}
 				ratioY={130}>
-				<img src={process.env.PUBLIC_URL + '/images/marco-d-cellamare.png'}
+				<img src={process.env.PUBLIC_URL + '/images/marco-d-cellamare.webp'}
+					srcSet={process.env.PUBLIC_URL + '/images/marco-d-cellamare-sm.webp 800w, '
+						+ process.env.PUBLIC_URL + '/images/marco-d-cellamare.webp 1000w'}
+					sizes="(max-width: 800px) 800w, 1000w"
 					alt={this.props.Locale.com.NAME}
-					loading="lazy"
 					className="object-fit-contain w-100 h-100 opacity-70" />
 			</Floating>
 			<div className="row position-relative">

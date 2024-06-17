@@ -96,7 +96,7 @@ h6,
 html {
 	&.transition {
 		.app {
-			transition: background-color 0.2s ease-in-out;
+			transition: background-color 0.5s ease-in-out;
 		}
 	}
 	&.danger {
@@ -177,17 +177,18 @@ main {
 			}
 		}
 		.section-brands {
-			transform: translateX(-1.5rem);
+			transform: translateX(-1.3rem);
 
 			.section-brands-logo {
 				$brand-padding-x: 12px;
 
-				height: 100px;
-				padding: calc($brand-padding-x + 1vw) 6vw;
+				height: 70px;
+				padding: calc($brand-padding-x) 6vw;
 				fill: $dark;
 				transition: fill 0.2s ease-in-out, transform 0.2s ease-in-out;
 
 				@include media-breakpoint-up(sm) {
+					height: 100px;
 					padding: calc($brand-padding-x + 1vw) 4vw;
 				}
 				@include media-breakpoint-up(md) {
@@ -215,6 +216,9 @@ main {
 					&::after {
 						background-color: $danger;
 					}
+					&::before {
+						background-color: $success;
+					}
 				}
 			}
 			.cover {
@@ -238,6 +242,9 @@ main {
 					&::after {
 						background-color: $success;
 					}
+					&::before {
+						background-color: $light;
+					}
 				}
 			}
 		}
@@ -254,6 +261,9 @@ main {
 					&::after {
 						background-color: $light;
 					}
+					&::before {
+						background-color: $success;
+					}
 				}
 			}
 		}
@@ -269,6 +279,9 @@ main {
 
 					&::after {
 						background-color: $white;
+					}
+					&::before {
+						background-color: $success;
 					}
 				}
 			}
@@ -447,11 +460,21 @@ nav {
 			}
 		}
 	}
-	&.pager-1 {
+	&.pager-0 {
 		top: 90% !important;
 
 		.pager-polygon {
 			display: none;
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+	&.pager-1 {
+		.pager-polygon {
+			width: 2px;
+			transform: translate(-50%, -50%) rotate(-45deg);
 
 			&::after {
 				display: none;
@@ -466,10 +489,21 @@ nav {
 			&::after {
 				display: none;
 			}
+			&::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background-color: $danger;
+				transform: rotate(90deg);
+			}
 		}
 	}
 	&.pager-3 {
 		.pager-polygon {
+			transform: translate(-50%, -40%);
 			clip-path: polygon(93.3% 75%, 6.7% 75%, 50% 0%);
 
 			&::after {
