@@ -1,16 +1,16 @@
 {
   "files": {
-    "main-31743c5a.js": "./static/js/main-31743c5a.43186139.js",
-    "runtime.js": "./static/js/runtime.ad01aa69.js",
-    "static/js/582.9bc62357.js": "./static/js/582.9bc62357.js",
-    "main-ae0c45e7.js": "./static/js/main-ae0c45e7.c069c39c.js",
-    "main-73b25f4f.js": "./static/js/main-73b25f4f.1255a309.js",
-    "main-19522d92.js": "./static/js/main-19522d92.2f4a6e50.js",
+    "main-31743c5a.js": "./static/js/main-31743c5a.3465d140.js",
+    "runtime.js": "./static/js/runtime.205795b2.js",
+    "static/js/582.5510b763.js": "./static/js/582.5510b763.js",
+    "main-ae0c45e7.js": "./static/js/main-ae0c45e7.e5de5bbc.js",
+    "main-73b25f4f.js": "./static/js/main-73b25f4f.1621aa93.js",
+    "main-19522d92.js": "./static/js/main-19522d92.ac739bb6.js",
     "main-72a69121.css": "./static/css/main-72a69121.1e98e1c0.css",
-    "static/js/549.b7495024.js": "./static/js/549.b7495024.js",
-    "static/js/352.afe7a2a2.js": "./static/js/352.afe7a2a2.js",
-    "static/js/732.6f61b622.js": "./static/js/732.6f61b622.js",
-    "static/js/441.6e505bab.js": "./static/js/441.6e505bab.js",
+    "static/js/549.008c5b4d.js": "./static/js/549.008c5b4d.js",
+    "static/js/352.fd6dc705.js": "./static/js/352.fd6dc705.js",
+    "static/js/732.d72b758b.js": "./static/js/732.d72b758b.js",
+    "static/js/441.84284a86.js": "./static/js/441.84284a86.js",
     "static/media/comune-di-bari.svg": "./static/media/comune-di-bari.dc9a1ede01e6a46248e2b4589e0bc612.svg",
     "static/media/mongolfiera.svg": "./static/media/mongolfiera.67e9b533566c1cefa7616d0593600ff9.svg",
     "static/media/dileo.svg": "./static/media/dileo.b3fd8fc24844ef02dd3aa7d786e1f5a0.svg",
@@ -35,16 +35,16 @@
     "static/media/volvo.svg": "./static/media/volvo.afe1ddbce67c1c572f04b5006a186796.svg"
   },
   "entrypoints": [
-    "static/js/runtime.ad01aa69.js",
-    "static/js/549.b7495024.js",
-    "static/js/352.afe7a2a2.js",
-    "static/js/732.6f61b622.js",
-    "static/js/441.6e505bab.js",
-    "static/js/582.9bc62357.js",
-    "static/js/main-ae0c45e7.c069c39c.js",
-    "static/js/main-73b25f4f.1255a309.js",
-    "static/js/main-19522d92.2f4a6e50.js",
+    "static/js/runtime.205795b2.js",
+    "static/js/549.008c5b4d.js",
+    "static/js/352.fd6dc705.js",
+    "static/js/732.d72b758b.js",
+    "static/js/441.84284a86.js",
+    "static/js/582.5510b763.js",
+    "static/js/main-ae0c45e7.e5de5bbc.js",
+    "static/js/main-73b25f4f.1621aa93.js",
+    "static/js/main-19522d92.ac739bb6.js",
     "static/css/main-72a69121.1e98e1c0.css",
-    "static/js/main-31743c5a.43186139.js"
+    "static/js/main-31743c5a.3465d140.js"
   ]
 }
