@@ -1,16 +1,16 @@
 {
   "files": {
-    "main-31743c5a.js": "./static/js/main-31743c5a.73d96f5d.js",
+    "main-31743c5a.js": "./static/js/main-31743c5a.74eae642.js",
     "runtime.js": "./static/js/runtime.c939999e.js",
-    "static/js/582.03af667c.js": "./static/js/582.03af667c.js",
+    "static/js/18.1d56232a.js": "./static/js/18.1d56232a.js",
     "main-ae0c45e7.js": "./static/js/main-ae0c45e7.71c8a27c.js",
-    "main-73b25f4f.js": "./static/js/main-73b25f4f.ed4703ce.js",
+    "main-73b25f4f.js": "./static/js/main-73b25f4f.c9847bb8.js",
+    "main-24dc9b36.js": "./static/js/main-24dc9b36.c9f8c997.js",
     "main-19522d92.js": "./static/js/main-19522d92.8edbee86.js",
     "main-72a69121.css": "./static/css/main-72a69121.1e98e1c0.css",
-    "static/js/549.140d30f1.js": "./static/js/549.140d30f1.js",
-    "static/js/352.d65bfa35.js": "./static/js/352.d65bfa35.js",
-    "static/js/732.e273c97a.js": "./static/js/732.e273c97a.js",
-    "static/js/441.6ab321bc.js": "./static/js/441.6ab321bc.js",
+    "static/js/945.ece4ad5c.js": "./static/js/945.ece4ad5c.js",
+    "static/js/345.4588360f.js": "./static/js/345.4588360f.js",
+    "static/js/149.16a4a3ee.js": "./static/js/149.16a4a3ee.js",
     "static/media/comune-di-bari.svg": "./static/media/comune-di-bari.dc9a1ede01e6a46248e2b4589e0bc612.svg",
     "static/media/mongolfiera.svg": "./static/media/mongolfiera.67e9b533566c1cefa7616d0593600ff9.svg",
     "static/media/dileo.svg": "./static/media/dileo.b3fd8fc24844ef02dd3aa7d786e1f5a0.svg",
@@ -36,15 +36,15 @@
   },
   "entrypoints": [
     "static/js/runtime.c939999e.js",
-    "static/js/549.140d30f1.js",
-    "static/js/352.d65bfa35.js",
-    "static/js/732.e273c97a.js",
-    "static/js/441.6ab321bc.js",
-    "static/js/582.03af667c.js",
+    "static/js/945.ece4ad5c.js",
+    "static/js/345.4588360f.js",
+    "static/js/149.16a4a3ee.js",
+    "static/js/18.1d56232a.js",
     "static/js/main-ae0c45e7.71c8a27c.js",
-    "static/js/main-73b25f4f.ed4703ce.js",
+    "static/js/main-73b25f4f.c9847bb8.js",
+    "static/js/main-24dc9b36.c9f8c997.js",
     "static/js/main-19522d92.8edbee86.js",
     "static/css/main-72a69121.1e98e1c0.css",
-    "static/js/main-31743c5a.73d96f5d.js"
+    "static/js/main-31743c5a.74eae642.js"
   ]
 }
