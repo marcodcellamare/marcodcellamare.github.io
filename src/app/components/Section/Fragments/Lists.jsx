@@ -12,7 +12,7 @@ class Lists extends React.Component {
 					return (
 						<div key={k}>
 							{list.TITLE ? (
-								<h3 className='h5'>{list.TITLE}</h3>
+								<h3 className='h5 fw-bold'>{list.TITLE}</h3>
 							) : null}
 							{list.TEXT ? <p>{list.TEXT}</p> : null}
 							{list._ && list._.length > 0 ? (

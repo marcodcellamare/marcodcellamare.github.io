@@ -158,16 +158,6 @@
 						},
 						{
 							"dates": [
-								"2008"
-							],
-							"title": "Web Designer, Web Developer",
-							"company": "Promostudio",
-							"type": "Advertising Agency",
-							"city": "Bari",
-							"country": "Italy"
-						},
-						{
-							"dates": [
 								"2008-12",
 								"2019-05"
 							],
@@ -226,8 +216,10 @@
 								"Node.js",
 								"npm",
 								"React",
+								"Craco",
 								"Cordova",
 								"webpack",
+								"PurgeCSS",
 								"HTML / JSX",
 								"CSS / Sass",
 								"Bootstrap",
@@ -246,7 +238,7 @@
 							]
 						}
 					],
-					"btns": [
+					"_btns": [
 						{
 							"className": "btn btn-outline-dark border-2",
 							"TEXT": "Front End Developer",

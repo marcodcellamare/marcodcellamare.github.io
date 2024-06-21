@@ -5,7 +5,7 @@ class Map {
 	constructor() {
 		this.fs = require('fs');
 		this.path = require('path');
-		this.root = this.path.join(__dirname, '../');
+		this.root = this.path.join(__dirname, '../../');
 		this.build = this.path.join(this.root, 'build');
 
 		this.date = new Date();

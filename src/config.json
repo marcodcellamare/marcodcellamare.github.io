@@ -10,6 +10,10 @@
 		}
 	},
 	"NAV": {
+		"/resume": {},
+		"/projects": {}
+	},
+	"NAV_TEST": {
 		"/resume": {
 			"_": [
 				"/front-end-developer",

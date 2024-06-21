@@ -1,4 +1,5 @@
 import React from 'react';
+import { DashLg } from 'react-bootstrap-icons';
 
 import '../../../../styles/components/SectionPeriods.scss';
 
@@ -113,23 +114,29 @@ class Periods extends React.Component {
 									) : null}
 									{period.company ? (
 										<p className='my-0 fst-italic'>
-											{period.company}
+											<DashLg /> {period.company}
 										</p>
 									) : null}
 									{period.type ||
 									period.city ||
 									period.country ? (
-										<p className='my-0 small'>
+										<ul className='list-inline my-0 small'>
 											{period.type ? (
-												<strong>{period.type}</strong>
+												<li className='list-inline-item fw-bold'>
+													{period.type}
+												</li>
 											) : null}
 											{period.city ? (
-												<span>{period.city}</span>
+												<li className='list-inline-item'>
+													{period.city}
+												</li>
 											) : null}
 											{period.country ? (
-												<span>({period.country})</span>
+												<li className='list-inline-item'>
+													({period.country})
+												</li>
 											) : null}
-										</p>
+										</ul>
 									) : null}
 								</div>
 							</div>
