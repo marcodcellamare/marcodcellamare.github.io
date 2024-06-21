@@ -1,15 +1,15 @@
 {
   "files": {
-    "main-d91a9049.js": "./static/js/main-d91a9049.08db2b65.js",
+    "main-d91a9049.js": "./static/js/main-d91a9049.7186605e.js",
     "runtime.js": "./static/js/runtime.bbc9c010.js",
     "styles-4fa343b5.css": "./static/css/styles-4fa343b5.ba1e6343.css",
     "static/js/582.03af667c.js": "./static/js/582.03af667c.js",
-    "main-e019dbda.js": "./static/js/main-e019dbda.0c89312a.js",
+    "main-e019dbda.js": "./static/js/main-e019dbda.619ae85d.js",
     "main-a2206677.js": "./static/js/main-a2206677.f5dcdc4f.js",
     "main-73b25f4f.js": "./static/js/main-73b25f4f.c2b721ae.js",
     "styles-61a228d7.css": "./static/css/styles-61a228d7.d48b94b5.css",
     "styles-61a228d7.js": "./static/js/styles-61a228d7.ae7ceca5.js",
-    "static/js/825.b47dbf8b.js": "./static/js/825.b47dbf8b.js",
+    "static/js/960.6915cdda.js": "./static/js/960.6915cdda.js",
     "static/js/352.d65bfa35.js": "./static/js/352.d65bfa35.js",
     "static/js/732.e273c97a.js": "./static/js/732.e273c97a.js",
     "static/js/441.6ab321bc.js": "./static/js/441.6ab321bc.js",
@@ -30,8 +30,8 @@
     "static/media/lakrids-by-bulow.svg": "./static/media/lakrids-by-bulow.552c53b5d6fc239ee3b61e5641115b33.svg",
     "static/media/adecco.svg": "./static/media/adecco.b9d11375bf2dd3ed04220d4e6b6d1dad.svg",
     "static/media/natuzzi.svg": "./static/media/natuzzi.2a4a18ffc2cdde89273ef2d6bc29fdfc.svg",
-    "static/media/lotto.svg": "./static/media/lotto.db6066c389194cec735e3133ed99b722.svg",
     "index.html": "./index.html",
+    "static/media/lotto.svg": "./static/media/lotto.db6066c389194cec735e3133ed99b722.svg",
     "static/media/telcom.svg": "./static/media/telcom.c3a4f7065fa22e05709bbfb0df521baf.svg",
     "static/media/bat.svg": "./static/media/bat.46bd2cb71cd36d5295f44b76125ef5af.svg",
     "static/media/volvo.svg": "./static/media/volvo.afe1ddbce67c1c572f04b5006a186796.svg"
@@ -41,14 +41,14 @@
     "static/css/styles-61a228d7.d48b94b5.css",
     "static/js/styles-61a228d7.ae7ceca5.js",
     "static/css/styles-4fa343b5.ba1e6343.css",
-    "static/js/825.b47dbf8b.js",
+    "static/js/960.6915cdda.js",
     "static/js/352.d65bfa35.js",
     "static/js/732.e273c97a.js",
     "static/js/441.6ab321bc.js",
     "static/js/582.03af667c.js",
-    "static/js/main-e019dbda.0c89312a.js",
+    "static/js/main-e019dbda.619ae85d.js",
     "static/js/main-a2206677.f5dcdc4f.js",
     "static/js/main-73b25f4f.c2b721ae.js",
-    "static/js/main-d91a9049.08db2b65.js"
+    "static/js/main-d91a9049.7186605e.js"
   ]
 }
