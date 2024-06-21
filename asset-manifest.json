@@ -1,14 +1,14 @@
 {
   "files": {
-    "main-d91a9049.js": "./static/js/main-d91a9049.8f34859c.js",
-    "runtime.js": "./static/js/runtime.7f210a68.js",
-    "styles-e6a78e1a.css": "./static/css/styles-e6a78e1a.ba1e6343.css",
+    "main-d91a9049.js": "./static/js/main-d91a9049.1ea4f3f3.js",
+    "runtime.js": "./static/js/runtime.fe0f8948.js",
+    "styles-d7894233.css": "./static/css/styles-d7894233.ba1e6343.css",
     "static/js/582.03af667c.js": "./static/js/582.03af667c.js",
-    "main-e019dbda.js": "./static/js/main-e019dbda.2938045c.js",
+    "main-e019dbda.js": "./static/js/main-e019dbda.0c89312a.js",
     "main-a2206677.js": "./static/js/main-a2206677.f5dcdc4f.js",
     "main-73b25f4f.js": "./static/js/main-73b25f4f.c2b721ae.js",
-    "styles-61a228d7.css": "./static/css/styles-61a228d7.ad1db17d.css",
-    "styles-61a228d7.js": "./static/js/styles-61a228d7.4a608cdc.js",
+    "styles-61a228d7.css": "./static/css/styles-61a228d7.2c75509b.css",
+    "styles-61a228d7.js": "./static/js/styles-61a228d7.ae7ceca5.js",
     "static/js/620.db59f4c9.js": "./static/js/620.db59f4c9.js",
     "static/js/352.d65bfa35.js": "./static/js/352.d65bfa35.js",
     "static/js/732.e273c97a.js": "./static/js/732.e273c97a.js",
@@ -37,18 +37,18 @@
     "static/media/volvo.svg": "./static/media/volvo.afe1ddbce67c1c572f04b5006a186796.svg"
   },
   "entrypoints": [
-    "static/js/runtime.7f210a68.js",
-    "static/css/styles-61a228d7.ad1db17d.css",
-    "static/js/styles-61a228d7.4a608cdc.js",
-    "static/css/styles-e6a78e1a.ba1e6343.css",
+    "static/js/runtime.fe0f8948.js",
+    "static/css/styles-61a228d7.2c75509b.css",
+    "static/js/styles-61a228d7.ae7ceca5.js",
+    "static/css/styles-d7894233.ba1e6343.css",
     "static/js/620.db59f4c9.js",
     "static/js/352.d65bfa35.js",
     "static/js/732.e273c97a.js",
     "static/js/441.6ab321bc.js",
     "static/js/582.03af667c.js",
-    "static/js/main-e019dbda.2938045c.js",
+    "static/js/main-e019dbda.0c89312a.js",
     "static/js/main-a2206677.f5dcdc4f.js",
     "static/js/main-73b25f4f.c2b721ae.js",
-    "static/js/main-d91a9049.8f34859c.js"
+    "static/js/main-d91a9049.1ea4f3f3.js"
   ]
 }
