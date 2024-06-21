@@ -32,8 +32,8 @@
     "static/media/natuzzi.svg": "./static/media/natuzzi.2a4a18ffc2cdde89273ef2d6bc29fdfc.svg",
     "static/media/lotto.svg": "./static/media/lotto.db6066c389194cec735e3133ed99b722.svg",
     "static/media/telcom.svg": "./static/media/telcom.c3a4f7065fa22e05709bbfb0df521baf.svg",
-    "static/media/bat.svg": "./static/media/bat.46bd2cb71cd36d5295f44b76125ef5af.svg",
     "index.html": "./index.html",
+    "static/media/bat.svg": "./static/media/bat.46bd2cb71cd36d5295f44b76125ef5af.svg",
     "static/media/volvo.svg": "./static/media/volvo.afe1ddbce67c1c572f04b5006a186796.svg"
   },
   "entrypoints": [
