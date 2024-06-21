@@ -6,6 +6,7 @@ module.exports = {
 		configure: (webpackConfig, { env, paths }) => {
 			webpackConfig = {
 				...webpackConfig,
+				mode: env,
 				performance: {
 					...webpackConfig.performance,
 					hints: false,

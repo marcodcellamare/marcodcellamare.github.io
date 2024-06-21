@@ -2,7 +2,7 @@ import { useEffect, cloneElement, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
-function Location(props) {
+const Location = (props) => {
 	let location = useLocation();
 	const [value, setValue] = useState({ location: {} });
 	const children = cloneElement(props.children, { location: value });
@@ -19,5 +19,5 @@ function Location(props) {
 	}, [location]);
 
 	return children;
-}
+};
 export default Location;

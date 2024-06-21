@@ -9,6 +9,24 @@
 			"state": true
 		}
 	},
+	"FONTS": [
+		{
+			"family": "Open Sans",
+			"weights": [
+				400,
+				700
+			],
+			"italic": false
+		},
+		{
+			"family": "Montserrat",
+			"weights": [
+				500,
+				800
+			],
+			"italic": false
+		}
+	],
 	"NAV": {
 		"/resume": {},
 		"/projects": {}
@@ -24,6 +42,5 @@
 		"/test": {
 			"hide": true
 		}
-	},
-	"ANALYTICS": "G-W1988ZB70D"
+	}
 }

@@ -29,6 +29,7 @@ class Cover extends React.Component {
 						sizes='(max-width: 800px) 800w, 1000w'
 						alt={this.props.Locale.com.NAME}
 						className='object-fit-contain w-100 h-100 opacity-70'
+						fetchpriority='high'
 					/>
 				</Floating>
 				<div className='row position-relative'>
