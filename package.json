@@ -1,6 +1,6 @@
 {
 	"name": "marcodcellamare.github.io",
-	"version": "1.0.3",
+	"version": "1.1.0",
 	"author": {
 		"name": "Marco D. Cellamare",
 		"email": "md.cellamare@gmail.com",
@@ -28,7 +28,7 @@
 	"scripts": {
 		"start": "PORT=1310 env-cmd -f .env.dev craco start",
 		"build": "env-cmd -f .env.prod craco build --verbose",
-		"sitemap": "node ./src/sitemap.js",
+		"sitemap": "node ./src/utils/sitemap.js",
 		"deploy": "npm run build && npm run sitemap && gh-pages -b master -d build"
 	},
 	"eslintConfig": {

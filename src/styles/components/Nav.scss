@@ -1,0 +1,47 @@
+@import '../importer/importer';
+
+/*! purgecss start ignore */
+nav {
+	background-color: rgba($green, 0.95);
+	backdrop-filter: blur(0.2rem);
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+	pointer-events: none;
+	z-index: 90;
+
+	.nav-menu {
+		> li {
+			opacity: 0;
+			transform: translateX(-2rem);
+			transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+			a {
+				color: $light;
+				text-decoration: none;
+				transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out,
+					transform 0.3s ease-in-out;
+
+				&:hover,
+				&.active {
+					font-size: 150%;
+				}
+				&.active {
+					color: $white;
+					transform: translateX(-1.5rem);
+				}
+			}
+		}
+	}
+	&.show {
+		opacity: 1;
+		pointer-events: all;
+
+		.nav-menu {
+			> li {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+	}
+}
+/*! purgecss end ignore */

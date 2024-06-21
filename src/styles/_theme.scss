@@ -1,0 +1,29 @@
+/*! purgecss start ignore */
+html {
+	&.transition {
+		.app {
+			transition: background-color 0.5s ease-in-out;
+		}
+	}
+	&.danger {
+		.app {
+			background-color: $danger;
+		}
+	}
+	&.success {
+		.app {
+			background-color: $success;
+		}
+	}
+	&.light {
+		.app {
+			background-color: $light;
+		}
+	}
+	&.white {
+		.app {
+			background-color: $white;
+		}
+	}
+}
+/*! purgecss end ignore */

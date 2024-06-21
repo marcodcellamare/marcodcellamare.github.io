@@ -1,0 +1,25 @@
+{
+	"DOMAIN": "https://marcodcellamare.github.io",
+	"DEFAULT_LANGUAGE": "en",
+	"LANGUAGES": {
+		"en": {
+			"LABEL": "English",
+			"NAME": "English",
+			"rtl": false,
+			"state": true
+		}
+	},
+	"NAV": {
+		"/resume": {
+			"_": [
+				"/front-end-developer",
+				"/back-end-developer"
+			]
+		},
+		"/projects": {},
+		"/test": {
+			"hide": true
+		}
+	},
+	"ANALYTICS": "G-W1988ZB70D"
+}

@@ -1,0 +1,117 @@
+@import '../importer/importer';
+
+/*! purgecss start ignore */
+section {
+	min-height: 100%;
+
+	@include media-breakpoint-up(sm) {
+		padding-left: calc(100vw - 100%);
+	}
+	&.section-danger {
+		background-color: $danger;
+
+		.pager {
+			border-color: $success;
+			color: $success;
+
+			.pager-polygon {
+				background-color: $success;
+
+				&::after {
+					background-color: $danger;
+				}
+				&::before {
+					background-color: $success;
+				}
+			}
+		}
+		.section-cover {
+			color: $light;
+
+			svg {
+				fill: $light;
+			}
+		}
+	}
+	&.section-success {
+		background-color: $success;
+
+		.pager {
+			border-color: $light;
+			color: $light;
+
+			.pager-polygon {
+				background-color: $light;
+
+				&::after {
+					background-color: $success;
+				}
+				&::before {
+					background-color: $light;
+				}
+			}
+		}
+	}
+	&.section-light {
+		background-color: $light;
+
+		.pager {
+			border-color: $success;
+			color: $success;
+
+			.pager-polygon {
+				background-color: $success;
+
+				&::after {
+					background-color: $light;
+				}
+				&::before {
+					background-color: $success;
+				}
+			}
+		}
+	}
+	&.section-white {
+		background-color: $white;
+
+		.pager {
+			border-color: $success;
+			color: $success;
+
+			.pager-polygon {
+				background-color: $success;
+
+				&::after {
+					background-color: $white;
+				}
+				&::before {
+					background-color: $success;
+				}
+			}
+		}
+	}
+
+	//
+
+	.wave {
+		display: inline-block;
+		transform-origin: bottom right;
+
+		animation-name: WAVE;
+		animation-duration: 0.5s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: both;
+		animation-iteration-count: infinite;
+
+		@keyframes WAVE {
+			0%,
+			100% {
+				transform: rotate(0deg);
+			}
+			50% {
+				transform: rotate(15deg);
+			}
+		}
+	}
+}
+/*! purgecss end ignore */

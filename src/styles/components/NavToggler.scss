@@ -1,0 +1,79 @@
+@import '../importer/importer';
+
+/*! purgecss start ignore */
+.nav-toggler {
+	width: 2.5rem;
+	height: 2.5rem;
+	z-index: 100;
+
+	.nav-toggler-icon {
+		pointer-events: none;
+
+		span {
+			position: absolute;
+			display: block;
+			left: 0;
+			right: 0;
+			height: 10%;
+			background-color: $dark;
+			transform: translateY(-50%);
+			transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+				top 0.3s ease-in-out, height 0.3s ease-in-out;
+
+			&:nth-child(1) {
+				top: 25%;
+				transition-delay: 0.2s;
+			}
+			&:nth-child(2) {
+				top: 50%;
+			}
+			&:nth-child(3) {
+				top: 75%;
+				transition-delay: 0.3s;
+			}
+		}
+	}
+	&:hover {
+		.nav-toggler-icon {
+			span {
+				&:nth-child(1) {
+					top: 30%;
+				}
+				&:nth-child(2) {
+					top: 50%;
+				}
+				&:nth-child(3) {
+					top: 70%;
+				}
+			}
+		}
+	}
+	&.active {
+		.nav-toggler-icon {
+			span {
+				&:nth-child(1),
+				&:nth-child(3) {
+					top: 50%;
+				}
+				&:nth-child(1) {
+					transform: translateY(-50%) rotate(-45deg);
+				}
+				&:nth-child(3) {
+					transform: translateY(-50%) rotate(45deg);
+				}
+				&:nth-child(2) {
+					opacity: 0;
+					height: 0;
+				}
+			}
+		}
+		&:hover {
+			.nav-toggler-icon {
+				span {
+					height: 15%;
+				}
+			}
+		}
+	}
+}
+/*! purgecss end ignore */

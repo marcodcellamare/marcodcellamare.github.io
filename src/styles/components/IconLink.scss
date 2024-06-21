@@ -1,0 +1,15 @@
+@import '../importer/importer';
+
+/*! purgecss start ignore */
+a.icon-link {
+	.icon-link-icon {
+		> svg {
+			transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+		}
+	}
+	.icon-link-title {
+		opacity: 0;
+		transition: opacity 0.2s ease-in-out;
+	}
+}
+/*! purgecss end ignore */

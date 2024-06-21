@@ -1,0 +1,23 @@
+@import '../importer/importer';
+
+/*! purgecss start ignore */
+.section-periods {
+	.section-period-0 {
+		animation-name: PERIOD_BLINK;
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-fill-mode: both;
+		animation-iteration-count: infinite;
+
+		@keyframes PERIOD_BLINK {
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(-0.2rem);
+			}
+		}
+	}
+}
+/*! purgecss end ignore */

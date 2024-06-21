@@ -1,0 +1,55 @@
+$palette: (
+	'dark': #473347,
+	'light': #e2ebe8,
+	'success': #01f7c2,
+	'danger': #e53c3c,
+);
+$font: (
+	'body': (
+		'face': 'Open Sans',
+		'light': 400,
+		'normal': 400,
+		'medium': 400,
+		'semibold': 700,
+		'bold': 700,
+	),
+	'heading': (
+		'face': 'Montserrat',
+		'light': 500,
+		'normal': 500,
+		'medium': 500,
+		'semibold': 800,
+		'bold': 800,
+		'lh': 1,
+	),
+);
+
+//
+
+$palette-dark: Palette('dark');
+$palette-light: Palette('light');
+$palette-success: Palette('success');
+$palette-danger: Palette('danger');
+
+$palette-gray-100: $palette-light;
+$palette-gray-200: lighten($palette-dark, 70%);
+$palette-gray-300: lighten($palette-dark, 60%);
+$palette-gray-400: lighten($palette-dark, 50%);
+$palette-gray-500: lighten($palette-dark, 40%);
+$palette-gray-600: lighten($palette-dark, 30%);
+$palette-gray-700: lighten($palette-dark, 20%);
+$palette-gray-800: lighten($palette-dark, 10%);
+$palette-gray-900: $palette-dark;
+
+//
+
+$font-body-face: Font('body', 'face');
+$font-body-weight-light: Font('body', 'light');
+$font-body-weight-normal: Font('body', 'normal');
+$font-body-weight-medium: Font('body', 'medium');
+$font-body-weight-semibold: Font('body', 'semibold');
+$font-body-weight-bold: Font('body', 'bold');
+
+$font-heading-face: Font('heading', 'face');
+$font-heading-weight: Font('heading', 'normal');
+$font-heading-lh: Font('heading', 'lh');
