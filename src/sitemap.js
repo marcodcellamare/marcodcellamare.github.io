@@ -15,6 +15,7 @@ class Map {
 		this.Init = this.Init.bind(this);
 		this.Languages = this.Languages.bind(this);
 		this.Generate = this.Generate.bind(this);
+		this.Url = this.Url.bind(this);
 		this.Save = this.Save.bind(this);
 
 		this.Init();
@@ -46,28 +47,39 @@ class Map {
 				url: []
 			}
 		};
-		Config.NAV.forEach(path => {
-			let url = {
-				loc: Config.DOMAIN + '/#' + path,
-				lastmod: this.date.toISOString().split('T')[0],
-				priority: 0.8
-			};
+		Object.keys(Config.NAV).forEach(path => {
+			this.Url(path);
 
-			if (Object.keys(this.languages).length > 1) {
-				url['xhtml:link'] = [];
+			//
 
-				Object.keys(this.languages).forEach((iso, k) => {
-					url['xhtml:link'].push({
-						_attributes: {
-							rel: 'alternate',
-							hreflang: this.languages[iso],
-							href: Config.DOMAIN + '/#/' + this.languages[iso] + path,
-						}
-					});
+			if (Config.NAV[path]._
+				&& Config.NAV[path]._.length > 0) {
+				Config.NAV[path]._.forEach(subPath => {
+					this.Url(path + subPath);
 				});
 			}
-			this.sitemap.urlset.url.push(url);
 		});
+	}
+	Url(path) {
+		let url = {
+			loc: Config.DOMAIN + '/#' + path,
+			lastmod: this.date.toISOString().split('T')[0],
+			priority: 0.8
+		};
+		if (Object.keys(this.languages).length > 1) {
+			url['xhtml:link'] = [];
+
+			Object.keys(this.languages).forEach((iso, k) => {
+				url['xhtml:link'].push({
+					_attributes: {
+						rel: 'alternate',
+						hreflang: this.languages[iso],
+						href: Config.DOMAIN + '/#/' + this.languages[iso] + path,
+					}
+				});
+			});
+		}
+		this.sitemap.urlset.url.push(url);
 	}
 	Save() {
 		this.fs.writeFile(this.path.join(this.build, 'sitemap.xml'),

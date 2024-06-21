@@ -59,7 +59,7 @@ class Nav extends React.Component {
 		});
 	}
 	render() {
-		return Config.NAV.length > 1
+		return Object.keys(Config.NAV).length > 1
 			? <nav className={'nav d-flex position-fixed top-0 bottom-0 start-0 end-0 overflow-hidden'
 				+ (this.state.show ? ' show' : '')}
 				onTransitionEnd={this.onTransitionEnd}>
@@ -67,22 +67,24 @@ class Nav extends React.Component {
 					<div className="row flex-grow-1 align-self-center">
 						<div className="col">
 							<ul className="nav-menu list-unstyled h1 display-2 fw-bold lh-1">
-								{Config.NAV.map((path, k) => {
-									return <li
-										key={k}
-										style={{ transitionDelay: (k / 10) + 's' }}>
-										<NavLink
-											to={path}
-											className={({ isActive }) => {
-												return 'd-block position-relative text-nowrap'
-													+ (isActive ? ' active' : '')
-											}}
-											onClick={() => {
-												this.Hide();
-											}}>
-											{this.props.Locale.nav[path]}
-										</NavLink>
-									</li>
+								{Object.keys(Config.NAV).map((path, k) => {
+									return !Config.NAV[path].hide
+										? <li
+											key={k}
+											style={{ transitionDelay: (k / 10) + 's' }}>
+											<NavLink
+												to={path}
+												className={({ isActive }) => {
+													return 'd-block position-relative text-nowrap'
+														+ (isActive ? ' active' : '')
+												}}
+												onClick={() => {
+													this.Hide();
+												}}>
+												{this.props.Locale.nav[path]}
+											</NavLink>
+										</li>
+										: null
 								})}
 							</ul>
 						</div>

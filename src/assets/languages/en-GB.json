@@ -2,6 +2,7 @@
 	"TITLE": "The portfolio of Marco D. Cellamare",
 	"nav": {
 		"/resume": "Resume",
+		"/resume/front-end-developer": "Front End Developer",
 		"/projects": "Projects",
 		"/skills": "Skills",
 		"/contacts": "Contacts"
@@ -41,7 +42,8 @@
 		"DOWNLOAD": "Download",
 		"DOWNLOADS": "Downloads",
 		"CONTACTS": "Contacts",
-		"LINKS": "Links"
+		"LINKS": "Links",
+		"NOW": "Now"
 	},
 	"info": {
 		"downloads": {
@@ -82,7 +84,6 @@
 						{
 							"className": "experience",
 							"classNamePreBr": "h5 fw-bold",
-							"classNamePostBr": "",
 							"since": "2002-08-01 09:00:00",
 							"br": "days",
 							"SUFFX": "Of experience"
@@ -91,8 +92,172 @@
 				},
 				{
 					"layout": "full",
+					"theme": "white",
+					"TITLE": "My journey started many years ago.",
+					"SLIDE_TITLE": "Experience",
+					"SUBTITLE": "At the beginning, there were Fireworks, IE5, no inspector and tables everywhere.",
+					"counters": [
+						{
+							"className": "experience-react",
+							"classNamePreBr": "h4 fw-bold",
+							"classNamePostBr": "h5",
+							"since": "2003-12-01 12:30:30",
+							"br": "years",
+							"PREFX": "Digital Designer for"
+						},
+						{
+							"className": "experience-react",
+							"classNamePreBr": "h4 fw-bold",
+							"classNamePostBr": "h5",
+							"since": "2002-08-01 09:00:00",
+							"br": "years",
+							"PREFX": "Full Stack Developer for"
+						},
+						{
+							"className": "experience-react",
+							"classNamePreBr": "xh6",
+							"classNamePostBr": "small",
+							"since": "2015-12-01 09:00:10",
+							"br": "months",
+							"PREFX": "I work with React since",
+							"SUFFX": "Ago"
+						},
+						{
+							"className": "experience-bootstrap",
+							"classNamePreBr": "xh6",
+							"classNamePostBr": "small",
+							"since": "2012-02-01 09:00:40",
+							"br": "months",
+							"PREFX": "I use Bootstrap since",
+							"SUFFX": "Ago. I started with Bootstrap 2"
+						}
+					],
+					"periods": [
+						{
+							"dates": [
+								"2022-03",
+								"NOW"
+							],
+							"title": "Digital Designer, Lead Full Stack Developer",
+							"company": "Defensive Group",
+							"type": "Cyber Security",
+							"city": "Solrød Strand",
+							"country": "Denmark",
+							"highlight": true
+						},
+						{
+							"dates": [
+								"2019-05",
+								"2022-02"
+							],
+							"title": "Full Stack Developer",
+							"company": "Banyo",
+							"type": "Digital Agency",
+							"city": "Copenhagen",
+							"country": "Denmark"
+						},
+						{
+							"dates": [
+								"2008"
+							],
+							"title": "Web Designer, Web Developer",
+							"company": "Promostudio",
+							"type": "Advertising Agency",
+							"city": "Bari",
+							"country": "Italy"
+						},
+						{
+							"dates": [
+								"2008-12",
+								"2019-05"
+							],
+							"title": "Creative, Digital Designer, Lead Full Stack Developer",
+							"company": "Chimera",
+							"type": "Digital Agency",
+							"city": "Bari / Milan",
+							"country": "Italy"
+						},
+						{
+							"dates": [
+								"2008-08",
+								"2008-10"
+							],
+							"title": "Web Designer, Web Developer",
+							"company": "Promostudio",
+							"type": "Advertising Agency",
+							"city": "Bari",
+							"country": "Italy"
+						},
+						{
+							"dates": [
+								"2002-09",
+								"2008-07"
+							],
+							"title": "Web Designer, Web Developer",
+							"company": "Jcom Italia",
+							"type": "Web Agency",
+							"city": "Bari / Milan",
+							"country": "Italy"
+						}
+					]
+				},
+				{
+					"layout": "full",
+					"theme": "success",
+					"TITLE": "A deep breath, the right music…",
+					"SLIDE_TITLE": "Skills",
+					"SUBTITLE": "It's all I need to start imagine, create and repeat.",
+					"lists": [
+						{
+							"TITLE": "As Digital Designer",
+							"_": [
+								"Figma",
+								"Illustrator",
+								"Photoshop",
+								"Premiere",
+								"After Effect"
+							]
+						},
+						{
+							"TITLE": "As Front End Developer",
+							"_": [
+								"GitHub",
+								"JavaScript",
+								"Node.js",
+								"npm",
+								"React",
+								"Cordova",
+								"webpack",
+								"HTML / JSX",
+								"CSS / Sass",
+								"Bootstrap",
+								"JSON"
+							]
+						},
+						{
+							"TITLE": "As Back End Developer",
+							"_": [
+								"GitHub",
+								"PHP",
+								"Composer",
+								"Slim",
+								"Node.js",
+								"MySQL"
+							]
+						}
+					],
+					"btns": [
+						{
+							"className": "btn btn-outline-dark border-2",
+							"TEXT": "Front End Developer",
+							"url": "ROUTE::/resume/front-end-developer"
+						}
+					]
+				},
+				{
+					"layout": "full",
 					"theme": "light",
-					"TITLE": "Some brands I've been working for",
+					"TITLE": "Some brands I've been working for.",
 					"SLIDE_TITLE": "Brands",
 					"SUBTITLE": "A selection of the most relevant clients, among hundreds.",
 					"brands": [
@@ -172,10 +337,21 @@
 				}
 			]
 		},
-		"projects": {
+		"resume-front-end-developer": {
 			"sections": [
 				{
 					"layout": "left",
+					"theme": "success",
+					"TITLE": "Front End Developer",
+					"SUBTITLE": "I'm still working on this website, so be patient 😅.",
+					"TEXT": "If you want to check my projects, download the Portfolio in PDF down here 🤟."
+				}
+			]
+		},
+		"projects": {
+			"sections": [
+				{
+					"layout": "full",
 					"theme": "success",
 					"TITLE": "Projects",
 					"SUBTITLE": "I'm still working on this website, so be patient 😅.",

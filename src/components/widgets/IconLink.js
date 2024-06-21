@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 import { ArrowDownCircle, ArrowRightCircle, ArrowUpRightCircle, Behance, EnvelopePaper, FileEarmarkPdf, Github, Instagram, Linkedin, Phone } from 'react-bootstrap-icons';
 
@@ -7,6 +8,7 @@ class IconLink extends React.Component {
 		super(props);
 
 		this.state = {
+			navLink: false,
 			href: '',
 			icon: '',
 			title: ''
@@ -17,6 +19,10 @@ class IconLink extends React.Component {
 	componentDidMount() {
 		this.Init();
 	}
+	componentDidUpdate(prevProps) {
+		if (prevProps !== this.props)
+			this.Init();
+	}
 	onClick() {
 		ReactGA.event({
 			category: 'Links',
@@ -25,6 +31,7 @@ class IconLink extends React.Component {
 		});
 	}
 	Init() {
+		let navLink = false;
 		let link = {};
 		let icon = false;
 		let href = false;
@@ -39,6 +46,11 @@ class IconLink extends React.Component {
 				if (href[k])
 					href = href[k];
 			});
+		}
+		else if (this.props.url
+			&& this.props.url.indexOf('ROUTE::') === 0) {
+			href = this.props.url.replace('ROUTE::', '');
+			navLink = true;
 		}
 		else
 			href = this.props.url;
@@ -58,6 +70,7 @@ class IconLink extends React.Component {
 		switch (this.props.type) {
 			case 'phone':
 				link = {
+					navLink: navLink,
 					href: 'tel:' + this.props.url,
 					icon: <Phone />,
 					title: this.props.url
@@ -66,6 +79,7 @@ class IconLink extends React.Component {
 
 			case 'email':
 				link = {
+					navLink: navLink,
 					href: 'mailto:' + this.props.url,
 					icon: <EnvelopePaper />,
 					title: this.props.url
@@ -74,6 +88,7 @@ class IconLink extends React.Component {
 
 			case 'portfolio':
 				link = {
+					navLink: navLink,
 					href: this.props.url,
 					icon: <FileEarmarkPdf />,
 					title: this.props.Locale.com[this.props.type.toUpperCase()]
@@ -82,6 +97,7 @@ class IconLink extends React.Component {
 
 			case 'linkedin':
 				link = {
+					navLink: navLink,
 					href: this.props.url,
 					icon: <Linkedin />,
 					title: this.props.Locale.com[this.props.type.toUpperCase()]
@@ -90,6 +106,7 @@ class IconLink extends React.Component {
 
 			case 'github':
 				link = {
+					navLink: navLink,
 					href: this.props.url,
 					icon: <Github />,
 					title: this.props.Locale.com[this.props.type.toUpperCase()]
@@ -98,6 +115,7 @@ class IconLink extends React.Component {
 
 			case 'behance':
 				link = {
+					navLink: navLink,
 					href: this.props.url,
 					icon: <Behance />,
 					title: this.props.Locale.com[this.props.type.toUpperCase()]
@@ -106,6 +124,7 @@ class IconLink extends React.Component {
 
 			case 'instagram':
 				link = {
+					navLink: navLink,
 					href: this.props.url,
 					icon: <Instagram />,
 					title: this.props.Locale.com[this.props.type.toUpperCase()]
@@ -114,6 +133,7 @@ class IconLink extends React.Component {
 
 			default:
 				link = {
+					navLink: navLink,
 					href: href,
 					icon: icon,
 					title: ''
@@ -122,12 +142,16 @@ class IconLink extends React.Component {
 		this.setState(link);
 	}
 	render() {
-		return <a href={this.state.href ? this.state.href : '#'}
+		const TagName = this.state.navLink ? NavLink : 'a';
+
+		return <TagName
+			href={!this.state.navLink && this.state.href ? this.state.href : null}
+			to={this.state.navLink && this.state.href ? this.state.href : null}
 			title={this.state.title}
 			className={'link-icon position-relative'
 				+ (this.props.className ? ' ' + this.props.className : '')}
-			target="_blank"
-			rel="noreferrer"
+			target={!this.state.navLink ? '_blank' : null}
+			rel={!this.state.navLink ? 'noreferrer' : null}
 			onClick={this.onClick}>
 			<span className={'link-icon-icon'
 				+ (!this.props.iconOnly
@@ -149,7 +173,7 @@ class IconLink extends React.Component {
 					{this.props.children}
 				</strong>
 				: null}
-		</a>
+		</TagName>
 	}
 }
 export default IconLink;

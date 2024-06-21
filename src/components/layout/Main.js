@@ -181,6 +181,7 @@ class Main extends React.Component {
 								}
 							}}
 							Locale={this.props.Locale}
+							language={this.props.language}
 							slide={slide}
 							_={content} />
 					})}

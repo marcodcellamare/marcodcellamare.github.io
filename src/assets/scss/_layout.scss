@@ -1,3 +1,4 @@
+/*! purgecss start ignore */
 html {
 	scroll-behavior: smooth;
 	height: -webkit-fill-available;
@@ -176,6 +177,25 @@ main {
 				}
 			}
 		}
+		.section-periods {
+			.section-period-0 {
+				animation-name: PERIOD_BLINK;
+				animation-duration: 1s;
+				animation-timing-function: ease-in-out;
+				animation-fill-mode: both;
+				animation-iteration-count: infinite;
+
+				@keyframes PERIOD_BLINK {
+					0%,
+					100% {
+						transform: translateY(0);
+					}
+					50% {
+						transform: translateY(-0.2rem);
+					}
+				}
+			}
+		}
 		.section-brands {
 			transform: translateX(-1.3rem);
 
@@ -221,7 +241,7 @@ main {
 					}
 				}
 			}
-			.cover {
+			.section-cover {
 				color: $light;
 
 				svg {
@@ -674,54 +694,6 @@ a.link-icon {
 
 //
 
-.love {
-	&.show {
-		.love-icon {
-			opacity: 1;
-			transform: scale(1);
-		}
-	}
-	.love-icon {
-		font-size: 150%;
-		opacity: 0;
-		transform: scale(0.9);
-		transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-	}
-	.love-cursor {
-		animation-name: LOVE_CURSOR;
-		animation-duration: 0.5s;
-		animation-timing-function: linear;
-		animation-fill-mode: both;
-		animation-iteration-count: infinite;
-
-		@keyframes LOVE_CURSOR {
-			0%,
-			50% {
-				opacity: 1;
-			}
-			55%,
-			100% {
-				opacity: 0;
-			}
-		}
-	}
-	.love-link {
-		> svg {
-			opacity: 0;
-			transform: translateX(-100%);
-			transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-		}
-		&.show {
-			> svg {
-				opacity: 1;
-				transform: translateX(0);
-			}
-		}
-	}
-}
-
-//
-
 .wave {
 	display: inline-block;
 	transform-origin: bottom right;
@@ -742,3 +714,4 @@ a.link-icon {
 		}
 	}
 }
+/*! purgecss end ignore */

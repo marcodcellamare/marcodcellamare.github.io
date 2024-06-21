@@ -142,7 +142,7 @@ class Counter extends React.Component {
 						+ (this.state.postBr.length === 0
 							? (this.props.classNamePreBr ? ' ' + this.props.classNamePreBr : '')
 							: (this.props.classNamePostBr ? ' ' + this.props.classNamePostBr : ''))}>
-						{' ' + this.props.suffx.toLowerCase()}.
+						{' ' + this.props.suffx.charAt(0).toLowerCase() + this.props.suffx.slice(1)}.
 					</span>
 					: null}
 			</p>

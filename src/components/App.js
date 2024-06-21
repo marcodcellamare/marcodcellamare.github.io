@@ -43,6 +43,7 @@ class App extends React.Component {
 		this.Language = this.Language.bind(this);
 		this.Mount = this.Mount.bind(this);
 		this.Unmount = this.Unmount.bind(this);
+		this.Element = this.Element.bind(this);
 	}
 	componentDidMount() {
 		clearTimeout(this.timeoutTitle);
@@ -204,54 +205,72 @@ class App extends React.Component {
 				}
 			}), callback);
 	}
+	Element() {
+		return <Main
+			Locale={this.state.Locale}
+			language={this.state.language}
+			location={this.props.location}
+			current={this.state.current}
+			onScroll={this.onScroll}
+			onScrollStart={this.onScrollStart}
+			onScrollEnd={this.onScrollEnd}
+			onSlide={this.onSlide}
+			onSlideCenter={this.onSlideCenter} />
+	}
 	render() {
 		return Object.keys(this.state.Locale).length > 0
 			? <div className="app d-flex position-absolute top-0 bottom-0 start-0 end-0 overflow-hidden">
 				<div className="d-flex flex-column flex-grow-1">
 					<Routes>
-						{Config.NAV.map((path, k) => {
+						<Route
+							path="/"
+							index={true}
+							element={<Navigate to={Object.keys(Config.NAV)[0]} replace />} />
+
+						{Object.keys(Config.NAV).map((path, k) => {
 							return <Route
 								key={k}
 								path={path}
-								index={k === 0}
-								element={
-									<Main
-										Locale={this.state.Locale}
-										location={this.props.location}
-										current={this.state.current}
-										onScroll={this.onScroll}
-										onScrollStart={this.onScrollStart}
-										onScrollEnd={this.onScrollEnd}
-										onSlide={this.onSlide}
-										onSlideCenter={this.onSlideCenter} />
-								} />
+								element={this.Element()}>
+								{Config.NAV[path]._
+									? Config.NAV[path]._.map((subPath, kk) => {
+										return <Route
+											key={kk}
+											path={path + subPath}
+											element={this.Element()} />
+									})
+									: null}
+							</Route>
 						})};
 						<Route
 							path="*"
-							element={<Navigate to={Config.NAV[0]} replace />} />
+							element={<Navigate to={Object.keys(Config.NAV)[0]} replace />} />
 					</Routes>
 					<Footer
-						Locale={this.state.Locale} />
+						Locale={this.state.Locale}
+						language={this.state.language} />
 				</div>
 				{this.state.mounted.title
 					? <Title
 						ref={e => this.ref.title = e}
 						Locale={this.state.Locale}
+						language={this.state.language}
 						current={this.state.current}
 						onHidden={component => {
 							this.Unmount(component);
 						}} />
 					: null}
 				{this.state.mounted.nav
-					&& Config.NAV.length > 1
+					&& Object.keys(Config.NAV).length > 1
 					? <Nav
 						ref={e => this.ref.nav = e}
 						Locale={this.state.Locale}
+						language={this.state.language}
 						onHidden={component => {
 							this.Unmount(component);
 						}} />
 					: null}
-				{Config.NAV.length > 1
+				{Object.keys(Config.NAV).length > 1
 					? <NavToggler
 						active={this.state.mounted.nav ? true : false}
 						onClick={() => {

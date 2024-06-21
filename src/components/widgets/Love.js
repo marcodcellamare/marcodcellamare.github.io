@@ -2,6 +2,7 @@ import React from 'react';
 import ReactGA from 'react-ga4';
 import { ArrowRightShort, Boombox, CodeSquare, HandThumbsDown, Heart, Joystick } from 'react-bootstrap-icons';
 import Data from '../../assets/data/love.json';
+import './Love.scss';
 
 class Love extends React.Component {
 	constructor(props) {

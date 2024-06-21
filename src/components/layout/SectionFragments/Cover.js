@@ -1,10 +1,10 @@
 import React from 'react';
-import Floating from './Floating';
-import { ReactComponent as Logo } from '../../assets/images/portfolio.svg';
+import { Floating } from '../../widgets';
+import { ReactComponent as Logo } from '../../../assets/images/portfolio.svg';
 
 class Cover extends React.Component {
 	render() {
-		return <div className={'cover'
+		return <div className={'section-cover'
 			+ (this.props.className ? ' ' + this.props.className : '')}>
 			<Floating
 				className="position-absolute top-0 bottom-0 start-0 end-0 p-10 p-md-20"
