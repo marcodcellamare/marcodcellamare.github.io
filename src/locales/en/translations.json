@@ -1,9 +1,11 @@
 {
 	"TITLE": "The portfolio of Marco D. Cellamare",
 	"nav": {
+		"/": "Home",
 		"/resume": "Resume",
 		"/resume/front-end-developer": "Front End Developer",
 		"/projects": "Projects",
+		"/brands": "Brands",
 		"/skills": "Skills",
 		"/contacts": "Contacts"
 	},
@@ -61,12 +63,16 @@
 		}
 	},
 	"pages": {
-		"resume": {
+		"/": {
 			"sections": [
 				{
 					"layout": "cover",
 					"theme": "danger"
-				},
+				}
+			]
+		},
+		"resume": {
+			"sections": [
 				{
 					"layout": "left",
 					"theme": "success",
@@ -245,10 +251,44 @@
 							"url": "ROUTE::/resume/front-end-developer"
 						}
 					]
-				},
+				}
+			]
+		},
+		"resume-front-end-developer": {
+			"sections": [
+				{
+					"layout": "left",
+					"theme": "success",
+					"TITLE": "Front End Developer",
+					"SUBTITLE": "I'm still working on this website, so be patient 😅.",
+					"TEXT": "If you want to check my projects, download the Portfolio in PDF down here 🤟."
+				}
+			]
+		},
+		"projects": {
+			"sections": [
 				{
 					"layout": "full",
-					"theme": "light",
+					"theme": "success",
+					"TITLE": "Projects",
+					"SUBTITLE": "I'm still working on this website, so be patient 😅.",
+					"TEXT": "If you want to check my projects, download the Portfolio in PDF down here 🤟.",
+					"btns": [
+						{
+							"className": "btn btn-outline-dark border-2",
+							"TEXT": "Portfolio in PDF v2024",
+							"type": "download",
+							"url": "INTERNAL::info.downloads.portfolio"
+						}
+					]
+				}
+			]
+		},
+		"brands": {
+			"sections": [
+				{
+					"layout": "full",
+					"theme": "success",
 					"TITLE": "Some brands I've been working for.",
 					"SLIDE_TITLE": "Brands",
 					"SUBTITLE": "A selection of the most relevant clients, among hundreds.",
@@ -324,36 +364,6 @@
 						{
 							"NAME": "Regione Puglia",
 							"logo": "RegionePuglia"
-						}
-					]
-				}
-			]
-		},
-		"resume-front-end-developer": {
-			"sections": [
-				{
-					"layout": "left",
-					"theme": "success",
-					"TITLE": "Front End Developer",
-					"SUBTITLE": "I'm still working on this website, so be patient 😅.",
-					"TEXT": "If you want to check my projects, download the Portfolio in PDF down here 🤟."
-				}
-			]
-		},
-		"projects": {
-			"sections": [
-				{
-					"layout": "full",
-					"theme": "success",
-					"TITLE": "Projects",
-					"SUBTITLE": "I'm still working on this website, so be patient 😅.",
-					"TEXT": "If you want to check my projects, download the Portfolio in PDF down here 🤟.",
-					"btns": [
-						{
-							"className": "btn btn-outline-dark border-2",
-							"TEXT": "Portfolio in PDF v2024",
-							"type": "download",
-							"url": "INTERNAL::info.downloads.portfolio"
 						}
 					]
 				}

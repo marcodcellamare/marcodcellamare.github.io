@@ -28,8 +28,10 @@
 		}
 	],
 	"NAV": {
+		"/": {},
 		"/resume": {},
-		"/projects": {}
+		"/projects": {},
+		"/brands": {}
 	},
 	"NAV_TEST": {
 		"/resume": {

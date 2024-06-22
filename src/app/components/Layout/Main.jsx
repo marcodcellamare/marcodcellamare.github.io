@@ -34,6 +34,8 @@ class Main extends React.Component {
 	componentDidUpdate(prevProps) {
 		if (
 			prevProps !== this.props &&
+			prevProps.location &&
+			this.props.location &&
 			prevProps.location.page !== this.props.location.page
 		)
 			this.Init();
@@ -224,6 +226,11 @@ class Main extends React.Component {
 									Locale={this.props.Locale}
 									language={this.props.language}
 									slide={slide}
+									slides={
+										this.props.Locale.pages[
+											this.props.current.page
+										].sections.length
+									}
 									_={content}
 								/>
 							);

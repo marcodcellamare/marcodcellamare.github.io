@@ -31,10 +31,12 @@ class Section extends React.Component {
 					this.props._.theme
 				}>
 				<div className='container position-relative d-flex flex-grow-1 flex-row py-20 py-lg-40 py-xl-50'>
-					<Pager
-						Locale={this.props.Locale}
-						slide={this.props.slide}
-					/>
+					{this.props.slides > 1 ? (
+						<Pager
+							Locale={this.props.Locale}
+							slide={this.props.slide}
+						/>
+					) : null}
 					<div className='row flex-grow-1 align-self-center'>
 						<div className='col'>
 							{['cover'].includes(this.props._.layout) ? (

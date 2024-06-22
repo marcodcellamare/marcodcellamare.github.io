@@ -58,6 +58,7 @@
 		"gh-pages": "^6.1.1",
 		"purgecss-webpack-plugin": "^6.0.0",
 		"sass": "^1.77.3",
+		"typescript": "^5.5.2",
 		"xml-js": "^1.6.11"
 	}
 }

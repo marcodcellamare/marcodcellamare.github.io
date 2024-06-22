@@ -7,6 +7,10 @@ module.exports = {
 			webpackConfig = {
 				...webpackConfig,
 				mode: env,
+				resolve: {
+					...webpackConfig.resolve,
+					extensions: ['.js', '.jsx', '.ts', '.tsx']
+				},
 				performance: {
 					...webpackConfig.performance,
 					hints: false,

@@ -248,6 +248,7 @@ class App extends React.Component {
 			<div className='app d-flex position-absolute top-0 bottom-0 start-0 end-0 overflow-hidden'>
 				<div className='d-flex flex-column flex-grow-1'>
 					<Routes>
+						{/*
 						<Route
 							path='/'
 							index={true}
@@ -258,13 +259,15 @@ class App extends React.Component {
 								/>
 							}
 						/>
+						*/}
 						{Object.keys(Config.NAV).map((path, k) => {
 							return (
 								<Route
 									key={k}
 									path={path}
+									index={path === '/'}
 									element={this.Element()}>
-									{Config.NAV[path]._
+									{path !== '/' && Config.NAV[path]._
 										? Config.NAV[path]._.map(
 												(subPath, kk) => {
 													return (
