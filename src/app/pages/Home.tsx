@@ -13,7 +13,7 @@ const Home = () => {
 	const { i18n } = useTranslation();
 	const template = Template as TemplateInterface[];
 
-	console.log(template);
+	console.log('test', template);
 
 	return (
 		<>
