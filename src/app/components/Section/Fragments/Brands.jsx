@@ -21,9 +21,9 @@ class Brands extends React.Component {
 									<BrandIcons
 										className='w-100 h-100'
 										logo={brand.logo}
-										title={brand.NAME}
+										title={brand.name}
 									/>
-									<h3 hidden={true}>{brand.NAME}</h3>
+									<h3 hidden={true}>{brand.name}</h3>
 								</div>
 							</div>
 						);

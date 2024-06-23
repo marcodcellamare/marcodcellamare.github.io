@@ -1,22 +1,22 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { HashRouter as BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 
-import Location from './app/components/Router/Location';
-import Google from './utils/Google';
+// Initialize languages
+import './locales/i18n';
 
-import App from './app';
+import App from './app/index';
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
 );
 root.render(
-	<>
-		<Google />
-		<BrowserRouter>
-			<Location>
-				<App />
-			</Location>
-		</BrowserRouter>
-	</>
+	<HelmetProvider>
+		<React.StrictMode>
+			<App />
+		</React.StrictMode>
+	</HelmetProvider>
 );

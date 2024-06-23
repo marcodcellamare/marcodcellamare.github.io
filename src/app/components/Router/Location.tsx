@@ -10,13 +10,21 @@ interface UseLocation {
 	state?: string;
 	page?: string;
 }
-const Location = ({ children }: { children: React.ReactElement }) => {
+const Location = ({
+	children,
+}: {
+	children: React.ReactElement | React.ReactElement[];
+}) => {
 	let location: UseLocation = useLocation();
 	const [value, setValue] = useState<UseLocation>();
 
 	// Pass the location object to the children
 
-	children = cloneElement(children, { location: value });
+	if (!Array.isArray(children)) children = [children];
+
+	children.forEach((child, k) => {
+		children[k] = cloneElement(child, { location: value });
+	});
 
 	useEffect(() => {
 		// Generate a page (id) out of the pathname

@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Config from '../config.json';
-import Locale from '../locales';
+//import Locale from '../locales';
 import { Footer, Main } from './components/Layout';
 import { Title } from './components/Misc';
 import { Nav, NavToggler } from './components/Nav';
@@ -34,7 +34,8 @@ class App extends React.Component {
 		this.html = document.documentElement;
 		this.timeoutTitle = false;
 
-		this.Locale = new Locale();
+		//this.Locale = new Locale();
+		this.Locale = {};
 
 		this.onScroll = this.onScroll.bind(this);
 		this.onScrollStart = this.onScrollStart.bind(this);
@@ -64,6 +65,7 @@ class App extends React.Component {
 				},
 			});
 		}
+		console.log(this.props);
 	}
 	onScroll(slides) {}
 	onScrollStart(slides) {

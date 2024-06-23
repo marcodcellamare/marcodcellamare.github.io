@@ -29,9 +29,7 @@
 	],
 	"NAV": {
 		"/": {},
-		"/resume": {},
-		"/projects": {},
-		"/brands": {}
+		"/resume": {}
 	},
 	"NAV_TEST": {
 		"/resume": {

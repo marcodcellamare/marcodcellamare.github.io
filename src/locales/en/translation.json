@@ -294,130 +294,78 @@
 					"SUBTITLE": "A selection of the most relevant clients, among hundreds.",
 					"brands": [
 						{
-							"NAME": "New York Yankees",
+							"name": "New York Yankees",
 							"logo": "NewYorkYankees"
 						},
 						{
-							"NAME": "BAT",
+							"name": "BAT",
 							"logo": "Bat"
 						},
 						{
-							"NAME": "Volvo",
+							"name": "Volvo",
 							"logo": "Volvo"
 						},
 						{
-							"NAME": "Lakrids By Bülow",
+							"name": "Lakrids By Bülow",
 							"logo": "LakridsByBulow"
 						},
 						{
-							"NAME": "Lotto",
+							"name": "Lotto",
 							"logo": "Lotto"
 						},
 						{
-							"NAME": "Dansk Retursystem",
+							"name": "Dansk Retursystem",
 							"logo": "DanskRetursystem"
 						},
 						{
-							"NAME": "Adecco",
+							"name": "Adecco",
 							"logo": "Adecco"
 						},
 						{
-							"NAME": "Natuzzi",
+							"name": "Natuzzi",
 							"logo": "Natuzzi"
 						},
 						{
-							"NAME": "GasNatural",
+							"name": "GasNatural",
 							"logo": "GasNatural"
 						},
 						{
-							"NAME": "Framesi",
+							"name": "Framesi",
 							"logo": "Framesi"
 						},
 						{
-							"NAME": "Aeroporti di Puglia",
+							"name": "Aeroporti di Puglia",
 							"logo": "AeroportiDiPuglia"
 						},
 						{
-							"NAME": "Legambiente",
+							"name": "Legambiente",
 							"logo": "Legambiente"
 						},
 						{
-							"NAME": "Banca Popolare di Bari",
+							"name": "Banca Popolare di Bari",
 							"logo": "BancaPopolareDiBari"
 						},
 						{
-							"NAME": "ANAS",
+							"name": "ANAS",
 							"logo": "Anas"
 						},
 						{
-							"NAME": "DiLeo",
+							"name": "DiLeo",
 							"logo": "DiLeo"
 						},
 						{
-							"NAME": "Mongolfiera",
+							"name": "Mongolfiera",
 							"logo": "Mongolfiera"
 						},
 						{
-							"NAME": "Comune di Bari",
+							"name": "Comune di Bari",
 							"logo": "ComuneDiBari"
 						},
 						{
-							"NAME": "Regione Puglia",
+							"name": "Regione Puglia",
 							"logo": "RegionePuglia"
 						}
 					]
-				}
-			]
-		},
-		"skills": {
-			"sections": [
-				{
-					"layout": "left",
-					"theme": "success",
-					"TITLE": "Works",
-					"SLIDE_TITLE": "This are my works",
-					"SUBTITLE": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-					"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-				},
-				{
-					"layout": "left",
-					"theme": "success",
-					"TITLE": "Hello",
-					"SLIDE_TITLE": "Hello Slide Hello Slide Hello Slide Hello Slide Hello Slide ",
-					"SUBTITLE": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-					"counters": [
-						{
-							"TITLE": "test1",
-							"className": "h3",
-							"since": "2002-08-01 09:00:00"
-						},
-						{
-							"TITLE": "test2",
-							"colClassName": "col-md",
-							"since": "2023-08-01 09:00:00"
-						},
-						{
-							"TITLE": "test2",
-							"colClassName": "col-md",
-							"since": "2024-06-11 10:02:00"
-						}
-					]
-				},
-				{
-					"theme": "success",
-					"TITLE": "Hello2",
-					"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-				},
-				{
-					"layout": "left",
-					"theme": "light",
-					"TITLE": "Hello3",
-					"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-				},
-				{
-					"theme": "white",
-					"TITLE": "Hello4",
-					"TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 				}
 			]
 		}
