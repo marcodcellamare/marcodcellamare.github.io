@@ -7,6 +7,7 @@ module.exports = {
 			webpackConfig = {
 				...webpackConfig,
 				mode: env,
+				devtool: 'source-map',
 				resolve: {
 					...webpackConfig.resolve,
 					extensions: ['.js', '.jsx', '.ts', '.tsx']

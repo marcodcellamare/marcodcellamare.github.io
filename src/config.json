@@ -27,20 +27,41 @@
 			"italic": false
 		}
 	],
-	"NAV": {
+	"_NAV": {
 		"/": {},
 		"/resume": {}
 	},
-	"NAV_TEST": {
-		"/resume": {
-			"_": [
-				"/front-end-developer",
-				"/back-end-developer"
-			]
-		},
-		"/projects": {},
-		"/test": {
-			"hide": true
+	"__NAV": {
+		"home": {
+			"resume": {
+				"front-end-developer": {},
+				"back-end-developer": {
+					"pippo": {}
+				}
+			},
+			"projects": {},
+			"test": {
+				"ciao": {}
+			}
 		}
+	},
+	"NAV": {
+		"path": "/",
+		"children": [
+			{
+				"path": "/resume",
+				"children": [
+					{
+						"path": "/front-end-developer"
+					},
+					{
+						"path": "/back-end-developer"
+					}
+				]
+			},
+			{
+				"path": "/projects"
+			}
+		]
 	}
 }

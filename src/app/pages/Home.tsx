@@ -1,19 +1,20 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
+import { useLocationExt } from '../../hooks';
 
 import Template from '../../templates/home.json';
 import TemplateInterface from '../../types/template';
 
 console.log(Template);
 
-const Home = () => {
-	const location = useLocation();
+const Home = ({ path }: { path: string }) => {
+	const location = useLocationExt();
 	const { i18n } = useTranslation();
 	const template = Template as TemplateInterface[];
 
-	console.log('test', template);
+	console.log('HOME', location);
 
 	return (
 		<>
@@ -26,11 +27,12 @@ const Home = () => {
 			</Helmet>
 			{template.map((t, k) => {
 				return (
-					<div key={k}>
-						{i18n.t('TITLE')}
-						{t.layout}
-						{t.theme}
-					</div>
+					<ul key={k}>
+						<li>{i18n.t('TITLE')}</li>
+						<li>{t.layout}</li>
+						<li>{t.theme}</li>
+						<li>{path}</li>
+					</ul>
 				);
 			})}
 		</>

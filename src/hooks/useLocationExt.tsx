@@ -1,4 +1,4 @@
-import { useEffect, cloneElement, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 
@@ -10,21 +10,9 @@ interface UseLocation {
 	state?: string;
 	page?: string;
 }
-const Location = ({
-	children,
-}: {
-	children: React.ReactElement | React.ReactElement[];
-}) => {
+const useLocationExt = () => {
 	let location: UseLocation = useLocation();
 	const [value, setValue] = useState<UseLocation>();
-
-	// Pass the location object to the children
-
-	if (!Array.isArray(children)) children = [children];
-
-	children.forEach((child, k) => {
-		children[k] = cloneElement(child, { location: value });
-	});
 
 	useEffect(() => {
 		// Generate a page (id) out of the pathname
@@ -33,9 +21,9 @@ const Location = ({
 			? location.pathname.substring(1).replace(/\//g, '-')
 			: '';
 
-		// If page is empty, use /
+		// If page is empty, use "home"
 
-		if (!location.page) location.page = '/';
+		if (!location.page) location.page = 'home';
 
 		// Send to Google Analytics
 
@@ -50,6 +38,6 @@ const Location = ({
 		setValue({ ...location });
 	}, [location]);
 
-	return children;
+	return value;
 };
-export default Location;
+export default useLocationExt;
