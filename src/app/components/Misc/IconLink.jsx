@@ -13,8 +13,7 @@ import {
 	Linkedin,
 	Phone,
 } from 'react-bootstrap-icons';
-
-import '../../../styles/components/IconLink.scss';
+import '@styles/components/IconLink.scss';
 
 class IconLink extends React.Component {
 	constructor(props) {

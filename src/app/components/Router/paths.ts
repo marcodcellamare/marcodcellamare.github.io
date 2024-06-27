@@ -1,4 +1,4 @@
-import RoutesTree from '../../../types/routesTree';
+import RoutesTreeInterface from '@interfaces/routesTree';
 
 // Generates an ID out of the path
 
@@ -22,7 +22,10 @@ const combine = (parent: string, child: string): string =>
 
 // Adds the full path and the ID to the nav
 
-const build = (nav: RoutesTree[], parentPath: string = '') =>
+const build = (
+	nav: RoutesTreeInterface[],
+	parentPath: string = ''
+): RoutesTreeInterface[] =>
 	nav.map((route) => {
 		const path = combine(parentPath, route.path);
 		const id = camelize(path);

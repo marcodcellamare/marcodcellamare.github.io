@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"moduleResolution": "node",
+		"paths": {
+			"@/*": [
+				"src/*"
+			],
+			"@config": [
+				"src/config.json"
+			],
+			"@components/*": [
+				"src/app/components/*"
+			],
+			"@pages/*": [
+				"src/app/pages/*"
+			],
+			"@assets/*": [
+				"src/assets/*"
+			],
+			"@hooks": [
+				"src/hooks/index.ts"
+			],
+			"@styles/*": [
+				"src/styles/*"
+			],
+			"@interfaces/*": [
+				"src/types/*"
+			],
+			"@utils/*": [
+				"src/utils/*"
+			]
+		}
+	}
+}

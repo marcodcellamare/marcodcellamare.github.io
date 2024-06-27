@@ -63,192 +63,58 @@
 		}
 	},
 	"pages": {
-		"/": {
+		"Home": {
 			"sections": [
-				{
-					"layout": "cover",
-					"theme": "danger"
-				}
+				{}
 			]
 		},
-		"resume": {
+		"Resume": {
 			"sections": [
 				{
-					"layout": "left",
-					"theme": "success",
 					"TITLE": "Hello,<span class=\"wave\">👋</span><br/>I'm Marco.",
 					"SLIDE_TITLE": "Hello",
 					"SUBTITLE": "Creative, Digital Designer and Full Stack Developer with a strong focus on Web / UI Design and Front End Development, since 2002.",
 					"imageBlob": true,
-					"images": [
-						{
-							"file": "me.webp",
-							"fileSm": "me-sm.webp"
-						}
-					],
 					"counters": [
 						{
-							"className": "experience",
-							"classNamePreBr": "h5 fw-bold",
-							"since": "2002-08-01 09:00:00",
-							"br": "days",
 							"SUFFX": "Of experience"
 						}
 					]
 				},
 				{
-					"layout": "full",
-					"theme": "white",
 					"TITLE": "My journey started many years ago.",
 					"SLIDE_TITLE": "Experience",
 					"SUBTITLE": "At the beginning, there were Fireworks, IE5, no inspector and tables everywhere.",
 					"counters": [
 						{
-							"className": "experience-react",
-							"classNamePreBr": "h4 fw-bold",
-							"classNamePostBr": "h5",
-							"since": "2003-12-01 12:30:30",
-							"br": "years",
 							"PREFX": "Digital Designer for"
 						},
 						{
-							"className": "experience-react",
-							"classNamePreBr": "h4 fw-bold",
-							"classNamePostBr": "h5",
-							"since": "2002-08-01 09:00:00",
-							"br": "years",
 							"PREFX": "Full Stack Developer for"
 						},
 						{
-							"className": "experience-react",
-							"classNamePreBr": "xh6",
-							"classNamePostBr": "small",
-							"since": "2015-12-01 09:00:10",
-							"br": "months",
 							"PREFX": "I work with React since",
 							"SUFFX": "Ago"
 						},
 						{
-							"className": "experience-bootstrap",
-							"classNamePreBr": "xh6",
-							"classNamePostBr": "small",
-							"since": "2012-02-01 09:00:40",
-							"br": "months",
 							"PREFX": "I use Bootstrap since",
 							"SUFFX": "Ago. I started with Bootstrap 2"
-						}
-					],
-					"periods": [
-						{
-							"dates": [
-								"2022-03",
-								"NOW"
-							],
-							"title": "Digital Designer, Lead Full Stack Developer",
-							"company": "Defensive Group",
-							"type": "Cyber Security",
-							"city": "Solrød Strand",
-							"country": "Denmark",
-							"highlight": true
-						},
-						{
-							"dates": [
-								"2019-05",
-								"2022-02"
-							],
-							"title": "Full Stack Developer",
-							"company": "Banyo",
-							"type": "Digital Agency",
-							"city": "Copenhagen",
-							"country": "Denmark"
-						},
-						{
-							"dates": [
-								"2008-12",
-								"2019-05"
-							],
-							"title": "Creative, Digital Designer, Lead Full Stack Developer",
-							"company": "Chimera",
-							"type": "Digital Agency",
-							"city": "Bari / Milan",
-							"country": "Italy"
-						},
-						{
-							"dates": [
-								"2008-08",
-								"2008-10"
-							],
-							"title": "Web Designer, Web Developer",
-							"company": "Promostudio",
-							"type": "Advertising Agency",
-							"city": "Bari",
-							"country": "Italy"
-						},
-						{
-							"dates": [
-								"2002-09",
-								"2008-07"
-							],
-							"title": "Web Designer, Web Developer",
-							"company": "Jcom Italia",
-							"type": "Web Agency",
-							"city": "Bari / Milan",
-							"country": "Italy"
 						}
 					]
 				},
 				{
-					"layout": "full",
-					"theme": "success",
 					"TITLE": "A deep breath, the right music…",
 					"SLIDE_TITLE": "Skills",
 					"SUBTITLE": "It's all I need to start imagine, create and repeat.",
 					"lists": [
 						{
-							"TITLE": "As Digital Designer",
-							"_": [
-								"Figma",
-								"Illustrator",
-								"Photoshop",
-								"Premiere",
-								"After Effect"
-							]
+							"TITLE": "As Digital Designer"
 						},
 						{
-							"TITLE": "As Front End Developer",
-							"_": [
-								"GitHub",
-								"JavaScript",
-								"Node.js",
-								"npm",
-								"React",
-								"Craco",
-								"Cordova",
-								"webpack",
-								"PurgeCSS",
-								"HTML / JSX",
-								"CSS / Sass",
-								"Bootstrap",
-								"JSON"
-							]
+							"TITLE": "As Front End Developer"
 						},
 						{
-							"TITLE": "As Back End Developer",
-							"_": [
-								"GitHub",
-								"PHP",
-								"Composer",
-								"Slim",
-								"Node.js",
-								"MySQL"
-							]
-						}
-					],
-					"_btns": [
-						{
-							"className": "btn btn-outline-dark border-2",
-							"TEXT": "Front End Developer",
-							"url": "ROUTE::/resume/front-end-developer"
+							"TITLE": "As Back End Developer"
 						}
 					]
 				}

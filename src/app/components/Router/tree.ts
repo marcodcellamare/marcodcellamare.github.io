@@ -1,8 +1,8 @@
-import RoutesTree from '../../../types/routesTree';
+import RoutesTreeInterface from '@interfaces/routesTree';
 
 // Recursive function to map the nav object
 
-const tree = (routes: RoutesTree[]) =>
+const tree = (routes: RoutesTreeInterface[]) =>
 	routes
 		.map((route) => [route.children ? tree(route.children) : [], route])
 		.flat(Infinity);

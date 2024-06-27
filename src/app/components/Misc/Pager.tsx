@@ -1,8 +1,23 @@
-import React from 'react';
-
+import { useTranslation } from 'react-i18next';
 import { Floating } from './';
-import '../../../styles/components/Pager.scss';
+import '@styles/components/Pager.scss';
 
+const Pager = ({ id }: { id: number }) => {
+	const { i18n } = useTranslation();
+
+	return (
+		<div
+			className={`pager pager-${
+				id <= 8 ? id : 'all'
+			} position-absolute top-0 bottom-0`}>
+			<div className='pager-wrapper position-absolute start-0'>
+				<div className='pager-polygon position-absolute top-50 start-0' />
+			</div>
+		</div>
+	);
+};
+
+/*
 class Pager extends React.Component {
 	render() {
 		return (
@@ -31,4 +46,5 @@ class Pager extends React.Component {
 		);
 	}
 }
+	*/
 export default Pager;

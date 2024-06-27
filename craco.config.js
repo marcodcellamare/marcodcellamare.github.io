@@ -1,7 +1,18 @@
+const CracoAlias = require('craco-alias')
 const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 const glob = require('glob');
 
 module.exports = {
+	plugins: [
+		{
+			plugin: CracoAlias,
+			options: {
+				source: 'tsconfig',
+				baseUrl: '.',
+				tsConfigPath: './tsconfig.paths.json',
+			},
+		},
+	],
 	webpack: {
 		configure: (webpackConfig, { env, paths }) => {
 			webpackConfig = {

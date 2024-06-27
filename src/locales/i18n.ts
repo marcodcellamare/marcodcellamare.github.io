@@ -1,14 +1,13 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-
-import Config from '../config.json';
-import Interface from '../types/translation';
+import TranslationInterface from '@interfaces/translation';
+import Config from '@config';
 import en from './en/translation.json';
 
 const resources = {
 	en: {
-		translation: en as Interface,
+		translation: en as TranslationInterface,
 	},
 };
 export const i18n = i18next
