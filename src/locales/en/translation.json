@@ -11,6 +11,10 @@
 	},
 	"com": {
 		"TITLE": "The portfolio of Marco D. Cellamare: Creative, Digital Designer and Full Stack Developer",
+		"PAGER": [
+			"The portfolio of",
+			"Marco D. Cellamare"
+		],
 		"THE": "The",
 		"OF": "Of",
 		"NAME": "Marco D. Cellamare",

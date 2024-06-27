@@ -6,7 +6,7 @@ export default interface Translation {
 		[key: string]: string;
 	};
 	com: {
-		[key: string]: string;
+		[key: string]: string | string[];
 	};
 	info: {
 		[key: string]: {

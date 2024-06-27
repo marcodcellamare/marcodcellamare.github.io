@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import HTMLParser from 'html-react-parser';
-import DOMPurify from 'dompurify';
 import {
 	Section as SectionInterface,
 	SectionTemplate as SectionTemplateInterface,
 } from '@interfaces/template/section';
 import { Pager } from '@components/Misc';
 import '@styles/components/Section.scss';
+import { Content } from './Fragments';
 
 const Section = ({
 	id,
@@ -22,7 +21,7 @@ const Section = ({
 }) => {
 	const { i18n } = useTranslation();
 	const [translations, setTranslations] = useState<SectionInterface>({});
-	const TitleTag = id === 0 ? 'h1' : 'h2';
+	const spacer = 'mb-10 mb-md-15';
 
 	useEffect(() => {
 		// Get the translation block for the specific section
@@ -65,20 +64,13 @@ const Section = ({
 											? ' order-md-first'
 											: '')
 									}>
-									{translations.TITLE ? (
-										<TitleTag className='display-2 fw-bold'>
-											{HTMLParser(
-												DOMPurify.sanitize(
-													translations.TITLE,
-													{
-														USE_PROFILES: {
-															html: true,
-														},
-													}
-												)
-											)}
-										</TitleTag>
-									) : null}
+									<Content
+										id={id}
+										title={translations.TITLE}
+										subtitle={translations.SUBTITLE}
+										text={translations.TEXT}
+										className={spacer}
+									/>
 								</div>
 							</div>
 						) : (
