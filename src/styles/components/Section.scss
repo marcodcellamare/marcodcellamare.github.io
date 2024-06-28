@@ -3,6 +3,7 @@
 /*! purgecss start ignore */
 section {
 	min-height: 100%;
+	clip-path: polygon(-1000% 0, 1000% 0, 1000% 100%, -1000% 100%);
 
 	@include media-breakpoint-up(sm) {
 		padding-left: calc(100vw - 100%);

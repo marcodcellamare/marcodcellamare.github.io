@@ -1,18 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { useLocationExt } from '@hooks';
+//import { useLocationExt } from '@hooks';
 import Template from '../../templates/home.json';
 import { SectionTemplate as SectionTemplateInterface } from '@interfaces/template/section';
 
 console.log(Template);
 
 const Home = ({ path }: { path: string }) => {
-	const location = useLocationExt();
+	//const location = useLocationExt();
 	const { i18n } = useTranslation();
 	const template = Template as SectionTemplateInterface[];
 
-	console.log('HOME', location);
+	//console.log('HOME', location);
 
 	return (
 		<>

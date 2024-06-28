@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Pager, Title } from '@components/Misc';
+import { Wrapper } from './Fragments';
+import { useIntersecting } from '@/hooks';
 import {
 	Section as SectionInterface,
 	SectionTemplate as SectionTemplateInterface,
 } from '@interfaces/template/section';
-import { Pager } from '@components/Misc';
 import '@styles/components/Section.scss';
-import { Content } from './Fragments';
 
 const Section = ({
 	id,
@@ -19,13 +20,16 @@ const Section = ({
 	routeId: string;
 	template: SectionTemplateInterface;
 }) => {
-	const { i18n } = useTranslation();
-	const [translations, setTranslations] = useState<SectionInterface>({});
+	const ref = useRef<HTMLDivElement>(null);
 	const spacer = 'mb-10 mb-md-15';
 
-	useEffect(() => {
-		// Get the translation block for the specific section
+	const { i18n } = useTranslation();
+	const isIntersecting = useIntersecting(ref);
+	const [translations, setTranslations] = useState<SectionInterface>({});
 
+	// Get the translation block for the specific section
+
+	useEffect(() => {
 		setTranslations(
 			i18n.t(`pages.${routeId}.sections.${id}`, { returnObjects: true })
 		);
@@ -33,7 +37,10 @@ const Section = ({
 
 	return (
 		<section
-			className={`section-${id} section-${template.theme} d-flex overflow-hidden position-relative`}>
+			ref={ref}
+			className={`section-${id} section-${template.theme}${
+				isIntersecting ? ' visible' : ''
+			} d-flex overflow-hidden position-relative`}>
 			<div className='container position-relative d-flex flex-grow-1 flex-row py-20 py-lg-40 py-xl-50'>
 				{total > 1 ? <Pager id={id} /> : null}
 				<div className='row flex-grow-1 align-self-center position-relative'>
@@ -64,12 +71,10 @@ const Section = ({
 											? ' order-md-first'
 											: '')
 									}>
-									<Content
+									<Wrapper
 										id={id}
-										title={translations.TITLE}
-										subtitle={translations.SUBTITLE}
-										text={translations.TEXT}
 										className={spacer}
+										translations={translations}
 									/>
 								</div>
 							</div>
@@ -79,6 +84,9 @@ const Section = ({
 					</div>
 				</div>
 			</div>
+			{translations.SLIDE_TITLE ? (
+				<Title content={translations.SLIDE_TITLE} />
+			) : null}
 		</section>
 	);
 };

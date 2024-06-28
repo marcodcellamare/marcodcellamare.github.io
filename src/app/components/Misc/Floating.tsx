@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useMousePosition, useWindowSize } from '@/hooks';
+import { useIntersecting, useMousePosition } from '@/hooks';
 import { Point as PointInterface } from '@interfaces/math';
 
 const Floating = ({
@@ -11,20 +11,16 @@ const Floating = ({
 	className?: string;
 	ratio?: PointInterface;
 }) => {
-	const windowSize = useWindowSize();
+	const ref = useRef<HTMLDivElement>(null);
+
+	const isIntersecting = useIntersecting(ref);
 	const mousePosition = useMousePosition();
 	const [position, setPosition] = useState<PointInterface>({ x: 0, y: 0 });
-	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		// Making it working only when visible
 
-		if (
-			ref.current.getBoundingClientRect().top +
-				ref.current.getBoundingClientRect().height >
-				0 &&
-			ref.current.getBoundingClientRect().top < windowSize.h
-		) {
+		if (isIntersecting) {
 			// Calculating the new position
 
 			setPosition({
@@ -50,17 +46,19 @@ const Floating = ({
 						: 0,
 			});
 		}
-	}, [windowSize, mousePosition, ratio]);
+	}, [isIntersecting, mousePosition, ratio]);
 
 	return (
 		<div
-			ref={ref}
-			className={`floating ${className}`.trim()}>
+			className={`floating${
+				isIntersecting ? ' visible' : ''
+			} ${className}`.trim()}>
 			{React.Children.map(children, (child) => {
 				// Appending the transform styles to the children
 
 				return React.isValidElement(child)
 					? React.cloneElement(child as React.ReactElement, {
+							ref: ref,
 							style: {
 								transform: (
 									(position.x

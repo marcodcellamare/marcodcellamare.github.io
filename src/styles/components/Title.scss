@@ -5,6 +5,8 @@
 	opacity: 0;
 	transition: opacity 0.2s ease-in-out;
 	max-width: 40vw;
+	background-color: rgba($danger, 0.85);
+	backdrop-filter: blur(0.15rem);
 
 	&.show {
 		opacity: 1;

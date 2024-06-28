@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Point as PointInterface } from '@interfaces/math';
 
 const useMousePosition = (): PointInterface => {
-	const [position, setPosition] = useState({ x: 0, y: 0 });
+	const [position, setPosition] = useState<PointInterface>({ x: 0, y: 0 });
 
 	useEffect(() => {
 		const onMouseMove = (e: MouseEvent) => {
