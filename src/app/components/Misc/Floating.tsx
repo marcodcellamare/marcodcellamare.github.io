@@ -4,7 +4,7 @@ import { Point as PointInterface } from '@interfaces/math';
 
 const Floating = ({
 	children,
-	className,
+	className = '',
 	ratio = { x: 0, y: 0 },
 }: {
 	children: React.ReactNode;

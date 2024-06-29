@@ -5,7 +5,7 @@ const Content = ({
 	title,
 	subtitle,
 	text,
-	className,
+	className = '',
 }: {
 	id: number;
 	title?: string;
