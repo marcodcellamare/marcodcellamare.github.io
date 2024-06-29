@@ -15,11 +15,12 @@ nav {
 			transform: translateX(-2rem);
 			transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
 
-			a {
+			> a {
 				color: $light;
 				text-decoration: none;
 				transition: color 0.3s ease-in-out, font-size 0.3s ease-in-out,
 					transform 0.3s ease-in-out;
+				pointer-events: none;
 
 				&:hover,
 				&.active {
@@ -40,6 +41,10 @@ nav {
 			> li {
 				opacity: 1;
 				transform: translateX(0);
+
+				> a {
+					pointer-events: all;
+				}
 			}
 		}
 	}

@@ -1,10 +1,10 @@
 {
 	"TITLE": "The portfolio of Marco D. Cellamare",
 	"nav": {
-		"/": "Home",
-		"/resume": "Resume",
+		"Home": "Home",
+		"Resume": "Resume",
+		"Projects": "Projects",
 		"/resume/front-end-developer": "Front End Developer",
-		"/projects": "Projects",
 		"/brands": "Brands",
 		"/skills": "Skills",
 		"/contacts": "Contacts"
@@ -68,11 +68,14 @@
 	},
 	"pages": {
 		"Home": {
+			"DESCRIPTION": "casdasfsdf",
 			"sections": [
 				{}
 			]
 		},
 		"Resume": {
+			"TITLE": "xxxsdfasdfasdf",
+			"DESCRIPTION": "xx",
 			"sections": [
 				{
 					"TITLE": "Hello,<span class=\"wave\">👋</span><br/>I'm Marco.",

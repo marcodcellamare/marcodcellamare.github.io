@@ -4,15 +4,16 @@ const useScrolling = (): boolean => {
 	const [isScrolling, setScrolling] = useState<boolean>(false);
 
 	useEffect(() => {
-		let timeout;
+		let timeout: NodeJS.Timeout;
 
-		const onScroll = (e: MouseEvent) => {
+		const onScroll = () => {
 			clearTimeout(timeout);
 			timeout = setTimeout(() => setScrolling(false), 500);
 
 			setScrolling(true);
 		};
 		window.addEventListener('wheel', onScroll);
+
 		return () => {
 			clearTimeout(timeout);
 			window.removeEventListener('wheel', onScroll);

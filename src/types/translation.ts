@@ -15,6 +15,8 @@ export default interface Translation {
 	};
 	pages: {
 		[key: string]: {
+			TITLE?: string;
+			DESCRIPTION?: string;
 			sections: Section[];
 		};
 	};

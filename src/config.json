@@ -27,24 +27,6 @@
 			"italic": false
 		}
 	],
-	"_NAV": {
-		"/": {},
-		"/resume": {}
-	},
-	"__NAV": {
-		"home": {
-			"resume": {
-				"front-end-developer": {},
-				"back-end-developer": {
-					"pippo": {}
-				}
-			},
-			"projects": {},
-			"test": {
-				"ciao": {}
-			}
-		}
-	},
 	"NAV": {
 		"path": "/",
 		"children": [
@@ -52,10 +34,12 @@
 				"path": "/resume",
 				"children": [
 					{
-						"path": "/front-end-developer"
+						"path": "/front-end-developer",
+						"hidden": true
 					},
 					{
-						"path": "/back-end-developer"
+						"path": "/back-end-developer",
+						"hidden": true
 					}
 				]
 			},

@@ -18,7 +18,7 @@ const Main = ({
 							key={k}
 							id={k}
 							total={template.length}
-							routeId={route.id || ''}
+							routeId={route.id}
 							template={sectionTemplate}
 						/>
 					);

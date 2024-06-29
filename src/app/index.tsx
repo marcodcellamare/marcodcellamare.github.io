@@ -23,12 +23,8 @@ const App = () => {
 			<Helmet
 				titleTemplate={'%s - ' + i18n.t('TITLE')}
 				defaultTitle={i18n.t('TITLE')}
-				htmlAttributes={{ lang: i18n.language }}>
-				<meta
-					name='description'
-					content='demo'
-				/>
-			</Helmet>
+				htmlAttributes={{ lang: i18n.language }}
+			/>
 			<Routes>
 				{routeTree(routePaths(nav)).map(
 					(route: RoutesTreeInterface, k: number) => (
