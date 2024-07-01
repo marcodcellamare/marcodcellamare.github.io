@@ -1,6 +1,6 @@
 import { Section } from '@interfaces/template/section';
 
-export default interface Translation {
+interface Translation {
 	TITLE: string;
 	nav: {
 		[key: string]: string;
@@ -21,3 +21,4 @@ export default interface Translation {
 		};
 	};
 }
+export default Translation;

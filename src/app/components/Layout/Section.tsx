@@ -32,34 +32,40 @@ const Section = ({
 			<div className='container position-relative d-flex flex-grow-1 flex-row py-20 py-lg-40 py-xl-50'>
 				{total > 1 ? <Pager id={id} /> : null}
 				{!['cover'].includes(template.layout) ? (
-					<div className='section-wrapper row flex-grow-1 position-relative'>
-						{['left', 'right', undefined].includes(
-							template.layout
-						) ? (
-							<div className='col-12 col-md-5 align-self-center mb-10 mb-sm-15 mb-md-0'>
-								IMAGE
-							</div>
-						) : null}
-						<div
-							className={
-								'col-12 align-self-center position-relative z-1' +
-								(['left', 'right', undefined].includes(
+					<div className='row align-self-center flex-grow-1'>
+						<div className='col d-flex'>
+							<div className='section-wrapper row flex-grow-1 position-relative'>
+								{['left', 'right', undefined].includes(
 									template.layout
-								)
-									? ' col-md-7 pe-md-20'
-									: '') +
-								(['full'].includes(template.layout)
-									? ' col-md-9 col-lg-8'
-									: '') +
-								(['left', undefined].includes(template.layout)
-									? ' order-md-first'
-									: '')
-							}>
-							<Wrapper
-								id={id}
-								className={spacer}
-								translations={translations}
-							/>
+								) ? (
+									<div className='col-12 col-md-5 align-self-center mb-10 mb-sm-15 mb-md-0'>
+										IMAGE
+									</div>
+								) : null}
+								<div
+									className={
+										'col-12 align-self-center position-relative z-1' +
+										(['left', 'right', undefined].includes(
+											template.layout
+										)
+											? ' col-md-7 pe-md-20'
+											: '') +
+										(['full'].includes(template.layout)
+											? ' col-md-9 col-lg-8'
+											: '') +
+										(['left', undefined].includes(
+											template.layout
+										)
+											? ' order-md-first'
+											: '')
+									}>
+									<Wrapper
+										id={id}
+										className={spacer}
+										translations={translations}
+									/>
+								</div>
+							</div>
 						</div>
 					</div>
 				) : (

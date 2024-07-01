@@ -1,6 +1,4 @@
-import React from 'react';
-//
-import { Love, Links } from '@components/Misc';
+import { Love } from '@components/Misc';
 
 const Footer = () => {
 	return (
@@ -8,13 +6,7 @@ const Footer = () => {
 			<div className='container'>
 				<div className='row gx-5 g-md-10 d-flex'>
 					<div className='col-12 col-md align-self-center text-truncate'>
-						{/*
-						<Love
-							className='mb-3 my-md-0'
-							Locale={props.Locale}
-						/>
-						*/}
-						LOVE
+						<Love className='mb-3 my-md-0' />
 					</div>
 					{/*
 					{Object.keys(props.Locale.info).map((info, k) => {

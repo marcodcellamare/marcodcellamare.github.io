@@ -25,17 +25,17 @@ const Nav = ({
 	const { i18n } = useTranslation();
 	const nav: RoutesTreeInterface[] = [Config.NAV];
 	const [show, setShow] = useState<boolean>(false);
-	let timeout = useRef(null);
+	let timer = useRef(null);
 	let navCounter: number = 0;
 
 	useEffect(() => {
 		// Use internal state to delay the class
 		// being attached and so, have the transition
 
-		clearTimeout(timeout.current);
-		timeout.current = setTimeout(() => setShow(active), !show ? 100 : 10);
+		clearTimeout(timer.current);
+		timer.current = setTimeout(() => setShow(active), !show ? 100 : 10);
 
-		return () => clearTimeout(timeout.current);
+		return () => clearTimeout(timer.current);
 	}, [active, show]);
 
 	const onTransitionEnd = (e: TransitionEvent<HTMLDivElement>) => {
