@@ -39,10 +39,10 @@ const Love = ({ className = '' }: { className?: string }) => {
 		chars: [],
 		wrong: false,
 	});
-	const timerStarted = useRef(null);
-	const timerTyping = useRef(null);
-	const timerTyped = useRef(null);
-	const timerLink = useRef(null);
+	const timerStarted = useRef<NodeJS.Timeout>(null);
+	const timerTyping = useRef<NodeJS.Timeout>(null);
+	const timerTyped = useRef<NodeJS.Timeout>(null);
+	const timerLink = useRef<NodeJS.Timeout>(null);
 
 	// Function called in an interval, that simulates the sentence typing
 
@@ -144,7 +144,7 @@ const Love = ({ className = '' }: { className?: string }) => {
 				}, 500);
 			}, 50);
 		}
-	}, [picked]);
+	}, [picked.title]);
 
 	const onTyping = useCallback(() => {
 		if (show) timerTyping.current = setInterval(typing, 80);

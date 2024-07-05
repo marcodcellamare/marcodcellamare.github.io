@@ -1,7 +1,7 @@
-import { useRef } from 'react';
+import { RefObject, useCallback, useEffect, useMemo, useRef } from 'react';
 import { Pager, Title } from '@components/Misc';
 import { Cover, Wrapper } from './Fragments';
-import { useIntersecting } from '@/hooks';
+import { useIntersecting, useScrolling, useScrollingPosition } from '@hooks';
 import {
 	Section as SectionInterface,
 	SectionTemplate as SectionTemplateInterface,
@@ -13,15 +13,95 @@ const Section = ({
 	total,
 	template,
 	translations,
+	scrollPosition,
+	slideTo,
+	setActive,
 }: {
 	id: number;
 	total: number;
 	template: SectionTemplateInterface;
 	translations: SectionInterface;
+	scrollPosition: number;
+	slideTo: Function;
+	setActive: Function;
 }) => {
 	const ref = useRef<HTMLDivElement>(null);
 	const spacer = 'mb-10 mb-md-15';
+	const isScrolling = useScrolling();
 	const isIntersecting = useIntersecting(ref);
+
+	const isIntersectingWhole = useCallback((ref: RefObject<HTMLElement>) => {
+		return (
+			ref.current &&
+			Math.floor(ref.current.getBoundingClientRect().top) <= 0 &&
+			Math.floor(
+				ref.current.getBoundingClientRect().top +
+					ref.current.getBoundingClientRect().height
+			) > 0
+		);
+	}, []);
+
+	const isIntersectingTop = useCallback(
+		(ref: RefObject<HTMLElement>, delta?: number) => {
+			delta =
+				ref.current && delta
+					? ref.current.getBoundingClientRect().height / delta
+					: 0;
+
+			return (
+				ref.current &&
+				Math.ceil(ref.current.getBoundingClientRect().top - delta) <=
+					0 &&
+				Math.ceil(ref.current.getBoundingClientRect().top + delta) > 0
+			);
+		},
+		[]
+	);
+
+	const isIntersectingCenter = useCallback(
+		(ref: RefObject<HTMLElement>, delta?: number) => {
+			delta =
+				ref.current && delta
+					? ref.current.getBoundingClientRect().height / delta
+					: 0;
+
+			return (
+				ref.current &&
+				Math.ceil(
+					ref.current.getBoundingClientRect().top -
+						ref.current.getBoundingClientRect().height / 2 -
+						delta
+				) <= 0 &&
+				Math.ceil(
+					ref.current.getBoundingClientRect().top +
+						ref.current.getBoundingClientRect().height / 2 +
+						delta
+				) > 0
+			);
+		},
+		[]
+	);
+
+	useEffect(() => {
+		// Slide to the top of the active slide when the user is not scrolling
+		if (!isScrolling && isIntersectingTop(ref, 4)) {
+			slideTo(ref.current.offsetTop);
+		}
+	}, [isScrolling, slideTo, isIntersectingTop]);
+
+	useEffect(() => {
+		// Set active slide
+		if (isIntersectingWhole(ref) || isIntersectingCenter(ref)) {
+			setActive({ id, theme: template.theme });
+		}
+	}, [
+		id,
+		template.theme,
+		scrollPosition,
+		setActive,
+		isIntersectingWhole,
+		isIntersectingCenter,
+	]);
 
 	return (
 		<section

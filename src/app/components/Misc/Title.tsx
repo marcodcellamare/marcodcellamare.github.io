@@ -1,4 +1,4 @@
-import { useScrolling } from '@/hooks';
+import { useScrolling } from '@hooks';
 import '@styles/components/Title.scss';
 
 const Title = ({ content }: { content: string }) => {

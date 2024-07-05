@@ -1,24 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 const useScrolling = (): boolean => {
-	const [isScrolling, setScrolling] = useState<boolean>(false);
+	const [isScrolling, setScrolling] = useState(false);
+	let timeout = useRef<NodeJS.Timeout>(null);
+
+	const onScroll = useCallback(() => {
+		clearTimeout(timeout.current);
+		timeout.current = setTimeout(() => setScrolling(false), 500);
+
+		setScrolling(true);
+	}, []);
 
 	useEffect(() => {
-		let timeout: NodeJS.Timeout;
-
-		const onScroll = () => {
-			clearTimeout(timeout);
-			timeout = setTimeout(() => setScrolling(false), 500);
-
-			setScrolling(true);
-		};
 		window.addEventListener('wheel', onScroll);
 
 		return () => {
-			clearTimeout(timeout);
+			clearTimeout(timeout.current);
 			window.removeEventListener('wheel', onScroll);
 		};
-	});
+	}, [onScroll]);
+
 	return isScrolling;
 };
 export default useScrolling;

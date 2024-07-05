@@ -68,18 +68,15 @@
 	},
 	"pages": {
 		"Home": {
-			"DESCRIPTION": "casdasfsdf",
+			"DESCRIPTION": "Hello, I'm Marco D. Cellamare. Creative, Digital Designer and Full Stack Developer.",
 			"sections": [
 				{}
 			]
 		},
 		"Resume": {
-			"TITLE": "xxxsdfasdfasdf",
-			"DESCRIPTION": "xx",
+			"TITLE": "Resume",
+			"DESCRIPTION": "Hello, I'm Marco D. Cellamare. Creative, Digital Designer and Full Stack Developer with a strong focus on Web / UI Design and Front End Development, since 2002.",
 			"sections": [
-				{
-					"TITLE": "Ok"
-				},
 				{
 					"TITLE": "Hello,<span class=\"wave\">👋</span><br/>I'm Marco.",
 					"SUBTITLE": "Creative, Digital Designer and Full Stack Developer with a strong focus on Web / UI Design and Front End Development, since 2002.",

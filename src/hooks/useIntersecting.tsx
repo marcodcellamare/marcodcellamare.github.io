@@ -1,6 +1,6 @@
 import { RefObject, useEffect, useMemo, useState } from 'react';
 
-const useIntersecting = (ref: RefObject<HTMLElement>) => {
+const useIntersecting = (ref: RefObject<HTMLElement>): boolean => {
 	const [isIntersecting, setIntersecting] = useState(false);
 
 	// Cache the IntersectionObserver
