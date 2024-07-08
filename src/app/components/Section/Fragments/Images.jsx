@@ -2,8 +2,6 @@ import React from 'react';
 import blobshape from 'blobshape';
 import { v4 as uuidv4 } from 'uuid';
 
-import '../../../../styles/components/SectionImages.scss';
-
 class Images extends React.Component {
 	constructor(props) {
 		super(props);

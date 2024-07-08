@@ -83,9 +83,9 @@ const Blob = ({
 	return (
 		<div
 			ref={ref}
-			className={`blob position-relative ${
-				config.over ? 'hover' : ''
-			} ${className}`.trim()}>
+			className={`blob${show ? ' show' : ''}${
+				config.over ? ' hover' : ''
+			} position-relative ${className}`.trim()}>
 			{show && shape.path ? (
 				<div className='blob-wrapper'>
 					<svg
@@ -107,7 +107,8 @@ const Blob = ({
 
 						return React.isValidElement(child)
 							? React.cloneElement(child as React.ReactElement, {
-									className: 'object-fit-contain',
+									className: 'object-fit-contain pe-none',
+									hover: config.over,
 									style: {
 										width: !size.isResizing ? size.w : 0,
 										height: !size.isResizing ? size.w : 0,

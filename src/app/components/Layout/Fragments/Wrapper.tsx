@@ -1,13 +1,18 @@
 import { Content } from './';
-import { Section as SectionInterface } from '@interfaces/template/section';
+import {
+	SectionTemplate as SectionTemplateInterface,
+	Section as SectionInterface,
+} from '@interfaces/template/section';
 
 const Wrapper = ({
 	id,
 	className,
+	template,
 	translations,
 }: {
 	id: number;
 	className?: string;
+	template: SectionTemplateInterface;
 	translations: SectionInterface;
 }) => {
 	return (
@@ -19,6 +24,8 @@ const Wrapper = ({
 				subtitle={translations.SUBTITLE}
 				text={translations.TEXT}
 			/>
+
+			{translations.counters ? translations.counters.length : 'NOPE'}
 		</>
 	);
 };

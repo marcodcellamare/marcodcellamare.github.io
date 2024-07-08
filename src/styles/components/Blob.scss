@@ -3,10 +3,16 @@
 /*! purgecss start ignore */
 .blob {
 	max-width: 400px;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
 
+	&.show {
+		opacity: 1;
+	}
 	.blob-wrapper {
 		transform: scale(1.2) translate(-10%, 15%);
 		transition: transform 0.3s ease-in-out;
+		margin-top: -6rem;
 
 		@include media-breakpoint-up(md) {
 			transform: scale(2) translateX(-5%);

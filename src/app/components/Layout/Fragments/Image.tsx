@@ -1,16 +1,14 @@
-import '@styles/components/SectionImages.scss';
-
 const Image = ({
 	src,
 	srcSm,
-	className = '',
 	alt,
+	className = '',
 	style,
 }: {
 	src: string;
 	srcSm?: string;
-	className?: string;
 	alt?: string;
+	className?: string;
 	style?: React.CSSProperties;
 }) => {
 	return (
@@ -23,9 +21,9 @@ const Image = ({
 			}
 			sizes={(srcSm ? '(max-width: 800px) 800w, ' : '') + '1000w'}
 			className={className}
+			style={style}
 			alt={alt ?? src}
 			loading='lazy'
-			style={style}
 		/>
 	);
 };
