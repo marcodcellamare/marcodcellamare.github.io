@@ -1,3 +1,4 @@
+import { Counter } from '@components/Misc';
 import { Content } from './';
 import {
 	SectionTemplate as SectionTemplateInterface,
@@ -24,6 +25,7 @@ const Wrapper = ({
 				subtitle={translations.SUBTITLE}
 				text={translations.TEXT}
 			/>
+			<Counter />
 
 			{translations.counters ? translations.counters.length : 'NOPE'}
 		</>

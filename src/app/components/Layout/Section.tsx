@@ -1,6 +1,6 @@
 import { RefObject, useCallback, useEffect, useRef } from 'react';
-import { Pager, Title, Blob } from '@components/Misc';
-import { Carousel, Cover, Wrapper } from './Fragments';
+import { Pager, Title } from '@components/Misc';
+import { Cover, Wrapper, Images } from './Fragments';
 import { useIntersecting, useScrolling } from '@hooks';
 import {
 	Section as SectionInterface,
@@ -127,19 +127,10 @@ const Section = ({
 									template.layout
 								) ? (
 									<div className='col-12 col-md-5 align-self-center mb-10 mb-sm-15 mb-md-0'>
-										{template.images ? (
-											template.imageBlob ? (
-												<Blob>
-													<Carousel
-														images={template.images}
-													/>
-												</Blob>
-											) : (
-												<Carousel
-													images={template.images}
-												/>
-											)
-										) : null}
+										<Images
+											images={template.images}
+											blob={template.imageBlob}
+										/>
 									</div>
 								) : null}
 								<div

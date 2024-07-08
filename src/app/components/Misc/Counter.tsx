@@ -1,3 +1,9 @@
+const Counter = () => {
+	return <div>COUNTER</div>;
+};
+export default Counter;
+
+/*
 import React from 'react';
 
 class Counter extends React.Component {
@@ -175,3 +181,4 @@ class Counter extends React.Component {
 	}
 }
 export default Counter;
+*/
