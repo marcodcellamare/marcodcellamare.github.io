@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { useScrollingPosition } from '@hooks';
 import Section from './Section';
-import { SectionTemplate as SectionTemplateInterface } from '@/types/template/section';
+import { SectionTemplate as SectionTemplateInterface } from '@interfaces/template/section';
 import RoutesTreeInterface from '@interfaces/routesTree';
 
 const Main = ({

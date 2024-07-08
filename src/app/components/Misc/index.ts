@@ -1,3 +1,4 @@
+export { default as Blob } from './Blob';
 export { default as Floating } from './Floating';
 export { default as Love } from './Love';
 export { default as Pager } from './Pager';

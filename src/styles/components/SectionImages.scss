@@ -2,51 +2,10 @@
 
 /*! purgecss start ignore */
 .section-images {
-	max-width: 400px;
-
 	.section-images-wrapper {
-		transform: scale(1.2) translate(-10%, 15%);
-		transition: transform 0.3s ease-in-out;
-
-		@include media-breakpoint-up(md) {
-			transform: scale(2) translateX(-5%);
-		}
-		@include media-breakpoint-up(lg) {
-			transform: scale(2) translateX(-15%);
-		}
-		.section-images-clip {
-			fill: rgba($dark, 0.15);
-			transition: fill 0.3s ease-in-out;
-
-			path {
-				transition-duration: 0.7s;
-				transition-timing-function: cubic-bezier(
-					0.175,
-					0.885,
-					0.32,
-					1.275
-				);
-				transform-origin: center center;
-			}
-		}
 	}
 	&.hover {
 		.section-images-wrapper {
-			transform: scale(1.3) translate(-10%, 15%);
-
-			@include media-breakpoint-up(md) {
-				transform: scale(2.2) translateX(-5%);
-			}
-			@include media-breakpoint-up(lg) {
-				transform: scale(2.2) translateX(-15%);
-			}
-			.section-images-clip {
-				fill: rgba($dark, 0.3);
-
-				path {
-					transition-duration: 0.3s;
-				}
-			}
 		}
 	}
 }

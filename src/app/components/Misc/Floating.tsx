@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useIntersecting, useMousePosition } from '@/hooks';
+import { useIntersecting, useMousePosition } from '@hooks';
 import { Point as PointInterface } from '@interfaces/math';
 
 const Floating = ({

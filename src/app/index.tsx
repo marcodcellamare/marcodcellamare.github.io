@@ -7,7 +7,7 @@ import {
 	Navigate,
 } from 'react-router-dom';
 import Layout from '@components/Layout';
-import { useGoogleProvider } from '@/hooks';
+import { useGoogleProvider } from '@hooks';
 import { tree as routeTree, paths as routePaths } from '@components/Router';
 import Config from '@config';
 import RoutesTreeInterface from '@interfaces/routesTree';

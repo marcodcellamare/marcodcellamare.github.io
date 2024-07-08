@@ -1,7 +1,7 @@
-import { RefObject, useCallback, useEffect, useMemo, useRef } from 'react';
-import { Pager, Title } from '@components/Misc';
-import { Cover, Wrapper } from './Fragments';
-import { useIntersecting, useScrolling, useScrollingPosition } from '@hooks';
+import { RefObject, useCallback, useEffect, useRef } from 'react';
+import { Pager, Title, Blob } from '@components/Misc';
+import { Cover, Image, Wrapper } from './Fragments';
+import { useIntersecting, useScrolling } from '@hooks';
 import {
 	Section as SectionInterface,
 	SectionTemplate as SectionTemplateInterface,
@@ -30,6 +30,8 @@ const Section = ({
 	const isScrolling = useScrolling();
 	const isIntersecting = useIntersecting(ref);
 
+	// Function to check if the section covers the whole screen
+
 	const isIntersectingWhole = useCallback((ref: RefObject<HTMLElement>) => {
 		return (
 			ref.current &&
@@ -40,6 +42,9 @@ const Section = ({
 			) > 0
 		);
 	}, []);
+
+	// Function to check if the section touches the top of the screen when scrolling,
+	// possibly using a delta value
 
 	const isIntersectingTop = useCallback(
 		(ref: RefObject<HTMLElement>, delta?: number) => {
@@ -57,6 +62,9 @@ const Section = ({
 		},
 		[]
 	);
+
+	// Function to check if the section touches the center of the screen when scrolling,
+	// possibly using a delta value
 
 	const isIntersectingCenter = useCallback(
 		(ref: RefObject<HTMLElement>, delta?: number) => {
@@ -119,7 +127,12 @@ const Section = ({
 									template.layout
 								) ? (
 									<div className='col-12 col-md-5 align-self-center mb-10 mb-sm-15 mb-md-0'>
-										IMAGE
+										<Blob>
+											<Image
+												src='me.webp'
+												srcSm='me-sm.webp'
+											/>
+										</Blob>
 									</div>
 								) : null}
 								<div

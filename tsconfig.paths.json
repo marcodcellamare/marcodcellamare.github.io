@@ -3,9 +3,6 @@
 		"baseUrl": ".",
 		"moduleResolution": "node",
 		"paths": {
-			"@/*": [
-				"src/*"
-			],
 			"@config": [
 				"src/config.json"
 			],
