@@ -1,0 +1,18 @@
+[
+	{
+		"layout": "full",
+		"theme": "white",
+		"counters": [
+			{
+				"className": "experience",
+				"classNamePre": "h5 fw-bold",
+				"since": "2002-08-01 09:00:00",
+				"newLineAt": "days"
+			}
+		]
+	},
+	{
+		"layout": "full",
+		"theme": "success"
+	}
+]

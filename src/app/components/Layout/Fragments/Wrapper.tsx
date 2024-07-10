@@ -4,30 +4,49 @@ import {
 	SectionTemplate as SectionTemplateInterface,
 	Section as SectionInterface,
 } from '@interfaces/template/section';
+import { useTranslation } from 'react-i18next';
 
 const Wrapper = ({
 	id,
+	routeId,
 	className,
 	template,
-	translations,
 }: {
 	id: number;
+	routeId: string;
 	className?: string;
 	template: SectionTemplateInterface;
-	translations: SectionInterface;
 }) => {
+	const { i18n } = useTranslation();
+
 	return (
 		<>
 			<Content
 				id={id}
 				className={className}
-				title={translations.TITLE}
-				subtitle={translations.SUBTITLE}
-				text={translations.TEXT}
+				title={i18n.t(`pages.${routeId}.sections.${id}.TITLE`)}
+				subtitle={i18n.t(`pages.${routeId}.sections.${id}.SUBTITLE`)}
+				text={i18n.t(`pages.${routeId}.sections.${id}.TEXT`)}
 			/>
-			<Counter />
-
-			{translations.counters ? translations.counters.length : 'NOPE'}
+			{template.counters &&
+				template.counters.map((counter, k) => {
+					return (
+						<Counter
+							key={k}
+							since={counter.since}
+							newLineAt={counter.newLineAt}
+							className={counter.className}
+							classNamePre={counter.classNamePre}
+							classNamePost={counter.classNamePost}
+							prefx={i18n.t(
+								`pages.${routeId}.sections.${id}.counters.${k}.PREFX`
+							)}
+							suffx={i18n.t(
+								`pages.${routeId}.sections.${id}.counters.${k}.SUFFX`
+							)}
+						/>
+					);
+				})}
 		</>
 	);
 };

@@ -26,18 +26,18 @@
 		"PLAY": "Play",
 		"CODE": "Code in",
 		"AND": "And",
-		"YEAR": "Year",
-		"YEARS": "Years",
-		"MONTH": "Month",
-		"MONTHS": "Months",
-		"DAY": "Day",
-		"DAYS": "Days",
-		"HOUR": "Hour",
-		"HOURS": "Hours",
-		"MINUTE": "Minute",
-		"MINUTES": "Minutes",
-		"SECOND": "Second",
-		"SECONDS": "Seconds",
+		"YEARS_one": "Year",
+		"YEARS_other": "Years",
+		"MONTHS_one": "Month",
+		"MONTHS_other": "Months",
+		"DAYS_one": "Day",
+		"DAYS_other": "Days",
+		"HOURS_one": "Hour",
+		"HOURS_other": "Hours",
+		"MINUTES_one": "Minute",
+		"MINUTES_other": "Minutes",
+		"SECONDS_one": "Second",
+		"SECONDS_other": "Seconds",
 		"PHONE": "Phone",
 		"EMAIL": "Email",
 		"PORTFOLIO": "Portfolio",
@@ -137,14 +137,20 @@
 				}
 			]
 		},
-		"projects": {
+		"Projects": {
 			"sections": [
 				{
 					"layout": "full",
 					"theme": "success",
 					"TITLE": "Projects",
-					"SUBTITLE": "I'm still working on this website, so be patient 😅.",
+					"SUBTITLE": "This is a test",
 					"TEXT": "If you want to check my projects, download the Portfolio in PDF down here 🤟.",
+					"counters": [
+						{
+							"PREFX": "Ciao",
+							"SUFFX": "hello"
+						}
+					],
 					"btns": [
 						{
 							"className": "btn btn-outline-dark border-2",

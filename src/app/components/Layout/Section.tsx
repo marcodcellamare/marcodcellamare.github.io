@@ -2,25 +2,22 @@ import { RefObject, useCallback, useEffect, useRef } from 'react';
 import { Pager, Title } from '@components/Misc';
 import { Cover, Wrapper, Images } from './Fragments';
 import { useIntersecting, useScrolling } from '@hooks';
-import {
-	Section as SectionInterface,
-	SectionTemplate as SectionTemplateInterface,
-} from '@interfaces/template/section';
+import { SectionTemplate as SectionTemplateInterface } from '@interfaces/template/section';
 import '@styles/components/Section.scss';
 
 const Section = ({
 	id,
+	routeId,
 	total,
 	template,
-	translations,
 	scrollPosition,
 	slideTo,
 	setActive,
 }: {
 	id: number;
+	routeId: string;
 	total: number;
 	template: SectionTemplateInterface;
-	translations: SectionInterface;
 	scrollPosition: number;
 	slideTo: Function;
 	setActive: Function;
@@ -152,9 +149,9 @@ const Section = ({
 									}>
 									<Wrapper
 										id={id}
+										routeId={routeId}
 										className={spacer}
 										template={template}
-										translations={translations}
 									/>
 								</div>
 							</div>
@@ -164,9 +161,9 @@ const Section = ({
 					<Cover className='d-flex flex-grow-1' />
 				)}
 			</div>
-			{translations.SLIDE_TITLE ? (
+			{/*translations.SLIDE_TITLE ? (
 				<Title content={translations.SLIDE_TITLE} />
-			) : null}
+			) : null*/}
 		</section>
 	);
 };

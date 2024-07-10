@@ -1,3 +1,4 @@
+export { default as useCounter } from './useCounter';
 export { default as useGoogleProvider } from './useGoogleProvider';
 export { default as useIntersecting } from './useIntersecting';
 export { default as useMousePosition } from './useMousePosition';

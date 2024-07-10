@@ -1,14 +1,9 @@
 {
 	"DOMAIN": "https://marcodcellamare.github.io",
 	"DEFAULT_LANGUAGE": "en",
-	"LANGUAGES": {
-		"en": {
-			"LABEL": "English",
-			"NAME": "English",
-			"rtl": false,
-			"state": true
-		}
-	},
+	"LANGUAGES": [
+		"en"
+	],
 	"FONTS": [
 		{
 			"family": "Open Sans",

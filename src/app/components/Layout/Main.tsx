@@ -75,12 +75,9 @@ const Main = ({
 							<Section
 								key={k}
 								id={k}
+								routeId={route.id}
 								total={template.length}
 								template={sectionTemplate}
-								translations={i18n.t(
-									`pages.${route.id}.sections.${k}`,
-									{ returnObjects: true }
-								)}
 								scrollPosition={scrollPosition}
 								slideTo={slideTo}
 								setActive={gatedSetActive}

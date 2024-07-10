@@ -5,7 +5,7 @@ export interface Counter {
 export interface CounterTemplate {
 	since: string;
 	className?: string;
-	classNamePreBr?: string;
-	classNamePostBr?: string;
-	br?: string;
+	classNamePre?: string;
+	classNamePost?: string;
+	newLineAt?: string;
 }

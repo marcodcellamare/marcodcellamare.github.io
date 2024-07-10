@@ -12,9 +12,9 @@
 		"counters": [
 			{
 				"className": "experience",
-				"classNamePreBr": "h5 fw-bold",
+				"classNamePre": "h5 fw-bold",
 				"since": "2002-08-01 09:00:00",
-				"br": "days"
+				"newLineAt": "days"
 			}
 		]
 	},
@@ -25,30 +25,30 @@
 			{
 				"since": "2003-12-01 12:30:30",
 				"className": "experience-react",
-				"classNamePreBr": "h4 fw-bold",
-				"classNamePostBr": "h5",
-				"br": "years"
+				"classNamePre": "h4 fw-bold",
+				"classNamePost": "h5",
+				"newLineAt": "years"
 			},
 			{
 				"since": "2002-08-01 09:00:00",
 				"className": "experience-react",
-				"classNamePreBr": "h4 fw-bold",
-				"classNamePostBr": "h5",
-				"br": "years"
+				"classNamePre": "h4 fw-bold",
+				"classNamePost": "h5",
+				"newLineAt": "years"
 			},
 			{
 				"since": "2015-12-01 09:00:10",
 				"className": "experience-react",
-				"classNamePreBr": "xh6",
-				"classNamePostBr": "small",
-				"br": "months"
+				"classNamePre": "xh6",
+				"classNamePost": "small",
+				"newLineAt": "months"
 			},
 			{
 				"since": "2012-02-01 09:00:40",
 				"className": "experience-bootstrap",
-				"classNamePreBr": "xh6",
-				"classNamePostBr": "small",
-				"br": "months"
+				"classNamePre": "xh6",
+				"classNamePost": "small",
+				"newLineAt": "months"
 			}
 		],
 		"periods": [

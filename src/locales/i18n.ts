@@ -21,6 +21,8 @@ export const i18n = i18next
 	.init({
 		resources: resources,
 		fallbackLng: Config.DEFAULT_LANGUAGE,
+		supportedLngs: Config.LANGUAGES,
+		returnEmptyString: true,
 		debug:
 			process.env.NODE_ENV !== 'production' &&
 			process.env.NODE_ENV !== 'test',
@@ -28,4 +30,6 @@ export const i18n = i18next
 		interpolation: {
 			escapeValue: false,
 		},
+		// Returns an empty string when the translation is missing
+		parseMissingKeyHandler: () => '',
 	});
