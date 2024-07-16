@@ -1,0 +1,26 @@
+{
+	"TITLE": "Projects",
+	"sections": [
+		{
+			"layout": "full",
+			"theme": "success",
+			"TITLE": "Projects2",
+			"SUBTITLE": "This is a test",
+			"TEXT": "If you want to check my projects, download the Portfolio in PDF down here 🤟.",
+			"counters": [
+				{
+					"PREFX": "Ciao",
+					"SUFFX": "hello"
+				}
+			],
+			"btns": [
+				{
+					"className": "btn btn-outline-dark border-2",
+					"TEXT": "Portfolio in PDF v2024",
+					"type": "download",
+					"url": "INTERNAL::info.downloads.portfolio"
+				}
+			]
+		}
+	]
+}

@@ -60,10 +60,10 @@ const Main = ({
 	return (
 		<>
 			<Helmet>
-				<title>{i18n.t([`pages.${route.id}.TITLE`, ''])}</title>
+				<title>{i18n.t([`page.${route.id}:TITLE`, ''])}</title>
 				<meta
 					name='description'
-					content={i18n.t([`pages.${route.id}.DESCRIPTION`, ''])}
+					content={i18n.t([`page.${route.id}:DESCRIPTION`, ''])}
 				/>
 			</Helmet>
 			<main className='flex-grow-1 position-relative'>

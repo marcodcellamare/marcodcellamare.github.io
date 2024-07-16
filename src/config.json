@@ -1,10 +1,26 @@
 {
-	"DOMAIN": "https://marcodcellamare.github.io",
-	"DEFAULT_LANGUAGE": "en",
-	"LANGUAGES": [
-		"en"
-	],
-	"FONTS": [
+	"domain": "https://marcodcellamare.github.io",
+	"locale": {
+		"default": "en",
+		"defaultNS": "default",
+		"allowed": [
+			"en"
+		],
+		"ns": {
+			"_": [
+				"info"
+			],
+			"%ISO%": [
+				"default",
+				"com",
+				"nav",
+				"page.Home",
+				"page.Resume",
+				"page.Projects"
+			]
+		}
+	},
+	"fonts": [
 		{
 			"family": "Open Sans",
 			"weights": [
@@ -22,7 +38,57 @@
 			"italic": false
 		}
 	],
-	"NAV": {
+	"preload": [
+		{
+			"rel": "dns-prefetch",
+			"href": "https://fonts.googleapis.com"
+		},
+		{
+			"rel": "dns-prefetch",
+			"href": "https://fonts.gstatic.com"
+		},
+		{
+			"rel": "dns-prefetch",
+			"href": "https://www.googletagmanager.com"
+		},
+		{
+			"rel": "dns-prefetch",
+			"href": "https://www.google-analytics.com"
+		},
+		{
+			"rel": "preconnect",
+			"href": "https://fonts.googleapis.com"
+		},
+		{
+			"rel": "preconnect",
+			"href": "https://fonts.googleapis.com",
+			"crossorigin": "anonymous"
+		},
+		{
+			"rel": "preconnect",
+			"href": "https://www.googletagmanager.com"
+		},
+		{
+			"rel": "preconnect",
+			"href": "https://www.google-analytics.com"
+		},
+		{
+			"rel": "preconnect",
+			"href": "https://www.googletagmanager.com/gtag/js?id=%REACT_APP_ANALYTICS%",
+			"as": "script"
+		},
+		{
+			"rel": "preconnect",
+			"href": "%PUBLIC_URL%/images/marco-d-cellamare-sm.webp",
+			"as": "image"
+		},
+		{
+			"rel": "preconnect",
+			"href": "%PUBLIC_URL%/images/marco-d-cellamare.webp",
+			"as": "image"
+		}
+	],
+	"nav": {
 		"path": "/",
 		"children": [
 			{

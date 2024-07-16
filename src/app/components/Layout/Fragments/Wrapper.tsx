@@ -1,9 +1,6 @@
 import { Counter } from '@components/Misc';
 import { Content } from './';
-import {
-	SectionTemplate as SectionTemplateInterface,
-	Section as SectionInterface,
-} from '@interfaces/template/section';
+import { SectionTemplate as SectionTemplateInterface } from '@interfaces/template/section';
 import { useTranslation } from 'react-i18next';
 
 const Wrapper = ({
@@ -24,9 +21,9 @@ const Wrapper = ({
 			<Content
 				id={id}
 				className={className}
-				title={i18n.t(`pages.${routeId}.sections.${id}.TITLE`)}
-				subtitle={i18n.t(`pages.${routeId}.sections.${id}.SUBTITLE`)}
-				text={i18n.t(`pages.${routeId}.sections.${id}.TEXT`)}
+				title={i18n.t(`page.${routeId}:sections.${id}.TITLE`)}
+				subtitle={i18n.t(`page.${routeId}:sections.${id}.SUBTITLE`)}
+				text={i18n.t(`page.${routeId}:sections.${id}.TEXT`)}
 			/>
 			{template.counters &&
 				template.counters.map((counter, k) => {
@@ -39,10 +36,10 @@ const Wrapper = ({
 							classNamePre={counter.classNamePre}
 							classNamePost={counter.classNamePost}
 							prefx={i18n.t(
-								`pages.${routeId}.sections.${id}.counters.${k}.PREFX`
+								`page.${routeId}:sections.${id}.counters.${k}.PREFX`
 							)}
 							suffx={i18n.t(
-								`pages.${routeId}.sections.${id}.counters.${k}.SUFFX`
+								`page.${routeId}:sections.${id}.counters.${k}.SUFFX`
 							)}
 						/>
 					);

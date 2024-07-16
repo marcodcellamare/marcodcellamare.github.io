@@ -234,14 +234,14 @@ const Love = ({ className = '' }: { className?: string }) => {
 			onMouseEnter={() => onHover(true)}
 			onMouseLeave={() => onHover(false)}
 			onTransitionEnd={onTransitionEnd}
-			title={`${i18n.t('com.I')} ${i18n
-				.t(`com.${picked.type.toUpperCase()}`)
+			title={`${i18n.t('com:I')} ${i18n
+				.t(`com:${picked.type.toUpperCase()}`)
 				.toLowerCase()} ${picked.title}`}>
-			{i18n.t('com.I')}{' '}
+			{i18n.t('com:I')}{' '}
 			<Icon
 				className='love-icon mx-2'
 				type={picked.type}
-				title={i18n.t(`com.${picked.type.toUpperCase()}`)}
+				title={i18n.t(`com:${picked.type.toUpperCase()}`)}
 			/>{' '}
 			{typed}
 			<span className='love-cursor'>_</span>
@@ -255,8 +255,8 @@ const Love = ({ className = '' }: { className?: string }) => {
 					rel='noreferrer'
 					onClick={() =>
 						onClick(
-							`${i18n.t('com.I')} ${i18n
-								.t(`com.${picked.type.toUpperCase()}`)
+							`${i18n.t('com:I')} ${i18n
+								.t(`com:${picked.type.toUpperCase()}`)
 								.toLowerCase()} ${picked.title}`
 						)
 					}>

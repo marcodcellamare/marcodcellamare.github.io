@@ -23,7 +23,6 @@ const Counter = ({
 	const [types, setTypes] = useState([]);
 	const [show, setShow] = useState([]);
 	const [newLineAtIdx, setNewLineAtIdx] = useState(-1);
-	const [newLineAtAfter, setNewLineAtAfter] = useState([]);
 	const counter = useCounter(since);
 
 	useEffect(() => {
@@ -36,16 +35,15 @@ const Counter = ({
 		if (!newLineAt || types.length === 0 || !types.includes(newLineAt))
 			return;
 
-		// Find the index that will go on the new line
-
 		let index = 0;
 
 		do {
+			// Find the index that will go on the new line
 			index = types.indexOf(newLineAt);
 		} while (index === -1);
 
+		// Set the new line index and the types that will go on the new line
 		setNewLineAtIdx(index);
-		setNewLineAtAfter([...show].splice(index + 1));
 	}, [types, show, newLineAt]);
 
 	return show.length > 0 ? (
@@ -61,13 +59,17 @@ const Counter = ({
 					<React.Fragment key={k}>
 						<span
 							className={`counter-item counter-item-${
-								!newLineAtAfter.includes(type) ? 'pre' : 'post'
+								show.indexOf(type) <= newLineAtIdx ||
+								newLineAtIdx === -1
+									? 'pre'
+									: 'post'
 							} counter-item-count counter-item-count-${k} counter-item-count-${type} ${
-								!newLineAtAfter.includes(type) && classNamePre
+								show.indexOf(type) <= newLineAtIdx ||
+								newLineAtIdx === -1
 									? classNamePre
 									: ''
 							}${
-								newLineAtAfter.includes(type) && classNamePost
+								show.indexOf(type) > newLineAtIdx
 									? classNamePost
 									: ''
 							}`.trim()}>
@@ -77,7 +79,7 @@ const Counter = ({
 							<span className='counter-item-text'>
 								{' ' +
 									i18n
-										.t(`com.${type.toUpperCase()}`, {
+										.t(`com:${type.toUpperCase()}`, {
 											count: counter[type],
 										})
 										.toLowerCase()}
@@ -86,7 +88,7 @@ const Counter = ({
 								{k < show.length - 2
 									? ', '
 									: k === show.length - 2
-									? ` ${i18n.t('com.AND').toLowerCase()} `
+									? ` ${i18n.t('com:AND').toLowerCase()} `
 									: !suffx
 									? '.'
 									: null}
@@ -99,8 +101,11 @@ const Counter = ({
 				);
 			})}
 			{suffx ? (
-				<span className='counter-item counter-item-suffx'>
-					{` ${suffx.charAt(0).toLowerCase() + suffx.slice(1)}.`}
+				<span
+					className={`counter-item counter-item-suffx ${
+						newLineAtIdx === -1 ? classNamePre : classNamePost
+					}`.trim()}>
+					{` ${suffx}.`}
 				</span>
 			) : null}
 		</p>

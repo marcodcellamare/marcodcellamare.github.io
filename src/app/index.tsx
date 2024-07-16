@@ -7,16 +7,15 @@ import {
 	Navigate,
 } from 'react-router-dom';
 import Layout from '@components/Layout';
-import { useGoogleProvider } from '@hooks';
+import { Google } from '@components/Misc';
 import { tree as routeTree, paths as routePaths } from '@components/Router';
 import Config from '@config';
 import RoutesTreeInterface from '@interfaces/routesTree';
 import '@styles/main.scss';
 
 const App = () => {
-	useGoogleProvider();
 	const { i18n } = useTranslation();
-	const nav: RoutesTreeInterface[] = [Config.NAV];
+	const nav: RoutesTreeInterface[] = [Config.nav];
 
 	return (
 		<BrowserRouter>
@@ -25,6 +24,7 @@ const App = () => {
 				defaultTitle={i18n.t('TITLE')}
 				htmlAttributes={{ lang: i18n.language }}
 			/>
+			<Google />
 			<Routes>
 				{routeTree(routePaths(nav)).map(
 					(route: RoutesTreeInterface, k: number) => (

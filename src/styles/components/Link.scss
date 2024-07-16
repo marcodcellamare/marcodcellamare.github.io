@@ -1,13 +1,13 @@
 @import './importer';
 
 /*! purgecss start ignore */
-a.icon-link {
-	.icon-link-icon {
+a.link {
+	.link-icon {
 		> svg {
 			transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 		}
 	}
-	.icon-link-title {
+	.link-title {
 		opacity: 0;
 		transition: opacity 0.2s ease-in-out;
 	}

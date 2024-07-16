@@ -22,14 +22,14 @@ const Cover = ({ className = '' }: { className?: string }) => {
 						'/images/marco-d-cellamare.webp 1000w'
 					}
 					sizes='(max-width: 800px) 800w, 1000w'
-					alt={i18n.t('com.NAME')}
+					alt={i18n.t('com:NAME')}
 					className='object-fit-contain w-100 h-100 opacity-70'
 				/>
 			</Floating>
 			<div className='row position-relative flex-grow-1 align-self-center'>
 				<div className='col-12 col-md-auto text-center text-md-end align-self-center mb-5 mb-md-0'>
 					<h5 className='my-0 text-uppercase lh-1'>
-						{i18n.t('com.THE')}
+						{i18n.t('com:THE')}
 					</h5>
 				</div>
 				<Floating
@@ -39,13 +39,13 @@ const Cover = ({ className = '' }: { className?: string }) => {
 				</Floating>
 				<div className='col-12 col-md text-center text-md-start align-self-center mt-5 mt-md-0'>
 					<h5 className='mt-0 mb-1 text-uppercase lh-1'>
-						{`${i18n.t('com.OF').toLowerCase()} `}
+						{`${i18n.t('com:OF').toLowerCase()} `}
 						<strong className='text-success'>
-							{i18n.t('com.NAME')}
+							{i18n.t('com:NAME')}
 						</strong>
 					</h5>
 					<h6 className='small my-0 text-uppercase'>
-						{i18n.t('com.ROLE')}
+						{i18n.t('com:ROLE')}
 					</h6>
 				</div>
 			</div>

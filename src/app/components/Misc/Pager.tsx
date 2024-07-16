@@ -16,9 +16,9 @@ const Pager = ({ id }: { id: number }) => {
 					<div className='pager-polygon position-absolute top-50 start-0' />
 					<div className='pager-title position-relative d-none d-md-block'>
 						<h3 className='h6 my-0 small lh-1 text-nowrap text-uppercase'>
-							{i18n.t('com.PAGER.0')}
+							{i18n.t('com:PAGER.0')}
 							<br />
-							<strong>{i18n.t('com.PAGER.1')}</strong>
+							<strong>{i18n.t('com:PAGER.1')}</strong>
 						</h3>
 					</div>
 				</div>

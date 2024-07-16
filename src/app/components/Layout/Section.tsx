@@ -1,4 +1,5 @@
 import { RefObject, useCallback, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Pager, Title } from '@components/Misc';
 import { Cover, Wrapper, Images } from './Fragments';
 import { useIntersecting, useScrolling } from '@hooks';
@@ -22,6 +23,7 @@ const Section = ({
 	slideTo: Function;
 	setActive: Function;
 }) => {
+	const { i18n } = useTranslation();
 	const ref = useRef<HTMLDivElement>(null);
 	const spacer = 'mb-10 mb-md-15';
 	const isScrolling = useScrolling();
@@ -161,9 +163,9 @@ const Section = ({
 					<Cover className='d-flex flex-grow-1' />
 				)}
 			</div>
-			{/*translations.SLIDE_TITLE ? (
-				<Title content={translations.SLIDE_TITLE} />
-			) : null*/}
+			<Title
+				content={i18n.t(`page.${routeId}:sections.${id}.SLIDE_TITLE`)}
+			/>
 		</section>
 	);
 };

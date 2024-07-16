@@ -13,7 +13,7 @@ interface Translation {
 			[key: string]: string;
 		};
 	};
-	pages: {
+	page: {
 		[key: string]: {
 			TITLE?: string;
 			DESCRIPTION?: string;

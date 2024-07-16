@@ -3,21 +3,21 @@
 /*! purgecss start ignore */
 .links {
 	&:hover {
-		a.icon-link {
-			.icon-link-icon {
+		.link {
+			.link-icon {
 				> svg {
 					transform: scale(0.9);
 					opacity: 0.5;
 				}
 			}
 			&:hover {
-				.icon-link-icon {
+				.link-icon {
 					> svg {
 						transform: scale(1.5);
 						opacity: 1;
 					}
 				}
-				.icon-link-title {
+				.link-title {
 					opacity: 1;
 					transition-delay: 0.5s;
 				}

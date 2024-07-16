@@ -26,9 +26,8 @@ class Map {
 		this.Save();
 	}
 	Languages() {
-		Object.keys(Config.LANGUAGES).forEach(iso => {
-			if (Config.LANGUAGES[iso].state)
-				this.languages[iso] = iso.substring(0, 2);
+		Object.keys(Config.locale.allowed).forEach(iso => {
+			this.languages[iso] = iso.substring(0, 2);
 		});
 	}
 	Generate() {
@@ -47,14 +46,14 @@ class Map {
 				url: []
 			}
 		};
-		Object.keys(Config.NAV).forEach(path => {
+		Object.keys(Config.nav).forEach(path => {
 			this.Url(path);
 
 			//
 
-			if (Config.NAV[path]._
-				&& Config.NAV[path]._.length > 0) {
-				Config.NAV[path]._.forEach(subPath => {
+			if (Config.nav[path]._
+				&& Config.nav[path]._.length > 0) {
+				Config.nav[path]._.forEach(subPath => {
 					this.Url(path + subPath);
 				});
 			}

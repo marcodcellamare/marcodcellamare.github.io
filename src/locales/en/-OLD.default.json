@@ -1,71 +1,5 @@
 {
 	"TITLE": "The portfolio of Marco D. Cellamare",
-	"nav": {
-		"Home": "Home",
-		"Resume": "Resume",
-		"Projects": "Projects",
-		"/resume/front-end-developer": "Front End Developer",
-		"/brands": "Brands",
-		"/skills": "Skills",
-		"/contacts": "Contacts"
-	},
-	"com": {
-		"TITLE": "The portfolio of Marco D. Cellamare: Creative, Digital Designer and Full Stack Developer",
-		"PAGER": [
-			"The portfolio of",
-			"Marco D. Cellamare"
-		],
-		"THE": "The",
-		"OF": "Of",
-		"NAME": "Marco D. Cellamare",
-		"ROLE": "Creative, Digital Designer and Full Stack Developer",
-		"I": "I",
-		"LOVE": "Love",
-		"HATE": "Hate",
-		"MUSIC": "Listen to",
-		"PLAY": "Play",
-		"CODE": "Code in",
-		"AND": "And",
-		"YEARS_one": "Year",
-		"YEARS_other": "Years",
-		"MONTHS_one": "Month",
-		"MONTHS_other": "Months",
-		"DAYS_one": "Day",
-		"DAYS_other": "Days",
-		"HOURS_one": "Hour",
-		"HOURS_other": "Hours",
-		"MINUTES_one": "Minute",
-		"MINUTES_other": "Minutes",
-		"SECONDS_one": "Second",
-		"SECONDS_other": "Seconds",
-		"PHONE": "Phone",
-		"EMAIL": "Email",
-		"PORTFOLIO": "Portfolio",
-		"LINKEDIN": "LinkedIn",
-		"GITHUB": "GitHub",
-		"BEHANCE": "Behance",
-		"INSTAGRAM": "Instagram",
-		"DOWNLOAD": "Download",
-		"DOWNLOADS": "Downloads",
-		"CONTACTS": "Contacts",
-		"LINKS": "Links",
-		"NOW": "Now"
-	},
-	"info": {
-		"downloads": {
-			"portfolio": "https://drive.google.com/file/d/1OWAXKrTSuLgLejPJ3p-jRFR_bp7ZbROT/view?usp=drive_link"
-		},
-		"links": {
-			"linkedin": "https://www.linkedin.com/in/marcocellamare",
-			"github": "https://github.com/marcodcellamare",
-			"behance": "https://www.behance.net/marco-cellamare",
-			"instagram": "https://www.instagram.com/marcod.cellamare"
-		},
-		"contacts": {
-			"phone": "+45 52 11 33 61",
-			"email": "md.cellamare@gmail.com"
-		}
-	},
 	"pages": {
 		"Home": {
 			"DESCRIPTION": "Hello, I'm Marco D. Cellamare. Creative, Digital Designer and Full Stack Developer.",
@@ -83,7 +17,7 @@
 					"imageBlob": true,
 					"counters": [
 						{
-							"SUFFX": "Of experience"
+							"SUFFX": "of experience"
 						}
 					]
 				},

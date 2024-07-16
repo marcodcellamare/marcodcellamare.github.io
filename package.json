@@ -1,6 +1,6 @@
 {
 	"name": "marcodcellamare.github.io",
-	"version": "2.0.1",
+	"version": "2.1.0",
 	"author": {
 		"name": "Marco D. Cellamare",
 		"email": "md.cellamare@gmail.com",
@@ -36,7 +36,7 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"start": "PORT=1310 env-cmd -f .env.dev craco start",
+		"start": "PORT=1108 env-cmd -f .env.dev craco start",
 		"build": "env-cmd -f .env.prod craco build --verbose",
 		"sitemap": "node ./src/utils/sitemap.js",
 		"cache.manifest": "env-cmd -f .env node ./src/utils/cache.manifest.js",

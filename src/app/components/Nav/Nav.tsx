@@ -23,7 +23,7 @@ const Nav = ({
 	onFadeOut: Function;
 }) => {
 	const { i18n } = useTranslation();
-	const nav: RoutesTreeInterface[] = [Config.NAV];
+	const nav: RoutesTreeInterface[] = [Config.nav];
 	const [show, setShow] = useState<boolean>(false);
 	let timer = useRef(null);
 	let navCounter: number = 0;
@@ -97,7 +97,7 @@ const Nav = ({
 														))}
 													</>
 												) : null}
-												{i18n.t(`nav.${route.id}`)}
+												{i18n.t(`nav:${route.id}`)}
 											</NavLink>
 										</li>
 									) : null;

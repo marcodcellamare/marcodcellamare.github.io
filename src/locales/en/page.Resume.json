@@ -1,0 +1,53 @@
+{
+	"TITLE": "Resume",
+	"DESCRIPTION": "Hello, I'm Marco D. Cellamare. Creative, Digital Designer and Full Stack Developer with a strong focus on Web / UI Design and Front End Development, since 2002.",
+	"sections": [
+		{
+			"TITLE": "Hello,<span class=\"wave\">👋</span><br/>I'm Marco.",
+			"SUBTITLE": "Creative, Digital Designer and Full Stack Developer with a strong focus on Web / UI Design and Front End Development, since 2002.",
+			"imageBlob": true,
+			"counters": [
+				{
+					"SUFFX": "of experience"
+				}
+			]
+		},
+		{
+			"TITLE": "My journey started many years ago.",
+			"SLIDE_TITLE": "Experience",
+			"SUBTITLE": "At the beginning, there were Fireworks, IE5, no inspector and tables everywhere.",
+			"counters": [
+				{
+					"PREFX": "Digital Designer for"
+				},
+				{
+					"PREFX": "Full Stack Developer for"
+				},
+				{
+					"PREFX": "I work with React since",
+					"SUFFX": "Ago"
+				},
+				{
+					"PREFX": "I use Bootstrap since",
+					"SUFFX": "Ago. I started with Bootstrap 2"
+				}
+			]
+		},
+		{
+			"TITLE": "A deep breath, the right music…",
+			"SLIDE_TITLE": "Skills",
+			"SUBTITLE": "It's all I need to start imagine, create and repeat.",
+			"lists": [
+				{
+					"TITLE": "As Digital Designer"
+				},
+				{
+					"TITLE": "As Front End Developer"
+				},
+				{
+					"TITLE": "As Back End Developer"
+				}
+			]
+		}
+	]
+}
