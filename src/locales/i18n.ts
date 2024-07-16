@@ -19,9 +19,9 @@ export const i18n = i18next
 		fallbackLng: Config.locale.default,
 		supportedLngs: Config.locale.allowed,
 		returnEmptyString: true,
-		debug:
-			process.env.NODE_ENV !== 'production' &&
-			process.env.NODE_ENV !== 'test',
+		debug: false,
+		//process.env.NODE_ENV !== 'production' &&
+		//process.env.NODE_ENV !== 'test',
 
 		interpolation: {
 			escapeValue: false,

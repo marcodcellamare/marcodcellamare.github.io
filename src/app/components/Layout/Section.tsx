@@ -3,27 +3,27 @@ import { useTranslation } from 'react-i18next';
 import { Pager, Title } from '@components/Misc';
 import { Cover, Wrapper, Images } from './Fragments';
 import { useIntersecting, useScrolling } from '@hooks';
-import { SectionTemplate as SectionTemplateInterface } from '@interfaces/template/section';
+import { useTemplate } from '@components/Misc/TemplateProvider';
+import RoutesTreeInterface from '@interfaces/routesTree';
 import '@styles/components/Section.scss';
 
 const Section = ({
 	id,
-	routeId,
+	route,
 	total,
-	template,
 	scrollPosition,
 	slideTo,
 	setActive,
 }: {
 	id: number;
-	routeId: string;
+	route: RoutesTreeInterface;
 	total: number;
-	template: SectionTemplateInterface;
 	scrollPosition: number;
 	slideTo: Function;
 	setActive: Function;
 }) => {
 	const { i18n } = useTranslation();
+	const template = useTemplate();
 	const ref = useRef<HTMLDivElement>(null);
 	const spacer = 'mb-10 mb-md-15';
 	const isScrolling = useScrolling();
@@ -99,11 +99,11 @@ const Section = ({
 	useEffect(() => {
 		// Set active slide
 		if (isIntersectingWhole(ref) || isIntersectingCenter(ref)) {
-			setActive({ id, theme: template.theme });
+			setActive({ id, theme: template[id].theme });
 		}
 	}, [
 		id,
-		template.theme,
+		template,
 		scrollPosition,
 		setActive,
 		isIntersectingWhole,
@@ -113,22 +113,22 @@ const Section = ({
 	return (
 		<section
 			ref={ref}
-			className={`section-${id} section-${template.theme}${
+			className={`section-${id} section-${template[id].theme}${
 				isIntersecting ? ' visible' : ''
 			} d-flex overflow-hidden position-relative`}>
 			<div className='container position-relative d-flex flex-grow-1 flex-row py-20 py-lg-40 py-xl-50'>
 				{total > 1 ? <Pager id={id} /> : null}
-				{!['cover'].includes(template.layout) ? (
+				{!['cover'].includes(template[id].layout) ? (
 					<div className='row align-self-center flex-grow-1'>
 						<div className='col d-flex'>
 							<div className='section-wrapper row flex-grow-1 position-relative'>
 								{['left', 'right', undefined].includes(
-									template.layout
+									template[id].layout
 								) ? (
 									<div className='col-12 col-md-5 align-self-center mb-10 mb-sm-15 mb-md-0'>
 										<Images
-											images={template.images}
-											blob={template.imageBlob}
+											images={template[id].images}
+											blob={template[id].imageBlob}
 										/>
 									</div>
 								) : null}
@@ -136,24 +136,23 @@ const Section = ({
 									className={
 										'col-12 align-self-center position-relative z-1' +
 										(['left', 'right', undefined].includes(
-											template.layout
+											template[id].layout
 										)
 											? ' col-md-7 pe-md-20'
 											: '') +
-										(['full'].includes(template.layout)
+										(['full'].includes(template[id].layout)
 											? ' col-md-9 col-lg-8'
 											: '') +
 										(['left', undefined].includes(
-											template.layout
+											template[id].layout
 										)
 											? ' order-md-first'
 											: '')
 									}>
 									<Wrapper
 										id={id}
-										routeId={routeId}
+										route={route}
 										className={spacer}
-										template={template}
 									/>
 								</div>
 							</div>
@@ -164,7 +163,7 @@ const Section = ({
 				)}
 			</div>
 			<Title
-				content={i18n.t(`page.${routeId}:sections.${id}.SLIDE_TITLE`)}
+				content={i18n.t(`page.${route.id}:sections.${id}.SLIDE_TITLE`)}
 			/>
 		</section>
 	);

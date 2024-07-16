@@ -9,6 +9,7 @@
 			"TEXT": "If you want to check my projects, download the Portfolio in PDF down here 🤟.",
 			"counters": [
 				{
+					"TITLE": "This is the title",
 					"PREFX": "Ciao",
 					"SUFFX": "hello"
 				}

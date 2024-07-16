@@ -1,4 +1,5 @@
 export interface Counter {
+	TITLE?: string;
 	PREFX?: string;
 	SUFFX?: string;
 }

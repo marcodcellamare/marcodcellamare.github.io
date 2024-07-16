@@ -32,7 +32,12 @@ const App = () => {
 							key={k}
 							path={route.path}
 							index={route.path === '/'}
-							element={<Layout route={route} />}
+							element={
+								<Layout
+									key={route.path}
+									route={route}
+								/>
+							}
 						/>
 					)
 				)}

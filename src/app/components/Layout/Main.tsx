@@ -1,19 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { useTemplate } from '@components/Misc/TemplateProvider';
 import { useScrollingPosition } from '@hooks';
 import Section from './Section';
-import { SectionTemplate as SectionTemplateInterface } from '@interfaces/template/section';
 import RoutesTreeInterface from '@interfaces/routesTree';
 
-const Main = ({
-	route,
-	template,
-}: {
-	route: RoutesTreeInterface;
-	template: SectionTemplateInterface[];
-}) => {
+const Main = ({ route }: { route: RoutesTreeInterface }) => {
 	const { i18n } = useTranslation();
+	const template = useTemplate();
 	const ref = useRef();
 	const scrollPosition = useScrollingPosition(ref);
 	const [active, setActive] = useState({ id: 0, theme: '' });
@@ -75,9 +70,9 @@ const Main = ({
 							<Section
 								key={k}
 								id={k}
-								routeId={route.id}
+								route={route}
 								total={template.length}
-								template={sectionTemplate}
+								//template={sectionTemplate}
 								scrollPosition={scrollPosition}
 								slideTo={slideTo}
 								setActive={gatedSetActive}
