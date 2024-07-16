@@ -1,7 +1,6 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import TranslationInterface from '@interfaces/translation';
 import Config from '@config';
 import resources from './resources';
 
@@ -16,7 +15,7 @@ export const i18n = i18next
 	.init({
 		ns: Object.values(Config.locale.ns).flat(),
 		defaultNS: Config.locale.defaultNS,
-		resources: resources(), // as TranslationInterface,
+		resources: resources(),
 		fallbackLng: Config.locale.default,
 		supportedLngs: Config.locale.allowed,
 		returnEmptyString: true,

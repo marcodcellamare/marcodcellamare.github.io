@@ -7,7 +7,7 @@ const resources = () => {
 		locale[iso] = {};
 
 		Object.keys(Config.locale.ns).forEach((type) => {
-			Config.locale.ns[type].forEach((namebase) => {
+			Config.locale.ns[type].forEach((namebase: string) => {
 				locale[iso][namebase] = loader({
 					iso: type === '%ISO%' ? iso : null,
 					file: namebase,

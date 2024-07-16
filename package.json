@@ -38,8 +38,8 @@
 	"scripts": {
 		"start": "PORT=1108 env-cmd -f .env.dev craco start",
 		"build": "env-cmd -f .env.prod craco build --verbose",
-		"sitemap": "node ./src/utils/sitemap.js",
-		"cache.manifest": "env-cmd -f .env node ./src/utils/cache.manifest.js",
+		"sitemap": "ts-node ./src/utils/sitemap.ts",
+		"cache.manifest": "env-cmd -f .env ts-node ./src/utils/cache.manifest.ts",
 		"postbuild": "npm run sitemap && npm run cache.manifest",
 		"___________deploy": "npm run build && npm run postbuild && gh-pages -b master -d build"
 	},
@@ -68,6 +68,7 @@
 		"gh-pages": "^6.1.1",
 		"purgecss-webpack-plugin": "^6.0.0",
 		"sass": "^1.77.3",
+		"ts-node": "^10.9.2",
 		"xml-js": "^1.6.11"
 	}
 }
