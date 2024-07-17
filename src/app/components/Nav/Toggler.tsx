@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react';
 import '@styles/components/NavToggler.scss';
 
-const NavToggler = ({
+const Toggler = ({
 	active,
 	onClick,
 }: {
@@ -22,4 +22,4 @@ const NavToggler = ({
 		</button>
 	);
 };
-export default NavToggler;
+export default Toggler;

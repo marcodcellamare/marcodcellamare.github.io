@@ -8,7 +8,8 @@ import {
 } from 'react-router-dom';
 import Layout from '@components/Layout';
 import { Google } from '@components/Misc';
-import { tree as routeTree, paths as routePaths } from '@components/Router';
+import routeTree from '@components/Router/tree';
+import routePaths from '@components/Router/paths';
 import Config from '@config';
 import RoutesTreeInterface from '@interfaces/routesTree';
 import '@styles/main.scss';

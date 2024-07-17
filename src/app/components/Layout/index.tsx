@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TemplateProvider } from '@components/Provider/Template';
-import Nav from '@components/Nav/Nav';
-import NavToggler from '@components/Nav/NavToggler';
+import Nav from '@components/Nav';
+import NavToggler from '@components/Nav/Toggler';
 import Main from './Main';
 import Footer from './Footer';
 import RoutesTreeInterface from '@interfaces/routesTree';
