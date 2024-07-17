@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TemplateProvider } from '@components/Misc/TemplateProvider';
+import { TemplateProvider } from '@components/Provider/Template';
 import Nav from '@components/Nav/Nav';
 import NavToggler from '@components/Nav/NavToggler';
 import Main from './Main';

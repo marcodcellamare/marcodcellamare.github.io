@@ -14,12 +14,9 @@
 					"SUFFX": "hello"
 				}
 			],
-			"btns": [
+			"buttons": [
 				{
-					"className": "btn btn-outline-dark border-2",
-					"TEXT": "Portfolio in PDF v2024",
-					"type": "download",
-					"url": "INTERNAL::info.downloads.portfolio"
+					"TEXT": "Portfolio in PDF v2024"
 				}
 			]
 		}

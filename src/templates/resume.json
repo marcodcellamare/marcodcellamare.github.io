@@ -151,5 +151,103 @@
 				]
 			}
 		]
+	},
+	{
+		"layout": "full",
+		"theme": "success",
+		"brands": [
+			"New York Yankees",
+			"BAT",
+			"Volvo",
+			"Lakrids By Bülow",
+			"Lotto",
+			"Dansk Retursystem",
+			"Adecco",
+			"Natuzzi",
+			"GasNatural",
+			"Framesi",
+			"Aeroporti di Puglia",
+			"Legambiente",
+			"Banca Popolare di Bari",
+			"ANAS",
+			"DiLeo",
+			"Mongolfiera",
+			"Comune di Bari",
+			"Regione Puglia"
+		],
+		"_brands": [
+			{
+				"name": "New York Yankees",
+				"logo": "NewYorkYankees"
+			},
+			{
+				"name": "BAT",
+				"logo": "Bat"
+			},
+			{
+				"name": "Volvo",
+				"logo": "Volvo"
+			},
+			{
+				"name": "Lakrids By Bülow",
+				"logo": "LakridsByBulow"
+			},
+			{
+				"name": "Lotto",
+				"logo": "Lotto"
+			},
+			{
+				"name": "Dansk Retursystem",
+				"logo": "DanskRetursystem"
+			},
+			{
+				"name": "Adecco",
+				"logo": "Adecco"
+			},
+			{
+				"name": "Natuzzi",
+				"logo": "Natuzzi"
+			},
+			{
+				"name": "GasNatural",
+				"logo": "GasNatural"
+			},
+			{
+				"name": "Framesi",
+				"logo": "Framesi"
+			},
+			{
+				"name": "Aeroporti di Puglia",
+				"logo": "AeroportiDiPuglia"
+			},
+			{
+				"name": "Legambiente",
+				"logo": "Legambiente"
+			},
+			{
+				"name": "Banca Popolare di Bari",
+				"logo": "BancaPopolareDiBari"
+			},
+			{
+				"name": "ANAS",
+				"logo": "Anas"
+			},
+			{
+				"name": "DiLeo",
+				"logo": "DiLeo"
+			},
+			{
+				"name": "Mongolfiera",
+				"logo": "Mongolfiera"
+			},
+			{
+				"name": "Comune di Bari",
+				"logo": "ComuneDiBari"
+			},
+			{
+				"name": "Regione Puglia",
+				"logo": "RegionePuglia"
+			}
+		]
 	}
 ]

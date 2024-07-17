@@ -85,7 +85,7 @@
 							"SUFFX": "hello"
 						}
 					],
-					"btns": [
+					"buttons": [
 						{
 							"className": "btn btn-outline-dark border-2",
 							"TEXT": "Portfolio in PDF v2024",

@@ -5,4 +5,5 @@ export interface ButtonTemplate {
 	type: string;
 	url: string;
 	className?: string;
+	navLink?: boolean;
 }

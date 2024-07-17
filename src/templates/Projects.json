@@ -8,6 +8,20 @@
 				"classNamePre": "h5 fw-bold",
 				"since": "2002-08-01 09:00:00"
 			}
+		],
+		"buttons": [
+			{
+				"className": "btn btn-outline-dark border-2",
+				"type": "download",
+				"url": "https://drive.google.com/file/d/1OWAXKrTSuLgLejPJ3p-jRFR_bp7ZbROT/view?usp=drive_link",
+				"navLink": false
+			},
+			{
+				"className": "btn btn-outline-dark border-2",
+				"type": "download",
+				"url": "https://drive.google.com/file/d/1OWAXKrTSuLgLejPJ3p-jRFR_bp7ZbROT/view?usp=drive_link",
+				"navLink": false
+			}
 		]
 	},
 	{

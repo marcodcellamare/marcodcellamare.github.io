@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Pager, Title } from '@components/Misc';
 import { Cover, Wrapper, Images } from './Fragments';
 import { useIntersecting, useScrolling } from '@hooks';
-import { useTemplate } from '@components/Misc/TemplateProvider';
+import { useTemplate } from '@components/Provider/Template';
 import RoutesTreeInterface from '@interfaces/routesTree';
 import '@styles/components/Section.scss';
 

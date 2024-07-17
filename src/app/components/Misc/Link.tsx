@@ -47,12 +47,17 @@ const Link = ({
 				return href;
 		}
 	};
-	const onClick = () => {
+	const onClick = (
+		e: React.MouseEvent<HTMLAnchorElement, MouseEvent> & {
+			target: HTMLAnchorElement & MouseEvent;
+		}
+	) => {
 		ReactGA.event({
 			category: 'Links',
 			action: 'click',
 			label: label || type,
 		});
+		e.target.blur();
 	};
 	return (
 		<TagName

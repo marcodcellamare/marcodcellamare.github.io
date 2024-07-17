@@ -1,4 +1,5 @@
 export { default as Blob } from './Blob';
+export { default as Brand } from './Brand';
 export { default as Counter } from './Counter';
 export { default as Floating } from './Floating';
 export { default as Google } from './Google';

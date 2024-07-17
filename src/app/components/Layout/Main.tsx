@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
-import { useTemplate } from '@components/Misc/TemplateProvider';
+import { useTemplate } from '@components/Provider/Template';
 import { useScrollingPosition } from '@hooks';
 import Section from './Section';
 import RoutesTreeInterface from '@interfaces/routesTree';
