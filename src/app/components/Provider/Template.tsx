@@ -20,7 +20,7 @@ const TemplateProvider = ({
 
 	const getTemplate = useCallback(() => {
 		if (routeId)
-			import(`../../../templates/${routeId}.json`)
+			import(`../../../locales/templates/page.${routeId}.json`)
 				.then((json) => setTemplate(json.default))
 				.catch((error) => console.error(error));
 	}, [routeId]);

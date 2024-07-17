@@ -21,7 +21,7 @@ const loader = ({ iso, file }: { iso?: string; file: string }): object => {
 	let json = {};
 
 	try {
-		json = require(`.${iso ? '/' + iso : ''}/${file}.json`);
+		json = require(`./${iso ? iso : '_'}/${file}.json`);
 	} catch (error) {
 		console.error(error);
 	}

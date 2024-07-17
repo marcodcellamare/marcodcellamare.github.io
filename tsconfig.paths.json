@@ -9,9 +9,6 @@
 			"@components/*": [
 				"src/app/components/*"
 			],
-			"@pages/*": [
-				"src/app/pages/*"
-			],
 			"@assets/*": [
 				"src/assets/*"
 			],
