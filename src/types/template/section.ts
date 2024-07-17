@@ -2,7 +2,7 @@ import { ImageTemplate } from '@interfaces/template/image';
 import { Counter, CounterTemplate } from '@interfaces/template/counter';
 import { PeriodTemplate } from '@interfaces/template/period';
 import { Button, ButtonTemplate } from '@interfaces/template/button';
-import { List, ListTemplate } from '@interfaces/template/list';
+import { List } from '@interfaces/template/list';
 
 export interface Section {
 	TITLE?: string;
@@ -21,6 +21,6 @@ export interface SectionTemplate {
 	counters?: CounterTemplate[];
 	periods?: PeriodTemplate[];
 	buttons?: ButtonTemplate[];
-	lists?: ListTemplate[];
+	lists?: string[][];
 	brands?: string[];
 }

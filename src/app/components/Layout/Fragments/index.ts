@@ -8,4 +8,5 @@ export { default as Counters } from './Counters';
 export { default as Cover } from './Cover';
 export { default as Images } from './Images';
 export { default as Links } from './Links';
+export { default as Lists } from './Lists';
 export { default as Periods } from './Periods';

@@ -18,6 +18,17 @@
 				{
 					"TEXT": "Portfolio in PDF v2024"
 				}
+			],
+			"lists": [
+				{
+					"TITLE": "As Digital Designer"
+				},
+				{
+					"TITLE": "As Front End Developer"
+				},
+				{
+					"TITLE": "As Back End Developer"
+				}
 			]
 		}
 	]

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useTemplate } from '@components/Provider/Template';
-import { Content, Counters, Buttons, Brands, Periods } from './';
+import { Content, Counters, Buttons, Brands, Periods, Lists } from './';
 import RoutesTreeInterface from '@interfaces/routesTree';
 
 const Wrapper = ({
@@ -18,6 +18,7 @@ const Wrapper = ({
 	const components = [
 		{ type: 'buttons', _: Buttons },
 		{ type: 'counters', _: Counters },
+		{ type: 'lists', _: Lists },
 		{ type: 'periods', _: Periods },
 		{ type: 'brands', _: Brands },
 	];
