@@ -1,5 +1,5 @@
 export interface PeriodTemplate {
-	dates: string[];
+	dates: [string, ...string[]]; // This will force to have at least one element in the array
 	title: string;
 	company: string;
 	type?: string;

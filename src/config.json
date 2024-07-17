@@ -1,10 +1,10 @@
 {
 	"domain": "https://marcodcellamare.github.io",
 	"locale": {
-		"default": "en",
+		"default": "en-GB",
 		"defaultNS": "default",
 		"allowed": [
-			"en"
+			"en-GB"
 		],
 		"ns": {
 			"_": [

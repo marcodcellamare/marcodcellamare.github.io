@@ -22,6 +22,64 @@
 				"url": "https://drive.google.com/file/d/1OWAXKrTSuLgLejPJ3p-jRFR_bp7ZbROT/view?usp=drive_link",
 				"navLink": false
 			}
+		],
+		"periods": [
+			{
+				"dates": [
+					"2022-03",
+					"NOW"
+				],
+				"title": "Digital Designer, Lead Full Stack Developer",
+				"company": "Defensive Group",
+				"type": "Cyber Security",
+				"city": "Solrød Strand",
+				"country": "Denmark",
+				"highlight": true
+			},
+			{
+				"dates": [
+					"2019-05",
+					"2022-02"
+				],
+				"title": "Full Stack Developer",
+				"company": "Banyo",
+				"type": "Digital Agency",
+				"city": "Copenhagen",
+				"country": "Denmark"
+			},
+			{
+				"dates": [
+					"2008-12",
+					"2019-05"
+				],
+				"title": "Creative, Digital Designer, Lead Full Stack Developer",
+				"company": "Chimera",
+				"type": "Digital Agency",
+				"city": "Bari / Milan",
+				"country": "Italy"
+			},
+			{
+				"dates": [
+					"2008-08",
+					"2008-10"
+				],
+				"title": "Web Designer, Web Developer",
+				"company": "Promostudio",
+				"type": "Advertising Agency",
+				"city": "Bari",
+				"country": "Italy"
+			},
+			{
+				"dates": [
+					"2002-09",
+					"2008-07"
+				],
+				"title": "Web Designer, Web Developer",
+				"company": "Jcom Italia",
+				"type": "Web Agency",
+				"city": "Bari / Milan",
+				"country": "Italy"
+			}
 		]
 	},
 	{

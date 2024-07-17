@@ -2,7 +2,7 @@
 
 /*! purgecss start ignore */
 .section-periods {
-	.section-period-0 {
+	&:first-child {
 		animation-name: PERIOD_BLINK;
 		animation-duration: 1s;
 		animation-timing-function: ease-in-out;

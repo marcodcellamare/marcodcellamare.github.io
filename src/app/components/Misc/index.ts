@@ -7,5 +7,6 @@ export { default as Image } from './Image';
 export { default as Link } from './Link';
 export { default as Love } from './Love';
 export { default as Pager } from './Pager';
+export { default as Period } from './Period';
 export { default as Text } from './Text';
 export { default as Title } from './Title';
