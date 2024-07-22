@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import '@styles/components/Periods.scss';
 
 const Lists = ({
 	id,

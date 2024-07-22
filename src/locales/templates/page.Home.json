@@ -2,5 +2,55 @@
 	{
 		"layout": "cover",
 		"theme": "danger"
+	},
+	{
+		"layout": "left",
+		"theme": "success",
+		"imageBlob": true,
+		"images": [
+			{
+				"file": "me.webp",
+				"fileSm": "me-sm.webp"
+			}
+		],
+		"counters": [
+			{
+				"className": "experience",
+				"classNamePre": "h4 fw-bold",
+				"since": "2002-08-01 09:00:00",
+				"newLineAt": "days"
+			}
+		]
+	},
+	{
+		"layout": "full",
+		"theme": "light",
+		"counters": [
+			{
+				"since": "2003-12-01 12:30:30",
+				"classNamePre": "h5 fw-bold",
+				"newLineAt": "years"
+			},
+			{
+				"since": "2002-08-01 09:00:00",
+				"classNamePre": "h5 fw-bold",
+				"newLineAt": "years"
+			},
+			{
+				"since": "2005-08-01 10:00:20",
+				"classNamePre": "h5 fw-bold",
+				"newLineAt": "years"
+			},
+			{
+				"since": "2015-12-01 09:00:10",
+				"classNamePre": "h6",
+				"newLineAt": "years"
+			},
+			{
+				"since": "2012-02-01 09:00:40",
+				"classNamePre": "h6",
+				"newLineAt": "years"
+			}
+		]
 	}
 ]

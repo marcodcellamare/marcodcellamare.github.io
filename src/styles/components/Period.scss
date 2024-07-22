@@ -1,8 +1,8 @@
 @import './importer';
 
 /*! purgecss start ignore */
-.section-periods {
-	&:first-child {
+.period {
+	&.period-highlight {
 		animation-name: PERIOD_BLINK;
 		animation-duration: 1s;
 		animation-timing-function: ease-in-out;

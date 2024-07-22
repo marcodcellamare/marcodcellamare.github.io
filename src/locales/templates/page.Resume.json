@@ -1,56 +1,31 @@
 [
 	{
-		"layout": "left",
-		"theme": "success",
-		"imageBlob": true,
-		"images": [
-			{
-				"file": "me.webp",
-				"fileSm": "me-sm.webp"
-			}
-		],
-		"counters": [
-			{
-				"className": "experience",
-				"classNamePre": "h5 fw-bold",
-				"since": "2002-08-01 09:00:00",
-				"newLineAt": "days"
-			}
+		"layout": "full",
+		"theme": "danger",
+		"brands": [
+			"New York Yankees",
+			"BAT",
+			"Volvo",
+			"Lakrids By Bülow",
+			"Lotto",
+			"Dansk Retursystem",
+			"Adecco",
+			"Natuzzi",
+			"GasNatural",
+			"Framesi",
+			"Aeroporti di Puglia",
+			"Legambiente",
+			"Banca Popolare di Bari",
+			"ANAS",
+			"DiLeo",
+			"Mongolfiera",
+			"Comune di Bari",
+			"Regione Puglia"
 		]
 	},
 	{
 		"layout": "full",
-		"theme": "white",
-		"counters": [
-			{
-				"since": "2003-12-01 12:30:30",
-				"className": "experience-react",
-				"classNamePre": "h4 fw-bold",
-				"classNamePost": "h5",
-				"newLineAt": "years"
-			},
-			{
-				"since": "2002-08-01 09:00:00",
-				"className": "experience-react",
-				"classNamePre": "h4 fw-bold",
-				"classNamePost": "h5",
-				"newLineAt": "years"
-			},
-			{
-				"since": "2015-12-01 09:00:10",
-				"className": "experience-react",
-				"classNamePre": "xh6",
-				"classNamePost": "small",
-				"newLineAt": "months"
-			},
-			{
-				"since": "2012-02-01 09:00:40",
-				"className": "experience-bootstrap",
-				"classNamePre": "xh6",
-				"classNamePost": "small",
-				"newLineAt": "months"
-			}
-		],
+		"theme": "success",
 		"periods": [
 			{
 				"dates": [
@@ -111,8 +86,30 @@
 		]
 	},
 	{
+		"layout": "right",
+		"theme": "light",
+		"periods": [
+			{
+				"dates": [
+					"2014"
+				],
+				"title": "Beauty Web Award",
+				"company": "Framesi",
+				"type": "Best website of Professional Category"
+			},
+			{
+				"dates": [
+					"2011"
+				],
+				"title": "Premio Agorà",
+				"company": "New York Yankees",
+				"type": "Best website"
+			}
+		]
+	},
+	{
 		"layout": "full",
-		"theme": "success",
+		"theme": "white",
 		"lists": [
 			{
 				"_": [
@@ -149,104 +146,6 @@
 					"Node.js",
 					"MySQL"
 				]
-			}
-		]
-	},
-	{
-		"layout": "full",
-		"theme": "success",
-		"brands": [
-			"New York Yankees",
-			"BAT",
-			"Volvo",
-			"Lakrids By Bülow",
-			"Lotto",
-			"Dansk Retursystem",
-			"Adecco",
-			"Natuzzi",
-			"GasNatural",
-			"Framesi",
-			"Aeroporti di Puglia",
-			"Legambiente",
-			"Banca Popolare di Bari",
-			"ANAS",
-			"DiLeo",
-			"Mongolfiera",
-			"Comune di Bari",
-			"Regione Puglia"
-		],
-		"_brands": [
-			{
-				"name": "New York Yankees",
-				"logo": "NewYorkYankees"
-			},
-			{
-				"name": "BAT",
-				"logo": "Bat"
-			},
-			{
-				"name": "Volvo",
-				"logo": "Volvo"
-			},
-			{
-				"name": "Lakrids By Bülow",
-				"logo": "LakridsByBulow"
-			},
-			{
-				"name": "Lotto",
-				"logo": "Lotto"
-			},
-			{
-				"name": "Dansk Retursystem",
-				"logo": "DanskRetursystem"
-			},
-			{
-				"name": "Adecco",
-				"logo": "Adecco"
-			},
-			{
-				"name": "Natuzzi",
-				"logo": "Natuzzi"
-			},
-			{
-				"name": "GasNatural",
-				"logo": "GasNatural"
-			},
-			{
-				"name": "Framesi",
-				"logo": "Framesi"
-			},
-			{
-				"name": "Aeroporti di Puglia",
-				"logo": "AeroportiDiPuglia"
-			},
-			{
-				"name": "Legambiente",
-				"logo": "Legambiente"
-			},
-			{
-				"name": "Banca Popolare di Bari",
-				"logo": "BancaPopolareDiBari"
-			},
-			{
-				"name": "ANAS",
-				"logo": "Anas"
-			},
-			{
-				"name": "DiLeo",
-				"logo": "DiLeo"
-			},
-			{
-				"name": "Mongolfiera",
-				"logo": "Mongolfiera"
-			},
-			{
-				"name": "Comune di Bari",
-				"logo": "ComuneDiBari"
-			},
-			{
-				"name": "Regione Puglia",
-				"logo": "RegionePuglia"
 			}
 		]
 	}

@@ -18,7 +18,7 @@ const Brands = ({
 				return (
 					<div
 						key={k}
-						className='col-4 col-sm-3 col-lg-2 d-flex align-items-center justify-content-center'>
+						className='col-4 col-sm-3 col-xxl-2 d-flex align-items-center justify-content-center'>
 						<Brand
 							name={name}
 							className='w-100 h-100'

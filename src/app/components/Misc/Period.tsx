@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { DashLg } from 'react-bootstrap-icons';
+import '@styles/components/Period.scss';
 
 const Period = ({
 	dates,
@@ -23,10 +24,17 @@ const Period = ({
 	return (
 		<div
 			className={`period${
-				highlight ? ' px-5 py-2 mx-n5 border border-2 border-dark' : ''
+				highlight
+					? ' period-highlight px-5 py-2 mx-n5 border border-2 border-dark'
+					: ''
 			} ${className}`.trim()}>
 			<div className='row'>
-				<div className='col-12 col-md-5 col-lg-4 col-xl-3'>
+				<div
+					className={`col-12 ${
+						dates.length > 1
+							? 'col-md-5 col-lg-4 col-xl-3'
+							: 'col-md-2 col-xl-1'
+					}`}>
 					<p className='h6 d-inline d-md-block fw-bold my-0 me-2'>
 						<Dates dates={dates} />
 					</p>
@@ -36,7 +44,7 @@ const Period = ({
 						</p>
 					) : null}
 				</div>
-				<div className='col-12 col-md-7 col-lg-8 col-xl-9'>
+				<div className='col-12 col-md'>
 					<h3 className='h6 fw-bold my-0'>{title}</h3>
 					<p className='my-0 fst-italic'>
 						<DashLg /> {company}

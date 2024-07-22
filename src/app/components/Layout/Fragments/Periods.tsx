@@ -1,6 +1,5 @@
 import { Period } from '@components/Misc';
 import { PeriodTemplate as PeriodTemplateInterface } from '@interfaces/template/period';
-import '@styles/components/Periods.scss';
 
 const Periods = ({
 	id,

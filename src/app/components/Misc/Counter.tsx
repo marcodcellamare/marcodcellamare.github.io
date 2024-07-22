@@ -95,7 +95,7 @@ const Counter = ({
 							</span>
 						</span>
 						{show.indexOf(type) === newLineAtIdx ? (
-							<br className='counter-item-newline' />
+							<br className='counter-item-newline d-none d-lg-block' />
 						) : null}
 					</React.Fragment>
 				);

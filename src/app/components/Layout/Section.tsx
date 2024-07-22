@@ -10,14 +10,14 @@ import '@styles/components/Section.scss';
 const Section = ({
 	id,
 	route,
-	total,
+	showPager,
 	scrollPosition,
 	slideTo,
 	setActive,
 }: {
 	id: number;
 	route: RoutesTreeInterface;
-	total: number;
+	showPager: boolean;
 	scrollPosition: number;
 	slideTo: Function;
 	setActive: Function;
@@ -116,8 +116,13 @@ const Section = ({
 			className={`section-${id} section-${template[id].theme}${
 				isIntersecting ? ' visible' : ''
 			} d-flex overflow-hidden position-relative`}>
-			<div className='container position-relative d-flex flex-grow-1 flex-row py-20 py-lg-40 py-xl-50'>
-				{total > 1 ? <Pager id={id} /> : null}
+			<div
+				className={`container position-relative d-flex flex-grow-1 flex-row py-20${
+					!['cover'].includes(template[id].layout)
+						? ' py-lg-40 py-xl-50'
+						: ''
+				}`}>
+				{showPager ? <Pager id={id} /> : null}
 				{!['cover'].includes(template[id].layout) ? (
 					<div className='row align-self-center flex-grow-1'>
 						<div className='col d-flex'>

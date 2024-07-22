@@ -35,7 +35,7 @@ const App = () => {
 							index={route.path === '/'}
 							element={
 								<Layout
-									key={route.path}
+									key={route.id}
 									route={route}
 								/>
 							}

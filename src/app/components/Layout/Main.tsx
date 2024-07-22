@@ -65,14 +65,13 @@ const Main = ({ route }: { route: RoutesTreeInterface }) => {
 				<article
 					ref={ref}
 					className='position-absolute top-0 bottom-0 start-0 end-0 overflow-hidden overflow-y-auto'>
-					{template.map((sectionTemplate, k) => {
+					{template.map((tmp, k) => {
 						return (
 							<Section
 								key={k}
 								id={k}
 								route={route}
-								total={template.length}
-								//template={sectionTemplate}
+								showPager={template.length > 1}
 								scrollPosition={scrollPosition}
 								slideTo={slideTo}
 								setActive={gatedSetActive}

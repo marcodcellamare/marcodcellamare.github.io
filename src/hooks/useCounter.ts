@@ -18,19 +18,21 @@ const useCounter = (since: string) => {
 		seconds: 1,
 	});
 	const timer = useRef<NodeJS.Timeout>(null);
+	const counterRef = useRef(counter);
 
 	const update = useCallback((dateSince: number) => {
 		// Calculate the difference between the current date and an old date
 
 		const dateNow = new Date().getTime();
 		let dateDiff = Math.abs((dateNow - dateSince) / 1000);
-		let results = { ...counter };
+		let results = { ...counterRef.current };
 
 		Object.keys(seconds.current).forEach((type, k) => {
 			results[type] = Math.floor(dateDiff / seconds.current[type]);
 			dateDiff -= results[type] * seconds.current[type];
 		});
 		setCounter(results);
+		counterRef.current = results;
 	}, []);
 
 	useEffect(() => {

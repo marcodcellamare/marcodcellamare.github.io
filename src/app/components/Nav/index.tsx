@@ -8,7 +8,8 @@ import {
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { DashLg } from 'react-bootstrap-icons';
-import { tree as routeTree, paths as routePaths } from '@components/Router';
+import routeTree from '@components/Router/tree';
+import routePaths from '@components/Router/paths';
 import Config from '@config';
 import RoutesTreeInterface from '@interfaces/routesTree';
 import '@styles/components/Nav.scss';
