@@ -5,8 +5,10 @@ export interface Counter {
 }
 export interface CounterTemplate {
 	since: string;
+	showOnly: string[];
 	className?: string;
 	classNamePre?: string;
 	classNamePost?: string;
+	classNameWrapper?: string;
 	newLineAt?: string;
 }

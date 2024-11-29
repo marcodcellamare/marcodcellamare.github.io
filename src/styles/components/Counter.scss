@@ -1,0 +1,19 @@
+@import './importer';
+
+/*! purgecss start ignore */
+.counter {
+	&.counter-boxed {
+		border: 2px solid $dark;
+		padding: 1rem;
+		margin: 0;
+
+		.counter-item {
+			&.counter-item-count-years {
+				display: block;
+				font-size: 2rem;
+				font-weight: bold;
+			}
+		}
+	}
+}
+/*! purgecss end ignore */

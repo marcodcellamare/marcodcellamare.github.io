@@ -15,7 +15,7 @@
 		],
 		"counters": [
 			{
-				"className": "experience",
+				"className": "experience text-danger",
 				"classNamePre": "h4 fw-bold",
 				"since": "2002-08-01 09:00:00",
 				"newLineAt": "days"
@@ -28,28 +28,48 @@
 		"counters": [
 			{
 				"since": "2003-12-01 12:30:30",
-				"classNamePre": "h5 fw-bold",
-				"newLineAt": "years"
+				"showOnly": [
+					"years",
+					"months"
+				],
+				"className": "counter-boxed",
+				"classNameWrapper": "col-md-4"
 			},
 			{
 				"since": "2002-08-01 09:00:00",
-				"classNamePre": "h5 fw-bold",
-				"newLineAt": "years"
+				"showOnly": [
+					"years",
+					"months"
+				],
+				"className": "counter-boxed",
+				"classNameWrapper": "col-md-4"
 			},
 			{
 				"since": "2005-08-01 10:00:20",
-				"classNamePre": "h5 fw-bold",
-				"newLineAt": "years"
+				"showOnly": [
+					"years",
+					"months"
+				],
+				"className": "counter-boxed",
+				"classNameWrapper": "col-md-4"
 			},
 			{
 				"since": "2015-12-01 09:00:10",
-				"classNamePre": "h6",
-				"newLineAt": "years"
+				"showOnly": [
+					"years",
+					"months"
+				],
+				"className": "counter-boxed",
+				"classNameWrapper": "col-md-6"
 			},
 			{
 				"since": "2012-02-01 09:00:40",
-				"classNamePre": "h6",
-				"newLineAt": "years"
+				"showOnly": [
+					"years",
+					"months"
+				],
+				"className": "counter-boxed",
+				"classNameWrapper": "col-md-6"
 			}
 		]
 	}

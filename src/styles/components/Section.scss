@@ -11,6 +11,13 @@ section {
 	&.section-danger {
 		background-color: $danger;
 
+		.cover {
+			color: $success;
+
+			svg {
+				fill: $success;
+			}
+		}
 		.pager {
 			border-color: $success;
 			color: $success;
@@ -24,13 +31,6 @@ section {
 				&::before {
 					background-color: $success;
 				}
-			}
-		}
-		.section-cover {
-			color: $light;
-
-			svg {
-				fill: $light;
 			}
 		}
 	}

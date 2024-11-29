@@ -21,10 +21,12 @@ const Layout = ({ route }: { route: RoutesTreeInterface }) => {
 	};
 
 	return (
-		<TemplateProvider routeId={route.id}>
+		<>
+			{/*<TemplateProvider routeId={route.id}>*/}
 			<div className='app d-flex position-absolute top-0 bottom-0 start-0 end-0 overflow-hidden'>
 				<div className='d-flex flex-column flex-grow-1'>
-					<Main route={route} />
+					{/*<Main route={route} />*/}
+					<div className='text-light'>xxx</div>
 					<Footer />
 				</div>
 				{navMounted ? (
@@ -39,7 +41,8 @@ const Layout = ({ route }: { route: RoutesTreeInterface }) => {
 					onClick={onNavTogglerClick}
 				/>
 			</div>
-		</TemplateProvider>
+			{/*</TemplateProvider>*/}
+		</>
 	);
 };
 export default Layout;

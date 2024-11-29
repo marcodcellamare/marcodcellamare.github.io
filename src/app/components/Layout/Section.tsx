@@ -117,10 +117,10 @@ const Section = ({
 				isIntersecting ? ' visible' : ''
 			} d-flex overflow-hidden position-relative`}>
 			<div
-				className={`container position-relative d-flex flex-grow-1 flex-row py-20${
+				className={`container position-relative d-flex flex-grow-1 flex-row ${
 					!['cover'].includes(template[id].layout)
-						? ' py-lg-40 py-xl-50'
-						: ''
+						? 'py-20 py-lg-40 py-xl-50'
+						: 'py-10'
 				}`}>
 				{showPager ? <Pager id={id} /> : null}
 				{!['cover'].includes(template[id].layout) ? (
@@ -146,7 +146,7 @@ const Section = ({
 											? ' col-md-7 pe-md-20'
 											: '') +
 										(['full'].includes(template[id].layout)
-											? ' col-md-9 col-lg-8'
+											? ' col-md-10 col-lg-8'
 											: '') +
 										(['left', undefined].includes(
 											template[id].layout

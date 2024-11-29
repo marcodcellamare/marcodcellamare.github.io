@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCounter } from '@hooks';
+import '@styles/components/Counter.scss';
 
 const Counter = ({
 	since,
+	showOnly = [],
 	newLineAt,
 	className = '',
 	classNamePre = '',
@@ -12,6 +14,7 @@ const Counter = ({
 	suffx = '',
 }: {
 	since: string;
+	showOnly?: string[];
 	newLineAt?: string;
 	className?: string;
 	classNamePre?: string;
@@ -25,11 +28,20 @@ const Counter = ({
 	const [newLineAtIdx, setNewLineAtIdx] = useState(-1);
 	const counter = useCounter(since);
 
+	/*
 	useEffect(() => {
 		// Set the show array with the counter's keys of the items that are > 0
-		setShow(Object.keys(counter).filter((type) => counter[type] > 0));
+		setShow(
+			Object.keys(counter).filter((type) => {
+				if (showOnly.length > 0) {
+					return showOnly.indexOf(type) >= 0;
+				} else {
+					return counter[type] > 0;
+				}
+			})
+		);
 		setTypes(Object.keys(counter));
-	}, [counter]);
+	}, [counter, showOnly]);
 
 	useEffect(() => {
 		if (!newLineAt || types.length === 0 || !types.includes(newLineAt))
@@ -45,6 +57,7 @@ const Counter = ({
 		// Set the new line index and the types that will go on the new line
 		setNewLineAtIdx(index);
 	}, [types, show, newLineAt]);
+	*/
 
 	return show.length > 0 ? (
 		<p className={`counter ${className}`.trim()}>

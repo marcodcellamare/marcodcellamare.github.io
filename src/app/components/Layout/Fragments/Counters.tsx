@@ -17,12 +17,14 @@ const Counters = ({
 
 	return items.length > 0 ? (
 		<div className={`section-counters ${className}`.trim()}>
-			{items.map((item, k) => {
-				return (
-					<div
-						key={k}
-						className='row'>
-						<div className='col-12'>
+			<div className='row g-1'>
+				{items.map((item, k) => {
+					return (
+						<div
+							key={k}
+							className={`col-12 d-flex flex-grow-1 ${
+								item.classNameWrapper || ''
+							}`.trim()}>
 							{i18n.exists(
 								`page.${routeId}:sections.${id}.counters.${k}.TITLE`
 							) ? (
@@ -34,6 +36,7 @@ const Counters = ({
 							) : null}
 							<Counter
 								since={item.since}
+								showOnly={item.showOnly}
 								newLineAt={item.newLineAt}
 								className={item.className}
 								classNamePre={item.classNamePre}
@@ -46,9 +49,9 @@ const Counters = ({
 								)}
 							/>
 						</div>
-					</div>
-				);
-			})}
+					);
+				})}
+			</div>
 		</div>
 	) : null;
 };
