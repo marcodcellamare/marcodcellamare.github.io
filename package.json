@@ -1,29 +1,67 @@
 {
-  "name": "marcodcellamare.github.io",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.25.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react": "^4.4.1",
-    "eslint": "^9.25.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "globals": "^16.0.0",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.30.1",
-    "vite": "^6.3.5"
-  }
+	"name": "marcodcellamare.github.io",
+	"private": false,
+	"version": "3.0.0",
+	"repository": {
+		"url": "https://github.com/marcodcellamare/marcodcellamare.github.io.git"
+	},
+	"author": {
+		"name": "Marco D. Cellamare",
+		"email": "md.cellamare@gmail.com",
+		"url": "https://github.com/marcodcellamare/"
+	},
+	"license": "UNLICENSED",
+	"created": "2025-02-13",
+	"homepage": "./",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"dev:host": "vite --host",
+		"lint": "eslint .",
+		"build": "tsc -b && vite build",
+		"preview": "vite preview",
+		"deploy": "gh-pages -d dist"
+	},
+	"dependencies": {
+		"classnames": "^2.5.1",
+		"culori": "^4.0.1",
+		"firebase": "^11.3.1",
+		"i18next": "^25.0.0",
+		"i18next-browser-languagedetector": "^8.0.2",
+		"lucide-react": "^0.511.0",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-i18next": "^15.4.0",
+		"react-router-dom": "^7.1.5"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.25.0",
+		"@tailwindcss/typography": "^0.5.16",
+		"@tailwindcss/vite": "^4.0.6",
+		"@types/culori": "^4.0.0",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2",
+		"@vitejs/plugin-react": "^4.4.1",
+		"daisyui": "^5.0.0-beta.7",
+		"eslint": "^9.25.0",
+		"eslint-import-resolver-typescript": "^4.2.1",
+		"eslint-plugin-import": "^2.31.0",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
+		"eslint-plugin-react": "^7.37.4",
+		"eslint-plugin-react-hooks": "^5.1.0",
+		"eslint-plugin-react-refresh": "^0.4.19",
+		"@typescript-eslint/eslint-plugin": "^8.24.0",
+		"@typescript-eslint/parser": "^8.24.0",
+		"@vitejs/plugin-react-swc": "^3.5.0",
+		"gh-pages": "^6.3.0",
+		"rollup-plugin-visualizer": "^5.14.0",
+		"tailwindcss": "^4.0.10",
+		"terser": "^5.39.0",
+		"globals": "^16.0.0",
+		"typescript": "~5.8.3",
+		"typescript-eslint": "^8.30.1",
+		"dotenv": "^16.4.7",
+		"vite": "^6.3.5",
+		"vite-tsconfig-paths": "^5.1.4"
+	}
 }

@@ -1,0 +1,27 @@
+@layer components {
+	.scrollbar::-webkit-scrollbar {
+		@apply w-[0.5rem]
+			h-[0.5rem];
+	}
+
+	.scrollbar::-webkit-scrollbar-track {
+		@apply bg-base-100
+			rounded-none;
+	}
+
+	.scrollbar::-webkit-scrollbar-thumb {
+		@apply bg-primary
+			border-none
+			rounded-none;
+	}
+
+	.scrollbar::-webkit-scrollbar-thumb:hover {
+		@apply bg-accent
+			cursor-grab;
+	}
+
+	.scrollbar::-webkit-scrollbar-thumb:active {
+		@apply bg-accent
+			cursor-grabbing;
+	}
+}

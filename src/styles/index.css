@@ -1,0 +1,31 @@
+@import './config.css';
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		width: -webkit-fill-available;
+		height: -webkit-fill-available;
+	}
+
+	body {
+		@apply overscroll-x-none
+			overscroll-y-none
+			min-h-[100vh]
+			max-w-[100vw]
+			overflow-hidden
+			select-none;
+
+		min-height: -webkit-fill-available;
+	}
+
+	* {
+		@apply focus-visible:outline-0
+			focus-visible:shadow-none;
+	}
+}
+@layer utilities {
+	.forced-to-be-included {
+		@apply text-base;
+		@apply text-sm;
+	}
+}
