@@ -1,3 +1,6 @@
+@use '../config/colors';
+@use '../config/fonts';
+
 // Variables
 //
 // Variables should follow the `$component-state-property-size` formula for
@@ -7,15 +10,15 @@
 
 // scss-docs-start gray-color-variables
 $white: #fff !default;
-$gray-100: $palette-gray-100 !default;
-$gray-200: $palette-gray-200 !default;
-$gray-300: $palette-gray-300 !default;
-$gray-400: $palette-gray-400 !default;
-$gray-500: $palette-gray-500 !default;
-$gray-600: $palette-gray-600 !default;
-$gray-700: $palette-gray-700 !default;
-$gray-800: $palette-gray-800 !default;
-$gray-900: $palette-gray-900 !default;
+$gray-100: colors.$light !default;
+$gray-200: lighten(colors.$gray, 70%) !default;
+$gray-300: lighten(colors.$gray, 60%) !default;
+$gray-400: lighten(colors.$gray, 50%) !default;
+$gray-500: lighten(colors.$gray, 40%) !default;
+$gray-600: lighten(colors.$gray, 30%) !default;
+$gray-700: lighten(colors.$gray, 20%) !default;
+$gray-800: lighten(colors.$gray, 10%) !default;
+$gray-900: colors.$gray !default;
 $black: #000 !default;
 // scss-docs-end gray-color-variables
 
@@ -40,10 +43,10 @@ $blue: #0d6efd !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
 $pink: #d63384 !default;
-$red: $palette-danger !default;
+$red: colors.$red !default;
 $orange: #fd7e14 !default;
 $yellow: #ffc107 !default;
-$green: $palette-success !default;
+$green: colors.$green !default;
 $teal: #20c997 !default;
 $cyan: #0dcaf0 !default;
 // scss-docs-end color-variables
@@ -663,7 +666,7 @@ $aspect-ratios: (
 
 // scss-docs-start font-variables
 // stylelint-disable value-keyword-case
-$font-family-sans-serif: $font-body-face, system-ui, -apple-system, 'Segoe UI',
+$font-family-sans-serif: fonts.$body-face, system-ui, -apple-system, 'Segoe UI',
 	Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif,
 	'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
@@ -680,11 +683,11 @@ $font-size-sm: $font-size-base * 0.875 !default;
 $font-size-lg: $font-size-base * 1.25 !default;
 
 $font-weight-lighter: lighter !default;
-$font-weight-light: $font-body-weight-light !default;
-$font-weight-normal: $font-body-weight-normal !default;
-$font-weight-medium: $font-body-weight-medium !default;
-$font-weight-semibold: $font-body-weight-semibold !default;
-$font-weight-bold: $font-body-weight-bold !default;
+$font-weight-light: fonts.$body-weight-light !default;
+$font-weight-normal: fonts.$body-weight-normal !default;
+$font-weight-medium: fonts.$body-weight-medium !default;
+$font-weight-semibold: fonts.$body-weight-semibold !default;
+$font-weight-bold: fonts.$body-weight-bold !default;
 $font-weight-bolder: bolder !default;
 
 $font-weight-base: $font-weight-normal !default;
@@ -714,10 +717,10 @@ $font-sizes: (
 
 // scss-docs-start headings-variables
 $headings-margin-bottom: $spacer * 0.5 !default;
-$headings-font-family: $font-heading-face, $font-family-sans-serif !default;
+$headings-font-family: fonts.$heading-face, $font-family-sans-serif !default;
 $headings-font-style: null !default;
-$headings-font-weight: $font-heading-weight !default;
-$headings-line-height: $font-heading-lh !default;
+$headings-font-weight: fonts.$heading-weight-normal !default;
+$headings-line-height: fonts.$heading-lh !default;
 $headings-color: inherit !default;
 // scss-docs-end headings-variables
 
@@ -1868,4 +1871,4 @@ $nested-kbd-font-weight: null !default; // Deprecated in v5.2.0, removing in v6
 
 $pre-color: null !default;
 
-@import '~bootstrap/scss/variables-dark'; // TODO: can be removed safely in v6, only here to avoid breaking changes in v5.3
+//@import '~bootstrap/scss/variables-dark'; // TODO: can be removed safely in v6, only here to avoid breaking changes in v5.3

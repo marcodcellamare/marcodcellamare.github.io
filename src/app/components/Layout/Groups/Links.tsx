@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from '@components/Misc';
+import Link from '../Elements/Link';
 import '@styles/components/Links.scss';
 
 const Links = ({ className = '' }: { className?: string }) => {

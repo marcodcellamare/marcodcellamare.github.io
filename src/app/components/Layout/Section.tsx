@@ -1,31 +1,36 @@
 import { RefObject, useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Pager, Title } from '@components/Misc';
-import { Cover, Wrapper, Images } from './Fragments';
+import Title from '@components/Misc/Title';
+import Pager from './Elements/Pager';
+import Cover from './Views/Cover';
 import { useIntersecting, useScrolling } from '@hooks';
-import { useTemplate } from '@components/Provider/Template';
-import RoutesTreeInterface from '@interfaces/routesTree';
+import ItfRoutesTree from '@interfaces/routesTree';
 import '@styles/components/Section.scss';
+import Default from './Views/Default';
+import Wrapper from './Views/Wrapper';
+import Content from './Views/Content';
 
 const Section = ({
-	id,
+	sectionId,
 	route,
+	theme = '',
+	layout = 'left',
 	showPager,
 	scrollPosition,
 	slideTo,
 	setActive,
 }: {
-	id: number;
-	route: RoutesTreeInterface;
+	sectionId: number;
+	route: ItfRoutesTree;
+	theme?: string;
+	layout?: string;
 	showPager: boolean;
 	scrollPosition: number;
 	slideTo: Function;
 	setActive: Function;
 }) => {
 	const { i18n } = useTranslation();
-	const template = useTemplate();
 	const ref = useRef<HTMLDivElement>(null);
-	const spacer = 'mb-10 mb-md-15';
 	const isScrolling = useScrolling();
 	const isIntersecting = useIntersecting(ref);
 
@@ -89,6 +94,39 @@ const Section = ({
 		[]
 	);
 
+	// A function that returns the right view
+
+	const views = useCallback(() => {
+		switch (layout) {
+			case 'cover':
+				return <Cover className='d-flex flex-grow-1' />;
+
+			default:
+				return (
+					<Default className='align-self-center flex-grow-1'>
+						<Content
+							sectionId={sectionId}
+							className='mb-10 mb-md-15'
+							title={i18n.t(
+								`page.${route.id}:sections.${sectionId}.content.TITLE`
+							)}
+							subtitle={i18n.t(
+								`page.${route.id}:sections.${sectionId}.content.SUBTITLE`
+							)}
+							text={i18n.t(
+								`page.${route.id}:sections.${sectionId}.content.TEXT`
+							)}
+						/>
+						<Wrapper
+							sectionId={sectionId}
+							route={route}
+							className='mb-10 mb-md-15'
+						/>
+					</Default>
+				);
+		}
+	}, [i18n, layout, sectionId, route]);
+
 	useEffect(() => {
 		// Slide to the top of the active slide when the user is not scrolling
 		if (!isScrolling && isIntersectingTop(ref, 4)) {
@@ -99,11 +137,11 @@ const Section = ({
 	useEffect(() => {
 		// Set active slide
 		if (isIntersectingWhole(ref) || isIntersectingCenter(ref)) {
-			setActive({ id, theme: template[id].theme });
+			setActive({ sectionId, theme: theme });
 		}
 	}, [
-		id,
-		template,
+		sectionId,
+		theme,
 		scrollPosition,
 		setActive,
 		isIntersectingWhole,
@@ -113,62 +151,22 @@ const Section = ({
 	return (
 		<section
 			ref={ref}
-			className={`section-${id} section-${template[id].theme}${
+			className={`section-${sectionId} section-${theme}${
 				isIntersecting ? ' visible' : ''
 			} d-flex overflow-hidden position-relative`}>
 			<div
 				className={`container position-relative d-flex flex-grow-1 flex-row ${
-					!['cover'].includes(template[id].layout)
+					!['cover'].includes(layout)
 						? 'py-20 py-lg-40 py-xl-50'
 						: 'py-10'
 				}`}>
-				{showPager ? <Pager id={id} /> : null}
-				{!['cover'].includes(template[id].layout) ? (
-					<div className='row align-self-center flex-grow-1'>
-						<div className='col d-flex'>
-							<div className='section-wrapper row flex-grow-1 position-relative'>
-								{['left', 'right', undefined].includes(
-									template[id].layout
-								) ? (
-									<div className='col-12 col-md-5 align-self-center mb-10 mb-sm-15 mb-md-0'>
-										<Images
-											images={template[id].images}
-											blob={template[id].imageBlob}
-										/>
-									</div>
-								) : null}
-								<div
-									className={
-										'col-12 align-self-center position-relative z-1' +
-										(['left', 'right', undefined].includes(
-											template[id].layout
-										)
-											? ' col-md-7 pe-md-20'
-											: '') +
-										(['full'].includes(template[id].layout)
-											? ' col-md-10 col-lg-8'
-											: '') +
-										(['left', undefined].includes(
-											template[id].layout
-										)
-											? ' order-md-first'
-											: '')
-									}>
-									<Wrapper
-										id={id}
-										route={route}
-										className={spacer}
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
-				) : (
-					<Cover className='d-flex flex-grow-1' />
-				)}
+				{showPager ? <Pager sectionId={sectionId} /> : null}
+				{views()}
 			</div>
 			<Title
-				content={i18n.t(`page.${route.id}:sections.${id}.SLIDE_TITLE`)}
+				content={i18n.t(
+					`page.${route.id}:sections.${sectionId}.content.NAME`
+				)}
 			/>
 		</section>
 	);

@@ -1,13 +1,13 @@
-import { Text } from '@components/Misc';
+import Text from '@components/Misc/Text';
 
 const Content = ({
-	id,
+	sectionId,
 	title,
 	subtitle,
 	text,
 	className = '',
 }: {
-	id: number;
+	sectionId: number;
 	title?: string;
 	subtitle?: string;
 	text?: string;
@@ -16,7 +16,7 @@ const Content = ({
 	return (
 		<div className={`section-content ${className}`.trim()}>
 			<Text
-				as={id === 0 ? 'h1' : 'h2'}
+				as={sectionId === 0 ? 'h1' : 'h2'}
 				className={`display-2 fw-bold ${
 					subtitle || text ? 'mt-0 mb-5' : 'my-0'
 				}`}>

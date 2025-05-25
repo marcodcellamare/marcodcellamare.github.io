@@ -14,11 +14,30 @@
 				"default",
 				"com",
 				"nav",
-				"page.Home",
-				"page.Resume",
-				"page.Projects"
+				"page.Home"
 			]
 		}
+	},
+	"nav": {
+		"path": "/",
+		"children": [
+			{
+				"path": "/resume",
+				"children": [
+					{
+						"path": "/front-end-developer",
+						"hidden": true
+					},
+					{
+						"path": "/back-end-developer",
+						"hidden": true
+					}
+				]
+			},
+			{
+				"path": "/projects"
+			}
+		]
 	},
 	"fonts": [
 		{
@@ -87,26 +106,5 @@
 			"href": "%PUBLIC_URL%/images/marco-d-cellamare.webp",
 			"as": "image"
 		}
-	],
-	"nav": {
-		"path": "/",
-		"children": [
-			{
-				"path": "/resume",
-				"children": [
-					{
-						"path": "/front-end-developer",
-						"hidden": true
-					},
-					{
-						"path": "/back-end-developer",
-						"hidden": true
-					}
-				]
-			},
-			{
-				"path": "/projects"
-			}
-		]
-	}
+	]
 }

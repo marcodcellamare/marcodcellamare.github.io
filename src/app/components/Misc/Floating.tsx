@@ -95,19 +95,35 @@ const Floating = ({
 			//
 
 			if (perspective) {
+				// Set a limit to the perspective rotation to avoid graphical glitches
+
+				const perspectiveLimit = 10;
+				const perspectiveTransformX =
+					(mousePosition.x -
+						ref.current.getBoundingClientRect().left -
+						ref.current.getBoundingClientRect().width / 2) /
+					ratio.x;
+
+				const perspectiveTransformY =
+					(mousePosition.y -
+						ref.current.getBoundingClientRect().top -
+						ref.current.getBoundingClientRect().height / 2) /
+					ratio.y;
+
 				setPerspectiveTransform({
 					x:
-						(mousePosition.x -
-							ref.current.getBoundingClientRect().left -
-							ref.current.getBoundingClientRect().width / 2) /
-						ratio.x,
-
-					y:
-						-(
-							mousePosition.y -
-							ref.current.getBoundingClientRect().top -
-							ref.current.getBoundingClientRect().height / 2
-						) / ratio.y,
+						perspectiveTransformX < -perspectiveLimit ||
+						perspectiveTransformX > perspectiveLimit
+							? perspectiveTransformX < 0
+								? -perspectiveLimit
+								: perspectiveLimit
+							: perspectiveTransformX,
+					y: -(perspectiveTransformY < -perspectiveLimit ||
+					perspectiveTransformY > perspectiveLimit
+						? perspectiveTransformY < 0
+							? -perspectiveLimit
+							: perspectiveLimit
+						: perspectiveTransformY),
 				});
 				if (shadow) {
 					setPerspectiveShadow({
@@ -156,7 +172,11 @@ const Floating = ({
 										? `translateY(${position.y}px) `
 										: '') +
 									(perspective
-										? `perspective(${perspective}px) ` +
+										? `perspective(${
+												perspective >= 100
+													? perspective
+													: 100
+										  }px) ` +
 										  `rotateX(${perspectiveTransform.y}deg) ` +
 										  `rotateY(${perspectiveTransform.x}deg) `
 										: '')

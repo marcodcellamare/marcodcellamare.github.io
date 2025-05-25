@@ -6,6 +6,9 @@
 			"@config": [
 				"src/config.json"
 			],
+			"@router/*": [
+				"src/router/*"
+			],
 			"@components/*": [
 				"src/app/components/*"
 			],
@@ -14,6 +17,9 @@
 			],
 			"@hooks": [
 				"src/hooks/index.ts"
+			],
+			"@providers/*": [
+				"src/providers/*"
 			],
 			"@styles/*": [
 				"src/styles/*"

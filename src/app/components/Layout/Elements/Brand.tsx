@@ -17,7 +17,7 @@ import { ReactComponent as Natuzzi } from '@assets/images/brands/natuzzi.svg';
 import { ReactComponent as NewYorkYankees } from '@assets/images/brands/new-york-yankees.svg';
 import { ReactComponent as RegionePuglia } from '@assets/images/brands/regione-puglia.svg';
 import { ReactComponent as Volvo } from '@assets/images/brands/volvo.svg';
-import '@styles/components/Brand.scss';
+//import '@styles/components/Brand.scss';
 
 const components = {
 	Adecco,

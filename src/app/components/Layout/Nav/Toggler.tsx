@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react';
-import '@styles/components/NavToggler.scss';
+////import '@styles/components/NavToggler.scss';
 
 const Toggler = ({
 	active,

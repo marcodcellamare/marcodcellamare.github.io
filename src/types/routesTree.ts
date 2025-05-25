@@ -1,10 +1,9 @@
-interface RoutesTree {
+export default interface ItfRoutesTree {
 	path: string;
 	id?: string;
 	current?: string;
 	parent?: string;
-	children?: RoutesTree[];
+	children?: ItfRoutesTree[];
 	hidden?: boolean;
 	deep?: number;
 }
-export default RoutesTree;

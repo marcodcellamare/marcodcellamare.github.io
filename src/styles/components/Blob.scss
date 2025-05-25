@@ -1,4 +1,4 @@
-@import './importer';
+@use './importer';
 
 /*! purgecss start ignore */
 .blob {
@@ -10,7 +10,7 @@
 		opacity: 1;
 	}
 	svg {
-		fill: rgba($dark, 0.15);
+		fill: rgba(importer.$dark, 0.15);
 		transition: fill 0.3s ease-in-out;
 		pointer-events: all;
 
@@ -22,7 +22,7 @@
 	}
 	&.hover {
 		svg {
-			fill: rgba($dark, 0.3);
+			fill: rgba(importer.$dark, 0.3);
 
 			path {
 				transition-duration: 0.3s;

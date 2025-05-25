@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Carousel as BsCarousel } from 'bootstrap/dist/js/bootstrap.esm.min.js';
-import { Image } from '@components/Misc';
+import Image from '../Elements/Image';
 import { ImageTemplate } from '@interfaces/template/image';
 
 const Carousel = ({

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from '@components/Misc';
+import Link from '../Elements/Link';
 import { ButtonTemplate as ButtonTemplateInterface } from '@interfaces/template/button';
 
 const Buttons = ({

@@ -1,4 +1,4 @@
-import { Period } from '@components/Misc';
+import Period from '../Elements/Period';
 import { PeriodTemplate as PeriodTemplateInterface } from '@interfaces/template/period';
 
 const Periods = ({

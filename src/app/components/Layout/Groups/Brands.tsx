@@ -1,5 +1,5 @@
-import { Brand } from '@components/Misc';
-import '@styles/components/Brands.scss';
+import Brand from '../Elements/Brand';
+//import '@styles/components/Brands.scss';
 
 const Brands = ({
 	id,

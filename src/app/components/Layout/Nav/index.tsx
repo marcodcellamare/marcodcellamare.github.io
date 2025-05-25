@@ -8,11 +8,9 @@ import {
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { DashLg } from 'react-bootstrap-icons';
-import routeTree from '@components/Router/tree';
-import routePaths from '@components/Router/paths';
-import Config from '@config';
-import RoutesTreeInterface from '@interfaces/routesTree';
-import '@styles/components/Nav.scss';
+import { useRouter } from '@providers/router';
+import ItfRoutesTree from '@interfaces/routesTree';
+////import '@styles/components/Nav.scss';
 
 const Nav = ({
 	active,
@@ -24,8 +22,9 @@ const Nav = ({
 	onFadeOut: Function;
 }) => {
 	const { i18n } = useTranslation();
-	const nav: RoutesTreeInterface[] = [Config.nav];
 	const [show, setShow] = useState<boolean>(false);
+	const router = useRouter();
+
 	let timer = useRef(null);
 	let navCounter: number = 0;
 
@@ -53,8 +52,9 @@ const Nav = ({
 				<div className='row flex-grow-1 align-self-center'>
 					<div className='col'>
 						<ul className='nav-menu list-unstyled h1 display-2 fw-bold lh-1'>
-							{routeTree(routePaths(nav)).map(
-								(route: RoutesTreeInterface, k: number) => {
+							{router
+								.iterate()
+								.map((route: ItfRoutesTree, k: number) => {
 									if (!route.hidden) navCounter++;
 
 									return !route.hidden ? (
@@ -102,8 +102,7 @@ const Nav = ({
 											</NavLink>
 										</li>
 									) : null;
-								}
-							)}
+								})}
 						</ul>
 					</div>
 				</div>

@@ -1,7 +1,7 @@
-import { Blob } from '@components/Misc';
-import Carousel from './Carousel';
+import Blob from '@components/Misc/Blob';
+import Carousel from '../Views/Carousel';
 import { ImageTemplate } from '@interfaces/template/image';
-import '@styles/components/Images.scss';
+//import '@styles/components/Images.scss';
 
 const Images = ({
 	images,

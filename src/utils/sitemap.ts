@@ -1,8 +1,8 @@
-interface RoutesTreeInterface {
+interface ItfRoutesTree {
 	path: string;
 	current?: string;
 	parent?: string;
-	children?: RoutesTreeInterface[];
+	children?: ItfRoutesTree[];
 	hidden?: boolean;
 	deep?: number;
 }
@@ -60,11 +60,11 @@ class Sitemap {
 			},
 		};
 		const routes = this.Tree(this.Paths([this.Config.nav])).map(
-			(routes: RoutesTreeInterface[]) => routes
+			(routes: ItfRoutesTree[]) => routes
 		);
 		routes.map(({ path }: { path: string }) => this.Url(path));
 	}
-	Tree(routes: RoutesTreeInterface[]) {
+	Tree(routes: ItfRoutesTree[]) {
 		let flatRoutes = routes
 			.map((route) => {
 				let newRoute = [
@@ -77,7 +77,7 @@ class Sitemap {
 
 		// Calculating the deep level
 
-		flatRoutes.forEach((flatRoute: RoutesTreeInterface) => {
+		flatRoutes.forEach((flatRoute: ItfRoutesTree) => {
 			const parent = flatRoutes.find(
 				({ path }) => path === flatRoute.parent
 			);
@@ -85,7 +85,7 @@ class Sitemap {
 		});
 		return flatRoutes;
 	}
-	Paths(nav: RoutesTreeInterface[], parentPath: string = '') {
+	Paths(nav: ItfRoutesTree[], parentPath: string = '') {
 		return nav.map((route) => {
 			const path = this.Combine(parentPath, route.path);
 

@@ -1,17 +1,17 @@
 import { useTranslation } from 'react-i18next';
-import { Floating } from './';
+import Floating from '../../Misc/Floating';
 import '@styles/components/Pager.scss';
 
-const Pager = ({ id }: { id: number }) => {
+const Pager = ({ sectionId }: { sectionId: number }) => {
 	const { i18n } = useTranslation();
 
 	return (
 		<Floating
 			ratio={{ x: 0, y: 30 }}
 			className={`pager pager-${
-				id <= 8 ? id : 'all'
+				sectionId <= 8 ? sectionId : 'all'
 			} position-absolute top-0 bottom-0`}>
-			{id > 0 ? (
+			{sectionId > 0 ? (
 				<div className='pager-wrapper position-absolute start-0'>
 					<div className='pager-polygon position-absolute top-50 start-0' />
 					<div className='pager-title position-relative d-none d-md-block'>

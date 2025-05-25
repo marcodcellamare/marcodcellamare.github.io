@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import blobshape from 'blobshape';
 import { v4 as uuidv4 } from 'uuid';
 import { useResizing } from '@hooks';
-import '@styles/components/Blob.scss';
+//import '@styles/components/Blob.scss';
 
 const Blob = ({
 	children,

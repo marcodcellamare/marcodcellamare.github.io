@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { DashLg } from 'react-bootstrap-icons';
-import '@styles/components/Period.scss';
+//import '@styles/components/Period.scss';
 
 const Period = ({
 	dates,

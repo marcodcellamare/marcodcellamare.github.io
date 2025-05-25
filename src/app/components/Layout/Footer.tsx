@@ -1,5 +1,5 @@
-import { Love } from '@components/Misc';
-import { Links } from './Fragments';
+import Love from './Elements/Love';
+import Links from './Groups/Links';
 
 const Footer = () => {
 	return (
@@ -10,9 +10,7 @@ const Footer = () => {
 						<Love className='mb-3 my-md-0' />
 					</div>
 					<div className='col-auto align-self-center'>
-						<Links
-							className={'mb-1 mb-md-0 ms-md-7 me-7 me-md-0'}
-						/>
+						<Links className='mb-1 mb-md-0 ms-md-7 me-7 me-md-0' />
 					</div>
 				</div>
 			</div>

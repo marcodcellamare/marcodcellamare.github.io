@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCounter } from '@hooks';
-import '@styles/components/Counter.scss';
+//import '@styles/components/Counter.scss';
 
 const Counter = ({
 	since,

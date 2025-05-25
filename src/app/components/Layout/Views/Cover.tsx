@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Floating } from '@components/Misc';
+import Floating from '@components/Misc/Floating';
 import { ReactComponent as Logo } from '@assets/images/portfolio.svg';
 
 const Cover = ({ className = '' }: { className?: string }) => {
@@ -36,7 +36,7 @@ const Cover = ({ className = '' }: { className?: string }) => {
 				<Floating
 					className='col-12 col-md-4 col-lg-4 text-center align-self-center'
 					ratio={{ x: 65, y: 65 }}
-					perspective={100}
+					perspective={200}
 					shadow={'svg'}>
 					<Logo className='w-80 w-sm-70 w-md-auto' />
 				</Floating>

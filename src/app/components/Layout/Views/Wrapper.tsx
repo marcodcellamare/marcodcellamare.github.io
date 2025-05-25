@@ -1,19 +1,26 @@
 import { useTranslation } from 'react-i18next';
-import { useTemplate } from '@components/Provider/Template';
-import { Content, Counters, Buttons, Brands, Periods, Lists } from './';
-import RoutesTreeInterface from '@interfaces/routesTree';
+//import { useTemplate } from '@components/Provider/Template';
+
+import Content from './Content';
+import Buttons from '../Groups/Buttons';
+import Brands from '../Groups/Brands';
+import Counters from '../Groups/Counters';
+import Periods from '../Groups/Periods';
+import Lists from '../Groups/Lists';
+
+import ItfRoutesTree from '@interfaces/routesTree';
 
 const Wrapper = ({
-	id,
+	sectionId,
 	route,
 	className,
 }: {
-	id: number;
-	route: RoutesTreeInterface;
+	sectionId: number;
+	route: ItfRoutesTree;
 	className?: string;
 }) => {
 	const { i18n } = useTranslation();
-	const template = useTemplate();
+	//const template = useTemplate();
 
 	const components = [
 		{ type: 'buttons', _: Buttons },
@@ -24,15 +31,10 @@ const Wrapper = ({
 	];
 	return (
 		<>
-			<Content
-				id={id}
-				className={className}
-				title={i18n.t(`page.${route.id}:sections.${id}.TITLE`)}
-				subtitle={i18n.t(`page.${route.id}:sections.${id}.SUBTITLE`)}
-				text={i18n.t(`page.${route.id}:sections.${id}.TEXT`)}
-			/>
 			{components.map((component, k) => {
-				return template[id][component.type] &&
+				return (
+					<div>{component.type}</div>
+				); /*template[id][component.type] &&
 					template[id][component.type].length > 0 ? (
 					<component._
 						key={k}
@@ -42,6 +44,7 @@ const Wrapper = ({
 						items={template[id][component.type]}
 					/>
 				) : null;
+			*/
 			})}
 		</>
 	);

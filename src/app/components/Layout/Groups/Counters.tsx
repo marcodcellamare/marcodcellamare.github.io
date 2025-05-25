@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Counter } from '@components/Misc';
+import Counter from '../Elements/Counter';
 import { CounterTemplate as CounterTemplateInterface } from '@interfaces/template/counter';
 
 const Counters = ({

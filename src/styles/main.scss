@@ -1,20 +1,4 @@
-@import './bootstrap/functions';
-@import './vars';
-
-@import '~bootstrap/scss/mixins/banner';
-@include bsBanner('');
-
-// scss-docs-start import-stack
-// Configuration
-@import '~bootstrap/scss/functions';
-//@import '~bootstrap/scss/variables';
-@import './bootstrap/variables';
-//@import '~bootstrap/scss/variables-dark';
-
-@import '~bootstrap/scss/maps';
-@import '~bootstrap/scss/mixins';
-@import '~bootstrap/scss/utilities';
-@import './bootstrap/utilities';
+@import 'importer';
 
 // Layout & components
 @import '~bootstrap/scss/root';
@@ -56,6 +40,5 @@
 @import '~bootstrap/scss/utilities/api';
 // scss-docs-end import-stack
 
-@import './buttons';
 @import './custom';
 @import './theme';
