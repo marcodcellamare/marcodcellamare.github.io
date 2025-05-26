@@ -4,39 +4,38 @@
 @import './custom/misc.css';
 @import './custom/scrollbar.css';
 @import './custom/lucide.css';
-@import './custom/progress.css';
 @import './custom/overlay.css';
 @import './custom/button.css';
-@import './custom/input.css';
 @import './custom/badge.css';
-@import './custom/toggle.css';
 
 @plugin 'daisyui' {
 	themes: light --default;
 	root: ':root';
-	include: button, link, input, range, toggle, progress, indicator, badge, kbd,
-		loading;
+	include: button, link, badge, loading;
 	logs: true;
 }
 
 @plugin 'daisyui/theme' {
 	name: 'light';
 	default: true;
-	--color-primary: var(--color-slate-500);
-	--color-primary-content: var(--color-slate-200);
-	--color-base-content: var(--color-slate-700);
-	--color-base-100: var(--color-slate-100);
-	--color-base-200: var(--color-slate-200);
-	--color-base-300: var(--color-slate-300);
+
+	--color-palette-red: #e53c3c;
+	--color-palette-green: #01f7c2;
+	--color-palette-dark: #473347;
+	--color-palette-light: #e2ebe8;
+
+	--color-primary: var(--color-palette-dark);
+	--color-secondary: var(--color-palette-red);
+	--color-accent: var(--color-palette-green);
+
+	--color-primary-content: var(--color-palette-light);
+	--color-secondary-content: var(--color-palette-light);
+	--color-accent-content: var(--color-palette-dark);
 }
 
 @theme {
-	--breakpoint-sm: 40rem;
-	--breakpoint-md: 48rem;
-	--breakpoint-lg: 64rem;
-	--breakpoint-xl: 80rem;
-	--breakpoint-2xl: 96rem;
-
+	/*
 	--text-xxs: 0.55rem;
 	--text-xxs--line-height: calc(1 / 0.5);
+	*/
 }
