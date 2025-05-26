@@ -27,10 +27,12 @@
 	--color-primary: var(--color-palette-dark);
 	--color-secondary: var(--color-palette-red);
 	--color-accent: var(--color-palette-green);
+	--color-base-100: var(--color-palette-light);
 
 	--color-primary-content: var(--color-palette-light);
 	--color-secondary-content: var(--color-palette-light);
 	--color-accent-content: var(--color-palette-dark);
+	--color-base-content: var(--color-palette-dark);
 }
 
 @theme {

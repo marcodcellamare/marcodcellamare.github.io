@@ -1,27 +1,35 @@
 @layer components {
-	.scrollbar::-webkit-scrollbar {
-		@apply w-[0.5rem]
-			h-[0.5rem];
-	}
+	.scrollbar {
+		&::-webkit-scrollbar {
+			@apply w-[1rem]
+				h-[1rem];
+		}
+		&::-webkit-scrollbar-track {
+			@apply bg-transparent
+				bg-size-[0.6rem_0.6rem]
+				bg-fixed
+				rounded-none;
 
-	.scrollbar::-webkit-scrollbar-track {
-		@apply bg-base-100
-			rounded-none;
-	}
-
-	.scrollbar::-webkit-scrollbar-thumb {
-		@apply bg-primary
-			border-none
-			rounded-none;
-	}
-
-	.scrollbar::-webkit-scrollbar-thumb:hover {
-		@apply bg-accent
-			cursor-grab;
-	}
-
-	.scrollbar::-webkit-scrollbar-thumb:active {
-		@apply bg-accent
-			cursor-grabbing;
+			background-image: repeating-linear-gradient(
+				45deg,
+				var(--color-primary) 0,
+				var(--color-primary) 0.01rem,
+				--alpha(var(--color-primary) / 0%) 0,
+				--alpha(var(--color-primary) / 0%) 50%
+			);
+		}
+		&::-webkit-scrollbar-thumb {
+			@apply bg-primary
+				border-none
+				rounded-none;
+		}
+		&::-webkit-scrollbar-thumb:hover {
+			@apply bg-accent
+				cursor-grab;
+		}
+		&::-webkit-scrollbar-thumb:active {
+			@apply bg-accent
+				cursor-grabbing;
+		}
 	}
 }
