@@ -1,6 +1,11 @@
 @import './config.css';
 
 @layer base {
+	:root {
+		--font-title: 'Montserrat', sans-serif;
+		--font-body: 'Roboto', sans-serif;
+	}
+
 	html {
 		scroll-behavior: smooth;
 		width: -webkit-fill-available;
@@ -16,11 +21,29 @@
 			select-none;
 
 		min-height: -webkit-fill-available;
+		font-family: var(--font-body);
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--font-title);
 	}
 
 	* {
 		@apply focus-visible:outline-0
 			focus-visible:shadow-none;
+	}
+}
+@layer components {
+	.font-title {
+		font-family: var(--font-title);
+	}
+	.font-body {
+		font-family: var(--font-body);
 	}
 }
 @layer utilities {

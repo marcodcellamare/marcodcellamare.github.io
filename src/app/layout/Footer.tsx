@@ -1,6 +1,11 @@
+import Moods from '../misc/moods';
+import Container from './Container';
+
 const Footer = () => (
 	<footer className='bg-primary text-primary-content'>
-		<div className='container mx-auto px-5 md:px-10 py-5'>Footer</div>
+		<Container>
+			<Moods />
+		</Container>
 	</footer>
 );
 

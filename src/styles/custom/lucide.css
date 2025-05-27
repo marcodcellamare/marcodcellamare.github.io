@@ -1,6 +1,15 @@
 @layer components {
 	.lucide {
 		@apply stroke-2;
+
+		&.font-bold {
+			@apply stroke-3;
+		}
+	}
+	.font-bold {
+		.lucide {
+			@apply stroke-3;
+		}
 	}
 	svg {
 		&.text-svg-inline {
