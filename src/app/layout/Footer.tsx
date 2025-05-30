@@ -1,5 +1,5 @@
-import Moods from '../misc/moods';
-import Container from './Container';
+import Moods from './moods';
+import Container from './elements/Container';
 
 const Footer = () => (
 	<footer className='bg-primary text-primary-content'>

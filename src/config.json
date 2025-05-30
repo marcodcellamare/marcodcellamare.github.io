@@ -9,15 +9,22 @@
 		"groups": {
 			"default": "default",
 			"list": [
-				"default"
+				"default",
+				"home",
+				"projects",
+				"contacts"
 			]
 		}
 	},
 	"pages": {
-		"default": "game",
-		"list": [
-			"game"
-		]
+		"default": "home",
+		"hide": "^",
+		"list": {
+			"home": "/",
+			"projects": "/projects",
+			"projects_test": "^/projects/test",
+			"contacts": "/contacts"
+		}
 	},
 	"meta": [
 		{

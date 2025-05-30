@@ -1,31 +1,42 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+
 import Main from '!/app/layout/Main';
-import Game from '!/app/pages/Game';
+
 import Config from '!config';
 
-const Router = () => {
-	const { i18n } = useTranslation();
-
-	return (
-		<Routes>
-			<Route element={<Main />}>
+const Router = () => (
+	<Routes>
+		<Route element={<Main />}>
+			{(
+				Object.keys(Config.pages.list) as Array<
+					keyof typeof Config.pages.list
+				>
+			).map((pageId) => (
 				<Route
-					path='/:language/game/:cols/:rows/:difficulty/:seed'
-					index
-					element={<Game />}
+					key={pageId}
+					path={Config.pages.list[pageId].slice(
+						Config.pages.list[pageId].startsWith(Config.pages.hide)
+							? 1
+							: 0
+					)}
+					index={pageId === Config.pages.default}
 				/>
-				<Route
-					path='*'
-					element={
-						<Navigate
-							to={`/${i18n.language}/${Config.pages.default}`}
-							replace
-						/>
+			))}
+		</Route>
+		<Route
+			path='*'
+			element={
+				<Navigate
+					to={
+						Config.pages.list[
+							Config.pages
+								.default as keyof typeof Config.pages.list
+						]
 					}
+					replace
 				/>
-			</Route>
-		</Routes>
-	);
-};
+			}
+		/>
+	</Routes>
+);
 export default Router;

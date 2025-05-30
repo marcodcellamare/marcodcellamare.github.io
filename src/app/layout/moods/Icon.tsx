@@ -18,9 +18,10 @@ interface IconProps {
 }
 
 const Icon = ({ type, className = '' }: IconProps) => {
-	const i18n = useTranslation();
+	const { t } = useTranslation();
+
 	const props = {
-		title: i18n.t(`moods.${type}`),
+		title: t(`moods.${type}`),
 		className: classNames(['text-svg-inline', className]),
 	};
 	switch (type) {

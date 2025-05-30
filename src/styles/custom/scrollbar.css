@@ -31,5 +31,9 @@
 			@apply bg-accent
 				cursor-grabbing;
 		}
+		section {
+			/* Fix for the content horizontal centering when the scrollbar is visible */
+			padding-left: calc(100vw - 100%);
+		}
 	}
 }

@@ -10,7 +10,7 @@ interface ContainerProps {
 const Container = ({ className = '', children }: ContainerProps) => (
 	<div
 		className={classNames([
-			'container mx-auto px-5 md:px-10 py-5 border',
+			'container mx-auto px-5 md:px-10 py-5 relative',
 			className,
 		])}>
 		{children}

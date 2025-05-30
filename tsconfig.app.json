@@ -29,6 +29,7 @@
 		"composite": true,
 	},
 	"include": [
+		"types",
 		"src",
 	]
 }

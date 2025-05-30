@@ -13,7 +13,7 @@ import '!/styles/components/Moods.css';
 //import ReactGA from 'react-ga4'
 
 const Moods = () => {
-	const { i18n } = useTranslation();
+	const { t } = useTranslation();
 	const data = moods as MoodInterface[];
 
 	const [status, setStatus] = useState<MoodStatusType>('idle');
@@ -168,12 +168,13 @@ const Moods = () => {
 
 	return (
 		<button
+			type='button'
 			className='moods btn btn-link text-lg text-accent hover:text-base-100 no-underline hover:!no-underline'
 			title={
 				currentIdx >= 0
-					? `${i18n.t('moods.I')} ${i18n
-							.t(`moods.${current.type}`)
-							.toLowerCase()} ${current.title}`
+					? `${t('moods.I')} ${t(
+							`moods.${current.type}`
+					  ).toLowerCase()} ${current.title}`
 					: ''
 			}
 			disabled={!current.link}
@@ -182,7 +183,7 @@ const Moods = () => {
 			onClick={() =>
 				current.link ? openExternalLink(current.link) : null
 			}>
-			{i18n.t('moods.I')}
+			{t('moods.I')}
 			{currentIdx >= 0 ? (
 				<>
 					{status !== 'idle' ? <Icon type={current.type} /> : null}

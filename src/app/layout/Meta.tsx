@@ -9,7 +9,7 @@ import pkg from '!package';
 type CrossOrigin = 'anonymous' | 'use-credentials' | undefined;
 
 const Meta = () => {
-	const { i18n } = useTranslation();
+	const { i18n, t } = useTranslation();
 
 	useEffect(
 		() => document.documentElement.setAttribute('lang', i18n.language),
@@ -18,12 +18,12 @@ const Meta = () => {
 
 	return (
 		<>
-			<title>{`${import.meta.env.DEV ? '[DEV] ' : ''}${i18n.t(
-				'title'
-			)} v${pkg.version}`}</title>
+			<title>{`${import.meta.env.DEV ? '[DEV] ' : ''}${t('title')} v${
+				pkg.version
+			}`}</title>
 			<meta
 				name='description'
-				content={i18n.t('description', { title: i18n.t('title') })}
+				content={t('description', { title: t('title') })}
 			/>
 			<Favicon />
 			{Config.preload.map((preload, k) => (

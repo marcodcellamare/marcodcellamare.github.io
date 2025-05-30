@@ -1,4 +1,5 @@
 @import './config.css';
+@import './themes.css';
 
 @layer base {
 	:root {
@@ -18,19 +19,11 @@
 			min-h-[100vh]
 			max-w-[100vw]
 			overflow-hidden
-			select-none;
+			select-none
+			bg-base-100;
 
 		min-height: -webkit-fill-available;
 		font-family: var(--font-body);
-	}
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		font-family: var(--font-title);
 	}
 
 	* {
@@ -38,14 +31,7 @@
 			focus-visible:shadow-none;
 	}
 }
-@layer components {
-	.font-title {
-		font-family: var(--font-title);
-	}
-	.font-body {
-		font-family: var(--font-body);
-	}
-}
+
 @layer utilities {
 	.forced-to-be-included {
 		@apply text-base;
