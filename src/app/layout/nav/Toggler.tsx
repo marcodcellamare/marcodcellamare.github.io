@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useRouter } from '!/contexts/router';
+import { useSettings } from '!/contexts/settings';
 import classNames from 'classnames';
 
 const Toggler = () => {
-	const { isNavOpened, setIsNavOpened } = useRouter();
+	const { isNavOpened, setIsNavOpened } = useSettings();
 
 	const [isOver, setIsOver] = useState(false);
 

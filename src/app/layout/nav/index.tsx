@@ -1,50 +1,28 @@
-import { useRouter } from '!/contexts/router';
+import { useSettings } from '!/contexts/settings';
 import classNames from 'classnames';
 
+import Container from '../elements/Container';
 import Background from './Background';
-
-import Config from '!config';
-import { NavLink } from 'react-router-dom';
+import Menu from './Menu';
 
 const Nav = () => {
-	const { isNavOpened } = useRouter();
+	const { isNavOpened } = useSettings();
 
 	return (
-		<nav className='absolute top-0 bottom-0 left-0 w-8/10 border-2'>
+		<nav className='absolute top-0 left-0 right-0 bottom-0'>
 			<Background />
 			<div
 				className={classNames([
-					'relative p-10 transition-[translate] duration-500 ease-in-out',
+					'absolute top-0 left-0 right-0 bottom-0 flex overflow-x-hidden overflow-y-auto scrollbar',
+					'transition-[translate] duration-500 ease-in-out',
 					isNavOpened
 						? 'translate-x-0 delay-300'
 						: '-translate-x-full',
 				])}>
-				<ul>
-					{(
-						Object.keys(Config.pages.list) as Array<
-							keyof typeof Config.pages.list
-						>
-					).map((pageId) =>
-						!Config.pages.list[pageId].startsWith(
-							Config.pages.hide
-						) ? (
-							<li key={pageId}>
-								<NavLink
-									to={Config.pages.list[pageId]}
-									className={({ isActive }) =>
-										classNames([
-											'transition-[color,font-size] duration-200 ease-in-out',
-											!isActive
-												? 'h2 text-base-100'
-												: 'h1 text-white',
-										])
-									}>
-									{pageId}
-								</NavLink>
-							</li>
-						) : null
-					)}
-				</ul>
+				<Container className='flex flex-col py-20'>
+					<h1 className='h4 text-secondary'>xxx</h1>
+					<Menu />
+				</Container>
 			</div>
 		</nav>
 	);

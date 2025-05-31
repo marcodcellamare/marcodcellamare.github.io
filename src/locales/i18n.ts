@@ -26,6 +26,10 @@ export const i18n = i18next
 		interpolation: {
 			escapeValue: false,
 		},
+		react: {
+			transSupportBasicHtmlNodes: true,
+			transKeepBasicHtmlNodesFor: Config.html.whitelist,
+		},
 		// Returns an empty string when the translation is missing
-		parseMissingKeyHandler: () => '',
+		//parseMissingKeyHandler: () => undefined,
 	});

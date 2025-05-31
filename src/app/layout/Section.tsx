@@ -1,41 +1,42 @@
-import { ReactNode, useMemo } from 'react';
-import { useParallax } from 'react-scroll-parallax';
+import { useRouter } from '!/contexts/router';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
+import Heading from './elements/Heading';
 import Container from './elements/Container';
-
-import { ThemeType } from '!/types/layout';
+import Content from './elements/Content';
 
 interface SectionProps {
 	sectionId: number;
-	theme?: ThemeType;
 	className?: string;
-	children: ReactNode;
 }
 
-const Section = ({
-	sectionId,
-	theme = 'light-gray',
-	className = '',
-	children,
-}: SectionProps) => {
-	const { ref } = useParallax<HTMLDivElement>({ speed: -10 });
+const Section = ({ sectionId, className = '' }: SectionProps) => {
+	const { pageId } = useRouter();
+	const { i18n, t } = useTranslation(pageId);
 
 	return (
 		<section
-			data-theme={theme}
+			data-theme={t(`sections.${sectionId}.theme`, 'light-gray')}
 			className={classNames([
 				'flex items-center min-h-full relative overflow-hidden bg-base-200 text-base-content',
 				className,
 			])}>
-			<div
-				ref={ref}
-				className='h0 absolute left-0 right-0 flex items-center text-base-100 overflow-hidden'>
-				Parallaxasdf lkasdjfsdfsdf
-			</div>
-			<Container>{children}</Container>
+			{i18n.exists(`${pageId}:sections.${sectionId}.heading.h0`) ? (
+				<Heading
+					as='h2'
+					parallaxProps={{ speed: -10 }}
+					className='h0 absolute left-0 -translate-x-[2%] flex items-center text-base-100 overflow-hidden'>
+					{t(`sections.${sectionId}.heading.h0`)}
+				</Heading>
+			) : null}
+			<Container className='py-20'>
+				{
+					//<Content sectionId={sectionId} />
+				}
+				xxx
+			</Container>
 		</section>
 	);
 };
-
 export default Section;

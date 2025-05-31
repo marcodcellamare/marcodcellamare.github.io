@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import { RouterProvider } from './contexts/router';
+import { SettingsProvider } from './contexts/settings';
 import { ResizeProvider } from './contexts/resize';
 
 import App from './app/index';
@@ -18,9 +19,11 @@ createRoot(document.getElementById('root')!).render(
 	<StrictMode>
 		<HashRouter>
 			<RouterProvider>
-				<ResizeProvider>
-					<App />
-				</ResizeProvider>
+				<SettingsProvider>
+					<ResizeProvider>
+						<App />
+					</ResizeProvider>
+				</SettingsProvider>
 			</RouterProvider>
 		</HashRouter>
 	</StrictMode>

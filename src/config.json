@@ -1,4 +1,11 @@
 {
+	"html": {
+		"whitelist": [
+			"p",
+			"strong",
+			"em"
+		]
+	},
 	"locale": {
 		"allowed": {
 			"default": "en-GB",
@@ -23,6 +30,7 @@
 			"home": "/",
 			"projects": "/projects",
 			"projects_test": "^/projects/test",
+			"music": "/music",
 			"contacts": "/contacts"
 		}
 	},

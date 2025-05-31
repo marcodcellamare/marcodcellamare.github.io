@@ -1,5 +1,6 @@
 @import './config.css';
 @import './themes.css';
+@import './typography.css';
 
 @layer base {
 	:root {

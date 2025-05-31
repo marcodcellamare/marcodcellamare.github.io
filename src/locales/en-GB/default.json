@@ -1,5 +1,12 @@
 {
 	"title": "The Portfolio of Marco D. Cellamare",
+	"nav": {
+		"home": "Home",
+		"projects": "Projects",
+		"projects_test": "Test",
+		"music": "Music",
+		"contacts": "Contacts"
+	},
 	"moods": {
 		"I": "I",
 		"love": "Love",

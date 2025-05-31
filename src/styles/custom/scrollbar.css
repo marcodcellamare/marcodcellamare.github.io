@@ -12,14 +12,14 @@
 
 			background-image: repeating-linear-gradient(
 				45deg,
-				var(--color-primary) 0,
-				var(--color-primary) 0.01rem,
+				var(--color-base-content) 0,
+				var(--color-base-content) 0.01rem,
 				--alpha(var(--color-primary) / 0%) 0,
 				--alpha(var(--color-primary) / 0%) 50%
 			);
 		}
 		&::-webkit-scrollbar-thumb {
-			@apply bg-primary
+			@apply bg-base-content
 				border-none
 				rounded-none;
 		}

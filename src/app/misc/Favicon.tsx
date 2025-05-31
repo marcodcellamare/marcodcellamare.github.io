@@ -13,7 +13,7 @@ const Favicon = () => {
 			const svgString = renderToStaticMarkup(
 				<CircleUserIcon
 					size={24}
-					color={cssVariable('--color-secondary')}
+					color={cssVariable('--color-primary')}
 				/>
 			);
 			setHref(`data:image/svg+xml,${encodeURIComponent(svgString)}`);

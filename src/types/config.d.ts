@@ -1,35 +1,40 @@
 declare module 'config.json' {
 	const value: {
-		locale: localeInterface;
-		pages: pagesInterface;
-		meta: metaType;
-		preload: preloadType;
+		html: HtmlInterface;
+		locale: LocaleInterface;
+		pages: PagesInterface;
+		meta: MetaType;
+		preload: PreloadType;
 	};
 	export default value;
 }
 
-type localeType = 'en-GB';
-type groupType = 'default' | pageType;
-type pageType = 'home' | 'projects' | 'projects_test' | 'contacts';
+type LocaleType = 'en-GB';
+type GroupType = 'default' | PageIdType;
+type PageIdType = 'home' | 'projects' | 'projects_test' | 'music' | 'contacts';
 
-interface localeInterface {
+interface HtmlInterface {
+	whitelist: string[];
+}
+
+interface LocaleInterface {
 	allowed: {
-		default: localeType;
-		list: localeType[];
+		default: LocaleType;
+		list: LocaleType[];
 	};
 	groups: {
-		default: groupType;
-		list: groupType[];
+		default: GroupType;
+		list: GroupType[];
 	};
 }
 
-interface pagesInterface {
-	default: pageType;
+interface PagesInterface {
+	default: PageIdType;
 	hide: string;
-	list: Record<pageType, string>;
+	list: Record<PageIdType, string>;
 }
 
-type metaType = Array<
+type MetaType = Array<
 	| {
 			httpEquiv: string;
 			content: string | string[];
@@ -40,7 +45,7 @@ type metaType = Array<
 	  }
 >;
 
-type preloadType = Array<{
+type PreloadType = Array<{
 	rel: 'dns-prefetch' | 'dns-preconnect' | 'preconnect';
 	href: string;
 	crossorigin?: string;

@@ -8,60 +8,39 @@ import Section from './Section';
 import { SectionInterface } from '!/types/layout';
 
 const Main = () => {
-	const { t } = useTranslation();
 	const { pageId } = useRouter();
+	const { t } = useTranslation(pageId);
 
-	const [container, setContainer] = useState<HTMLElement | undefined>(
-		undefined
-	);
+	const [ready, setReady] = useState(false);
 
 	const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-	const sections = t(`${pageId}:sections`, {
+	const sections = t('sections', {
 		returnObjects: true,
+		defaultValue: [],
 	}) as SectionInterface[];
 
+	// Only set ready after a small delay to let the DOM layout stabilize
+
 	useEffect(() => {
-		if (scrollContainerRef.current)
-			setContainer(scrollContainerRef.current);
+		requestAnimationFrame(() => {
+			if (scrollContainerRef.current) setReady(true);
+		});
 	}, []);
 
 	return (
-		<main className='flex flex-col flex-1 relative'>
+		<main className='flex flex-col flex-1 h-full relative'>
 			<div
 				ref={scrollContainerRef}
 				className='absolute top-0 bottom-0 left-0 right-0 overflow-x-hidden overflow-y-auto scrollbar'>
-				{container && sections.length > 0 ? (
-					<ParallaxProvider scrollContainer={container}>
-						{sections.map((section, k) => (
+				{ready && scrollContainerRef.current ? (
+					<ParallaxProvider
+						scrollContainer={scrollContainerRef.current}>
+						{sections.map((_, k) => (
 							<Section
 								key={k}
 								sectionId={k}
-								theme={section.theme}>
-								<div className='content'>
-									<div className='heading'>
-										<h2 className='h1 text-primary'>
-											{section.title}
-										</h2>
-										<h3 className='h2 text-secondary'>
-											{section.title}
-										</h3>
-										<h4 className='h3 text-accent'>
-											{section.title}
-										</h4>
-									</div>
-									<h5 className='h4 text-accent'>
-										{section.title}
-									</h5>
-									<h6 className='h5 text-accent'>
-										{section.title}
-									</h6>
-									<h6 className='h6 text-accent'>
-										{section.title}
-									</h6>
-									<p>{section.title}</p>
-								</div>
-							</Section>
+							/>
 						))}
 					</ParallaxProvider>
 				) : null}
