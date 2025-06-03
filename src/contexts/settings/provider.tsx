@@ -1,21 +1,21 @@
-import { ReactNode, useCallback, useMemo, useState } from 'react';
+import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import { SettingsContext } from './context';
 
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '../router';
 
-import { ThemeType } from '!/types/layout';
+import { TemplateType, ThemeType } from '!/types/layout';
 
 export const SettingsProvider = ({ children }: { children: ReactNode }) => {
-	const { i18n, t } = useTranslation();
 	const { pageId } = useRouter();
+	const { i18n, t } = useTranslation(pageId);
 
 	const [overPageId, setOverPageId] = useState<PageIdType | null>(null);
 	const [isNavOpened, setIsNavOpened] = useState(false);
 
 	const theme = useMemo<ThemeType>(
-		() => t(`${pageId}:theme`, 'light-gray') as ThemeType,
-		[t, pageId]
+		() => t('theme', 'light-gray') as ThemeType,
+		[t]
 	);
 
 	const overTheme = useMemo<ThemeType | null>(
@@ -26,10 +26,21 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 		[i18n, t, overPageId]
 	);
 
+	const sectionTheme = useCallback(
+		(sectionId: number): ThemeType =>
+			t(`sections.${sectionId}.theme`, theme) as ThemeType,
+		[t, theme]
+	);
+
+	const sectionTemplate = useCallback(
+		(sectionId: number): TemplateType =>
+			t(`sections.${sectionId}.template`, 'full') as TemplateType,
+		[t]
+	);
+
 	const memoizedSetIsNavOpened = useCallback(setIsNavOpened, [
 		setIsNavOpened,
 	]);
-
 	const memoizedSetOverPageId = useCallback(setOverPageId, [setOverPageId]);
 
 	return (
@@ -39,6 +50,9 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 				isNavOpened,
 				theme,
 				overTheme,
+
+				sectionTheme,
+				sectionTemplate,
 
 				setOverPageId: memoizedSetOverPageId,
 				setIsNavOpened: memoizedSetIsNavOpened,

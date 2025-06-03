@@ -1,0 +1,38 @@
+.pattern {
+	> div {
+		background-position: center center;
+		background-attachment: fixed;
+		background-size: 0.6rem 0.6rem;
+
+		&:nth-child(1) {
+			background-image: radial-gradient(
+				rgba(var(--next-base-color), 1) 0.05rem,
+				rgba(var(--next-base-color), 0) 0
+			);
+		}
+		&:nth-child(2) {
+			background-image: radial-gradient(
+				rgba(var(--next-base-color), 1) 0.1rem,
+				rgba(var(--next-base-color), 0) 0
+			);
+		}
+		&:nth-child(3) {
+			background-image: radial-gradient(
+				rgba(var(--next-base-color), 1) 0.15rem,
+				rgba(var(--next-base-color), 0) 0
+			);
+		}
+		&:nth-child(4) {
+			background-image: radial-gradient(
+				rgba(var(--next-base-color), 1) 0.2rem,
+				rgba(var(--next-base-color), 0) 0
+			);
+		}
+		&:nth-child(5) {
+			background-image: radial-gradient(
+				rgba(var(--next-base-color), 1) 0.25rem,
+				rgba(var(--next-base-color), 0) 0
+			);
+		}
+	}
+}

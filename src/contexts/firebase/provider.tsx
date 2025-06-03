@@ -1,11 +1,9 @@
 import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import { FirebaseContext } from './context';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from 'react-i18next';
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
-import { Firestore } from 'firebase/firestore';
 import { Analytics } from 'firebase/analytics';
-import { Auth, User } from 'firebase/auth';
 
 import pkg from '!package';
 
@@ -22,15 +20,7 @@ const firebaseConfig = {
 export const FirebaseProvider = ({ children }: { children: ReactNode }) => {
 	const { i18n } = useTranslation();
 
-	const [auth, setAuth] = useState<Auth | null>(null);
-	const [user, setUser] = useState<User | null>(null);
-	const [firestore, setFirestore] = useState<Firestore | null>(null);
 	const [analytics, setAnalytics] = useState<Analytics | null>(null);
-
-	const isAuthenticated = useMemo(
-		() => auth !== null && user !== null && firestore !== null,
-		[auth, user, firestore]
-	);
 
 	const firebaseApp = useMemo<FirebaseApp>(() => {
 		return getApps().length === 0
@@ -57,38 +47,6 @@ export const FirebaseProvider = ({ children }: { children: ReactNode }) => {
 	);
 
 	useEffect(() => {
-		let unsubscribe: (() => void) | null = null;
-
-		(async () => {
-			const { getAuth, onAuthStateChanged, signInAnonymously } =
-				await import('firebase/auth');
-
-			const authInstance = getAuth(firebaseApp);
-			setAuth(authInstance);
-
-			unsubscribe = onAuthStateChanged(authInstance, async (user) => {
-				if (!user) {
-					const credential = await signInAnonymously(authInstance);
-					setUser(credential.user);
-				} else {
-					setUser(user);
-				}
-			});
-		})();
-
-		return () => {
-			if (unsubscribe) unsubscribe();
-		};
-	}, [firebaseApp]);
-
-	useEffect(() => {
-		(async () => {
-			const { getFirestore } = await import('firebase/firestore');
-			setFirestore(getFirestore(firebaseApp));
-		})();
-	}, [firebaseApp]);
-
-	useEffect(() => {
 		(async () => {
 			const { getAnalytics, isSupported, setUserProperties } =
 				await import('firebase/analytics');
@@ -101,7 +59,9 @@ export const FirebaseProvider = ({ children }: { children: ReactNode }) => {
 						import.meta.env.DEV ? '.dev' : ''
 					}`,
 					locale: i18n.language,
-					user_role: import.meta.env.DEV ? 'developer' : 'player',
+					user_role: import.meta.env.DEV
+						? 'development'
+						: 'production',
 				});
 				setAnalytics(analytics);
 			}
@@ -112,11 +72,7 @@ export const FirebaseProvider = ({ children }: { children: ReactNode }) => {
 		<FirebaseContext.Provider
 			value={{
 				app: firebaseApp,
-				firestore,
 				analytics,
-				auth,
-				user,
-				isAuthenticated,
 				logEvent,
 			}}>
 			{children}

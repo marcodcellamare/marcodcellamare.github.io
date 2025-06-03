@@ -6,23 +6,22 @@ import Config from '!config';
 
 const Router = () => (
 	<Routes>
-		<Route element={<Main />}>
-			{(
-				Object.keys(Config.pages.list) as Array<
-					keyof typeof Config.pages.list
-				>
-			).map((pageId) => (
-				<Route
-					key={pageId}
-					path={Config.pages.list[pageId].slice(
-						Config.pages.list[pageId].startsWith(Config.pages.hide)
-							? 1
-							: 0
-					)}
-					index={pageId === Config.pages.default}
-				/>
-			))}
-		</Route>
+		{(
+			Object.keys(Config.pages.list) as Array<
+				keyof typeof Config.pages.list
+			>
+		).map((pageId) => (
+			<Route
+				key={pageId}
+				path={Config.pages.list[pageId].slice(
+					Config.pages.list[pageId].startsWith(Config.pages.hide)
+						? 1
+						: 0
+				)}
+				index={pageId === Config.pages.default}
+				element={<Main />}
+			/>
+		))}
 		<Route
 			path='*'
 			element={

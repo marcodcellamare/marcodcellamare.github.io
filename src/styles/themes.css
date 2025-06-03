@@ -1,4 +1,4 @@
-@layer utilities {
+@layer base {
 	[data-theme='light-gray'] {
 		--color-base-100: var(--color-white);
 		--color-base-200: var(--color-palette-light-gray);

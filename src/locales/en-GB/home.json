@@ -1,9 +1,28 @@
 {
 	"title": "Resume",
-	"theme": "red",
+	"theme": "dark-gray",
 	"sections": [
 		{
+			"theme": "red",
+			"template": "full",
+			"heading": {
+				"h0": "Lorem ipsum dolor sit amet",
+				"h1": "Marco D. Cellamare",
+				"h2": "Senior Full-Stack Developer and Digital Designer"
+			},
+			"content": "<p>Over 20 years of experience as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.</p>"
+		},
+		{
+			"theme": "purple",
+			"template": "full",
+			"heading": {
+				"h0": "Lorem ipsum dolor sit amet",
+				"h1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+			}
+		},
+		{
 			"theme": "light-gray",
+			"template": "full",
 			"heading": {
 				"h0": "Lorem",
 				"h1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -14,31 +33,25 @@
 		},
 		{
 			"theme": "gray",
+			"template": "left",
 			"heading": {
-				"h1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+				"h0": "Lorem ipsum dolor sit amet",
+				"h1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+				"h2": "Lorem ipsum dolor sit amet."
 			}
 		},
 		{
 			"theme": "green",
+			"template": "right",
 			"heading": {
-				"h1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-			}
-		},
-		{
-			"theme": "red",
-			"heading": {
-				"h1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-			}
-		},
-		{
-			"theme": "purple",
-			"heading": {
+				"h0": "Lorem ipsum dolor sit amet",
 				"h1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 			}
 		},
 		{
 			"theme": "dark-gray",
 			"heading": {
+				"h0": "Lorem ipsum dolor sit amet",
 				"h1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 			}
 		}

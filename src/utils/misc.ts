@@ -1,6 +1,14 @@
-export const cssVariable = (variableName: string) => {
-	const root = getComputedStyle(document.documentElement);
-	return root.getPropertyValue(variableName).trim();
+export const cssVariable = (
+	variableName: string,
+	selector?: string | HTMLElement
+): string => {
+	if (typeof selector === 'string') {
+		const selected = document.querySelector<HTMLElement>(selector);
+		selector = selected ?? undefined;
+	}
+	const element = selector ?? document.documentElement;
+	const styles = getComputedStyle(element);
+	return styles.getPropertyValue(variableName).trim();
 };
 
 export const windowSize = {

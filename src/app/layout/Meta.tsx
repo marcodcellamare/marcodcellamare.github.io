@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useRouter } from '!/contexts/router';
 
 import Favicon from '../misc/Favicon';
 import Config from '!config';
@@ -9,21 +10,25 @@ import pkg from '!package';
 type CrossOrigin = 'anonymous' | 'use-credentials' | undefined;
 
 const Meta = () => {
-	const { i18n, t } = useTranslation();
+	const { pageId } = useRouter();
+	const { i18n, t } = useTranslation(pageId);
 
 	useEffect(
 		() => document.documentElement.setAttribute('lang', i18n.language),
 		[i18n.language]
 	);
 
+	const title = `${import.meta.env.DEV ? '[DEV] ' : ''}${
+		pageId !== Config.pages.default ? `${t('title')} - ` : ''
+	}${t('default:title')} v${pkg.version}`;
+
 	return (
 		<>
-			<title>{`${import.meta.env.DEV ? '[DEV] ' : ''}${t('title')} v${
-				pkg.version
-			}`}</title>
+			<title>{title}</title>
+			<h1 hidden>{title}</h1>
 			<meta
 				name='description'
-				content={t('description', { title: t('title') })}
+				content={t('default:description', '')}
 			/>
 			<Favicon />
 			{Config.preload.map((preload, k) => (

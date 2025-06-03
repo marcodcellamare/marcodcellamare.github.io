@@ -6,7 +6,16 @@ export type ThemeType =
 	| 'purple'
 	| 'green';
 
+export type TemplateType = 'full' | 'left' | 'right';
+
 export interface SectionInterface {
 	theme: ThemeType;
-	title?: string;
+	template?: TemplateType;
+	heading?: {
+		h0?: string;
+		h1?: string;
+		h2?: string;
+		h3?: string;
+	};
+	content?: string;
 }
