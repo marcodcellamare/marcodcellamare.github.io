@@ -26,9 +26,9 @@
 			md:text-6xl lg:leading-[0.85em];
 
 		&.h1-lg {
-			@apply text-6xl leading-[0.85em]
-				md:text-7xl md:leading-[0.8em]
-				lg:text-8xl;
+			@apply text-5xl leading-[0.9em]
+				md:text-6xl md:leading-[0.85em]
+				lg:text-7xl;
 		}
 	}
 	h2,

@@ -9,7 +9,7 @@ const Footer = () => {
 	return (
 		<footer
 			data-theme={pageTheme}
-			className='py-3 md:py-5 bg-base-200 text-base-content'>
+			className='py-3 md:py-5 bg-theme text-theme-content'>
 			<Container>
 				<Moods />
 			</Container>

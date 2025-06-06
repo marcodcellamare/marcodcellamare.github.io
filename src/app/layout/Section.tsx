@@ -30,7 +30,7 @@ const Section = ({ sectionId, className = '' }: SectionProps) => {
 			setNextBaseColor(
 				colorToRgb(
 					cssVariable(
-						'--color-base-200',
+						'--color-background',
 						`[data-theme="${sectionTheme(sectionId + 1)}"]`
 					)
 				)
@@ -43,7 +43,7 @@ const Section = ({ sectionId, className = '' }: SectionProps) => {
 			ref={targetRef}
 			data-theme={sectionTheme(sectionId)}
 			className={classNames([
-				'flex items-center min-h-full relative overflow-hidden bg-base-200 text-base-content',
+				'flex items-center min-h-full relative overflow-hidden bg-theme text-theme-content',
 				className,
 			])}
 			style={

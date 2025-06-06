@@ -33,14 +33,14 @@ const TextBlockHeading = ({ sectionId, className = '' }: ContentProps) => {
 				<span
 					className={classNames([
 						sectionId === 0 ? 'h2' : 'h5',
-						'font-black uppercase text-base-content',
+						'font-black uppercase text-theme-heading',
 					])}>
 					{t(`sections.${sectionId}.heading.headline`)}
 				</span>
 			)}
 			<h2
 				className={classNames([
-					'h1 font-black uppercase text-base-content',
+					'h1 font-black uppercase text-theme-heading',
 					{
 						'h1-lg': sectionId === 0,
 					},
@@ -51,7 +51,7 @@ const TextBlockHeading = ({ sectionId, className = '' }: ContentProps) => {
 				<h3
 					className={classNames([
 						sectionId === 0 ? 'h3' : 'h4',
-						'uppercase text-base-content',
+						'uppercase text-theme-heading',
 					])}>
 					{t(`sections.${sectionId}.heading.subtitle`)}
 				</h3>

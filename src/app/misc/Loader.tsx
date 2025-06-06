@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useResize } from '!/contexts/resize';
 import { useSettings } from '!/contexts/settings';
-
-import { IntervalType } from '!/types/misc';
-import { THEMES, ThemeType } from '!/types/config.const';
 import classNames from 'classnames';
+
+import { THEMES, ThemeType } from '!/types/config.const';
+import { IntervalType } from '!/types/misc';
 
 type StripType = {
 	height: number;
@@ -19,8 +19,8 @@ const Loader = () => {
 
 	const intervalRef = useRef<IntervalType>(null);
 
-	const max = 50;
-	const min = 5;
+	const max = 40;
+	const min = 10;
 
 	const cleanup = () => {
 		if (intervalRef.current !== null) {
@@ -41,7 +41,10 @@ const Loader = () => {
 
 			do {
 				color = THEMES[Math.floor(Math.random() * THEMES.length)];
-			} while (color === prevColor);
+			} while (
+				color === prevColor ||
+				['light-gray', 'gray'].includes(color)
+			);
 
 			strips.push({
 				height,
@@ -57,7 +60,7 @@ const Loader = () => {
 		cleanup();
 		generate();
 
-		intervalRef.current = setInterval(generate, 100);
+		intervalRef.current = setInterval(generate, 60);
 
 		return () => cleanup();
 	}, [generate]);
@@ -65,14 +68,20 @@ const Loader = () => {
 	return (
 		<div
 			className={classNames([
-				'absolute top-0 bottom-0 left-0 overflow-hidden mix-blend-difference transition-[width] duration-500 delay-300',
-				!isNavOpened ? 'w-[0.25rem]' : 'w-full',
+				'absolute top-0 bottom-0 left-0 overflow-hidden transition-[width,opacity] pointer-events-none',
+				!isNavOpened
+					? 'w-[0.25rem] duration-600'
+					: 'w-full duration-300',
+				{
+					'delay-350': !isNavOpened,
+					'opacity-80': isNavOpened,
+				},
 			])}>
 			{strips.map((strip, k) => (
 				<div
 					key={k}
 					style={{
-						height: strip.height,
+						height: `${strip.height}px`,
 						backgroundColor: `var(--color-palette-${strip.color})`,
 					}}
 				/>
