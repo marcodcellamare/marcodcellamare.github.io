@@ -1,4 +1,5 @@
 import { useSettings } from '!/contexts/settings';
+import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
 import Container from '../elements/Container';
@@ -6,10 +7,13 @@ import Background from './Background';
 import Menu from './Menu';
 
 const Nav = () => {
-	const { isNavOpened } = useSettings();
+	const { pageTheme, overTheme, isNavOpened } = useSettings();
+	const { t } = useTranslation();
 
 	return (
-		<nav className='absolute top-0 left-0 right-0 bottom-0'>
+		<nav
+			data-theme={overTheme ?? pageTheme}
+			className='absolute top-0 left-0 right-0 bottom-0'>
 			<Background />
 			<div
 				className={classNames([
@@ -20,7 +24,9 @@ const Nav = () => {
 						: '-translate-x-full',
 				])}>
 				<Container className='flex flex-col py-20'>
-					<h1 className='h4 text-secondary'>xxx</h1>
+					<h6 className='text-theme-heading uppercase font-black'>
+						{t('title')}
+					</h6>
 					<Menu />
 				</Container>
 			</div>

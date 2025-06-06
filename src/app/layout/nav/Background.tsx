@@ -11,12 +11,18 @@ const Background = () => {
 					key={k}
 					data-theme={overTheme ?? pageTheme}
 					className={classNames([
-						'bg-base-200/90 backdrop-blur-xs h-1/3 transition-[width,background-color] duration-700 ease-in-out',
-						!isNavOpened ? 'w-0' : 'w-full',
-						{
-							'delay-100': k === 1,
-							'delay-200': k === 2,
-						},
+						'bg-theme opacity-95 h-1/3 transition-[width,background-color] duration-700 ease-in-out',
+						!isNavOpened ? 'w-0' : 'w-[calc(100vw-0.25rem)]',
+						!isNavOpened
+							? {
+									'delay-100': k === 1,
+									'delay-200': k === 2,
+							  }
+							: {
+									'delay-300': k === 0,
+									'delay-400': k === 1,
+									'delay-500': k === 2,
+							  },
 					])}
 				/>
 			))}

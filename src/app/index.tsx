@@ -2,7 +2,8 @@ import Meta from './layout/Meta';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
 import Router from './misc/Router';
-import Loader from './misc/loader';
+import Loader from './misc/Loader';
+import Cursor from './misc/Cursor';
 
 import '!/styles/components/App.css';
 
@@ -16,6 +17,7 @@ const App = () => {
 			</div>
 			<Loader />
 			<Header />
+			<Cursor />
 		</>
 	);
 };
