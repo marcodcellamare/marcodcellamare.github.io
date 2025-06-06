@@ -3,7 +3,7 @@ import { RouterContext } from './context';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import Config from '!config';
+import config from '!config';
 
 export const RouterProvider = ({ children }: { children: ReactNode }) => {
 	const { pathname } = useLocation();
@@ -11,11 +11,11 @@ export const RouterProvider = ({ children }: { children: ReactNode }) => {
 
 	const pageId = useMemo<PageIdType>(
 		() =>
-			(Object.entries(Config.pages.list).find(
+			Object.entries(config.pages.list).find(
 				([, value]) =>
 					value === pathname ||
-					value === `${Config.pages.hide}${pathname}`
-			)?.[0] as PageIdType) ?? (Config.pages.default as PageIdType),
+					value === `${config.pages.hide}${pathname}`
+			)?.[0] ?? config.pages.default,
 		[pathname]
 	);
 

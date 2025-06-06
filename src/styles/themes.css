@@ -26,7 +26,7 @@
 	[data-theme='red'] {
 		--color-base-100: var(--color-palette-dark-red);
 		--color-base-200: var(--color-palette-red);
-		--color-base-content: var(--color-palette-light-gray);
+		--color-base-content: var(--color-palette-green);
 		--color-primary: var(--color-palette-light-gray);
 		--color-secondary: var(--color-palette-gray);
 		--color-accent: var(--color-palette-green);
@@ -34,7 +34,7 @@
 	[data-theme='purple'] {
 		--color-base-100: var(--color-palette-dark-purple);
 		--color-base-200: var(--color-palette-purple);
-		--color-base-content: var(--color-palette-light-gray);
+		--color-base-content: var(--color-palette-yellow);
 		--color-primary: var(--color-palette-light-gray);
 		--color-secondary: var(--color-palette-gray);
 		--color-accent: var(--color-palette-green);

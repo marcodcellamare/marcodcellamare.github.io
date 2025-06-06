@@ -1,21 +1,20 @@
-export type ThemeType =
-	| 'light-gray'
-	| 'gray'
-	| 'dark-gray'
-	| 'red'
-	| 'purple'
-	| 'green';
-
-export type TemplateType = 'full' | 'left' | 'right';
+import { TemplateType, ThemeType } from './config.const';
 
 export interface SectionInterface {
 	theme: ThemeType;
 	template?: TemplateType;
-	heading?: {
-		h0?: string;
-		h1?: string;
-		h2?: string;
-		h3?: string;
-	};
-	content?: string;
+	title?: string;
+	heading?: HeadingInterface;
+	content?: ContentInterface;
+}
+
+interface HeadingInterface {
+	headline?: string;
+	title: string;
+	subtitle?: string;
+}
+
+interface ContentInterface {
+	leading?: string;
+	paragraphs?: string[];
 }

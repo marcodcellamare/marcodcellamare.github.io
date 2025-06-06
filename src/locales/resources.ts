@@ -1,4 +1,4 @@
-import Config from '!config';
+import config from '!config';
 
 const loader = async ({ iso, ns }: { iso: string; ns: string }) => {
 	let data = {};
@@ -18,11 +18,11 @@ const resources = async () => {
 		};
 	} = {};
 
-	const promises = Config.locale.allowed.list.map(async (iso: string) => {
+	const promises = config.locale.allowed.list.map(async (iso: string) => {
 		locale[iso] = {};
 
 		await Promise.all(
-			Config.locale.groups.list.map(async (ns: string) => {
+			config.locale.groups.list.map(async (ns: string) => {
 				locale[iso][ns] = await loader({ iso, ns });
 			})
 		);

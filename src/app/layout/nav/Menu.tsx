@@ -5,9 +5,10 @@ import { useSettings } from '!/contexts/settings';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
-import Config from '!config';
+import config from '!config';
 
 import { TimeoutType } from '!/types/misc';
+import { PageIdType } from '!/types/config.const';
 
 const Menu = () => {
 	const { t } = useTranslation();
@@ -42,21 +43,17 @@ const Menu = () => {
 
 	return (
 		<ul className='relative my-auto flex flex-col justify-center h1'>
-			{(
-				Object.keys(Config.pages.list) as Array<
-					keyof typeof Config.pages.list
-				>
-			).map((pageId) =>
-				!Config.pages.list[pageId].startsWith(Config.pages.hide) ? (
+			{(Object.keys(config.pages.list) as PageIdType[]).map((pageId) =>
+				!config.pages.list[pageId].startsWith(config.pages.hide) ? (
 					<li key={pageId}>
 						<NavLink
-							to={Config.pages.list[pageId]}
+							to={config.pages.list[pageId]}
 							onPointerEnter={() => setOverPageId(pageId)}
 							onPointerLeave={() => setOverPageId(null)}
 							onClick={(e) => clickHandler(e, pageId)}
 							className={({ isActive }) =>
 								classNames([
-									'transition-[color,font-size,line-height,padding-left] inline-block duration-250 ease-in-out',
+									'uppercase font-black transition-[color,font-size,line-height,padding-left] inline-block duration-250 ease-in-out',
 									!isActive
 										? 'text-accent leading-[0.9em]'
 										: 'text-base-100 text-[150%] leading-[0.8em]',

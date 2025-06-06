@@ -12,7 +12,7 @@ const Pattern = ({ targetRef }: PatternProps) => {
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(targetRef));
 
-	const height = useTransform(scrollYProgress, [0.5, 1], ['0%', '50%']);
+	const height = useTransform(scrollYProgress, [0.5, 1], ['5%', '20%']);
 
 	return (
 		<motion.div

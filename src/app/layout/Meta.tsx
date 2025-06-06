@@ -3,11 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
 
 import Favicon from '../misc/Favicon';
-import Config from '!config';
+import config from '!config';
 
 import pkg from '!package';
-
-type CrossOrigin = 'anonymous' | 'use-credentials' | undefined;
 
 const Meta = () => {
 	const { pageId } = useRouter();
@@ -19,7 +17,7 @@ const Meta = () => {
 	);
 
 	const title = `${import.meta.env.DEV ? '[DEV] ' : ''}${
-		pageId !== Config.pages.default ? `${t('title')} - ` : ''
+		pageId !== config.pages.default ? `${t('title')} - ` : ''
 	}${t('default:title')} v${pkg.version}`;
 
 	return (
@@ -31,15 +29,15 @@ const Meta = () => {
 				content={t('default:description', '')}
 			/>
 			<Favicon />
-			{Config.preload.map((preload, k) => (
+			{config.preload.map((preload, k) => (
 				<link
 					key={k}
 					rel={preload.rel}
 					href={preload.href}
-					crossOrigin={preload.crossorigin as CrossOrigin}
+					crossOrigin={preload.crossorigin}
 				/>
 			))}
-			{Config.meta.map((meta, k) => (
+			{config.meta.map((meta, k) => (
 				<meta
 					key={k}
 					name={meta.name}

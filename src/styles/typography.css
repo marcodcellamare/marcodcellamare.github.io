@@ -15,36 +15,31 @@
 		font-family: var(--font-title);
 	}
 
-	.h0,
-	h1,
-	.h1,
-	h2,
-	.h2,
-	h3,
-	.h3 {
-		@apply uppercase font-black;
-	}
-
 	.h0 {
-		@apply text-7xl leading-[0.85em]
-			sm:text-8xl md:leading-[0.85em]
-			md:text-9xl lg:leading-[0.8em]
-			xl:text-10xl xl:leading-[0.8em];
+		@apply text-7xl leading-[0.8em]
+			sm:text-8xl
+			md:text-9xl;
 	}
 	h1,
 	.h1 {
-		@apply text-4xl leading-[0.9em]
-			lg:text-5xl lg:leading-[0.85em];
+		@apply text-5xl leading-[0.9em]
+			md:text-6xl lg:leading-[0.85em];
+
+		&.h1-lg {
+			@apply text-6xl leading-[0.85em]
+				md:text-7xl md:leading-[0.8em]
+				lg:text-8xl;
+		}
 	}
 	h2,
 	.h2 {
 		@apply text-3xl leading-[0.95em]
-			lg:text-4xl lg:leading-[0.9em];
+			md:text-4xl lg:leading-[0.9em];
 	}
 	h3,
 	.h3 {
 		@apply text-2xl leading-[1.1em]
-			lg:text-3xl lg:leading-[0.95em];
+			md:text-3xl lg:leading-[0.95em];
 	}
 	h4,
 	.h4 {
@@ -59,7 +54,11 @@
 		@apply text-lg leading-[1.3em];
 	}
 	p {
-		@apply text-base;
+		@apply text-base md:text-lg;
+
+		&.leading {
+			@apply text-xl md:text-2xl;
+		}
 	}
 }
 

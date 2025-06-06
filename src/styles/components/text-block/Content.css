@@ -1,0 +1,9 @@
+.text-block-content {
+	> :not(:last-child) {
+		margin-bottom: calc(var(--spacing) * 1.5);
+
+		&.leading {
+			margin-bottom: calc(var(--spacing) * 4);
+		}
+	}
+}

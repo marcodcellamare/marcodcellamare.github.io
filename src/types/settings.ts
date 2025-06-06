@@ -3,7 +3,7 @@ import { TemplateType, ThemeType } from './layout';
 export interface SettingsContextProps {
 	overPageId: PageIdType | null;
 	isNavOpened: boolean;
-	theme: ThemeType;
+	pageTheme: ThemeType;
 	overTheme: ThemeType | null;
 
 	sectionTheme: (sectionId: number) => ThemeType;

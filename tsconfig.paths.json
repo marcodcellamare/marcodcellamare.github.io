@@ -7,7 +7,7 @@
 				"package.json"
 			],
 			"!config": [
-				"src/config.json"
+				"src/config.ts"
 			],
 			"!/app/*": [
 				"src/app/*"

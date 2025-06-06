@@ -5,11 +5,11 @@ import { cssVariable } from '!/utils/misc';
 import { colorToRgb } from '!/utils/colors';
 
 import Container from './elements/Container';
-import Content from './elements/Content';
+import TextBlock from './text-block';
 import Pattern from './elements/Pattern';
+import Title from './elements/Title';
 
 import { RGB } from '!/types/misc';
-import H0 from './elements/H0';
 
 interface SectionProps {
 	sectionId: number;
@@ -22,6 +22,8 @@ const Section = ({ sectionId, className = '' }: SectionProps) => {
 	const [nextBaseColor, setNextBaseColor] = useState<RGB | null>(null);
 
 	const targetRef = useRef<HTMLDivElement>(null);
+
+	const template = sectionTemplate(sectionId);
 
 	useEffect(
 		() =>
@@ -51,33 +53,34 @@ const Section = ({ sectionId, className = '' }: SectionProps) => {
 					  } as CSSProperties)
 					: undefined
 			}>
-			<H0
+			<Title
 				sectionId={sectionId}
 				targetRef={targetRef}
 			/>
+			<Pattern targetRef={targetRef} />
 			<Container className='flex flex-col gap-5 lg:flex-row py-20'>
-				{sectionTemplate(sectionId) !== 'full' ? (
+				{['left-content-image', 'right-content-image'].includes(
+					template
+				) ? (
 					<div
 						className={classNames([
 							'lg:basis-2/5 border',
 							{
-								'order-last':
-									sectionTemplate(sectionId) === 'left',
+								'order-last': template === 'left-content',
 							},
 						])}>
 						IMAGE
 					</div>
 				) : null}
-				<Content
+				<TextBlock
 					sectionId={sectionId}
 					className={classNames(
-						sectionTemplate(sectionId) === 'full'
+						template === 'full-content'
 							? 'lg:basis-9/12'
 							: 'lg:basis-3/5'
 					)}
 				/>
 			</Container>
-			<Pattern targetRef={targetRef} />
 		</section>
 	);
 };

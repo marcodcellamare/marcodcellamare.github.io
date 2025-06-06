@@ -2,23 +2,21 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Main from '!/app/layout/Main';
 
-import Config from '!config';
+import config from '!config';
+
+import { PageIdType } from '!/types/config.const';
 
 const Router = () => (
 	<Routes>
-		{(
-			Object.keys(Config.pages.list) as Array<
-				keyof typeof Config.pages.list
-			>
-		).map((pageId) => (
+		{(Object.keys(config.pages.list) as PageIdType[]).map((pageId) => (
 			<Route
 				key={pageId}
-				path={Config.pages.list[pageId].slice(
-					Config.pages.list[pageId].startsWith(Config.pages.hide)
+				path={config.pages.list[pageId].slice(
+					config.pages.list[pageId].startsWith(config.pages.hide)
 						? 1
 						: 0
 				)}
-				index={pageId === Config.pages.default}
+				index={pageId === config.pages.default}
 				element={<Main />}
 			/>
 		))}
@@ -26,12 +24,7 @@ const Router = () => (
 			path='*'
 			element={
 				<Navigate
-					to={
-						Config.pages.list[
-							Config.pages
-								.default as keyof typeof Config.pages.list
-						]
-					}
+					to={config.pages.list[config.pages.default]}
 					replace
 				/>
 			}

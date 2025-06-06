@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import Config from '!config';
+import config from '!config';
 import resources from './resources';
 
 export const i18n = i18next
@@ -13,11 +13,11 @@ export const i18n = i18next
 
 	// Init i18next https://www.i18next.com/overview/configuration-options
 	.init({
-		ns: Config.locale.groups.list,
-		defaultNS: Config.locale.groups.default,
+		ns: config.locale.groups.list,
+		defaultNS: config.locale.groups.default,
 		resources: await resources(),
-		fallbackLng: Config.locale.allowed.default,
-		supportedLngs: Config.locale.allowed.list,
+		fallbackLng: config.locale.allowed.default,
+		supportedLngs: config.locale.allowed.list,
 		returnEmptyString: true,
 		debug: false,
 		//process.env.NODE_ENV !== 'production' &&
@@ -28,7 +28,7 @@ export const i18n = i18next
 		},
 		react: {
 			transSupportBasicHtmlNodes: true,
-			transKeepBasicHtmlNodesFor: Config.html.whitelist,
+			transKeepBasicHtmlNodesFor: config.html.whitelist,
 		},
 		// Returns an empty string when the translation is missing
 		//parseMissingKeyHandler: () => undefined,

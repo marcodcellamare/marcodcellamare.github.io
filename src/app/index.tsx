@@ -1,9 +1,10 @@
 import Meta from './layout/Meta';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import Router from './misc/Router';
+import Loader from './misc/loader';
 
 import '!/styles/components/App.css';
-import Router from './misc/Router';
 
 const App = () => {
 	return (
@@ -13,6 +14,7 @@ const App = () => {
 				<Router />
 				<Footer />
 			</div>
+			<Loader />
 			<Header />
 		</>
 	);

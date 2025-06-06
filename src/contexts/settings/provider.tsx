@@ -1,10 +1,12 @@
-import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
+import { ReactNode, useCallback, useMemo, useState } from 'react';
 import { SettingsContext } from './context';
 
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '../router';
 
-import { TemplateType, ThemeType } from '!/types/layout';
+import config from '!config';
+
+import { PageIdType, TemplateType, ThemeType } from '!/types/config.const';
 
 export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 	const { pageId } = useRouter();
@@ -13,8 +15,8 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 	const [overPageId, setOverPageId] = useState<PageIdType | null>(null);
 	const [isNavOpened, setIsNavOpened] = useState(false);
 
-	const theme = useMemo<ThemeType>(
-		() => t('theme', 'light-gray') as ThemeType,
+	const pageTheme = useMemo<ThemeType>(
+		() => t('theme', config.themes.default) as ThemeType,
 		[t]
 	);
 
@@ -28,13 +30,16 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 
 	const sectionTheme = useCallback(
 		(sectionId: number): ThemeType =>
-			t(`sections.${sectionId}.theme`, theme) as ThemeType,
-		[t, theme]
+			t(`sections.${sectionId}.theme`, pageTheme) as ThemeType,
+		[t, pageTheme]
 	);
 
 	const sectionTemplate = useCallback(
 		(sectionId: number): TemplateType =>
-			t(`sections.${sectionId}.template`, 'full') as TemplateType,
+			t(
+				`sections.${sectionId}.template`,
+				config.templates.default
+			) as TemplateType,
 		[t]
 	);
 
@@ -48,7 +53,7 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 			value={{
 				overPageId,
 				isNavOpened,
-				theme,
+				pageTheme,
 				overTheme,
 
 				sectionTheme,
