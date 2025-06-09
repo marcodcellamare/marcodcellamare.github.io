@@ -1,14 +1,70 @@
 {
 	"title": "Projects",
-	"theme": "purple",
+	"theme": "gray",
 	"sections": [
 		{
-			"theme": "primary",
+			"theme": "green",
+			"template": "full-content",
+			"title": "Hey there",
 			"heading": {
-				"h1": "this is a test",
-				"__h2": "this is a test"
+				"headline": "test",
+				"title": "Marco D. Cellamare",
+				"subtitle": "Senior Full-Stack Developer and Digital Designer"
 			},
-			"___content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+			"content": {
+				"leading": "Over <strong>20 years</strong> of experience as a Full-Stack Developer and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable <linked>web applications</linked> with intuitive <strong>Web / UI design</strong>.",
+				"paragraphs": [
+					"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+				]
+			}
+		},
+		{
+			"theme": "light-gray",
+			"template": "full-content",
+			"title": "Hey there",
+			"heading": {
+				"headline": "test",
+				"title": "Marco D. Cellamare",
+				"subtitle": "Senior Full-Stack Developer and Digital Designer"
+			},
+			"content": {
+				"leading": "Over <strong>20 years</strong> of experience as a Full-Stack Developer and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable <linked>web applications</linked> with intuitive <strong>Web / UI design</strong>.",
+				"paragraphs": [
+					"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+				]
+			}
+		},
+		{
+			"theme": "light-gray2",
+			"template": "full-content",
+			"title": "Hey there",
+			"heading": {
+				"headline": "test",
+				"title": "Marco D. Cellamare",
+				"subtitle": "Senior Full-Stack Developer and Digital Designer"
+			},
+			"content": {
+				"leading": "Over <strong>20 years</strong> of experience as a Full-Stack Developer and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable <linked>web applications</linked> with intuitive <strong>Web / UI design</strong>.",
+				"paragraphs": [
+					"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+				]
+			}
+		},
+		{
+			"theme": "light-gray3",
+			"template": "full-content",
+			"title": "Hey there",
+			"heading": {
+				"headline": "test",
+				"title": "Marco D. Cellamare",
+				"subtitle": "Senior Full-Stack Developer and Digital Designer"
+			},
+			"content": {
+				"leading": "Over <strong>20 years</strong> of experience as a Full-Stack Developer and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable <linked>web applications</linked> with intuitive <strong>Web / UI design</strong>.",
+				"paragraphs": [
+					"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+				]
+			}
 		}
 	]
 }

@@ -19,25 +19,29 @@
 	default: true;
 
 	--color-palette-red: #fa3e70;
-	--color-palette-dark-red: #d42d58;
 	--color-palette-purple: #cb6af7;
-	--color-palette-dark-purple: #b23ce6;
-	--color-palette-brown: #b87c37;
+	--color-palette-brown: #a18d6c;
 
 	--color-palette-green: #00e8c1;
-	--color-palette-yellow: #f0eb62;
+	--color-palette-yellow: #f2df74;
 
 	--color-palette-light-gray: #e8edec;
+	--color-palette-light-gray2: #f2f5f4;
+	--color-palette-light-gray3: #e1e8e6;
 	--color-palette-gray: #c2cfcd;
 	--color-palette-dark-gray: #757375;
-	--color-palette-darker-gray: #5e5c5e;
+	--color-palette-darker-gray: #545254;
 
+	/*
 	--color-base-100: var(--color-palette-light-gray);
-	--color-base-200: var(--color-palette-gray);
+	--color-base-200: var(--color-palette-light-gray2);
+	--color-base-300: var(--color-palette-light-gray3);
 	--color-base-content: var(--color-palette-dark-gray);
-	--color-primary: var(--color-palette-red);
-	--color-secondary: var(--color-palette-purple);
+	--color-primary: var(--color-palette-gray);
+	--color-secondary: var(--color-palette-red);
 	--color-accent: var(--color-palette-green);
+	--color-error: var(--color-palette-purple);
+	*/
 }
 
 @theme {

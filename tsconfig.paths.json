@@ -9,6 +9,9 @@
 			"!config": [
 				"src/config.ts"
 			],
+			"!const": [
+				"src/const.ts"
+			],
 			"!/app/*": [
 				"src/app/*"
 			],

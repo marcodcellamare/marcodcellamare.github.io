@@ -28,19 +28,23 @@ const TextBlockHeading = ({ sectionId, className = '' }: ContentProps) => {
 	if (!headingExists) return null;
 
 	return (
-		<div className={classNames(['text-block-heading', className])}>
+		<div
+			className={classNames([
+				'text-block-heading text-[var(--color-heading)] uppercase',
+				className,
+			])}>
 			{headlineExists && (
 				<span
 					className={classNames([
 						sectionId === 0 ? 'h2' : 'h5',
-						'font-black uppercase text-theme-heading',
+						'font-black',
 					])}>
 					{t(`sections.${sectionId}.heading.headline`)}
 				</span>
 			)}
 			<h2
 				className={classNames([
-					'h1 font-black uppercase text-theme-heading',
+					'h1 font-black',
 					{
 						'h1-lg': sectionId === 0,
 					},
@@ -48,11 +52,7 @@ const TextBlockHeading = ({ sectionId, className = '' }: ContentProps) => {
 				{t(`sections.${sectionId}.heading.title`)}
 			</h2>
 			{subtitleExists && (
-				<h3
-					className={classNames([
-						sectionId === 0 ? 'h3' : 'h4',
-						'uppercase text-theme-heading',
-					])}>
+				<h3 className={classNames([sectionId === 0 ? 'h3' : 'h4'])}>
 					{t(`sections.${sectionId}.heading.subtitle`)}
 				</h3>
 			)}

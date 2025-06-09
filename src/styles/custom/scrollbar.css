@@ -12,23 +12,23 @@
 
 			background-image: repeating-linear-gradient(
 				45deg,
-				var(--color-base-content) 0,
-				var(--color-base-content) 0.01rem,
-				--alpha(var(--color-primary) / 0%) 0,
-				--alpha(var(--color-primary) / 0%) 50%
+				var(--color-palette-dark-gray) 0,
+				var(--color-palette-dark-gray) 0.01rem,
+				--alpha(var(--color-palette-dark-gray) / 0%) 0,
+				--alpha(var(--color-palette-dark-gray) / 0%) 50%
 			);
 		}
 		&::-webkit-scrollbar-thumb {
-			@apply bg-base-content
+			@apply bg-[var(--color-palette-dark-gray)]
 				border-none
 				rounded-none;
 		}
 		&::-webkit-scrollbar-thumb:hover {
-			@apply bg-accent
+			@apply bg-[var(--color-palette-darker-gray)]
 				cursor-grab;
 		}
 		&::-webkit-scrollbar-thumb:active {
-			@apply bg-accent
+			@apply bg-[var(--color-palette-darker-gray)]
 				cursor-grabbing;
 		}
 		section {

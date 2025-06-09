@@ -3,6 +3,7 @@ import { useRouter } from '!/contexts/router';
 import classNames from 'classnames';
 
 import '!/styles/components/text-block/Content.css';
+import Link from '!/app/misc/Link';
 
 interface ContentProps {
 	sectionId: number;
@@ -27,6 +28,10 @@ const TextBlockContent = ({ sectionId, className = '' }: ContentProps) => {
 		defaultValue: [],
 	}) as string[];
 
+	const transComponents = {
+		linked: <Link />,
+	};
+
 	return (
 		<div className={classNames(['text-block-content', className])}>
 			{leadingExists && (
@@ -34,9 +39,7 @@ const TextBlockContent = ({ sectionId, className = '' }: ContentProps) => {
 					<Trans
 						ns={pageId}
 						i18nKey={`sections.${sectionId}.content.leading`}
-						components={{
-							link: <div className='underline text-5xl' />,
-						}}
+						components={transComponents}
 					/>
 				</p>
 			)}
@@ -47,9 +50,7 @@ const TextBlockContent = ({ sectionId, className = '' }: ContentProps) => {
 						<Trans
 							ns={pageId}
 							i18nKey={`sections.${sectionId}.content.paragraphs.${k}`}
-							components={{
-								link: <div className='underline text-5xl' />,
-							}}
+							components={transComponents}
 						/>
 					</p>
 				))}

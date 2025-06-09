@@ -5,6 +5,7 @@ const r = (p: string) => path.resolve(__dirname, p);
 export const aliases = {
 	'!package': r('package.json'),
 	'!config': r('src/config.ts'),
+	'!const': r('src/const.ts'),
 	'!/app': r('src/app'),
 	'!/assets': r('src/assets'),
 	'!/hooks': r('src/hooks'),

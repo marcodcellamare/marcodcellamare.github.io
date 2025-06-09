@@ -1,42 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import useIsTouch from '!/hooks/useIsTouch';
 
 const Cursor: React.FC = () => {
+	const isTouch = useIsTouch();
 	const x = useMotionValue(0);
 	const y = useMotionValue(0);
 
-	const springConfig = { damping: 50, stiffness: 1000 };
+	const springConfig = { damping: 50, stiffness: 700 };
 	const springX = useSpring(x, springConfig);
 	const springY = useSpring(y, springConfig);
 
+	const [isInsideWindow, setIsInsideWindow] = useState(false);
 	const [isHoveringLink, setIsHoveringLink] = useState(false);
 
 	useEffect(() => {
+		if (isTouch) return;
+
 		const links = document.querySelectorAll('a, button');
 
-		const moveHandler = (e: MouseEvent) => {
+		const mouseMoveHandler = (e: MouseEvent) => {
 			x.set(e.clientX);
 			y.set(e.clientY);
+			setIsInsideWindow(true);
 		};
-		const mouseEnterHandler = () => setIsHoveringLink(true);
-		const mouseLeaveHandler = () => setIsHoveringLink(false);
+		const mouseEnterHandler = () => setIsInsideWindow(true);
+		const mouseLeaveHandler = () => setIsInsideWindow(false);
+		const mouseEnterLinkHandler = () => setIsHoveringLink(true);
+		const mouseLeaveLinkHandler = () => setIsHoveringLink(false);
 
-		window.addEventListener('mousemove', moveHandler);
+		window.addEventListener('mousemove', mouseMoveHandler);
+		document.addEventListener('mouseenter', mouseEnterHandler);
+		document.addEventListener('mouseleave', mouseLeaveHandler);
 
 		links.forEach((link) => {
-			link.addEventListener('mouseenter', mouseEnterHandler);
-			link.addEventListener('mouseleave', mouseLeaveHandler);
+			link.addEventListener('mouseenter', mouseEnterLinkHandler);
+			link.addEventListener('mouseleave', mouseLeaveLinkHandler);
 		});
 
 		return () => {
-			window.removeEventListener('mousemove', moveHandler);
+			window.removeEventListener('mousemove', mouseMoveHandler);
+			document.removeEventListener('mouseenter', mouseEnterHandler);
+			document.removeEventListener('mouseleave', mouseLeaveHandler);
 
 			links.forEach((link) => {
-				link.removeEventListener('mouseenter', mouseEnterHandler);
-				link.removeEventListener('mouseleave', mouseLeaveHandler);
+				link.removeEventListener('mouseenter', mouseEnterLinkHandler);
+				link.removeEventListener('mouseleave', mouseLeaveLinkHandler);
 			});
 		};
-	}, [x, y]);
+	}, [x, y, isTouch]);
+
+	if (isTouch) return null;
 
 	return (
 		<motion.div
@@ -46,12 +60,11 @@ const Cursor: React.FC = () => {
 				translateY: springY,
 			}}>
 			<motion.div
-				className='w-10 h-10 -translate-1/2 aspect-square bg-base-200 rounded-full'
+				className='w-10 aspect-square rounded-full bg-base-200 -translate-1/2'
 				animate={{
-					scale: isHoveringLink ? 8 : 1,
+					scale: isInsideWindow ? (isHoveringLink ? 8 : 1) : 0,
+					opacity: isInsideWindow ? 1 : 0,
 				}}
-
-				//transition={{ type: 'inertia', stiffness: 200, damping: 30 }}
 			/>
 		</motion.div>
 	);

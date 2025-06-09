@@ -1,20 +1,12 @@
-import { useSettings } from '!/contexts/settings';
-
 import Moods from './moods';
 import Container from './elements/Container';
 
-const Footer = () => {
-	const { pageTheme } = useSettings();
-
-	return (
-		<footer
-			data-theme={pageTheme}
-			className='py-3 md:py-5 bg-theme text-theme-content'>
-			<Container>
-				<Moods />
-			</Container>
-		</footer>
-	);
-};
-
+const Footer = () => (
+	<footer className='py-4 md:py-5 bg-[var(--color-background)] text-[var(--color-content)]'>
+		<Container className='flex flex-col md:flex-row gap-0.5 md:gap-1'>
+			<Moods className='mr-auto' />
+			<div className='md:ml-auto'>xxx</div>
+		</Container>
+	</footer>
+);
 export default Footer;

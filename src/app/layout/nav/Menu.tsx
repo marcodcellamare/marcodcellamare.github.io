@@ -53,14 +53,15 @@ const Menu = () => {
 							onClick={(e) => clickHandler(e, pageId)}
 							className={({ isActive }) =>
 								classNames([
-									'uppercase font-black transition-[color,font-size,line-height,padding-left] inline-block duration-250 ease-in-out',
+									'relative uppercase font-black transition-[color,font-size,line-height,padding-left,margin-left] inline-block duration-250 ease-in-out',
 									!isActive
-										? 'text-theme-link leading-[0.9em]'
-										: 'text-theme-link-active text-[150%] leading-[0.8em]',
+										? 'text-[var(--color-link)] hover:text-[var(--color-link-hover)] leading-[0.9em]'
+										: 'text-[var(--color-link-active)] text-[150%] leading-[0.8em]',
 									{
-										'cursor-pointer hover:ps-5': !isActive,
+										'cursor-pointer hover:pl-5': !isActive,
 										'!pointer-events-none':
 											isActive || !isNavOpened,
+										'-ms-[4%] lg:-ms-[3%]': isActive,
 									},
 								])
 							}>

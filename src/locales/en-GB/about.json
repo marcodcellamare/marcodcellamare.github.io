@@ -1,6 +1,6 @@
 {
 	"title": "Resume",
-	"theme": "dark-gray",
+	"theme": "red",
 	"sections": [
 		{
 			"theme": "red",
@@ -12,7 +12,7 @@
 				"subtitle": "Senior Full-Stack Developer and Digital Designer"
 			},
 			"content": {
-				"leading": "Over <strong>20 years</strong> of experience as a Full-Stack Developer and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
+				"leading": "Over <strong>20 years</strong> of experience as a Full-Stack Developer and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable <linked>web applications</linked> with intuitive <strong>Web / UI design</strong>.",
 				"paragraphs": [
 					"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
 				]

@@ -11,8 +11,8 @@ const Background = () => {
 					key={k}
 					data-theme={overTheme ?? pageTheme}
 					className={classNames([
-						'bg-theme opacity-95 h-1/3 transition-[width,background-color] duration-700 ease-in-out',
-						!isNavOpened ? 'w-0' : 'w-[calc(100vw-0.25rem)]',
+						'bg-[var(--color-background)] h-1/3 transition-[width,background-color] duration-700 ease-in-out',
+						!isNavOpened ? 'w-0' : 'w-[calc(100vw-3rem)]',
 						!isNavOpened
 							? {
 									'delay-100': k === 1,

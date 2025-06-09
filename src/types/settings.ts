@@ -1,4 +1,4 @@
-import { TemplateType, ThemeType } from './layout';
+import { PageIdType, TemplateType, ThemeType } from './config.const';
 
 export interface SettingsContextProps {
 	overPageId: PageIdType | null;

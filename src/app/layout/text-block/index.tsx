@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { easeInOut, motion, useScroll, useTransform } from 'framer-motion';
 import { useRouter } from '!/contexts/router';
 import { useParallax } from '!/contexts/parallax';
 import classNames from 'classnames';
@@ -25,15 +25,25 @@ const TextBlock = ({ sectionId, className = '' }: ContentProps) => {
 	const y = useTransform(scrollYProgress, [0, 1], ['-5rem', '5rem']);
 	const scale = useTransform(
 		scrollYProgress,
-		[0, 0.35, 0.65, 1],
-		[0.9, 1, 1, 0.9]
+		[0, 0.2, 0.9, 1],
+		[0.9, 1, 1, 0.98],
+		{
+			ease: easeInOut,
+		}
 	);
-	const opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
+	const opacity = useTransform(
+		scrollYProgress,
+		[0.1, 0.2, 0.9, 1],
+		[0, 1, 1, 0]
+	);
 
 	const blurAmount = useTransform(
 		scrollYProgress,
-		[0.1, 0.2, 0.3],
-		['1.5rem', '0.5rem', '0rem']
+		[0, 0.4, 0.9, 1],
+		['1.5rem', '0rem', '0rem', '0.2rem'],
+		{
+			ease: easeInOut,
+		}
 	);
 	const filter = useTransform(blurAmount, (value) => `blur(${value})`);
 

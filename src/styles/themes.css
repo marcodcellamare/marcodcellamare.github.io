@@ -1,15 +1,11 @@
 @layer base {
 	[data-theme='red'] {
 		--color-background: var(--color-palette-red);
-		--color-heading: var(--color-palette-light-gray);
+		--color-heading: var(--color-palette-light-gray2);
 		--color-content: var(--color-palette-light-gray);
 
 		--color-link: var(--color-palette-green);
-		--color-link-hover: color-mix(
-			in srgb,
-			var(--color-palette-green) 50%,
-			white
-		);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
 		--color-link-active: var(--color-palette-light-gray);
 	}
 	[data-theme='purple'] {
@@ -18,11 +14,7 @@
 		--color-content: var(--color-palette-light-gray);
 
 		--color-link: var(--color-palette-green);
-		--color-link-hover: color-mix(
-			in srgb,
-			var(--color-palette-green) 50%,
-			white
-		);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
 		--color-link-active: var(--color-palette-light-gray);
 	}
 	[data-theme='brown'] {
@@ -31,11 +23,7 @@
 		--color-content: var(--color-palette-light-gray);
 
 		--color-link: var(--color-palette-yellow);
-		--color-link-hover: color-mix(
-			in srgb,
-			var(--color-palette-yellow) 50%,
-			white
-		);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
 		--color-link-active: var(--color-palette-light-gray);
 	}
 	[data-theme='dark-gray'] {
@@ -44,24 +32,17 @@
 		--color-content: var(--color-palette-light-gray);
 
 		--color-link: var(--color-palette-yellow);
-		--color-link-hover: color-mix(
-			in srgb,
-			var(--color-palette-yellow) 50%,
-			white
-		);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
 		--color-link-active: var(--color-palette-light-gray);
 	}
+
 	[data-theme='green'] {
 		--color-background: var(--color-palette-green);
 		--color-heading: var(--color-palette-dark-gray);
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-red);
-		--color-link-hover: color-mix(
-			in srgb,
-			var(--color-palette-red) 50%,
-			black
-		);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 	}
 	[data-theme='yellow'] {
@@ -70,57 +51,45 @@
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-brown);
-		--color-link-hover: color-mix(
-			in srgb,
-			var(--color-palette-brown) 50%,
-			black
-		);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 	}
+
 	[data-theme='light-gray'] {
 		--color-background: var(--color-palette-light-gray);
 		--color-heading: var(--color-palette-dark-gray);
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-red);
-		--color-link-hover: color-mix(
-			in srgb,
-			var(--color-palette-red) 50%,
-			black
-		);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 	}
+	[data-theme='light-gray2'] {
+		--color-background: var(--color-palette-light-gray2);
+		--color-heading: var(--color-palette-dark-gray);
+		--color-content: var(--color-palette-dark-gray);
+
+		--color-link: var(--color-palette-red);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-active: var(--color-palette-dark-gray);
+	}
+	[data-theme='light-gray3'] {
+		--color-background: var(--color-palette-light-gray3);
+		--color-heading: var(--color-palette-dark-gray);
+		--color-content: var(--color-palette-dark-gray);
+
+		--color-link: var(--color-palette-red);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-active: var(--color-palette-dark-gray);
+	}
+
 	[data-theme='gray'] {
 		--color-background: var(--color-palette-gray);
 		--color-heading: var(--color-palette-dark-gray);
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-purple);
-		--color-link-hover: color-mix(
-			in srgb,
-			var(--color-palette-purple) 50%,
-			black
-		);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
-	}
-}
-@layer components {
-	.bg-theme {
-		background-color: var(--color-background);
-	}
-	.text-theme-heading {
-		color: var(--color-heading);
-	}
-	.text-theme-content {
-		color: var(--color-content);
-	}
-	.text-theme-link {
-		color: var(--color-link);
-	}
-	.text-theme-link-hover {
-		color: var(--color-link-hover);
-	}
-	.text-theme-link-active {
-		color: var(--color-link-active);
 	}
 }

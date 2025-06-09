@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { openExternalLink } from '!/utils/misc';
+import classNames from 'classnames';
 
 import Icon from './Icon';
+import { CHARACTERS } from '!const';
 
 import { MoodInterface, MoodStatusType } from '!/types/moods';
 import { TimeoutType, IntervalType } from '!/types/misc';
@@ -12,7 +14,11 @@ import '!/styles/components/Moods.css';
 
 //import ReactGA from 'react-ga4'
 
-const Moods = () => {
+interface MoodsProps {
+	className?: string;
+}
+
+const Moods = ({ className = '' }: MoodsProps) => {
 	const { t } = useTranslation();
 	const data = moods as MoodInterface[];
 
@@ -75,6 +81,9 @@ const Moods = () => {
 
 	const init = useCallback(() => {
 		setStatus('init');
+		setTyped('');
+		typedRef.current = [];
+		isWrongRef.current = false;
 		getRandom();
 	}, [getRandom]);
 
@@ -83,12 +92,18 @@ const Moods = () => {
 
 		setStatus('typing');
 
-		const characters =
-			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 		let wrongCharacter = '';
 
-		// If the previous added char was wrong, remove it from the array
+		// If last character was wrong, remove it
 		if (isWrongRef.current) typedRef.current.pop();
+
+		const nextChar = current.title[typedRef.current.length];
+
+		if (!nextChar) {
+			setStatus('typed');
+			intervalCleanup();
+			return;
+		}
 
 		// Calculates if the next char has to be wrong
 		isWrongRef.current =
@@ -99,25 +114,19 @@ const Moods = () => {
 			// that is different from the actual one
 
 			do {
-				wrongCharacter = characters.charAt(
-					Math.floor(Math.random() * characters.length)
+				wrongCharacter = CHARACTERS.charAt(
+					Math.floor(Math.random() * CHARACTERS.length)
 				);
-			} while (wrongCharacter === current.title[typedRef.current.length]);
+			} while (wrongCharacter === nextChar);
 
 			// Add the wrong char to the array
 			typedRef.current.push(wrongCharacter);
 		} else {
 			// Add the right char to the array
-			typedRef.current.push(current.title[typedRef.current.length]);
+			typedRef.current.push(nextChar);
 		}
 
-		if (typedRef.current.length <= current.title.length) {
-			setTyped(typedRef.current.join(''));
-		} else {
-			// Set the typed state
-			setStatus('typed');
-			intervalCleanup();
-		}
+		setTyped(typedRef.current.join(''));
 	}, [current, idle]);
 
 	useEffect(() => {
@@ -129,29 +138,34 @@ const Moods = () => {
 		};
 	}, [idle]);
 
+	// Handle status transitions
 	useEffect(() => {
-		switch (status) {
-			case 'idle':
-				timeoutCleanup();
-				timeoutRef.current = setTimeout(init, 500);
-				break;
-
-			case 'init':
-				timeoutCleanup();
-				timeoutRef.current = setTimeout(
-					() => (intervalRef.current = setInterval(typing, 80)),
-					500
-				);
-				break;
-
-			case 'typed':
-				if (!isOver) {
-					timeoutRef.current = setTimeout(idle, 2000);
-				} else {
-					timeoutCleanup();
-				}
+		if (status === 'idle') {
+			timeoutCleanup();
+			timeoutRef.current = setTimeout(init, 500);
 		}
-	}, [status, isOver, idle, init, typing]);
+	}, [status, init]);
+
+	// Start typing only after current.title is ready
+	useEffect(() => {
+		if (status === 'init' && current.title) {
+			timeoutCleanup();
+			timeoutRef.current = setTimeout(() => {
+				intervalRef.current = setInterval(typing, 80);
+			}, 500);
+		}
+	}, [status, current.title, typing]);
+
+	// Handle auto-restart unless hovering
+	useEffect(() => {
+		if (status === 'typed') {
+			if (!isOver) {
+				timeoutRef.current = setTimeout(idle, 2000);
+			} else {
+				timeoutCleanup();
+			}
+		}
+	}, [status, isOver, idle]);
 
 	/*
 	const onClick = (label: string) => {
@@ -162,14 +176,19 @@ const Moods = () => {
 			action: 'click',
 			label: label,
 		});
-		
 	};
 	*/
 
 	return (
 		<button
 			type='button'
-			className='moods btn btn-link text-lg text-accent hover:text-base-100 no-underline hover:!no-underline'
+			className={classNames([
+				'moods btn btn-link no-underline',
+				current.link
+					? 'text-[var(--color-link)]'
+					: 'text-[var(--color-content)]',
+				className,
+			])}
 			title={
 				currentIdx >= 0
 					? `${t('moods.I')} ${t(
@@ -179,7 +198,10 @@ const Moods = () => {
 			}
 			disabled={!current.link}
 			onPointerEnter={() => setIsOver(true)}
-			onPointerLeave={() => setIsOver(false)}
+			onPointerLeave={() => {
+				setIsOver(false);
+				if (status === 'typed') idle();
+			}}
 			onClick={() =>
 				current.link ? openExternalLink(current.link) : null
 			}>
