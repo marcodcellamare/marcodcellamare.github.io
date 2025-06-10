@@ -8,12 +8,18 @@ import config from '!config';
 
 import { PageIdType, TemplateType, ThemeType } from '!/types/config.const';
 
-export const SettingsProvider = ({ children }: { children: ReactNode }) => {
+interface SettingsProviderProps {
+	children: ReactNode;
+}
+
+export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 
 	const [overPageId, setOverPageId] = useState<PageIdType | null>(null);
 	const [isNavOpened, setIsNavOpened] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
+	const [isLoaderTickled, setIsLoaderTickled] = useState(false);
 
 	const pageTheme = useMemo<ThemeType>(
 		() => t('theme', config.themes.default) as ThemeType,
@@ -47,6 +53,10 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 		setIsNavOpened,
 	]);
 	const memoizedSetOverPageId = useCallback(setOverPageId, [setOverPageId]);
+	const memoizedSetIsLoading = useCallback(setIsLoading, [setIsLoading]);
+	const memoizedSetIsLoaderTickled = useCallback(setIsLoaderTickled, [
+		setIsLoaderTickled,
+	]);
 
 	return (
 		<SettingsContext.Provider
@@ -55,12 +65,16 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 				isNavOpened,
 				pageTheme,
 				overTheme,
+				isLoading,
+				isLoaderTickled,
 
 				sectionTheme,
 				sectionTemplate,
 
 				setOverPageId: memoizedSetOverPageId,
 				setIsNavOpened: memoizedSetIsNavOpened,
+				setIsLoading: memoizedSetIsLoading,
+				setIsLoaderTickled: memoizedSetIsLoaderTickled,
 			}}>
 			{children}
 		</SettingsContext.Provider>

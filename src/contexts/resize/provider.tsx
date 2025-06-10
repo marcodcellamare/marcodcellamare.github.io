@@ -3,7 +3,11 @@ import { ResizeContext } from './context';
 
 import { windowSize } from '!/utils/misc';
 
-export const ResizeProvider = ({ children }: { children: ReactNode }) => {
+interface ResizeProviderProps {
+	children: ReactNode;
+}
+
+export const ResizeProvider = ({ children }: ResizeProviderProps) => {
 	const [width, setWidth] = useState(windowSize.width());
 	const [height, setHeight] = useState(windowSize.height());
 

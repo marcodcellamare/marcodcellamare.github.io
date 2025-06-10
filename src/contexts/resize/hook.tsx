@@ -11,6 +11,7 @@ export const useResize = (callback?: () => void) => {
 
 	useEffect(() => {
 		if (!callback) return;
+
 		if (!callbackRunRef.current) {
 			callback();
 			callbackRunRef.current = true;

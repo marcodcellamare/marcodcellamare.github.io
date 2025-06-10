@@ -1,29 +1,27 @@
 import { CSSProperties, useEffect, useRef, useState } from 'react';
 import { useSettings } from '!/contexts/settings';
-import classNames from 'classnames';
 import { cssVariable } from '!/utils/misc';
 import { colorToRgb } from '!/utils/colors';
+import classNames from 'classnames';
 
-import Container from './elements/Container';
-import TextBlock from './text-block';
 import Pattern from './elements/Pattern';
 import Title from './elements/Title';
+import Templates from './templates';
 
 import { RGB } from '!/types/misc';
+import { useSection } from '!/contexts/section';
 
 interface SectionProps {
-	sectionId: number;
 	className?: string;
 }
 
-const Section = ({ sectionId, className = '' }: SectionProps) => {
-	const { sectionTheme, sectionTemplate } = useSettings();
+const Section = ({ className = '' }: SectionProps) => {
+	const { sectionTheme } = useSettings();
+	const { sectionId, theme } = useSection();
 
 	const [nextBaseColor, setNextBaseColor] = useState<RGB | null>(null);
 
 	const targetRef = useRef<HTMLDivElement>(null);
-
-	const template = sectionTemplate(sectionId);
 
 	useEffect(
 		() =>
@@ -41,7 +39,7 @@ const Section = ({ sectionId, className = '' }: SectionProps) => {
 	return (
 		<section
 			ref={targetRef}
-			data-theme={sectionTheme(sectionId)}
+			data-theme={theme}
 			className={classNames([
 				'flex items-center min-h-full relative overflow-hidden bg-[var(--color-background)] text-[var(--color-heading)]',
 				className,
@@ -49,38 +47,37 @@ const Section = ({ sectionId, className = '' }: SectionProps) => {
 			style={
 				nextBaseColor
 					? ({
-							'--next-base-color': nextBaseColor,
+							'--color-next-background': `rgb(${nextBaseColor})`,
 					  } as CSSProperties)
 					: undefined
 			}>
-			<Title
-				sectionId={sectionId}
-				targetRef={targetRef}
-			/>
+			<Title targetRef={targetRef} />
 			<Pattern targetRef={targetRef} />
-			<Container className='flex flex-col gap-5 lg:flex-row py-20'>
-				{['left-content-image', 'right-content-image'].includes(
-					template
-				) ? (
+			<Templates />
+			{/*
+			<Container className='flex flex-col gap-10 lg:gap-15 md:flex-row py-20'>
+				{['text:left', 'text:right'].includes(template) ? (
 					<div
 						className={classNames([
-							'lg:basis-2/5 border',
+							'md:basis-4/9 lg:basis-2/5 min-w-0',
 							{
-								'order-last': template === 'left-content',
+								'order-first': template === 'text:left',
 							},
 						])}>
-						IMAGE
+						<div className='w-full aspect-square border'>IMAGE</div>
 					</div>
 				) : null}
 				<TextBlock
 					sectionId={sectionId}
-					className={classNames(
-						template === 'full-content'
-							? 'lg:basis-9/12'
-							: 'lg:basis-3/5'
-					)}
+					className={classNames([
+						'min-w-0',
+						template === 'text:full'
+							? 'md:basis-9/12'
+							: 'md:basis-5/9 lg:basis-3/5',
+					])}
 				/>
 			</Container>
+			*/}
 		</section>
 	);
 };

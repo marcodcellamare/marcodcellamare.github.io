@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSettings } from '!/contexts/settings';
+import { random } from '!/utils/math';
 import classNames from 'classnames';
 
 import { PALETTE } from '!const';
@@ -10,16 +11,18 @@ import { IntervalType } from '!/types/misc';
 type StripType = {
 	height: number;
 	color: ThemeType;
-	delay: number;
 };
 
 const Loader = () => {
-	const { isNavOpened } = useSettings();
+	const { isNavOpened, isLoaderTickled } = useSettings();
 
 	const [strips, setStrips] = useState<StripType[]>([]);
+	const [stripsWidths, setStripsWidths] = useState<number[]>([]);
+	const [stripsDelays, setStripsDelays] = useState<number[]>([]);
 
 	const intervalRef = useRef<IntervalType>(null);
 	const totalStripsRef = useRef(30);
+	const stripWidthRangeRef = useRef({ min: 0.25, max: 2 });
 	const stripHeightRangeRef = useRef({ min: 1, max: 10 });
 	const stripDelayRangeRef = useRef({ min: 300, max: 500 });
 
@@ -30,18 +33,10 @@ const Loader = () => {
 		}
 	};
 
-	const stripDelay = () =>
-		Math.floor(
-			Math.random() *
-				(stripDelayRangeRef.current.max -
-					stripDelayRangeRef.current.min +
-					1) +
-				stripDelayRangeRef.current.min
-		);
-
 	const generate = useCallback(() => {
+		// Minimum total required space
 		const totalMin =
-			stripHeightRangeRef.current.min * totalStripsRef.current; // Minimum total required space
+			stripHeightRangeRef.current.min * totalStripsRef.current;
 
 		if (totalMin > 100) {
 			console.warn('Min height per strip is too high for total strips.');
@@ -84,7 +79,7 @@ const Loader = () => {
 		const strips: StripType[] = [];
 		let prevColor: ThemeType | null = null;
 
-		heights.forEach((heightPercent) => {
+		heights.forEach((height) => {
 			let color: ThemeType;
 
 			do {
@@ -95,15 +90,30 @@ const Loader = () => {
 			);
 
 			strips.push({
-				height: heightPercent,
+				height,
 				color,
-				delay: stripDelay(),
 			});
 			prevColor = color;
 		});
 
 		setStrips(strips);
 	}, []);
+
+	useEffect(() => {
+		if (!isLoaderTickled) return;
+
+		const stripsWidths = [];
+		const stripsDelays = [];
+
+		for (let k = 0; k < totalStripsRef.current; k++) {
+			stripsWidths.push(
+				parseFloat(random(stripWidthRangeRef.current).toFixed(2))
+			);
+			stripsDelays.push(Math.round(random(stripDelayRangeRef.current)));
+		}
+		setStripsWidths(stripsWidths);
+		setStripsDelays(stripsDelays);
+	}, [isLoaderTickled]);
 
 	useEffect(() => {
 		cleanup();
@@ -127,14 +137,17 @@ const Loader = () => {
 					key={k}
 					className={classNames([
 						'transition-[width]',
-						!isNavOpened
-							? 'w-[0.25rem] duration-600'
-							: 'w-full duration-300',
+						!isNavOpened ? 'duration-600' : 'duration-300',
 					])}
 					style={{
+						width: !isNavOpened
+							? isLoaderTickled
+								? `${stripsWidths[k]}rem`
+								: '0.25rem'
+							: '100%',
 						height: `${strip.height}%`,
 						backgroundColor: `var(--color-palette-${strip.color})`,
-						transitionDelay: `${strip.delay}ms`,
+						transitionDelay: `${stripsDelays[k]}ms`,
 					}}
 				/>
 			))}

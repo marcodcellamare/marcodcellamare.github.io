@@ -1,7 +1,11 @@
 import { ReactNode, RefObject, useRef } from 'react';
 import { ParallaxContext } from './context';
 
-export const ParallaxProvider = ({ children }: { children: ReactNode }) => {
+interface ParallaxProviderProps {
+	children: ReactNode;
+}
+
+export const ParallaxProvider = ({ children }: ParallaxProviderProps) => {
 	const scrollContainerRef = useRef<HTMLDivElement>(null);
 
 	const getScrollConfig = (targetRef?: RefObject<HTMLElement | null>) => ({

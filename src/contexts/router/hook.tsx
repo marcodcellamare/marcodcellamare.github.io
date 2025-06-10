@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { RouterContext } from './context';
+import { RouterContext, RouterContextProps } from './context';
 
-export const useRouter = () => {
+export const useRouter = (): RouterContextProps => {
 	const context = useContext(RouterContext);
 
 	if (!context) {

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import useIsTouch from '!/hooks/useIsTouch';
+import { useSettings } from '!/contexts/settings';
 
 const Cursor: React.FC = () => {
 	const isTouch = useIsTouch();
+	const { setIsLoaderTickled } = useSettings();
 	const x = useMotionValue(0);
 	const y = useMotionValue(0);
 
@@ -50,6 +52,11 @@ const Cursor: React.FC = () => {
 		};
 	}, [x, y, isTouch]);
 
+	useEffect(
+		() => setIsLoaderTickled(isHoveringLink),
+		[isHoveringLink, setIsLoaderTickled]
+	);
+
 	if (isTouch) return null;
 
 	return (
@@ -60,9 +67,9 @@ const Cursor: React.FC = () => {
 				translateY: springY,
 			}}>
 			<motion.div
-				className='w-10 aspect-square rounded-full bg-base-200 -translate-1/2'
+				className='w-6 aspect-square rounded-full bg-base-200 -translate-1/2'
 				animate={{
-					scale: isInsideWindow ? (isHoveringLink ? 8 : 1) : 0,
+					scale: isInsideWindow ? (isHoveringLink ? 4 : 1) : 0,
 					opacity: isInsideWindow ? 1 : 0,
 				}}
 			/>

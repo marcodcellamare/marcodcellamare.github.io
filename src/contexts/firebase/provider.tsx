@@ -7,6 +7,10 @@ import { Analytics } from 'firebase/analytics';
 
 import pkg from '!package';
 
+interface FirebaseProviderProps {
+	children: ReactNode;
+}
+
 const firebaseConfig = {
 	apiKey: process.env.FIREBASE_API_KEY,
 	authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -17,7 +21,7 @@ const firebaseConfig = {
 	measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 
-export const FirebaseProvider = ({ children }: { children: ReactNode }) => {
+export const FirebaseProvider = ({ children }: FirebaseProviderProps) => {
 	const { i18n } = useTranslation();
 
 	const [analytics, setAnalytics] = useState<Analytics | null>(null);

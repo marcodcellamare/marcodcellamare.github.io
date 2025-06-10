@@ -1,4 +1,11 @@
 .pattern {
+	background: transparent;
+	background: linear-gradient(
+		0deg,
+		var(--color-next-background) 0%,
+		color-mix(in srgb, var(--color-next-background) 0%, transparent) 80%
+	);
+
 	> div {
 		background-position: center top;
 		background-attachment: fixed;
@@ -6,32 +13,37 @@
 
 		&:nth-child(1) {
 			background-image: radial-gradient(
-				rgba(var(--next-base-color), 1) 0.05rem,
-				rgba(var(--next-base-color), 0) 0
+				var(--color-next-background) 0.05rem,
+				color-mix(in srgb, var(--color-next-background) 0%, transparent)
+					0
 			);
 		}
 		&:nth-child(2) {
 			background-image: radial-gradient(
-				rgba(var(--next-base-color), 1) 0.1rem,
-				rgba(var(--next-base-color), 0) 0
+				var(--color-next-background) 0.1rem,
+				color-mix(in srgb, var(--color-next-background) 0%, transparent)
+					0
 			);
 		}
 		&:nth-child(3) {
 			background-image: radial-gradient(
-				rgba(var(--next-base-color), 1) 0.15rem,
-				rgba(var(--next-base-color), 0) 0
+				var(--color-next-background) 0.15rem,
+				color-mix(in srgb, var(--color-next-background) 0%, transparent)
+					0
 			);
 		}
 		&:nth-child(4) {
 			background-image: radial-gradient(
-				rgba(var(--next-base-color), 1) 0.2rem,
-				rgba(var(--next-base-color), 0) 0
+				var(--color-next-background) 0.2rem,
+				color-mix(in srgb, var(--color-next-background) 0%, transparent)
+					0
 			);
 		}
 		&:nth-child(5) {
 			background-image: radial-gradient(
-				rgba(var(--next-base-color), 1) 0.25rem,
-				rgba(var(--next-base-color), 0) 0
+				var(--color-next-background) 0.25rem,
+				color-mix(in srgb, var(--color-next-background) 0%, transparent)
+					0
 			);
 		}
 	}

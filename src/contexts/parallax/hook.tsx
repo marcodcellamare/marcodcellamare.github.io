@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { ParallaxContext } from './context';
+import { ParallaxContext, ParallaxContextProps } from './context';
 
-export const useParallax = () => {
+export const useParallax = (): ParallaxContextProps => {
 	const context = useContext(ParallaxContext);
 
 	if (!context) {

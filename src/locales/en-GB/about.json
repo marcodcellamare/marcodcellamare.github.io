@@ -4,7 +4,7 @@
 	"sections": [
 		{
 			"theme": "red",
-			"template": "full-content",
+			"template": "text:full",
 			"title": "Hey there",
 			"heading": {
 				"headline": "test",
@@ -20,7 +20,7 @@
 		},
 		{
 			"theme": "purple",
-			"template": "full-content",
+			"template": "text:full",
 			"title": "Hey there",
 			"heading": {
 				"headline": "test",
@@ -36,7 +36,7 @@
 		},
 		{
 			"theme": "brown",
-			"template": "full-content",
+			"template": "text:full",
 			"title": "Hey there",
 			"heading": {
 				"headline": "test",
@@ -52,7 +52,7 @@
 		},
 		{
 			"theme": "dark-gray",
-			"template": "full-content",
+			"template": "text:full",
 			"title": "Hey there",
 			"heading": {
 				"headline": "test",
@@ -68,7 +68,7 @@
 		},
 		{
 			"theme": "green",
-			"template": "full-content",
+			"template": "text:full",
 			"title": "Hey there",
 			"heading": {
 				"headline": "test",
@@ -84,7 +84,7 @@
 		},
 		{
 			"theme": "yellow",
-			"template": "full-content",
+			"template": "text:full",
 			"title": "Hey there",
 			"heading": {
 				"headline": "test",
@@ -100,7 +100,7 @@
 		},
 		{
 			"theme": "light-gray",
-			"template": "full-content",
+			"template": "text:full",
 			"title": "Hey there",
 			"heading": {
 				"headline": "test",
@@ -116,7 +116,7 @@
 		},
 		{
 			"theme": "gray",
-			"template": "full-content",
+			"template": "text:full",
 			"title": "Hey there",
 			"heading": {
 				"headline": "test",

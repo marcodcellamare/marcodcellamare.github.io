@@ -2,19 +2,19 @@ import { RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParallax } from '!/contexts/parallax';
 import { useRouter } from '!/contexts/router';
+import { useSection } from '!/contexts/section';
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 
 import '!/styles/components/elements/Title.css';
 
 interface TitleProps {
-	sectionId: number;
 	targetRef: RefObject<HTMLDivElement | null>;
 }
 
-const Title = ({ sectionId, targetRef }: TitleProps) => {
+const Title = ({ targetRef }: TitleProps) => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
-
+	const { sectionId } = useSection();
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(targetRef));
 

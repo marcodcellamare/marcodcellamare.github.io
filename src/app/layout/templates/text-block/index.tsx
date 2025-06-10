@@ -3,19 +3,20 @@ import { useTranslation } from 'react-i18next';
 import { easeInOut, motion, useScroll, useTransform } from 'framer-motion';
 import { useRouter } from '!/contexts/router';
 import { useParallax } from '!/contexts/parallax';
+import { useSection } from '!/contexts/section';
 import classNames from 'classnames';
 
 import Heading from './Heading';
 import Content from './Content';
 
 interface ContentProps {
-	sectionId: number;
 	className?: string;
 }
 
-const TextBlock = ({ sectionId, className = '' }: ContentProps) => {
+const TextBlock = ({ className = '' }: ContentProps) => {
 	const { pageId } = useRouter();
 	const { i18n } = useTranslation(pageId);
+	const { sectionId } = useSection();
 
 	const targetRef = useRef<HTMLDivElement>(null);
 

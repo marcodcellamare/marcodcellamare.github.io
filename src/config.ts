@@ -29,7 +29,7 @@ const config = {
 	},
 
 	templates: {
-		default: 'full-content',
+		default: 'text:full',
 		list: TEMPLATES,
 	},
 
@@ -39,11 +39,11 @@ const config = {
 			content: [
 				"default-src 'self'",
 				"script-src 'self' https://www.googletagmanager.com https://apis.google.com",
-				"connect-src 'self' https://firebase.googleapis.com https://firestore.googleapis.com https://securetoken.googleapis.com https://firebaseinstallations.googleapis.com https://identitytoolkit.googleapis.com https://region1.google-analytics.com https://api.country.is",
+				"connect-src 'self' https://firebase.googleapis.com https://region1.google-analytics.com",
 				"style-src 'self' 'unsafe-inline'",
 				"img-src 'self' data: https://www.googletagmanager.com",
 				"font-src 'self'",
-				"frame-src 'self' https://super-nonogram.firebaseapp.com",
+				"frame-src 'self'",
 				"object-src 'none'",
 				"base-uri 'self'",
 				"form-action 'self'",
@@ -70,8 +70,8 @@ const config = {
 
 	preload: [
 		{ rel: 'dns-prefetch', href: 'https://apis.google.com' },
-		{ rel: 'dns-prefetch', href: 'https://identitytoolkit.googleapis.com' },
 		{ rel: 'dns-prefetch', href: 'https://www.googletagmanager.com' },
+		{ rel: 'dns-prefetch', href: 'https://firebase.googleapis.com' },
 		{ rel: 'dns-prefetch', href: 'https://region1.google-analytics.com' },
 		{
 			rel: 'dns-preconnect',
@@ -80,12 +80,12 @@ const config = {
 		},
 		{
 			rel: 'preconnect',
-			href: 'https://identitytoolkit.googleapis.com',
+			href: 'https://www.googletagmanager.com',
 			crossorigin: 'anonymous',
 		},
 		{
 			rel: 'preconnect',
-			href: 'https://www.googletagmanager.com',
+			href: 'https://firebase.googleapis.com',
 			crossorigin: 'anonymous',
 		},
 		{

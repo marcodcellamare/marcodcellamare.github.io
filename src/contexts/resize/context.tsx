@@ -1,5 +1,11 @@
 import { createContext } from 'react';
-import { ResizeContextProps } from '!/types/resize';
+
+export interface ResizeContextProps {
+	width: number;
+	height: number;
+
+	subscribe: (callback: () => void) => () => void;
+}
 
 export const ResizeContext = createContext<ResizeContextProps | undefined>(
 	undefined
