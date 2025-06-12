@@ -12,7 +12,7 @@ const Background = () => {
 					data-theme={overTheme ?? pageTheme}
 					className={classNames([
 						'bg-[var(--color-background)] h-1/3 transition-[width,background-color] duration-700 ease-in-out',
-						!isNavOpened ? 'w-0' : 'w-[calc(100vw-3rem)]',
+						!isNavOpened ? 'w-0' : 'w-5/6 md:w-2/3',
 						!isNavOpened
 							? {
 									'delay-100': k === 1,

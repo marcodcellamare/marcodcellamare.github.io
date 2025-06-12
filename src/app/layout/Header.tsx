@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import Nav from './nav';
 import Toggler from './nav/Toggler';
+import Loader from './nav/Loader';
 
 const Header = () => {
 	const { isNavOpened } = useSettings();
@@ -15,6 +16,7 @@ const Header = () => {
 					'pointer-events-none': !isNavOpened,
 				},
 			])}>
+			<Loader />
 			<Nav />
 			<Toggler />
 		</header>

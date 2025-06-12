@@ -1,5 +1,6 @@
 import { CSSProperties, useEffect, useRef, useState } from 'react';
 import { useSettings } from '!/contexts/settings';
+import { useSection } from '!/contexts/section';
 import { cssVariable } from '!/utils/misc';
 import { colorToRgb } from '!/utils/colors';
 import classNames from 'classnames';
@@ -9,7 +10,6 @@ import Title from './elements/Title';
 import Templates from './templates';
 
 import { RGB } from '!/types/misc';
-import { useSection } from '!/contexts/section';
 
 interface SectionProps {
 	className?: string;
@@ -17,11 +17,9 @@ interface SectionProps {
 
 const Section = ({ className = '' }: SectionProps) => {
 	const { sectionTheme } = useSettings();
-	const { sectionId, theme } = useSection();
+	const { sectionId, theme, setTargetRef } = useSection();
 
 	const [nextBaseColor, setNextBaseColor] = useState<RGB | null>(null);
-
-	const targetRef = useRef<HTMLDivElement>(null);
 
 	useEffect(
 		() =>
@@ -38,7 +36,7 @@ const Section = ({ className = '' }: SectionProps) => {
 
 	return (
 		<section
-			ref={targetRef}
+			ref={setTargetRef}
 			data-theme={theme}
 			className={classNames([
 				'flex items-center min-h-full relative overflow-hidden bg-[var(--color-background)] text-[var(--color-heading)]',
@@ -51,33 +49,9 @@ const Section = ({ className = '' }: SectionProps) => {
 					  } as CSSProperties)
 					: undefined
 			}>
-			<Title targetRef={targetRef} />
-			<Pattern targetRef={targetRef} />
+			<Title />
 			<Templates />
-			{/*
-			<Container className='flex flex-col gap-10 lg:gap-15 md:flex-row py-20'>
-				{['text:left', 'text:right'].includes(template) ? (
-					<div
-						className={classNames([
-							'md:basis-4/9 lg:basis-2/5 min-w-0',
-							{
-								'order-first': template === 'text:left',
-							},
-						])}>
-						<div className='w-full aspect-square border'>IMAGE</div>
-					</div>
-				) : null}
-				<TextBlock
-					sectionId={sectionId}
-					className={classNames([
-						'min-w-0',
-						template === 'text:full'
-							? 'md:basis-9/12'
-							: 'md:basis-5/9 lg:basis-3/5',
-					])}
-				/>
-			</Container>
-			*/}
+			<Pattern />
 		</section>
 	);
 };

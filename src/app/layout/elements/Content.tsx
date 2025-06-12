@@ -1,16 +1,18 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
+import { useSection } from '!/contexts/section';
 import classNames from 'classnames';
 
-import '!/styles/components/text-block/Content.css';
 import Link from '!/app/misc/Link';
 
+import '!/styles/components/elements/Content.css';
+
 interface ContentProps {
-	sectionId: number;
 	className?: string;
 }
 
-const TextBlockContent = ({ sectionId, className = '' }: ContentProps) => {
+const Content = ({ className = '' }: ContentProps) => {
+	const { sectionId } = useSection();
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 
@@ -32,8 +34,11 @@ const TextBlockContent = ({ sectionId, className = '' }: ContentProps) => {
 		linked: <Link />,
 	};
 
+	if (!leadingExists && (!paragraphsExists || paragraphs.length === 0))
+		return null;
+
 	return (
-		<div className={classNames(['text-block-content', className])}>
+		<div className={classNames(['content', className])}>
 			{leadingExists && (
 				<p className='leading'>
 					<Trans
@@ -57,4 +62,4 @@ const TextBlockContent = ({ sectionId, className = '' }: ContentProps) => {
 		</div>
 	);
 };
-export default TextBlockContent;
+export default Content;

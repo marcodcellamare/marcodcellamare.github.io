@@ -1,4 +1,4 @@
-.text-block-heading {
+.heading {
 	> :not(:last-child) {
 		margin-bottom: calc(var(--spacing));
 	}

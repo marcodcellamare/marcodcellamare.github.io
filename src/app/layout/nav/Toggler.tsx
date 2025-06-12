@@ -11,7 +11,7 @@ const Toggler = () => {
 		<button
 			type='button'
 			className={classNames([
-				'toggler absolute top-5 left-5 w-[3rem] aspect-square cursor-pointer mix-blend-difference',
+				'toggler absolute top-0 left-0 m-5 md:m-10 w-[3.5rem] md:w-[3rem] aspect-square cursor-pointer mix-blend-difference',
 				{
 					active: isNavOpened,
 				},
@@ -29,7 +29,9 @@ const Toggler = () => {
 							'delay-[200ms]': k === 0,
 							'delay-[300ms]': k === 2,
 						},
-						!isOver ? 'bg-base-200' : 'bg-base-content',
+						!isOver
+							? 'bg-[var(--color-palette-gray)]'
+							: 'bg-[var(--color-palette-dark-gray)]',
 						!isNavOpened
 							? [
 									'h-1/7',

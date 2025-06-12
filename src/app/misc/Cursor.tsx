@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import useIsTouch from '!/hooks/useIsTouch';
 import { useSettings } from '!/contexts/settings';
 
-const Cursor: React.FC = () => {
+const Cursor = () => {
+	const location = useLocation();
 	const isTouch = useIsTouch();
 	const { setIsLoaderTickled } = useSettings();
+
 	const x = useMotionValue(0);
 	const y = useMotionValue(0);
 
@@ -13,13 +16,26 @@ const Cursor: React.FC = () => {
 	const springX = useSpring(x, springConfig);
 	const springY = useSpring(y, springConfig);
 
+	const [links, setLinks] = useState<NodeListOf<Element>>();
 	const [isInsideWindow, setIsInsideWindow] = useState(false);
 	const [isHoveringLink, setIsHoveringLink] = useState(false);
 
 	useEffect(() => {
 		if (isTouch) return;
 
-		const links = document.querySelectorAll('a, button');
+		const updateLinks = () =>
+			setLinks(document.querySelectorAll('a, button'));
+
+		updateLinks();
+
+		const observer = new MutationObserver(updateLinks);
+		observer.observe(document.body, { childList: true, subtree: true });
+
+		return () => observer.disconnect();
+	}, [isTouch]);
+
+	useEffect(() => {
+		if (isTouch || !links) return;
 
 		const mouseMoveHandler = (e: MouseEvent) => {
 			x.set(e.clientX);
@@ -50,7 +66,7 @@ const Cursor: React.FC = () => {
 				link.removeEventListener('mouseleave', mouseLeaveLinkHandler);
 			});
 		};
-	}, [x, y, isTouch]);
+	}, [links, x, y, isTouch]);
 
 	useEffect(
 		() => setIsLoaderTickled(isHoveringLink),
@@ -61,13 +77,13 @@ const Cursor: React.FC = () => {
 
 	return (
 		<motion.div
-			className='fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference'
+			className='cursor fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference'
 			style={{
 				translateX: springX,
 				translateY: springY,
 			}}>
 			<motion.div
-				className='w-6 aspect-square rounded-full bg-base-200 -translate-1/2'
+				className='w-6 aspect-square rounded-full bg-[var(--color-palette-gray)] -translate-1/2'
 				animate={{
 					scale: isInsideWindow ? (isHoveringLink ? 4 : 1) : 0,
 					opacity: isInsideWindow ? 1 : 0,

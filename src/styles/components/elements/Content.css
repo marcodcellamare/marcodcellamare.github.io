@@ -1,4 +1,4 @@
-.text-block-content {
+.content {
 	> :not(:last-child) {
 		margin-bottom: calc(var(--spacing) * 1.5);
 

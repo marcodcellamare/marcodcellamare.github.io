@@ -1,7 +1,7 @@
 import { useSection } from '!/contexts/section';
 import classNames from 'classnames';
 
-import TextBlock from '../text-block';
+import TextBlock from '../../elements/TextBlock';
 
 const Content = () => {
 	const { template } = useSection();

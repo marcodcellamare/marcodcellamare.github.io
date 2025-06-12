@@ -24,10 +24,10 @@ const Nav = () => {
 						: '-translate-x-full',
 				])}>
 				<Container className='flex flex-col py-20'>
+					<Menu />
 					<h6 className='text-[var(--color-heading)] uppercase font-black'>
 						{t('title')}
 					</h6>
-					<Menu />
 				</Container>
 			</div>
 		</nav>

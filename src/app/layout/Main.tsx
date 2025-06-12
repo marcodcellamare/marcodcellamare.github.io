@@ -32,7 +32,7 @@ const Main = () => {
 	}, [pathname, scrollContainerRef]);
 
 	return (
-		<main className='flex flex-col flex-1 h-full relative'>
+		<main className='flex flex-col flex-1 h-full relative z-0'>
 			{sections.length > 0 ? (
 				<div
 					ref={scrollContainerRef}

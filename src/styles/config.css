@@ -46,5 +46,8 @@
 
 @theme {
 	--text-xxs: 0.55rem;
-	--text-10xl: 10rem;
+
+	--text-massive-lg: 12rem;
+	--text-massive-xl: 15rem;
+	--text-massive-2xl: 18rem;
 }

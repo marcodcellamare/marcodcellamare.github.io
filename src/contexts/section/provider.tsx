@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useRef } from 'react';
 import { SectionContext } from './context';
 
 import { TemplateType, ThemeType } from '!/types/config.const';
@@ -15,13 +15,23 @@ export const SectionProvider = ({
 	template,
 	theme,
 	children,
-}: SectionProviderProps) => (
-	<SectionContext.Provider
-		value={{
-			sectionId,
-			template,
-			theme,
-		}}>
-		{children}
-	</SectionContext.Provider>
-);
+}: SectionProviderProps) => {
+	const targetRef = useRef<HTMLDivElement | null>(null);
+
+	const setTargetRef = (node: HTMLDivElement | null) => {
+		targetRef.current = node;
+	};
+
+	return (
+		<SectionContext.Provider
+			value={{
+				sectionId,
+				template,
+				theme,
+				targetRef,
+				setTargetRef,
+			}}>
+			{children}
+		</SectionContext.Provider>
+	);
+};

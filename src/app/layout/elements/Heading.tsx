@@ -1,15 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
+import { useSection } from '!/contexts/section';
 import classNames from 'classnames';
 
-import '!/styles/components/text-block/Heading.css';
+import '!/styles/components/elements/Heading.css';
 
 interface ContentProps {
-	sectionId: number;
 	className?: string;
 }
 
-const TextBlockHeading = ({ sectionId, className = '' }: ContentProps) => {
+const TextBlockHeading = ({ className = '' }: ContentProps) => {
+	const { sectionId } = useSection();
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 
@@ -30,7 +31,7 @@ const TextBlockHeading = ({ sectionId, className = '' }: ContentProps) => {
 	return (
 		<div
 			className={classNames([
-				'text-block-heading text-[var(--color-heading)] uppercase',
+				'heading text-[var(--color-heading)] uppercase',
 				className,
 			])}>
 			{headlineExists && (
@@ -46,7 +47,7 @@ const TextBlockHeading = ({ sectionId, className = '' }: ContentProps) => {
 				className={classNames([
 					'h1 font-black',
 					{
-						'h1-lg': sectionId === 0,
+						extra: sectionId === 0,
 					},
 				])}>
 				{t(`sections.${sectionId}.heading.title`)}
