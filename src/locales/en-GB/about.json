@@ -15,11 +15,11 @@
 		{
 			"theme": "purple",
 			"template": "text:full",
-			"title": "20 years of experience",
+			"title": "20+ years of experience",
 			"content": {
-				"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+				"leading": "Over <strong>20 years</strong> of experience as a Full-Stack Developer and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
 				"paragraphs": [
-					"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
 				]
 			}
 		},

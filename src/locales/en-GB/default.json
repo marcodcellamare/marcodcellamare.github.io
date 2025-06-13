@@ -7,6 +7,48 @@
 		"music": "Music",
 		"contacts": "Contacts"
 	},
+	"socials": [
+		{
+			"type": "download",
+			"title": "Resume",
+			"link": "xxxxxx"
+		},
+		{
+			"type": "linkedin",
+			"title": "LinkedIn",
+			"link": "linkedin.com/in/marcocellamare"
+		},
+		{
+			"type": "github",
+			"title": "GitHub",
+			"link": "github.com/marcodcellamare"
+		},
+		{
+			"type": "behance",
+			"title": "Behance",
+			"link": "behance.net/marco-cellamare"
+		},
+		{
+			"type": "instagram",
+			"title": "Instagram",
+			"link": "instagram.com/marcod.cellamare"
+		},
+		{
+			"type": "music",
+			"title": "Music Hub",
+			"link": "beacons.ai/ruffiano.stuta.p"
+		},
+		{
+			"type": "phone",
+			"title": "Let's talk",
+			"link": "+45 52 11 33 61"
+		},
+		{
+			"type": "email",
+			"title": "Get in touch",
+			"link": "md.cellamare@gmail.com"
+		}
+	],
 	"moods": {
 		"I": "I",
 		"love": "Love",

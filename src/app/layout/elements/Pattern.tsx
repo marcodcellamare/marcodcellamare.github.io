@@ -5,9 +5,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import '!/styles/components/elements/Pattern.css';
 
 const Pattern = () => {
-	const { targetRef } = useSection();
+	const { sectionRef } = useSection();
 	const { getScrollConfig } = useParallax();
-	const { scrollYProgress } = useScroll(getScrollConfig(targetRef));
+	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
 	const height = useTransform(scrollYProgress, [0.5, 1], ['0%', '50%']);
 

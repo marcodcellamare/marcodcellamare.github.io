@@ -10,7 +10,7 @@ import {
 	ThumbsDownIcon,
 } from 'lucide-react';
 
-import { MoodType } from '!/types/moods';
+import { MoodType } from '.';
 
 interface IconProps {
 	type: MoodType | 'go';

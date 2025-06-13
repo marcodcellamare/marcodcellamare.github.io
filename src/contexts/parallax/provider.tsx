@@ -6,7 +6,10 @@ interface ParallaxProviderProps {
 }
 
 export const ParallaxProvider = ({ children }: ParallaxProviderProps) => {
-	const scrollContainerRef = useRef<HTMLDivElement>(null);
+	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
+	const setScrollContainerRef = (node: HTMLDivElement | null) =>
+		(scrollContainerRef.current = node);
 
 	const getScrollConfig = (targetRef?: RefObject<HTMLElement | null>) => ({
 		container: scrollContainerRef,
@@ -19,6 +22,8 @@ export const ParallaxProvider = ({ children }: ParallaxProviderProps) => {
 		<ParallaxContext.Provider
 			value={{
 				scrollContainerRef,
+
+				setScrollContainerRef,
 				getScrollConfig,
 			}}>
 			{children}

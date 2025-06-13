@@ -1,21 +1,24 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
 import { useParallax } from '!/contexts/parallax';
 import { useSettings } from '!/contexts/settings';
+import useSnapToSection from '!/hooks/useSnapToSection';
 import { SectionProvider } from '!/contexts/section';
 
 import Section from './Section';
 
 import { SectionInterface } from '!/types/layout';
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
 const Main = () => {
 	const { pageId } = useRouter();
 	const { t } = useTranslation(pageId);
 	const { pathname } = useLocation();
-	const { scrollContainerRef } = useParallax();
+	const { setScrollContainerRef, scrollContainerRef } = useParallax();
 	const { sectionTemplate, sectionTheme } = useSettings();
+
+	useSnapToSection(scrollContainerRef);
 
 	const sections = t('sections', {
 		returnObjects: true,
@@ -35,7 +38,7 @@ const Main = () => {
 		<main className='flex flex-col flex-1 h-full relative z-0'>
 			{sections.length > 0 ? (
 				<div
-					ref={scrollContainerRef}
+					ref={setScrollContainerRef}
 					className='absolute top-0 bottom-0 left-0 right-0 overflow-x-hidden overflow-y-auto scrollbar'>
 					{sections.map((_, k) => (
 						<SectionProvider

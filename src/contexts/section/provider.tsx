@@ -16,20 +16,20 @@ export const SectionProvider = ({
 	theme,
 	children,
 }: SectionProviderProps) => {
-	const targetRef = useRef<HTMLDivElement | null>(null);
+	const sectionRef = useRef<HTMLDivElement | null>(null);
 
-	const setTargetRef = (node: HTMLDivElement | null) => {
-		targetRef.current = node;
-	};
+	const setSectionRef = (node: HTMLDivElement | null) =>
+		(sectionRef.current = node);
 
 	return (
 		<SectionContext.Provider
 			value={{
+				sectionRef,
 				sectionId,
 				template,
 				theme,
-				targetRef,
-				setTargetRef,
+
+				setSectionRef,
 			}}>
 			{children}
 		</SectionContext.Provider>

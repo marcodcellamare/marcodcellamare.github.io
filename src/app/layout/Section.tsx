@@ -17,7 +17,7 @@ interface SectionProps {
 
 const Section = ({ className = '' }: SectionProps) => {
 	const { sectionTheme } = useSettings();
-	const { sectionId, theme, setTargetRef } = useSection();
+	const { sectionId, theme, setSectionRef } = useSection();
 
 	const [nextBaseColor, setNextBaseColor] = useState<RGB | null>(null);
 
@@ -36,7 +36,7 @@ const Section = ({ className = '' }: SectionProps) => {
 
 	return (
 		<section
-			ref={setTargetRef}
+			ref={setSectionRef}
 			data-theme={theme}
 			className={classNames([
 				'flex items-center min-h-full relative overflow-hidden bg-[var(--color-background)] text-[var(--color-heading)]',
@@ -49,9 +49,9 @@ const Section = ({ className = '' }: SectionProps) => {
 					  } as CSSProperties)
 					: undefined
 			}>
+			<Pattern />
 			<Title />
 			<Templates />
-			<Pattern />
 		</section>
 	);
 };

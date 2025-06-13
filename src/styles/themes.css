@@ -55,6 +55,15 @@
 		--color-link-active: var(--color-palette-dark-gray);
 	}
 
+	[data-theme='white'] {
+		--color-background: var(--color-palette-light-gray);
+		--color-heading: var(--color-palette-dark-gray);
+		--color-content: var(--color-palette-dark-gray);
+
+		--color-link: var(--color-palette-red);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-active: var(--color-palette-dark-gray);
+	}
 	[data-theme='light-gray'] {
 		--color-background: var(--color-palette-light-gray);
 		--color-heading: var(--color-palette-dark-gray);

@@ -16,7 +16,9 @@ const Content = () => {
 							'order-first': template === 'text:left',
 						},
 					])}>
-					<div className='w-full aspect-square border'>IMAGE</div>
+					<div className='w-full aspect-square bg-red-500/50'>
+						IMAGE
+					</div>
 				</div>
 			) : null}
 			<TextBlock

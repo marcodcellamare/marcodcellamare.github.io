@@ -1,6 +1,6 @@
 # Marco D. Cellamare
 
-v2025 - Under contruction
+My personal website v2025, forevet under contruction :D
 
 https://marcodcellamare.github.io 
 
@@ -12,3 +12,11 @@ $ npm run lint
 $ npm run preview
 $ npm run deploy
 ```
+
+TODO:
+
+* Change footer and scrollbar colors, with the active slide one
+* Add links footer
+* Random polygons in parallax
+* Side line (check if it works)
+* Add Google Analytics to links

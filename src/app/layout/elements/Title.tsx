@@ -10,17 +10,17 @@ import classNames from 'classnames';
 const Title = () => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
-	const { sectionId, targetRef } = useSection();
+	const { sectionId, sectionRef } = useSection();
 	const { getScrollConfig } = useParallax();
-	const { scrollYProgress } = useScroll(getScrollConfig(targetRef));
+	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
 	const y = useTransform(scrollYProgress, [0, 1], ['-15rem', '15rem']);
 	const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
 	const zIndex = useTransform(scrollYProgress, [0.15, 1], [1, -1]);
-	const thickness = useTransform(
+	const patternThickness = useTransform(
 		scrollYProgress,
 		[0, 0.8],
-		['0.5rem', '0.01rem'],
+		['0.55rem', '0.01rem'],
 		{
 			ease: easeOut,
 		}
@@ -36,10 +36,10 @@ const Title = () => {
 					y,
 					opacity,
 					zIndex,
-					['--title-thickness' as string]: thickness,
+					['--pattern-thickness' as string]: patternThickness,
 				}}
 				className={classNames([
-					'h0 font-black uppercase -translate-x-[1%] text-transparent origin-bottom-left',
+					'h0 font-black uppercase -translate-x-[2%] text-transparent origin-bottom-left',
 					{
 						extra: sectionId === 0,
 					},

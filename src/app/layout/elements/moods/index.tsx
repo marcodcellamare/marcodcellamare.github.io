@@ -6,13 +6,21 @@ import classNames from 'classnames';
 import Icon from './Icon';
 import { CHARACTERS } from '!const';
 
-import { MoodInterface, MoodStatusType } from '!/types/moods';
 import { TimeoutType, IntervalType } from '!/types/misc';
 
 import moods from '!/assets/moods.json' assert { type: 'json' };
 import '!/styles/components/Moods.css';
 
 //import ReactGA from 'react-ga4'
+
+export type MoodStatusType = 'idle' | 'init' | 'typing' | 'typed';
+export type MoodType = 'love' | 'hate' | 'music' | 'play' | 'code';
+
+export interface MoodInterface {
+	type: MoodType;
+	title: string;
+	link?: string;
+}
 
 interface MoodsProps {
 	className?: string;
@@ -183,7 +191,7 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		<button
 			type='button'
 			className={classNames([
-				'moods btn btn-link no-underline',
+				'moods btn btn-link no-underline max-w-full whitespace-nowrap',
 				current.link
 					? 'text-[var(--color-link)]'
 					: 'text-[var(--color-content)]',
@@ -208,13 +216,21 @@ const Moods = ({ className = '' }: MoodsProps) => {
 			{t('moods.I')}
 			{currentIdx >= 0 ? (
 				<>
-					{status !== 'idle' ? <Icon type={current.type} /> : null}
-					<span>
+					{status !== 'idle' ? (
+						<Icon
+							type={current.type}
+							className='shrink-0'
+						/>
+					) : null}
+					<span className='truncate'>
 						{typed}
 						<span className='moods-cursor'>_</span>
 					</span>
 					{status === 'typed' && current.link ? (
-						<Icon type='go' />
+						<Icon
+							type='go'
+							className='shrink-0'
+						/>
 					) : null}
 				</>
 			) : null}

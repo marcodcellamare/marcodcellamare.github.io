@@ -8,7 +8,7 @@
 		background-image: repeating-linear-gradient(
 			45deg,
 			var(--color-next-background) 0,
-			var(--color-next-background) var(--title-thickness),
+			var(--color-next-background) var(--pattern-thickness),
 			color-mix(in srgb, var(--color-next-background) 0%, transparent) 0,
 			color-mix(in srgb, var(--color-next-background) 0%, transparent) 50%
 		);
