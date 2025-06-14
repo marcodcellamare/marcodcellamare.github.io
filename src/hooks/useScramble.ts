@@ -72,7 +72,7 @@ const useScramble = () => {
 
 	useEffect(() => setDisplayText(originalText), [originalText]);
 
-	useEffect(() => () => stop(), [stop]);
+	useEffect(() => stop, [stop]);
 
 	return {
 		originalText,

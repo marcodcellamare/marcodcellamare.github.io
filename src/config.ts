@@ -41,7 +41,7 @@ const config = {
 				"script-src 'self' https://www.googletagmanager.com https://apis.google.com",
 				"connect-src 'self' https://firebase.googleapis.com https://region1.google-analytics.com",
 				"style-src 'self' 'unsafe-inline'",
-				"img-src 'self' data: https://www.googletagmanager.com",
+				"img-src 'self' data: https://www.googletagmanager.com https://img.daisyui.com",
 				"font-src 'self'",
 				"frame-src 'self'",
 				"object-src 'none'",

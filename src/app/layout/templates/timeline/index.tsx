@@ -10,33 +10,91 @@ const Timeline = () => {
 	// Total width you want to scroll (e.g., 2000px)
 	const translateX = useTransform(scrollYProgress, [0.5, 1], ['0%', '-100%']);
 
-	/*
-	.timeline-section {
-  position: relative;
-  height: 300vh; /* Make it 3x viewport height to simulate scrolling * /
-  overflow: hidden;
-}
-
-.timeline-track {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-}
-*/
+	const total = 2;
 
 	return (
-		<motion.div
-			className='flex flex-row ----justify-start sticky top-0 border-4 border-red-500'
-			style={{ translateX }}>
-			{new Array(4).fill(false).map((_, k) => (
-				<div
-					key={k}
-					className='----min-w-[10vw] border'>
-					{k}
+		<div className='carousel w-full'>
+			<div
+				id='slide1'
+				className='carousel-item relative w-full'>
+				<img
+					src='https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp'
+					className='w-full'
+				/>
+				<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
+					<a
+						href='#slide4'
+						className='btn btn-circle'>
+						❮
+					</a>
+					<a
+						href='#slide2'
+						className='btn btn-circle'>
+						❯
+					</a>
 				</div>
-			))}
-		</motion.div>
+			</div>
+			<div
+				id='slide2'
+				className='carousel-item relative w-full'>
+				<img
+					src='https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp'
+					className='w-full'
+				/>
+				<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
+					<a
+						href='#slide1'
+						className='btn btn-circle'>
+						❮
+					</a>
+					<a
+						href='#slide3'
+						className='btn btn-circle'>
+						❯
+					</a>
+				</div>
+			</div>
+			<div
+				id='slide3'
+				className='carousel-item relative w-full'>
+				<img
+					src='https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp'
+					className='w-full'
+				/>
+				<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
+					<a
+						href='#slide2'
+						className='btn btn-circle'>
+						❮
+					</a>
+					<a
+						href='#slide4'
+						className='btn btn-circle'>
+						❯
+					</a>
+				</div>
+			</div>
+			<div
+				id='slide4'
+				className='carousel-item relative w-full'>
+				<img
+					src='https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp'
+					className='w-full'
+				/>
+				<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
+					<a
+						href='#slide3'
+						className='btn btn-circle'>
+						❮
+					</a>
+					<a
+						href='#slide1'
+						className='btn btn-circle'>
+						❯
+					</a>
+				</div>
+			</div>
+		</div>
 	);
 };
 

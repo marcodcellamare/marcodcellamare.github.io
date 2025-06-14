@@ -4,6 +4,8 @@ import { HashRouter } from 'react-router-dom';
 import { RouterProvider } from './contexts/router';
 import { FirebaseProvider } from './contexts/firebase';
 import { SettingsProvider } from './contexts/settings';
+import { ScrollProvider } from './contexts/scroll';
+
 import { ResizeProvider } from './contexts/resize';
 import { ParallaxProvider } from './contexts/parallax';
 
@@ -23,11 +25,13 @@ createRoot(document.getElementById('root')!).render(
 			<RouterProvider>
 				<FirebaseProvider>
 					<SettingsProvider>
-						<ResizeProvider>
-							<ParallaxProvider>
-								<App />
-							</ParallaxProvider>
-						</ResizeProvider>
+						<ScrollProvider>
+							<ResizeProvider>
+								<ParallaxProvider>
+									<App />
+								</ParallaxProvider>
+							</ResizeProvider>
+						</ScrollProvider>
 					</SettingsProvider>
 				</FirebaseProvider>
 			</RouterProvider>

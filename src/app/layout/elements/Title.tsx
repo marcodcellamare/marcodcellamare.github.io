@@ -3,9 +3,9 @@ import { useParallax } from '!/contexts/parallax';
 import { useRouter } from '!/contexts/router';
 import { useSection } from '!/contexts/section';
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
+import classNames from 'classnames';
 
 import '!/styles/components/elements/Title.css';
-import classNames from 'classnames';
 
 const Title = () => {
 	const { pageId } = useRouter();
@@ -19,8 +19,8 @@ const Title = () => {
 	const zIndex = useTransform(scrollYProgress, [0.15, 1], [1, -1]);
 	const patternThickness = useTransform(
 		scrollYProgress,
-		[0, 0.8],
-		['0.55rem', '0.01rem'],
+		[0, 0.3, 0.35, 0.8],
+		['0.4rem', '0.3rem', '0.2rem', '0.01rem'],
 		{
 			ease: easeOut,
 		}

@@ -1,11 +1,10 @@
 import { useEffect, useRef } from 'react';
+import { useSettings } from '!/contexts/settings';
 
 import { TimeoutType } from '!/types/misc';
 
-const useSnapToSection = (
-	containerRef: React.RefObject<HTMLElement | null>,
-	offsetPercent: number = 0.2
-) => {
+const useSnapToSection = (offsetPercent: number = 0.2) => {
+	const { scrollContainerRef } = useSettings();
 	const timeoutRef = useRef<TimeoutType>(null);
 
 	const cleanup = () => {
@@ -16,7 +15,7 @@ const useSnapToSection = (
 	};
 
 	useEffect(() => {
-		const container = containerRef.current;
+		const container = scrollContainerRef.current;
 		if (!container) return;
 
 		const handleScroll = () => {
@@ -50,6 +49,6 @@ const useSnapToSection = (
 			cleanup();
 			container.removeEventListener('scroll', handleScroll);
 		};
-	}, [containerRef, offsetPercent]);
+	}, [scrollContainerRef, offsetPercent]);
 };
 export default useSnapToSection;

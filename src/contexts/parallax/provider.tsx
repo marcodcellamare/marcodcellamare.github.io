@@ -1,15 +1,13 @@
-import { ReactNode, RefObject, useRef } from 'react';
+import { ReactNode, RefObject } from 'react';
 import { ParallaxContext } from './context';
+import { useSettings } from '../settings';
 
 interface ParallaxProviderProps {
 	children: ReactNode;
 }
 
 export const ParallaxProvider = ({ children }: ParallaxProviderProps) => {
-	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-
-	const setScrollContainerRef = (node: HTMLDivElement | null) =>
-		(scrollContainerRef.current = node);
+	const { scrollContainerRef } = useSettings();
 
 	const getScrollConfig = (targetRef?: RefObject<HTMLElement | null>) => ({
 		container: scrollContainerRef,
@@ -21,9 +19,6 @@ export const ParallaxProvider = ({ children }: ParallaxProviderProps) => {
 	return (
 		<ParallaxContext.Provider
 			value={{
-				scrollContainerRef,
-
-				setScrollContainerRef,
 				getScrollConfig,
 			}}>
 			{children}

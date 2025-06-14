@@ -9,7 +9,7 @@ import { CHARACTERS } from '!const';
 import { TimeoutType, IntervalType } from '!/types/misc';
 
 import moods from '!/assets/moods.json' assert { type: 'json' };
-import '!/styles/components/Moods.css';
+import '!/styles/components/elements/Moods.css';
 
 //import ReactGA from 'react-ga4'
 
@@ -191,7 +191,7 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		<button
 			type='button'
 			className={classNames([
-				'moods btn btn-link no-underline max-w-full whitespace-nowrap',
+				'moods btn btn-link !no-underline max-w-full whitespace-nowrap',
 				current.link
 					? 'text-[var(--color-link)]'
 					: 'text-[var(--color-content)]',
@@ -219,7 +219,12 @@ const Moods = ({ className = '' }: MoodsProps) => {
 					{status !== 'idle' ? (
 						<Icon
 							type={current.type}
-							className='shrink-0'
+							className={classNames([
+								'transition-[scale] duration-200 ease-in-out',
+								{
+									'scale-140': isOver,
+								},
+							])}
 						/>
 					) : null}
 					<span className='truncate'>

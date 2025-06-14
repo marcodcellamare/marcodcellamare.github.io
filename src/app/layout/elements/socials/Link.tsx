@@ -30,7 +30,7 @@ const Link = ({ type, title, link }: SocialInterface) => {
 	return (
 		<button
 			type='button'
-			className='btn btn-link text-[var(--color-link)] hover:text-[var(--color-link-hover)] active:text-[var(--color-link-active)] no-underline relative'
+			className='btn btn-link text-[var(--color-link)] hover:text-[var(--color-link-hover)] active:text-[var(--color-link-active)] !no-underline relative'
 			title={title}
 			onPointerEnter={() => {
 				start();

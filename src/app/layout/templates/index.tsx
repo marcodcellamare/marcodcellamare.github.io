@@ -17,18 +17,13 @@ const Templates = () => {
 	let content: JSX.Element;
 
 	const y = useTransform(scrollYProgress, [0, 1], ['-5rem', '5rem']);
-	const scale = useTransform(
-		scrollYProgress,
-		[0, 0.6, 0.9, 1],
-		[0.95, 1, 1, 0.98],
-		{
-			ease: easeInOut,
-		}
-	);
+	const scale = useTransform(scrollYProgress, [0.9, 1], [1, 0.98], {
+		ease: easeInOut,
+	});
 	const opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
 	const blurAmount = useTransform(
 		scrollYProgress,
-		[0, 0.4, 0.9, 1],
+		[0, 0.3, 0.9, 1],
 		['1.6rem', '0rem', '0rem', '1rem']
 	);
 	const filter = useTransform(blurAmount, (value) => `blur(${value})`);
@@ -49,9 +44,10 @@ const Templates = () => {
 	}
 
 	return (
-		<Container className='relative my-30 border'>
+		<Container
+			ref={targetRef}
+			className='relative my-30 border'>
 			<motion.div
-				ref={targetRef}
 				style={{ y, scale, opacity, filter }}
 				className='flex flex-col gap-10 lg:gap-15 md:flex-row origin-bottom-left'>
 				{content}

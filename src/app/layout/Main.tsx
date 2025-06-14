@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
-import { useParallax } from '!/contexts/parallax';
 import { useSettings } from '!/contexts/settings';
 import useSnapToSection from '!/hooks/useSnapToSection';
 import { SectionProvider } from '!/contexts/section';
@@ -15,10 +14,14 @@ const Main = () => {
 	const { pageId } = useRouter();
 	const { t } = useTranslation(pageId);
 	const { pathname } = useLocation();
-	const { setScrollContainerRef, scrollContainerRef } = useParallax();
-	const { sectionTemplate, sectionTheme } = useSettings();
+	const {
+		setScrollContainerRef,
+		scrollContainerRef,
+		sectionTemplate,
+		sectionTheme,
+	} = useSettings();
 
-	useSnapToSection(scrollContainerRef);
+	useSnapToSection();
 
 	const sections = t('sections', {
 		returnObjects: true,

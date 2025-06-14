@@ -22,8 +22,8 @@
 
 		&.extra {
 			@apply text-8xl leading-[0.8em]
-				sm:text-massive-lg
-				md:text-massive-xl
+				sm:text-massive-lg sm:tracking-tight
+				md:text-massive-xl 
 				lg:text-massive-2xl;
 		}
 	}

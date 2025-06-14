@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 
 import classNames from 'classnames';
 
@@ -7,14 +7,16 @@ interface ContainerProps {
 	children: ReactNode;
 }
 
-const Container = ({ className = '', children }: ContainerProps) => (
-	<div
-		className={classNames([
-			'container mx-auto px-5 md:px-10 relative',
-			className,
-		])}>
-		{children}
-	</div>
+const Container = forwardRef<HTMLDivElement, ContainerProps>(
+	({ className = '', children }, ref) => (
+		<div
+			ref={ref}
+			className={classNames([
+				'container mx-auto px-5 md:px-10 relative',
+				className,
+			])}>
+			{children}
+		</div>
+	)
 );
-
 export default Container;

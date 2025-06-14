@@ -10,7 +10,7 @@
 @plugin 'daisyui' {
 	themes: light --default;
 	root: ':root';
-	include: button, link;
+	include: button, link, carousel;
 	logs: true;
 }
 

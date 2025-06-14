@@ -39,7 +39,7 @@ const Menu = () => {
 		[setIsNavOpened, isNavOpened, pageId]
 	);
 
-	useEffect(() => () => cleanup(), []);
+	useEffect(() => cleanup, []);
 
 	return (
 		<ul className='relative my-auto flex flex-col justify-center h1'>

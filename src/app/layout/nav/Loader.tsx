@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSettings } from '!/contexts/settings';
+import { useScroll } from '!/contexts/scroll';
 import { random } from '!/utils/math';
 import classNames from 'classnames';
 
@@ -15,6 +16,7 @@ type StripType = {
 
 const Loader = () => {
 	const { isNavOpened, isLoaderTickled } = useSettings();
+	const { scrollY } = useScroll();
 
 	const [strips, setStrips] = useState<StripType[]>([]);
 	const [stripsWidths, setStripsWidths] = useState<number[]>([]);
@@ -116,13 +118,19 @@ const Loader = () => {
 	}, [isLoaderTickled]);
 
 	useEffect(() => {
+		generate();
+
+		if (isNavOpened) {
+			intervalRef.current = setInterval(generate, 70);
+		}
+	}, [isNavOpened, generate]);
+
+	useEffect(() => {
 		cleanup();
 		generate();
 
-		intervalRef.current = setInterval(generate, 70);
-
 		return () => cleanup();
-	}, [generate]);
+	}, [scrollY, generate]);
 
 	return (
 		<div

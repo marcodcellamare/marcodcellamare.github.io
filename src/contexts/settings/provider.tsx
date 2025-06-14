@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useMemo, useState } from 'react';
+import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import { SettingsContext } from './context';
 
 import { useTranslation } from 'react-i18next';
@@ -20,6 +20,11 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 	const [isNavOpened, setIsNavOpened] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 	const [isLoaderTickled, setIsLoaderTickled] = useState(false);
+
+	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
+	const setScrollContainerRef = (node: HTMLDivElement | null) =>
+		(scrollContainerRef.current = node);
 
 	const pageTheme = useMemo<ThemeType>(
 		() => t('theme', config.themes.default) as ThemeType,
@@ -61,6 +66,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 	return (
 		<SettingsContext.Provider
 			value={{
+				scrollContainerRef,
 				overPageId,
 				isNavOpened,
 				pageTheme,
@@ -71,6 +77,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 				sectionTheme,
 				sectionTemplate,
 
+				setScrollContainerRef,
 				setOverPageId: memoizedSetOverPageId,
 				setIsNavOpened: memoizedSetIsNavOpened,
 				setIsLoading: memoizedSetIsLoading,

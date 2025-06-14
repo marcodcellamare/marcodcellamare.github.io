@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import useIsTouch from '!/hooks/useIsTouch';
 import { useSettings } from '!/contexts/settings';
 
 const Cursor = () => {
-	const location = useLocation();
 	const isTouch = useIsTouch();
 	const { setIsLoaderTickled } = useSettings();
 

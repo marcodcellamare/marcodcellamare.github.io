@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useRef, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { useSettings } from '!/contexts/settings';
 import { useSection } from '!/contexts/section';
 import { cssVariable } from '!/utils/misc';
@@ -43,11 +43,9 @@ const Section = ({ className = '' }: SectionProps) => {
 				className,
 			])}
 			style={
-				nextBaseColor
-					? ({
-							'--color-next-background': `rgb(${nextBaseColor})`,
-					  } as CSSProperties)
-					: undefined
+				{
+					'--color-next-background': `rgb(${nextBaseColor})`,
+				} as CSSProperties
 			}>
 			<Pattern />
 			<Title />
