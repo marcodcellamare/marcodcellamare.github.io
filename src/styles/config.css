@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
 @import './custom/misc.css';
-@import './custom/scrollbar.css';
 @import './custom/lucide.css';
 @import './custom/overlay.css';
 @import './custom/button.css';

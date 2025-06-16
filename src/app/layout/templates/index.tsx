@@ -1,11 +1,10 @@
 import { Fragment, JSX, useRef } from 'react';
-import { useSection } from '!/contexts/section';
-
-import Container from '../elements/Container';
-import Timeline from './timeline';
-import Content from './content';
 import { useParallax } from '!/contexts/parallax';
 import { motion, easeInOut, useScroll, useTransform } from 'motion/react';
+import { useSection } from '!/contexts/section';
+
+import Timeline from './timeline';
+import Default from './default';
 
 const Templates = () => {
 	const { template } = useSection();
@@ -29,10 +28,10 @@ const Templates = () => {
 	const filter = useTransform(blurAmount, (value) => `blur(${value})`);
 
 	switch (template) {
-		case 'text:full':
-		case 'text:left':
-		case 'text:right':
-			content = <Content />;
+		case 'default:full':
+		case 'default:left':
+		case 'default:right':
+			content = <Default />;
 			break;
 
 		case 'timeline':
@@ -44,15 +43,12 @@ const Templates = () => {
 	}
 
 	return (
-		<Container
+		<motion.div
 			ref={targetRef}
-			className='relative my-30 border'>
-			<motion.div
-				style={{ y, scale, opacity, filter }}
-				className='flex flex-col gap-10 lg:gap-15 md:flex-row origin-bottom-left'>
-				{content}
-			</motion.div>
-		</Container>
+			style={{ y, scale, opacity, filter }}
+			className='wrapper w-full'>
+			{content}
+		</motion.div>
 	);
 };
 export default Templates;

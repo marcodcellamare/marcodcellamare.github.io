@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
 import { useSettings } from '!/contexts/settings';
-import useSnapToSection from '!/hooks/useSnapToSection';
 import { SectionProvider } from '!/contexts/section';
 
 import Section from './Section';
@@ -20,8 +19,6 @@ const Main = () => {
 		sectionTemplate,
 		sectionTheme,
 	} = useSettings();
-
-	useSnapToSection();
 
 	const sections = t('sections', {
 		returnObjects: true,
@@ -42,14 +39,14 @@ const Main = () => {
 			{sections.length > 0 ? (
 				<div
 					ref={setScrollContainerRef}
-					className='absolute top-0 bottom-0 left-0 right-0 overflow-x-hidden overflow-y-auto scrollbar'>
+					className='absolute top-0 bottom-0 left-0 right-0 overflow-x-hidden overflow-y-auto snap-y snap-proximity scroll-smooth'>
 					{sections.map((_, k) => (
 						<SectionProvider
 							key={k}
 							sectionId={k}
 							template={sectionTemplate(k)}
 							theme={sectionTheme(k)}>
-							<Section />
+							<Section className='snap-start' />
 						</SectionProvider>
 					))}
 				</div>

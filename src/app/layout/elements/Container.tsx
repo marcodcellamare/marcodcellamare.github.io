@@ -1,5 +1,5 @@
 import { forwardRef, ReactNode } from 'react';
-
+import { useSettings } from '!/contexts/settings';
 import classNames from 'classnames';
 
 interface ContainerProps {
@@ -8,15 +8,20 @@ interface ContainerProps {
 }
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
-	({ className = '', children }, ref) => (
-		<div
-			ref={ref}
-			className={classNames([
-				'container mx-auto px-5 md:px-10 relative',
-				className,
-			])}>
-			{children}
-		</div>
-	)
+	({ className = '', children }, ref) => {
+		const { spaceRef } = useSettings();
+
+		return (
+			<div
+				ref={ref}
+				className={classNames([
+					'container mx-auto relative',
+					spaceRef.current.container,
+					className,
+				])}>
+				{children}
+			</div>
+		);
+	}
 );
 export default Container;

@@ -4,120 +4,138 @@
 	"sections": [
 		{
 			"theme": "red",
-			"template": "text:full",
+			"template": "default:full",
 			"title": "Hello",
-			"heading": {
-				"headline": "This is",
-				"title": "Marco D. Cellamare",
-				"subtitle": "Senior Full-Stack Developer and Digital Designer"
-			}
+			"content": [
+				{
+					"heading": {
+						"headline": "This is",
+						"title": "Marco D. Cellamare",
+						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+					}
+				}
+			]
 		},
 		{
 			"theme": "purple",
-			"template": "text:full",
+			"template": "default:full",
 			"title": "20+ years of experience",
-			"content": {
-				"leading": "Over <strong>20 years</strong> of experience as a Full-Stack Developer and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
-				"paragraphs": [
-					"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
-				]
-			}
+			"content": [
+				{
+					"leading": "Over <strong>20 years</strong> of experience as a Full-Stack Developer and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
+					"paragraphs": [
+						"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+					]
+				}
+			]
 		},
 		{
 			"theme": "brown",
-			"template": "text:full",
+			"template": "default:full",
 			"title": "Hey there",
-			"heading": {
-				"headline": "test",
-				"title": "Marco D. Cellamare",
-				"subtitle": "Senior Full-Stack Developer and Digital Designer"
-			},
-			"content": {
-				"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-				"paragraphs": [
-					"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-				]
-			}
+			"content": [
+				{
+					"heading": {
+						"headline": "test",
+						"title": "Marco D. Cellamare",
+						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+					},
+					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+					"paragraphs": [
+						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					]
+				}
+			]
 		},
 		{
 			"theme": "dark-gray",
-			"template": "text:full",
+			"template": "default:full",
 			"title": "Hey there",
-			"heading": {
-				"headline": "test",
-				"title": "Marco D. Cellamare",
-				"subtitle": "Senior Full-Stack Developer and Digital Designer"
-			},
-			"content": {
-				"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-				"paragraphs": [
-					"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-				]
-			}
+			"content": [
+				{
+					"heading": {
+						"headline": "test",
+						"title": "Marco D. Cellamare",
+						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+					},
+					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+					"paragraphs": [
+						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					]
+				}
+			]
 		},
 		{
 			"theme": "green",
-			"template": "text:full",
+			"template": "default:full",
 			"title": "Hey there",
-			"heading": {
-				"headline": "test",
-				"title": "Marco D. Cellamare",
-				"subtitle": "Senior Full-Stack Developer and Digital Designer"
-			},
-			"content": {
-				"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-				"paragraphs": [
-					"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-				]
-			}
+			"content": [
+				{
+					"heading": {
+						"headline": "test",
+						"title": "Marco D. Cellamare",
+						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+					},
+					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+					"paragraphs": [
+						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					]
+				}
+			]
 		},
 		{
 			"theme": "yellow",
-			"template": "text:full",
+			"template": "default:full",
 			"title": "Hey there",
-			"heading": {
-				"headline": "test",
-				"title": "Marco D. Cellamare",
-				"subtitle": "Senior Full-Stack Developer and Digital Designer"
-			},
-			"content": {
-				"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-				"paragraphs": [
-					"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-				]
-			}
+			"content": [
+				{
+					"heading": {
+						"headline": "test",
+						"title": "Marco D. Cellamare",
+						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+					},
+					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+					"paragraphs": [
+						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					]
+				}
+			]
 		},
 		{
 			"theme": "light-gray",
-			"template": "text:full",
+			"template": "default:full",
 			"title": "Hey there",
-			"heading": {
-				"headline": "test",
-				"title": "Marco D. Cellamare",
-				"subtitle": "Senior Full-Stack Developer and Digital Designer"
-			},
-			"content": {
-				"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-				"paragraphs": [
-					"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-				]
-			}
+			"content": [
+				{
+					"heading": {
+						"headline": "test",
+						"title": "Marco D. Cellamare",
+						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+					},
+					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+					"paragraphs": [
+						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					]
+				}
+			]
 		},
 		{
 			"theme": "gray",
-			"template": "text:full",
+			"template": "default:full",
 			"title": "Hey there",
-			"heading": {
-				"headline": "test",
-				"title": "Marco D. Cellamare",
-				"subtitle": "Senior Full-Stack Developer and Digital Designer"
-			},
-			"content": {
-				"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-				"paragraphs": [
-					"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-				]
-			}
+			"content": [
+				{
+					"heading": {
+						"headline": "test",
+						"title": "Marco D. Cellamare",
+						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+					},
+					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+					"paragraphs": [
+						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					]
+				}
+			]
 		}
 	]
 }

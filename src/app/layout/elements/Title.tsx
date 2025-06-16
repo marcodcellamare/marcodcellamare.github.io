@@ -15,12 +15,12 @@ const Title = () => {
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
 	const y = useTransform(scrollYProgress, [0, 1], ['-15rem', '15rem']);
-	const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
-	const zIndex = useTransform(scrollYProgress, [0.15, 1], [1, -1]);
+	const opacity = useTransform(scrollYProgress, [0.75, 0.9], [1, 0]);
+	const zIndex = useTransform(scrollYProgress, [0.3, 0.35], [1, 0]);
 	const patternThickness = useTransform(
 		scrollYProgress,
-		[0, 0.3, 0.35, 0.8],
-		['0.4rem', '0.3rem', '0.2rem', '0.01rem'],
+		[0, 0.3, 0.5, 1],
+		['0.7rem', '0.4rem', '0.15rem', '0.01rem'],
 		{
 			ease: easeOut,
 		}

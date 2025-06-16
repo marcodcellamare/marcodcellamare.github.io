@@ -16,7 +16,7 @@ interface SectionProps {
 }
 
 const Section = ({ className = '' }: SectionProps) => {
-	const { sectionTheme } = useSettings();
+	const { sectionTheme, spaceRef } = useSettings();
 	const { sectionId, theme, setSectionRef } = useSection();
 
 	const [nextBaseColor, setNextBaseColor] = useState<RGB | null>(null);
@@ -40,6 +40,7 @@ const Section = ({ className = '' }: SectionProps) => {
 			data-theme={theme}
 			className={classNames([
 				'flex items-center min-h-full relative overflow-hidden bg-[var(--color-background)] text-[var(--color-heading)]',
+				spaceRef.current.section,
 				className,
 			])}
 			style={
@@ -47,8 +48,8 @@ const Section = ({ className = '' }: SectionProps) => {
 					'--color-next-background': `rgb(${nextBaseColor})`,
 				} as CSSProperties
 			}>
-			<Pattern />
 			<Title />
+			<Pattern />
 			<Templates />
 		</section>
 	);

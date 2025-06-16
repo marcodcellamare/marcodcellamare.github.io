@@ -22,6 +22,13 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 	const [isLoaderTickled, setIsLoaderTickled] = useState(false);
 
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+	const spaceRef = useRef({
+		nav: 'py-20',
+		section: 'py-20 lg:py-30 xl:py-40',
+		container: 'px-5 md:px-10 lg:px-20 xl:px-30',
+		content: 'gap-8 lg:gap-12',
+		footer: 'py-4 md:py-5',
+	});
 
 	const setScrollContainerRef = (node: HTMLDivElement | null) =>
 		(scrollContainerRef.current = node);
@@ -67,6 +74,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 		<SettingsContext.Provider
 			value={{
 				scrollContainerRef,
+				spaceRef,
 				overPageId,
 				isNavOpened,
 				pageTheme,

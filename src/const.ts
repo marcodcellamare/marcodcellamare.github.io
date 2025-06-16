@@ -41,8 +41,8 @@ export const THEMES: PaletteType[] = [
 ] as const;
 
 export const TEMPLATES = [
-	'text:full',
-	'text:left',
-	'text:right',
+	'default:full',
+	'default:left',
+	'default:right',
 	'timeline',
 ] as const;

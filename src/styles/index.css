@@ -18,7 +18,7 @@
 		@apply overscroll-x-none
 			overscroll-y-none
 			min-h-[100vh]
-			max-w-[100vw]
+			max-w-[100%]
 			overflow-hidden
 			select-none
 			bg-base-100;

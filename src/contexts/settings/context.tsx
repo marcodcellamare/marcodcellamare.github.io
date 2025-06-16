@@ -3,6 +3,7 @@ import { PageIdType, TemplateType, ThemeType } from '!/types/config.const';
 
 export interface SettingsContextProps {
 	scrollContainerRef: RefObject<HTMLDivElement | null>;
+	spaceRef: RefObject<Record<string, string>>;
 	overPageId: PageIdType | null;
 	isNavOpened: boolean;
 	pageTheme: ThemeType;

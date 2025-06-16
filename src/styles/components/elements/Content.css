@@ -1,5 +1,5 @@
 .content {
-	> :not(:last-child) {
+	> :not(:last-child):not(.heading) {
 		margin-bottom: calc(var(--spacing) * 1.5);
 
 		&.leading {

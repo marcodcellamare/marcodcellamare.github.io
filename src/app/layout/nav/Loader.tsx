@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSettings } from '!/contexts/settings';
 import { useScroll } from '!/contexts/scroll';
+import useThrottleCallback from '!/hooks/useThrottleCallback';
+import usePageVisibility from '!/hooks/usePageVisibility';
 import { random } from '!/utils/math';
 import classNames from 'classnames';
 
@@ -15,7 +17,8 @@ type StripType = {
 };
 
 const Loader = () => {
-	const { isNavOpened, isLoaderTickled } = useSettings();
+	const { isNavOpened, isLoading, isLoaderTickled, setIsLoading } =
+		useSettings();
 	const { scrollY } = useScroll();
 
 	const [strips, setStrips] = useState<StripType[]>([]);
@@ -101,6 +104,8 @@ const Loader = () => {
 		setStrips(strips);
 	}, []);
 
+	const animate = useThrottleCallback(generate, 140);
+
 	useEffect(() => {
 		if (!isLoaderTickled) return;
 
@@ -118,25 +123,31 @@ const Loader = () => {
 	}, [isLoaderTickled]);
 
 	useEffect(() => {
-		generate();
-
-		if (isNavOpened) {
-			intervalRef.current = setInterval(generate, 70);
-		}
-	}, [isNavOpened, generate]);
-
-	useEffect(() => {
 		cleanup();
 		generate();
 
+		if (isNavOpened || isLoading || isLoaderTickled) {
+			intervalRef.current = setInterval(generate, 70);
+		}
+	}, [isNavOpened, isLoading, isLoaderTickled, generate]);
+
+	useEffect(() => {
+		cleanup();
+		animate();
+
 		return () => cleanup();
-	}, [scrollY, generate]);
+	}, [scrollY, animate]);
+
+	usePageVisibility({
+		onBlur: () => setIsLoading(true),
+		onFocus: () => setIsLoading(false),
+	});
 
 	return (
 		<div
 			className={classNames([
 				'absolute top-0 bottom-0 left-0 right-0 overflow-hidden pointer-events-none transition-[background-color,backdrop-filter] duration-700',
-				isNavOpened
+				isNavOpened || isLoading
 					? 'bg-[var(--color-palette-dark-gray)]/50 backdrop-blur-[0.2rem]'
 					: 'bg-[var(--color-palette-dark-gray)]/0 backdrop-blur-[0rem] delay-600',
 			])}>
@@ -145,14 +156,17 @@ const Loader = () => {
 					key={k}
 					className={classNames([
 						'transition-[width]',
-						!isNavOpened ? 'duration-600' : 'duration-300',
+						!isNavOpened || isLoading
+							? 'duration-600'
+							: 'duration-300',
 					])}
 					style={{
-						width: !isNavOpened
-							? isLoaderTickled
-								? `${stripsWidths[k]}rem`
-								: '0.25rem'
-							: '100%',
+						width:
+							!isNavOpened && !isLoading
+								? isLoaderTickled
+									? `${stripsWidths[k]}rem`
+									: '0.25rem'
+								: '100%',
 						height: `${strip.height}%`,
 						backgroundColor: `var(--color-palette-${strip.color})`,
 						transitionDelay: `${stripsDelays[k]}ms`,

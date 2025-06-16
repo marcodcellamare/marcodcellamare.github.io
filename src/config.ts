@@ -39,9 +39,9 @@ const config = {
 			content: [
 				"default-src 'self'",
 				"script-src 'self' https://www.googletagmanager.com https://apis.google.com",
-				"connect-src 'self' https://firebase.googleapis.com https://region1.google-analytics.com",
+				"connect-src 'self' https://firebase.googleapis.com https://region1.google-analytics.com https://firebaseinstallations.googleapis.com",
 				"style-src 'self' 'unsafe-inline'",
-				"img-src 'self' data: https://www.googletagmanager.com https://img.daisyui.com",
+				"img-src 'self' data: https://www.googletagmanager.com",
 				"font-src 'self'",
 				"frame-src 'self'",
 				"object-src 'none'",
@@ -74,6 +74,10 @@ const config = {
 		{ rel: 'dns-prefetch', href: 'https://firebase.googleapis.com' },
 		{ rel: 'dns-prefetch', href: 'https://region1.google-analytics.com' },
 		{
+			rel: 'dns-prefetch',
+			href: 'https://firebaseinstallations.googleapis.com',
+		},
+		{
 			rel: 'dns-preconnect',
 			href: 'https://apis.google.com',
 			crossorigin: 'anonymous',
@@ -91,6 +95,11 @@ const config = {
 		{
 			rel: 'preconnect',
 			href: 'https://region1.google-analytics.com',
+			crossorigin: 'anonymous',
+		},
+		{
+			rel: 'preconnect',
+			href: 'https://firebaseinstallations.googleapis.com',
 			crossorigin: 'anonymous',
 		},
 	],

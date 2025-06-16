@@ -1,16 +1,17 @@
 .title {
 	.h0 {
-		-webkit-background-clip: text;
-		background-clip: text;
-		background-position: center center;
-		background-attachment: fixed;
-		background-size: 0.6rem 0.6rem;
 		background-image: repeating-linear-gradient(
 			45deg,
 			var(--color-next-background) 0,
 			var(--color-next-background) var(--pattern-thickness),
-			color-mix(in srgb, var(--color-next-background) 0%, transparent) 0,
-			color-mix(in srgb, var(--color-next-background) 0%, transparent) 50%
+			transparent 0,
+			transparent 50%
 		);
+		background-size: 0.9rem 0.9rem;
+		background-position: left center;
+		background-attachment: fixed;
+
+		-webkit-background-clip: text;
+		background-clip: text;
 	}
 }

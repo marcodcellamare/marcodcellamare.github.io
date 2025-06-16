@@ -7,7 +7,7 @@ import Background from './Background';
 import Menu from './Menu';
 
 const Nav = () => {
-	const { pageTheme, overTheme, isNavOpened } = useSettings();
+	const { pageTheme, overTheme, isNavOpened, spaceRef } = useSettings();
 	const { t } = useTranslation();
 
 	return (
@@ -23,7 +23,11 @@ const Nav = () => {
 						? 'translate-x-0 delay-300'
 						: '-translate-x-full',
 				])}>
-				<Container className='flex flex-col py-20'>
+				<Container
+					className={classNames([
+						'flex flex-col',
+						spaceRef.current.nav,
+					])}>
 					<Menu />
 					<h6 className='text-[var(--color-heading)] uppercase font-black'>
 						{t('title')}

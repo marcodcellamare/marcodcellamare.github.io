@@ -1,98 +1,38 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useSection } from '!/contexts/section';
-import { useParallax } from '!/contexts/parallax';
+import { ChevronRightIcon } from 'lucide-react';
+import Container from '../../elements/Container';
+
+/*!SECTIONconst goToSlide = (id: string) => {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+};
+
+<a onClick={() => goToSlide('slide2')} className="cursor-pointer">
+  Go to Slide 2
+</a>*/
 
 const Timeline = () => {
-	const { sectionRef } = useSection();
-	const { getScrollConfig } = useParallax();
-	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
-
-	// Total width you want to scroll (e.g., 2000px)
-	const translateX = useTransform(scrollYProgress, [0.5, 1], ['0%', '-100%']);
-
-	const total = 2;
-
 	return (
 		<div className='carousel w-full'>
-			<div
-				id='slide1'
-				className='carousel-item relative w-full'>
-				<img
-					src='https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp'
-					className='w-full'
-				/>
-				<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-					<a
-						href='#slide4'
-						className='btn btn-circle'>
-						❮
-					</a>
-					<a
-						href='#slide2'
-						className='btn btn-circle'>
-						❯
-					</a>
+			{new Array(4).fill(false).map((_, k) => (
+				<div
+					key={k}
+					className='carousel-item relative w-full'>
+					<Container className='flex flex-row items-center gap-10'>
+						<div className='basis-4/9 min-w-0 border'>
+							<img
+								src='images/mario.png'
+								className='ml-[-15%] w-[115%] max-w-none'
+							/>
+						</div>
+						<div className='basis-5/9 min-w-0 border'>TEXT</div>
+					</Container>
 				</div>
-			</div>
-			<div
-				id='slide2'
-				className='carousel-item relative w-full'>
-				<img
-					src='https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp'
-					className='w-full'
-				/>
-				<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-					<a
-						href='#slide1'
-						className='btn btn-circle'>
-						❮
-					</a>
-					<a
-						href='#slide3'
-						className='btn btn-circle'>
-						❯
-					</a>
-				</div>
-			</div>
-			<div
-				id='slide3'
-				className='carousel-item relative w-full'>
-				<img
-					src='https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp'
-					className='w-full'
-				/>
-				<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-					<a
-						href='#slide2'
-						className='btn btn-circle'>
-						❮
-					</a>
-					<a
-						href='#slide4'
-						className='btn btn-circle'>
-						❯
-					</a>
-				</div>
-			</div>
-			<div
-				id='slide4'
-				className='carousel-item relative w-full'>
-				<img
-					src='https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp'
-					className='w-full'
-				/>
-				<div className='absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between'>
-					<a
-						href='#slide3'
-						className='btn btn-circle'>
-						❮
-					</a>
-					<a
-						href='#slide1'
-						className='btn btn-circle'>
-						❯
-					</a>
-				</div>
+			))}
+			<div className='carousel-nav absolute top-1/2 left-10 right-0 -translate-y-1/2'>
+				<button
+					type='button'
+					className='btn'>
+					<ChevronRightIcon />
+				</button>
 			</div>
 		</div>
 	);
