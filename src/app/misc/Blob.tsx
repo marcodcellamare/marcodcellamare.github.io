@@ -14,8 +14,9 @@ type PointType = {
 
 interface BlobProps {
 	mask?: string | false;
-	restSpeed?: number;
-	stressSpeed?: number;
+	speed?: number;
+	numPoints?: number;
+	radius?: number;
 	className?: string;
 }
 
@@ -42,17 +43,16 @@ const createPoints = (numPoints = 5, radius = 80): PointType[] => {
 
 const Blob = ({
 	mask = false,
-	restSpeed = 0.001,
-	stressSpeed = 0.01,
+	speed = 0.001,
+	numPoints = 5,
+	radius = 80,
 	className = '',
 }: BlobProps) => {
 	const pathRef = useRef<SVGPathElement | null>(null);
 	const simplex = useRef(createNoise2D());
-	const points = useRef<PointType[]>(createPoints());
-	const noiseStepRef = useRef(restSpeed);
+	const points = useRef<PointType[]>(createPoints(numPoints, radius));
+	const noiseStepRef = useRef<number>(speed);
 
-	const handleMouseOver = () => (noiseStepRef.current = stressSpeed);
-	const handleMouseLeave = () => (noiseStepRef.current = restSpeed);
 	const noise = (x: number, y: number) => simplex.current(x, y);
 
 	const map = (
@@ -96,13 +96,19 @@ const Blob = ({
 		animate();
 	}, []);
 
+	useEffect(() => {
+		noiseStepRef.current = speed;
+	}, [speed]);
+
+	useEffect(() => {
+		points.current = createPoints(numPoints, radius);
+	}, [numPoints, radius]);
+
 	return (
 		<svg
 			className={classNames('blob block w-full h-full', className)}
 			viewBox='0 0 200 200'
-			preserveAspectRatio='xMidYMid meet'
-			onMouseOver={handleMouseOver}
-			onMouseLeave={handleMouseLeave}>
+			preserveAspectRatio='xMidYMid meet'>
 			{mask ? (
 				<clipPath
 					id={mask}
@@ -116,5 +122,4 @@ const Blob = ({
 		</svg>
 	);
 };
-
 export default Blob;

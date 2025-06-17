@@ -39,7 +39,7 @@ const Section = ({ className = '' }: SectionProps) => {
 			ref={setSectionRef}
 			data-theme={theme}
 			className={classNames([
-				'flex items-center min-h-full relative overflow-hidden bg-[var(--color-background)] text-[var(--color-heading)]',
+				'flex items-center min-h-full relative bg-[var(--color-background)] text-[var(--color-heading)]',
 				spaceRef.current.section,
 				className,
 			])}

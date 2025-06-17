@@ -45,7 +45,8 @@
 			"content": [
 				{
 					"image": {
-						"src": "images/mario.png"
+						"src": "images/mario.png",
+						"blob": true
 					},
 					"heading": {
 						"headline": "test",

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import useScramble from '!/hooks/useScramble';
+import { useFirebase } from '!/contexts/firebase';
 import { openExternalLink } from '!/utils/misc';
 import classNames from 'classnames';
 
@@ -8,6 +9,7 @@ import Icon from './Icon';
 import { SocialInterface } from '.';
 
 const Link = ({ type, title, link }: SocialInterface) => {
+	const { logEvent } = useFirebase();
 	const { setOriginalText, displayText, start, stop } = useScramble();
 
 	const [isOver, setIsOver] = useState(false);
@@ -25,6 +27,18 @@ const Link = ({ type, title, link }: SocialInterface) => {
 		}
 	}, [type, link]);
 
+	const handleClick = () => {
+		const url = generate;
+
+		openExternalLink(url);
+		logEvent('social_link', {
+			type,
+			title,
+			url,
+			prod: import.meta.env.PROD,
+		});
+	};
+
 	useEffect(() => setOriginalText(title), [setOriginalText, title]);
 
 	return (
@@ -40,7 +54,7 @@ const Link = ({ type, title, link }: SocialInterface) => {
 				stop();
 				setIsOver(false);
 			}}
-			onClick={() => openExternalLink(generate)}>
+			onClick={handleClick}>
 			<Icon
 				type={type}
 				title={title}

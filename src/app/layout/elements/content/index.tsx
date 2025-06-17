@@ -35,7 +35,7 @@ const Content = ({ rootKey, className = '' }: ContentProps) => {
 	if (!headingExists && !leadingExists && !paragraphsExists) return null;
 
 	return (
-		<div className={classNames(['content', className])}>
+		<div className={classNames(['content relative', className])}>
 			<Heading
 				rootKey={`${rootKey}.heading`}
 				className={classNames({
