@@ -29,7 +29,7 @@ const Nav = () => {
 						spaceRef.current.nav,
 					])}>
 					<Menu />
-					<h6 className='text-[var(--color-heading)] uppercase font-black'>
+					<h6 className='text-[var(--color-heading)] transform-[color] duration-200 ease-in-out uppercase font-black'>
 						{t('title')}
 					</h6>
 				</Container>

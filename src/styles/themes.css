@@ -7,6 +7,9 @@
 		--color-link: var(--color-palette-green);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
 		--color-link-active: var(--color-palette-light-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 	[data-theme='purple'] {
 		--color-background: var(--color-palette-purple);
@@ -16,6 +19,9 @@
 		--color-link: var(--color-palette-green);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
 		--color-link-active: var(--color-palette-light-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 	[data-theme='brown'] {
 		--color-background: var(--color-palette-brown);
@@ -25,6 +31,9 @@
 		--color-link: var(--color-palette-yellow);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
 		--color-link-active: var(--color-palette-light-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 	[data-theme='dark-gray'] {
 		--color-background: var(--color-palette-dark-gray);
@@ -34,6 +43,9 @@
 		--color-link: var(--color-palette-yellow);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
 		--color-link-active: var(--color-palette-light-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 
 	[data-theme='green'] {
@@ -44,6 +56,9 @@
 		--color-link: var(--color-palette-red);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 	[data-theme='yellow'] {
 		--color-background: var(--color-palette-yellow);
@@ -53,6 +68,9 @@
 		--color-link: var(--color-palette-brown);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 
 	[data-theme='white'] {
@@ -63,6 +81,9 @@
 		--color-link: var(--color-palette-red);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 	[data-theme='light-gray'] {
 		--color-background: var(--color-palette-light-gray);
@@ -72,6 +93,9 @@
 		--color-link: var(--color-palette-red);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 	[data-theme='light-gray2'] {
 		--color-background: var(--color-palette-light-gray2);
@@ -81,6 +105,9 @@
 		--color-link: var(--color-palette-red);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 	[data-theme='light-gray3'] {
 		--color-background: var(--color-palette-light-gray3);
@@ -90,6 +117,9 @@
 		--color-link: var(--color-palette-red);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 
 	[data-theme='gray'] {
@@ -100,5 +130,8 @@
 		--color-link: var(--color-palette-purple);
 		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
 		--color-link-active: var(--color-palette-dark-gray);
+
+		--duotone-color-background: var(--color-palette-purple);
+		--duotone-color-foreground: var(--color-palette-green);
 	}
 }

@@ -6,7 +6,7 @@ import { useRouter } from '../router';
 
 import config from '!config';
 
-import { PageIdType, TemplateType, ThemeType } from '!/types/config.const';
+import { PageIdType, ThemeType } from '!/types/config.const';
 
 interface SettingsProviderProps {
 	children: ReactNode;
@@ -46,21 +46,6 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 		[i18n, t, overPageId]
 	);
 
-	const sectionTheme = useCallback(
-		(sectionId: number): ThemeType =>
-			t(`sections.${sectionId}.theme`, pageTheme) as ThemeType,
-		[t, pageTheme]
-	);
-
-	const sectionTemplate = useCallback(
-		(sectionId: number): TemplateType =>
-			t(
-				`sections.${sectionId}.template`,
-				config.templates.default
-			) as TemplateType,
-		[t]
-	);
-
 	const memoizedSetIsNavOpened = useCallback(setIsNavOpened, [
 		setIsNavOpened,
 	]);
@@ -81,9 +66,6 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 				overTheme,
 				isLoading,
 				isLoaderTickled,
-
-				sectionTheme,
-				sectionTemplate,
 
 				setScrollContainerRef,
 				setOverPageId: memoizedSetOverPageId,

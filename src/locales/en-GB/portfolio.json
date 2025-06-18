@@ -46,7 +46,8 @@
 				{
 					"image": {
 						"src": "images/mario.png",
-						"blob": true
+						"blob": true,
+						"duotone": true
 					},
 					"heading": {
 						"headline": "test",

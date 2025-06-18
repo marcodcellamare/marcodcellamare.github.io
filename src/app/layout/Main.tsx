@@ -13,12 +13,7 @@ const Main = () => {
 	const { pageId } = useRouter();
 	const { t } = useTranslation(pageId);
 	const { pathname } = useLocation();
-	const {
-		setScrollContainerRef,
-		scrollContainerRef,
-		sectionTemplate,
-		sectionTheme,
-	} = useSettings();
+	const { setScrollContainerRef, scrollContainerRef } = useSettings();
 
 	const sections = t('sections', {
 		returnObjects: true,
@@ -43,9 +38,7 @@ const Main = () => {
 					{sections.map((_, k) => (
 						<SectionProvider
 							key={k}
-							sectionId={k}
-							template={sectionTemplate(k)}
-							theme={sectionTheme(k)}>
+							sectionId={k}>
 							<Section className='snap-start' />
 						</SectionProvider>
 					))}

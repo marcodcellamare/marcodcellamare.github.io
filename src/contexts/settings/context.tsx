@@ -1,5 +1,5 @@
 import { createContext, RefObject } from 'react';
-import { PageIdType, TemplateType, ThemeType } from '!/types/config.const';
+import { PageIdType, ThemeType } from '!/types/config.const';
 
 export interface SettingsContextProps {
 	scrollContainerRef: RefObject<HTMLDivElement | null>;
@@ -10,9 +10,6 @@ export interface SettingsContextProps {
 	overTheme: ThemeType | null;
 	isLoading: boolean;
 	isLoaderTickled: boolean;
-
-	sectionTheme: (sectionId: number) => ThemeType;
-	sectionTemplate: (sectionId: number) => TemplateType;
 
 	setScrollContainerRef: (node: HTMLDivElement | null) => void;
 	setOverPageId: (pageId: PageIdType | null) => void;

@@ -1,7 +1,6 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties } from 'react';
 import { useSettings } from '!/contexts/settings';
 import { useSection } from '!/contexts/section';
-import { cssVariable } from '!/utils/misc';
 import { colorToRgb } from '!/utils/colors';
 import classNames from 'classnames';
 
@@ -9,30 +8,13 @@ import Pattern from './elements/Pattern';
 import Title from './elements/Title';
 import Templates from './templates';
 
-import { RGB } from '!/types/misc';
-
 interface SectionProps {
 	className?: string;
 }
 
 const Section = ({ className = '' }: SectionProps) => {
-	const { sectionTheme, spaceRef } = useSettings();
-	const { sectionId, theme, setSectionRef } = useSection();
-
-	const [nextBaseColor, setNextBaseColor] = useState<RGB | null>(null);
-
-	useEffect(
-		() =>
-			setNextBaseColor(
-				colorToRgb(
-					cssVariable(
-						'--color-background',
-						`[data-theme="${sectionTheme(sectionId + 1)}"]`
-					)
-				)
-			),
-		[sectionId, sectionTheme]
-	);
+	const { spaceRef } = useSettings();
+	const { theme, setSectionRef, nextBackgroundColor } = useSection();
 
 	return (
 		<section
@@ -45,7 +27,9 @@ const Section = ({ className = '' }: SectionProps) => {
 			])}
 			style={
 				{
-					'--color-next-background': `rgb(${nextBaseColor})`,
+					'--color-next-background': `rgb(${colorToRgb(
+						nextBackgroundColor
+					)})`,
 				} as CSSProperties
 			}>
 			<Title />

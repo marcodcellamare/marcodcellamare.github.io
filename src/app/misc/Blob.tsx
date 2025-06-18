@@ -117,7 +117,10 @@ const Blob = ({
 					<path ref={pathRef} />
 				</clipPath>
 			) : (
-				<path ref={pathRef} />
+				<path
+					ref={pathRef}
+					fill='#000'
+				/>
 			)}
 		</svg>
 	);
