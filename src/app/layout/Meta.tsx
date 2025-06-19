@@ -26,7 +26,7 @@ const Meta = () => {
 			<h1 hidden>{title}</h1>
 			<meta
 				name='description'
-				content={t('default:description', '')}
+				content={t('description', '')}
 			/>
 			<Favicon />
 			{config.preload.map((preload, k) => (

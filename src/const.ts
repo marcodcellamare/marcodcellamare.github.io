@@ -40,9 +40,4 @@ export const THEMES: PaletteType[] = [
 	'yellow',
 ] as const;
 
-export const TEMPLATES = [
-	'default:full',
-	'default:left',
-	'default:right',
-	'timeline',
-] as const;
+export const TEMPLATES = ['default', 'projects', 'brands', 'timeline'] as const;

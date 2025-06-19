@@ -1,5 +1,6 @@
 {
-	"title": "Projects",
+	"title": "Portfolio",
+	"description": "Lorem ipsum",
 	"theme": "gray",
 	"sections": [
 		{
@@ -22,7 +23,7 @@
 		},
 		{
 			"theme": "light-gray",
-			"template": "default:full",
+			"template": "default",
 			"title": "Hey there",
 			"content": [
 				{
@@ -40,11 +41,12 @@
 		},
 		{
 			"theme": "light-gray2",
-			"template": "default:left",
+			"template": "default",
 			"title": "Hey there",
 			"content": [
 				{
 					"image": {
+						"position": "right",
 						"src": "images/mario.png",
 						"blob": true,
 						"duotone": true
@@ -63,7 +65,7 @@
 		},
 		{
 			"theme": "light-gray3",
-			"template": "default:right",
+			"template": "default",
 			"title": "Hey there",
 			"content": [
 				{

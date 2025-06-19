@@ -67,13 +67,13 @@ const Cursor = () => {
 		setCursorStyles({
 			width:
 				status === 'image'
-					? (rect.width < rect.height ? rect.width : rect.height) /
-					  1.5
+					? (rect.width < rect.height ? rect.width : rect.height) *
+					  1.1
 					: rect.width,
 			height:
 				status === 'image'
-					? (rect.width < rect.height ? rect.width : rect.height) /
-					  1.5
+					? (rect.width < rect.height ? rect.width : rect.height) *
+					  1.1
 					: rect.height,
 			borderRadius:
 				status === 'image'
@@ -148,12 +148,16 @@ const Cursor = () => {
 	return (
 		<motion.div
 			className={classNames([
-				'cursor fixed top-0 left-0 box-content pointer-events-none z-[9999] border-[var(--color-palette-gray)] mix-blend-difference -translate-1/2',
+				'cursor fixed top-0 left-0 -translate-1/2 box-content pointer-events-none z-[9999] border-[var(--color-palette-gray)] mix-blend-difference',
 				'transition-[background-color,border-width] duration-300 ease-in-out',
 				status !== 'image'
 					? 'bg-[var(--color-palette-gray)]'
-					: 'bg-[var(--color-palette-gray)]/0',
-				status !== 'out' ? 'border-10' : 'border-0',
+					: 'bg-[var(--color-palette-gray)]/10',
+				status !== 'out'
+					? status !== 'image'
+						? 'border-10'
+						: 'border-2'
+					: 'border-0',
 			])}
 			animate={{
 				opacity: status !== 'out' ? 1 : 0,

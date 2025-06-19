@@ -29,7 +29,7 @@ const config = {
 	},
 
 	templates: {
-		default: 'text:full',
+		default: 'default',
 		list: TEMPLATES,
 	},
 

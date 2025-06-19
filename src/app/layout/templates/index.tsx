@@ -28,9 +28,7 @@ const Templates = () => {
 	const filter = useTransform(blurAmount, (value) => `blur(${value})`);
 
 	switch (template) {
-		case 'default:full':
-		case 'default:left':
-		case 'default:right':
+		case 'default':
 			content = <Default />;
 			break;
 

@@ -1,10 +1,10 @@
 {
-	"title": "Resume",
+	"title": "About",
 	"theme": "red",
 	"sections": [
 		{
 			"theme": "red",
-			"template": "default:full",
+			"template": "default",
 			"title": "Hello",
 			"content": [
 				{
@@ -18,7 +18,7 @@
 		},
 		{
 			"theme": "purple",
-			"template": "default:full",
+			"template": "default",
 			"title": "20+ years of experience",
 			"content": [
 				{
@@ -31,7 +31,7 @@
 		},
 		{
 			"theme": "brown",
-			"template": "default:full",
+			"template": "default",
 			"title": "Hey there",
 			"content": [
 				{
@@ -49,7 +49,7 @@
 		},
 		{
 			"theme": "dark-gray",
-			"template": "default:full",
+			"template": "default",
 			"title": "Hey there",
 			"content": [
 				{
@@ -67,7 +67,7 @@
 		},
 		{
 			"theme": "green",
-			"template": "default:full",
+			"template": "default",
 			"title": "Hey there",
 			"content": [
 				{
@@ -85,7 +85,7 @@
 		},
 		{
 			"theme": "yellow",
-			"template": "default:full",
+			"template": "default",
 			"title": "Hey there",
 			"content": [
 				{
@@ -103,7 +103,7 @@
 		},
 		{
 			"theme": "light-gray",
-			"template": "default:full",
+			"template": "default",
 			"title": "Hey there",
 			"content": [
 				{
@@ -121,7 +121,7 @@
 		},
 		{
 			"theme": "gray",
-			"template": "default:full",
+			"template": "default",
 			"title": "Hey there",
 			"content": [
 				{
