@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { openExternalLink } from '!/utils/misc';
+import { useFirebase } from '!/contexts/firebase';
 import classNames from 'classnames';
 
 import Icon from './Icon';
@@ -10,8 +11,6 @@ import { TimeoutType, IntervalType } from '!/types/misc';
 
 import moods from '!/assets/moods.json' assert { type: 'json' };
 import '!/styles/components/elements/Moods.css';
-
-//import ReactGA from 'react-ga4'
 
 export type MoodStatusType = 'idle' | 'init' | 'typing' | 'typed';
 export type MoodType = 'love' | 'hate' | 'music' | 'play' | 'code';
@@ -28,6 +27,8 @@ interface MoodsProps {
 
 const Moods = ({ className = '' }: MoodsProps) => {
 	const { t } = useTranslation();
+	const { logEvent } = useFirebase();
+
 	const data = moods as MoodInterface[];
 
 	const [status, setStatus] = useState<MoodStatusType>('idle');
@@ -95,6 +96,20 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		getRandom();
 	}, [getRandom]);
 
+	const handleClick = () => {
+		if (status !== 'typed' || !current.link) return;
+
+		const url = current.link;
+
+		openExternalLink(current.link);
+		logEvent('mood_link', {
+			title: `${t('moods.I')} ${t(
+				`moods.${current.type}`
+			).toLowerCase()} ${current.title}`,
+			url,
+		});
+	};
+
 	const typing = useCallback(() => {
 		if (!current.title) return idle();
 
@@ -146,6 +161,8 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		};
 	}, [idle]);
 
+	useEffect(getRandom, [getRandom]);
+
 	// Handle status transitions
 	useEffect(() => {
 		if (status === 'idle') {
@@ -168,77 +185,61 @@ const Moods = ({ className = '' }: MoodsProps) => {
 	useEffect(() => {
 		if (status === 'typed') {
 			if (!isOver) {
-				timeoutRef.current = setTimeout(idle, 2000);
+				timeoutRef.current = setTimeout(idle, 5000);
 			} else {
 				timeoutCleanup();
 			}
 		}
 	}, [status, isOver, idle]);
 
-	/*
-	const onClick = (label: string) => {
-		// Google Analytics
-		
-		ReactGA.event({
-			category: 'Love',
-			action: 'click',
-			label: label,
-		});
-	};
-	*/
+	if (currentIdx < 0) return null;
 
 	return (
 		<button
 			type='button'
+			role='button'
 			className={classNames([
 				'moods btn btn-link !no-underline max-w-full whitespace-nowrap',
-				current.link
+				status === 'typed' && current.link
 					? 'text-[var(--color-link)]'
 					: 'text-[var(--color-content)]',
 				className,
 			])}
-			title={
-				currentIdx >= 0
-					? `${t('moods.I')} ${t(
-							`moods.${current.type}`
-					  ).toLowerCase()} ${current.title}`
-					: ''
-			}
-			disabled={!current.link}
+			aria-label={`${t('moods.I')} ${t(
+				`moods.${current.type}`
+			).toLowerCase()} ${current.title}`}
+			title={`${t('moods.I')} ${t(
+				`moods.${current.type}`
+			).toLowerCase()} ${current.title}`}
+			disabled={status !== 'typed' || !current.link}
 			onPointerEnter={() => setIsOver(true)}
 			onPointerLeave={() => {
 				setIsOver(false);
 				if (status === 'typed') idle();
 			}}
-			onClick={() =>
-				current.link ? openExternalLink(current.link) : null
-			}>
+			onClick={handleClick}>
 			{t('moods.I')}
-			{currentIdx >= 0 ? (
-				<>
-					{status !== 'idle' ? (
-						<Icon
-							type={current.type}
-							className={classNames([
-								'transition-[scale] duration-200 ease-in-out',
-								{
-									'scale-140': isOver,
-								},
-							])}
-						/>
-					) : null}
-					<span className='truncate'>
-						{typed}
-						<span className='moods-cursor'>_</span>
-					</span>
-					{status === 'typed' && current.link ? (
-						<Icon
-							type='go'
-							className='shrink-0'
-						/>
-					) : null}
-				</>
+			{status !== 'idle' ? (
+				<Icon
+					type={current.type}
+					className={classNames([
+						'transition-[scale] duration-200 ease-in-out',
+						{
+							'scale-140': isOver,
+						},
+					])}
+				/>
 			) : null}
+			<span className='truncate'>
+				{typed}
+				<span className='moods-cursor'>_</span>
+			</span>
+			{status === 'typed' && current.link && (
+				<Icon
+					type='go'
+					className='shrink-0'
+				/>
+			)}
 		</button>
 	);
 };

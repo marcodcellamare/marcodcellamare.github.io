@@ -19,12 +19,11 @@ const Link = ({ children }: LinkProps) => {
 			: '';
 
 	const handleClick = () => {
-		//const url = generate;
+		// TODO link
 
 		//openExternalLink(url);
 		logEvent('inline_link', {
 			//url,
-			prod: import.meta.env.PROD,
 		});
 	};
 
@@ -33,7 +32,9 @@ const Link = ({ children }: LinkProps) => {
 	return (
 		<button
 			type='button'
+			role='button'
 			className='btn btn-link text-[var(--color-link)] hover:text-[var(--color-link-hover)] active:text-[var(--color-link-active)] whitespace-nowrap relative'
+			aria-label={displayText}
 			onPointerEnter={start}
 			onPointerLeave={stop}
 			onClick={handleClick}>

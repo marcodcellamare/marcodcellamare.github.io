@@ -1,4 +1,6 @@
 .btn {
+	@apply rounded-none;
+
 	&.btn-outline,
 	&.btn-dash {
 		@apply border-2

@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { ScrollContext } from './context';
 
-import { useSettings } from '../settings';
+import { useSettings } from '!/contexts/settings';
 import { useDebounceCallback } from '!/hooks/useDebounceCallback';
 
 interface ScrollProviderProps {

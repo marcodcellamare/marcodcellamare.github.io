@@ -39,7 +39,10 @@ export const FirebaseProvider = ({ children }: FirebaseProviderProps) => {
 			const { logEvent } = await import('firebase/analytics');
 
 			try {
-				logEvent(analytics, eventName, params);
+				logEvent(analytics, eventName, {
+					...params,
+					prod: import.meta.env.PROD,
+				});
 			} catch (err) {
 				console.warn(
 					`Analytics: Failed to log event "${eventName}"`,

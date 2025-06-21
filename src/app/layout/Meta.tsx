@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
 
-import Favicon from '../misc/Favicon';
+import Favicon from '!/app/misc/Favicon';
 import config from '!config';
 
 import pkg from '!package';

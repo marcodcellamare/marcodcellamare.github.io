@@ -2,7 +2,7 @@ import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import { SettingsContext } from './context';
 
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '../router';
+import { useRouter } from '!/contexts/router';
 
 import config from '!config';
 

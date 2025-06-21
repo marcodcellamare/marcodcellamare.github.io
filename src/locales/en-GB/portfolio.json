@@ -9,8 +9,44 @@
 			"title": "Work experiences",
 			"content": [
 				{
+					"image": {
+						"src": "images/white.png",
+						"duotone": true
+					},
 					"heading": {
-						"headline": "test",
+						"headline": "SLIDEEEEEE",
+						"title": "Marco D. Cellamare",
+						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+					},
+					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+					"paragraphs": [
+						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					]
+				},
+				{
+					"image": {
+						"src": "images/black.png",
+						"duotone": true
+					},
+					"heading": {
+						"headline": "SLIDEEEEEE 2",
+						"title": "Marco D. Cellamare",
+						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+					},
+					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+					"paragraphs": [
+						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					]
+				},
+				{
+					"image": {
+						"position": "right",
+						"src": "images/mario.png",
+						"blob": true,
+						"duotone": true
+					},
+					"heading": {
+						"headline": "SLIDEEEEEE 3",
 						"title": "Marco D. Cellamare",
 						"subtitle": "Senior Full-Stack Developer and Digital Designer"
 					},

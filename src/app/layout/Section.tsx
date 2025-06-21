@@ -1,5 +1,4 @@
 import { CSSProperties } from 'react';
-import { useSettings } from '!/contexts/settings';
 import { useSection } from '!/contexts/section';
 import { colorToRgb } from '!/utils/colors';
 import classNames from 'classnames';
@@ -13,7 +12,6 @@ interface SectionProps {
 }
 
 const Section = ({ className = '' }: SectionProps) => {
-	const { spaceRef } = useSettings();
 	const { theme, setSectionRef, nextBackgroundColor } = useSection();
 
 	return (
@@ -22,7 +20,6 @@ const Section = ({ className = '' }: SectionProps) => {
 			data-theme={theme}
 			className={classNames([
 				'flex items-center min-h-full relative bg-[var(--color-background)] text-[var(--color-heading)]',
-				spaceRef.current.section,
 				className,
 			])}
 			style={

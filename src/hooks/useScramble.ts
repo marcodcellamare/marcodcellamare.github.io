@@ -4,7 +4,7 @@ import { CHARACTERS } from '!const';
 
 import { IntervalType } from '!/types/misc';
 
-const useScramble = () => {
+const useScramble = (speed = 60) => {
 	const [originalText, setOriginalText] = useState('');
 	const [displayText, setDisplayText] = useState('');
 
@@ -65,10 +65,10 @@ const useScramble = () => {
 				revealInterval.current = null;
 			}
 			revealCount.current = next;
-		}, 40);
+		}, speed);
 
 		setDisplayText(scramble(originalText));
-	}, [stop, originalText, scramble]);
+	}, [stop, originalText, scramble, speed]);
 
 	useEffect(() => setDisplayText(originalText), [originalText]);
 

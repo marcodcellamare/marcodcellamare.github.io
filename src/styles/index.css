@@ -28,7 +28,8 @@
 	}
 
 	* {
-		@apply focus-visible:outline-0
+		@apply focus-visible:outline-2
+			focus-visible:outline-current
 			focus-visible:shadow-none;
 	}
 }

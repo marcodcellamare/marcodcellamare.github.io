@@ -2,7 +2,7 @@ import { useSettings } from '!/contexts/settings';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
-import Container from '../elements/Container';
+import Container from '!/app/layout/elements/Container';
 import Background from './Background';
 import Menu from './Menu';
 

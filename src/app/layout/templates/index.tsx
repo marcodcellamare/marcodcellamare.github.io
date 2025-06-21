@@ -4,7 +4,7 @@ import { motion, easeInOut, useScroll, useTransform } from 'motion/react';
 import { useSection } from '!/contexts/section';
 
 import Timeline from './timeline';
-import Default from './default';
+import Default from './Default';
 
 const Templates = () => {
 	const { template } = useSection();
@@ -44,7 +44,7 @@ const Templates = () => {
 		<motion.div
 			ref={targetRef}
 			style={{ y, scale, opacity, filter }}
-			className='wrapper w-full'>
+			className='template-wrapper w-full min-h-full z-1'>
 			{content}
 		</motion.div>
 	);

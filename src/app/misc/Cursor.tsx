@@ -1,25 +1,18 @@
 import { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 import useIsTouch from '!/hooks/useIsTouch';
 import { useSettings } from '!/contexts/settings';
 import classNames from 'classnames';
 
-type StatusType = 'relaxed' | 'nav' | 'link' | 'image' | 'out';
+import '!/styles/components/misc/Cursor.css';
+
+type StatusType = 'relaxed' | 'nav' | 'link' | 'image' | 'leave';
 
 const Cursor = () => {
 	const isTouch = useIsTouch();
 	const { setIsLoaderTickled } = useSettings();
 
-	const [damping, setDamping] = useState(50);
-	const [stiffness, setStiffness] = useState(500);
-
-	const x = useMotionValue(0);
-	const y = useMotionValue(0);
-
-	const springConfig = { damping, stiffness };
-	const springX = useSpring(x, springConfig);
-	const springY = useSpring(y, springConfig);
-
+	const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 	const [elements, setElements] = useState<NodeListOf<Element>>();
 	const [status, setStatus] = useState<StatusType>('relaxed');
 	const [cursorStyles, setCursorStyles] = useState({
@@ -28,7 +21,10 @@ const Cursor = () => {
 		borderRadius: 0,
 	});
 
-	const pointerRelaxedHandler = () => {
+	const [damping, setDamping] = useState(50);
+	const [stiffness, setStiffness] = useState(500);
+
+	const handlePointerRelaxed = () => {
 		setCursorStyles({
 			width: 5,
 			height: 5,
@@ -38,16 +34,17 @@ const Cursor = () => {
 		setStiffness(500);
 		setStatus('relaxed');
 	};
-	const pointerLeaveHandler = () => {
+
+	const handlePointerLeave = () => {
 		setCursorStyles({
 			width: 0,
 			height: 0,
 			borderRadius: 0,
 		});
-		setStatus('out');
+		setStatus('leave');
 	};
 
-	const pointerStressedHandler = (e: Event) => {
+	const handlePointerStressed = (e: Event) => {
 		const element = e.currentTarget as HTMLElement;
 
 		const isNav = element.closest('header') !== null;
@@ -60,7 +57,7 @@ const Cursor = () => {
 				: 'image'
 			: isNav
 			? 'nav'
-			: 'out';
+			: 'leave';
 
 		const rect = element.getBoundingClientRect();
 
@@ -82,7 +79,7 @@ const Cursor = () => {
 						: rect.height
 					: 5,
 		});
-		setDamping(10);
+		setDamping(25);
 		setStiffness(1000);
 		setStatus(status);
 	};
@@ -104,70 +101,74 @@ const Cursor = () => {
 	useEffect(() => {
 		if (isTouch || !elements) return;
 
-		const pointerMoveHandler = (e: MouseEvent) => {
-			x.set(e.clientX);
-			y.set(e.clientY);
+		const handlePointerMove = (e: MouseEvent) => {
+			setCursorPos({ x: e.clientX, y: e.clientY });
 		};
 
-		window.addEventListener('pointermove', pointerMoveHandler);
-		document.addEventListener('pointerenter', pointerRelaxedHandler);
-		document.addEventListener('pointerleave', pointerLeaveHandler);
+		window.addEventListener('pointermove', handlePointerMove);
+		document.addEventListener('pointerenter', handlePointerRelaxed);
+		document.addEventListener('pointerleave', handlePointerLeave);
 
 		elements?.forEach((element) => {
-			element.addEventListener('pointerenter', pointerStressedHandler);
-			element.addEventListener('pointerleave', pointerRelaxedHandler);
+			element.addEventListener('pointerenter', handlePointerStressed);
+			element.addEventListener('pointerleave', handlePointerRelaxed);
 		});
 
 		return () => {
-			window.removeEventListener('pointermove', pointerMoveHandler);
-			document.removeEventListener('pointerenter', pointerRelaxedHandler);
-			document.removeEventListener('pointerleave', pointerLeaveHandler);
+			window.removeEventListener('pointermove', handlePointerMove);
+			document.removeEventListener('pointerenter', handlePointerRelaxed);
+			document.removeEventListener('pointerleave', handlePointerLeave);
 
 			elements?.forEach((element) => {
 				element.removeEventListener(
 					'pointerenter',
-					pointerStressedHandler
+					handlePointerStressed
 				);
 				element.removeEventListener(
 					'pointerleave',
-					pointerRelaxedHandler
+					handlePointerRelaxed
 				);
 			});
 		};
-	}, [elements, x, y, isTouch]);
+	}, [elements, isTouch]);
 
-	useEffect(pointerRelaxedHandler, []);
+	useEffect(handlePointerRelaxed, []);
 
-	useEffect(
-		() => setIsLoaderTickled(['link', 'nav'].includes(status)),
-		[status, setIsLoaderTickled]
-	);
+	useEffect(() => {
+		setIsLoaderTickled(['link', 'nav'].includes(status));
+	}, [status, setIsLoaderTickled]);
 
 	if (isTouch) return null;
 
 	return (
 		<motion.div
 			className={classNames([
-				'cursor fixed top-0 left-0 -translate-1/2 box-content pointer-events-none z-[9999] border-[var(--color-palette-gray)] mix-blend-difference',
+				'cursor fixed top-0 left-0 -translate-1/2 p-2 box-content pointer-events-none z-[9999] border-[var(--color-palette-gray)] mix-blend-difference overflow-hidden',
 				'transition-[background-color,border-width] duration-300 ease-in-out',
-				status !== 'image'
+				['relaxed', 'leave'].includes(status)
 					? 'bg-[var(--color-palette-gray)]'
-					: 'bg-[var(--color-palette-gray)]/10',
-				status !== 'out'
-					? status !== 'image'
-						? 'border-10'
-						: 'border-2'
-					: 'border-0',
+					: 'bg-[var(--color-palette-gray)]/0',
+				{
+					'cursor-link border-5': ['nav', 'link'].includes(status),
+					'cursor-image border-10': ['image'].includes(status),
+					'border-0': ['leave'].includes(status),
+				},
 			])}
 			animate={{
-				opacity: status !== 'out' ? 1 : 0,
+				x: cursorPos.x,
+				y: cursorPos.y,
+				opacity: status !== 'leave' ? 1 : 0,
 				width: cursorStyles.width,
 				height: cursorStyles.height,
 				borderRadius: cursorStyles.borderRadius,
 			}}
-			style={{
-				translateX: springX,
-				translateY: springY,
+			transition={{
+				x: { type: 'spring', damping, stiffness },
+				y: { type: 'spring', damping, stiffness },
+				width: { duration: 0.3 },
+				height: { duration: 0.3 },
+				borderRadius: { duration: 0.3 },
+				opacity: { duration: 0.3 },
 			}}
 		/>
 	);

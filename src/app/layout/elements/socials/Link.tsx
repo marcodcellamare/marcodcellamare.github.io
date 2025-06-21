@@ -35,7 +35,6 @@ const Link = ({ type, title, link }: SocialInterface) => {
 			type,
 			title,
 			url,
-			prod: import.meta.env.PROD,
 		});
 	};
 
@@ -44,7 +43,9 @@ const Link = ({ type, title, link }: SocialInterface) => {
 	return (
 		<button
 			type='button'
+			role='button'
 			className='btn btn-link text-[var(--color-link)] hover:text-[var(--color-link-hover)] active:text-[var(--color-link-active)] !no-underline relative'
+			aria-label={title}
 			title={title}
 			onPointerEnter={() => {
 				start();

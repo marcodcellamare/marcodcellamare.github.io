@@ -8,9 +8,9 @@ import {
 } from 'react';
 import { SectionContext } from './context';
 
-import { useSettings } from '../settings';
+import { useSettings } from '!/contexts/settings';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '../router';
+import { useRouter } from '!/contexts/router';
 import { cssVariable } from '!/utils/misc';
 
 import config from '!config';
