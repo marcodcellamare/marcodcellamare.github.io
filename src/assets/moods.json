@@ -1,245 +1,128 @@
-[
-	{
-		"type": "hate",
-		"title": "Comic Sans"
-	},
-	{
-		"type": "hate",
-		"title": "Facebook"
-	},
-	{
-		"type": "hate",
-		"title": "Social Networks in general"
-	},
-	{
-		"type": "music",
-		"title": "7Peccati",
-		"link": "https://7peccati.tumblr.com"
-	},
-	{
-		"type": "music",
-		"title": "Ruffiano / Stuta P",
-		"link": "https://beacons.ai/ruffiano.stuta.p"
-	},
-	{
-		"type": "love",
-		"title": "Adidas"
-	},
-	{
-		"type": "love",
-		"title": "Amiga 500",
-		"link": "https://en.wikipedia.org/wiki/Amiga_500"
-	},
-	{
-		"type": "love",
-		"title": "C=64",
-		"link": "https://en.wikipedia.org/wiki/Commodore_64"
-	},
-	{
-		"type": "love",
-		"title": "MOS SID",
-		"link": "https://en.wikipedia.org/wiki/MOS_Technology_6581"
-	},
-	{
-		"type": "music",
-		"title": "Hip Hop",
-		"link": "https://open.spotify.com/artist/3q3COQHkJ92c3bQkClU7Cc?si=XX8kIoqOSN-8yH_OHJ4Y9w"
-	},
-	{
-		"type": "music",
-		"title": "Electro Funk",
-		"link": "https://open.spotify.com/album/5Ywv0XUdfv4YqTitjXdDr8?si=29d0cbTDTdOeG2HFC8xLOw"
-	},
-	{
-		"type": "love",
-		"title": "Native Instruments",
-		"link": "https://www.native-instruments.com"
-	},
-	{
-		"type": "love",
-		"title": "Maschine+",
-		"link": "https://www.native-instruments.com/en/products/maschine/production-systems/maschine-plus/"
-	},
-	{
-		"type": "love",
-		"title": "Making Music"
-	},
-	{
-		"type": "love",
-		"title": "Hikes"
-	},
-	{
-		"type": "love",
-		"title": "Nature"
-	},
-	{
-		"type": "love",
-		"title": "Captain Toad (my dog)",
-		"link": "https://www.instagram.com/toad_thecorgi/"
-	},
-	{
-		"type": "love",
-		"title": "Gennarino (always in my heart)",
-		"link": "https://www.instagram.com/stories/highlights/18427630225046231/"
-	},
-	{
-		"type": "love",
-		"title": "Chappy",
-		"link": "https://www.instagram.com/stories/highlights/18263001622169755/"
-	},
-	{
-		"type": "love",
-		"title": "microKORG",
-		"link": "https://www.korg.com/us/products/synthesizers/microkorg/"
-	},
-	{
-		"type": "love",
-		"title": "Akai Professional",
-		"link": "https://www.akaipro.com"
-	},
-	{
-		"type": "love",
-		"title": "Copenhagen"
-	},
-	{
-		"type": "love",
-		"title": "Japan"
-	},
-	{
-		"type": "love",
-		"title": "Travelling"
-	},
-	{
-		"type": "love",
-		"title": "Photography"
-	},
-	{
-		"type": "love",
-		"title": "80s"
-	},
-	{
-		"type": "love",
-		"title": "FL Studio",
-		"link": "https://www.image-line.com"
-	},
-	{
-		"type": "love",
-		"title": "eBoy",
-		"link": "https://hello.eboy.com"
-	},
-	{
-		"type": "play",
-		"title": "Maniac Mansion",
-		"link": "https://en.wikipedia.org/wiki/Maniac_Mansion"
-	},
-	{
-		"type": "play",
-		"title": "Zak McKracken",
-		"link": "https://en.wikipedia.org/wiki/Zak_McKracken_and_the_Alien_Mindbenders"
-	},
-	{
-		"type": "play",
-		"title": "Grim Fandango",
-		"link": "https://en.wikipedia.org/wiki/Grim_Fandango"
-	},
-	{
-		"type": "play",
-		"title": "Woodruff and the Schnibble of Azimuth",
-		"link": "https://en.wikipedia.org/wiki/The_Bizarre_Adventures_of_Woodruff_and_the_Schnibble"
-	},
-	{
-		"type": "play",
-		"title": "Monkey Island",
-		"link": "https://en.wikipedia.org/wiki/Monkey_Island_(series)"
-	},
-	{
-		"type": "love",
-		"title": "Nintendo",
-		"link": "https://www.nintendo.com"
-	},
-	{
-		"type": "play",
-		"title": "The legend of Zelda",
-		"link": "https://www.zelda.com"
-	},
-	{
-		"type": "play",
-		"title": "Super Mario",
-		"link": "https://mario.nintendo.com"
-	},
-	{
-		"type": "love",
-		"title": "Zzap!",
-		"link": "https://www.zzap.it"
-	},
-	{
-		"type": "music",
-		"title": "Zapp",
-		"link": "https://open.spotify.com/artist/396Kh0m4wGUvcMUULw71yi"
-	},
-	{
-		"type": "music",
-		"title": "Chromeo",
-		"link": "https://open.spotify.com/artist/2mV8aJphiSHYJf43DxL7Gt"
-	},
-	{
-		"type": "music",
-		"title": "Breakbot",
-		"link": "https://open.spotify.com/artist/0iui2Be5CP8EWxvHYsVspL"
-	},
-	{
-		"type": "music",
-		"title": "Kavinsky",
-		"link": "https://open.spotify.com/artist/0UF7XLthtbSF2Eur7559oV"
-	},
-	{
-		"type": "music",
-		"title": "Giorgio Moroder",
-		"link": "https://open.spotify.com/artist/6jU2Tt13MmXYk0ZBv1KmfO"
-	},
-	{
-		"type": "music",
-		"title": "Todd Terje",
-		"link": "https://open.spotify.com/artist/49gaZqfow2v8EEQmjGyEIw?si=AjFqp_UDR9Oa71Unas7s9g"
-	},
-	{
-		"type": "music",
-		"title": "Yellow Magic Orchestra",
-		"link": "https://open.spotify.com/artist/2JIf5JxI3ypOSfrfNIIMQE?si=j-G38uObS5GpIVQTLrKA_w"
-	},
-	{
-		"type": "music",
-		"title": "City Pop",
-		"link": "https://open.spotify.com/playlist/0XGPYjObKCorCfpD3orLP0?si=8cfefb2fa21a40d4"
-	},
-	{
-		"type": "love",
-		"title": "Foosball",
-		"link": "https://en.wikipedia.org/wiki/Table_football"
-	},
-	{
-		"type": "code",
-		"title": "React",
-		"link": "https://reactjs.org"
-	},
-	{
-		"type": "code",
-		"title": "JavaScript",
-		"link": "https://www.javascript.com"
-	},
-	{
-		"type": "code",
-		"title": "PHP",
-		"link": "https://www.php.net"
-	},
-	{
-		"type": "code",
-		"title": "MySQL",
-		"link": "https://www.mysql.com/"
-	},
-	{
-		"type": "code",
-		"title": "Bootstrap",
-		"link": "https://getbootstrap.com"
-	}
-]
+{
+	"love": [
+		"Adidas",
+		"Nintendo",
+		"Native Instruments",
+		"Akai Professional",
+		"Copenhagen",
+		"Japan",
+		"Travelling",
+		"Photography",
+		"80s",
+		"Hikes",
+		"Nature",
+		"Animals",
+		"Making Music",
+		"Music",
+		"eBoy",
+		{
+			"title": "Captain Toad",
+			"link": "https://www.instagram.com/toad_thecorgi/"
+		},
+		{
+			"title": "Gennarino",
+			"link": "https://www.instagram.com/stories/highlights/18427630225046231/"
+		},
+		{
+			"title": "Chappy",
+			"link": "https://www.instagram.com/stories/highlights/18263001622169755/"
+		}
+	],
+	"hate": [
+		"Comic Sans",
+		"Facebook",
+		"Social networks",
+		"Mondays"
+	],
+	"listenTo": [
+		"7Peccati",
+		"Electro Funk",
+		"Chiptune",
+		"Nu Disco",
+		"Electronic",
+		"Zapp",
+		"Chromeo",
+		"Breakbot",
+		"Kavinsky",
+		"Giorgio Moroder",
+		"Todd Terje",
+		"Yellow Magic Orchestra",
+		"Kraftwerk",
+		"Sean Price",
+		"Onyx",
+		"Redman",
+		"Wu-Tang Clan",
+		{
+			"title": "Ruffiano / Stuta P",
+			"link": "https://beacons.ai/ruffiano.stuta.p"
+		},
+		{
+			"title": "Let the Funk out",
+			"link": "https://open.spotify.com/album/5Ywv0XUdfv4YqTitjXdDr8?si=tAcISRfcRiiyZm0tDnPP4Q"
+		},
+		{
+			"title": "The legacy: L'onda che percosse il sottosuolo",
+			"link": "https://open.spotify.com/album/0d9vd85NU8GAusoMNCFYqw?si=zK8ElzwyTyqDuC2Nb1nZXw"
+		},
+		{
+			"title": "Golden Age Hip Hop",
+			"link": "https://open.spotify.com/playlist/6CKp3VYDKawxlzIjufZMfY?si=347f277c45854295"
+		},
+		{
+			"title": "Funk",
+			"link": "https://open.spotify.com/playlist/79OTc8SmbOe5C3FpFbHpeQ?si=ce0370127a174713"
+		},
+		{
+			"title": "City Pop",
+			"link": "https://open.spotify.com/playlist/0XGPYjObKCorCfpD3orLP0?si=8cfefb2fa21a40d4"
+		}
+	],
+	"makeMusicWith": [
+		"Maschine+",
+		"microKORG",
+		"FL Studio",
+		"Yamaha DX27",
+		"Akai S1000",
+		"Technics 1210 MKII"
+	],
+	"play": [
+		"Amiga 500",
+		"Commodore 64",
+		"Grim Fandango",
+		"Maniac Mansion",
+		"Monkey Island",
+		"NES",
+		"Nintendo 64",
+		"Nintendo Switch",
+		"Retrogames",
+		"Super Mario",
+		"Super Nintendo",
+		"The legend of Zelda",
+		"Zak McKracken",
+		"Foosball"
+	],
+	"design": [
+		"Figma",
+		"Illustrator",
+		"Photoshop",
+		"Web / UI"
+	],
+	"code": [
+		"Bootstrap",
+		"Cordova",
+		"Daisy UI",
+		"Firebase",
+		"Framer Motion",
+		"i18next",
+		"MySQL",
+		"Next.js",
+		"PHP",
+		"React Router",
+		"React",
+		"RESTful API",
+		"Sass",
+		"Tailwindcss",
+		"TypeScript",
+		"Vite"
+	]
+}

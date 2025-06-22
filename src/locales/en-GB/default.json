@@ -56,8 +56,10 @@
 		"I": "I",
 		"love": "Love",
 		"hate": "Hate",
-		"music": "Listen to",
+		"listenTo": "Listen to",
+		"makeMusicWith": "Make music with",
 		"play": "Play",
+		"design": "Design",
 		"code": "Code in",
 		"go": "Go"
 	}

@@ -1,47 +1,79 @@
+import { cloneElement, ReactElement, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
 import {
+	AngryIcon,
 	ArrowRightIcon,
+	AudioWaveformIcon,
 	BoomBoxIcon,
+	CassetteTapeIcon,
+	Disc3Icon,
+	Gamepad2Icon,
+	GamepadIcon,
+	HeadphonesIcon,
 	HeartIcon,
 	JoystickIcon,
+	KeyboardIcon,
+	KeyboardMusicIcon,
+	LayoutPanelTopIcon,
+	Music4Icon,
+	PenToolIcon,
+	RulerIcon,
+	SmileIcon,
 	SquareCodeIcon,
 	ThumbsDownIcon,
+	ThumbsUpIcon,
 } from 'lucide-react';
 
-import { MoodType } from '.';
+import { MoodCategoryType } from '.';
 
 interface IconProps {
-	type: MoodType | 'go';
+	category: MoodCategoryType | 'go';
+	isVisible: boolean;
 	className?: string;
 }
 
-const Icon = ({ type, className = '' }: IconProps) => {
+const Icon = ({ category, isVisible = false, className = '' }: IconProps) => {
 	const { t } = useTranslation();
 
+	const [icon, setIcon] = useState<ReactElement>();
+
 	const props = {
-		title: t(`moods.${type}`),
-		className: classNames(['text-svg-inline', className]),
+		title: t(`moods.${category}`),
+		className: classNames(['text-svg-inline text-[140%]', className]),
 	};
-	switch (type) {
-		case 'hate':
-			return <ThumbsDownIcon {...props} />;
 
-		case 'music':
-			return <BoomBoxIcon {...props} />;
+	const icons = useRef<Record<MoodCategoryType | 'go', ReactElement[]>>({
+		love: [<HeartIcon />, <ThumbsUpIcon />, <SmileIcon />],
+		hate: [<AngryIcon />, <ThumbsDownIcon />],
+		listenTo: [
+			<BoomBoxIcon />,
+			<CassetteTapeIcon />,
+			<Disc3Icon />,
+			<HeadphonesIcon />,
+		],
+		makeMusicWith: [
+			<AudioWaveformIcon />,
+			<KeyboardMusicIcon />,
+			<Music4Icon />,
+		],
+		play: [<JoystickIcon />, <GamepadIcon />, <Gamepad2Icon />],
+		design: [<RulerIcon />, <LayoutPanelTopIcon />, <PenToolIcon />],
+		code: [<SquareCodeIcon />, <KeyboardIcon />],
+		go: [<ArrowRightIcon />],
+	});
 
-		case 'play':
-			return <JoystickIcon {...props} />;
+	useEffect(() => {
+		const list = icons.current[category];
+		const iconIdx = Math.floor(
+			Math.random() * icons.current[category].length
+		);
+		setIcon(isVisible ? list[iconIdx] : undefined);
+	}, [category, isVisible]);
 
-		case 'code':
-			return <SquareCodeIcon {...props} />;
+	if (!icon) return null;
 
-		case 'love':
-			return <HeartIcon {...props} />;
-
-		case 'go':
-			return <ArrowRightIcon {...props} />;
-	}
+	return cloneElement(icon, props);
 };
 export default Icon;

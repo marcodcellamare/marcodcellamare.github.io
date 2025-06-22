@@ -3,7 +3,13 @@ import { PaletteType } from './types/config.const';
 export const CHARACTERS =
 	'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' as const;
 export const LOCALES = ['en-GB'] as const;
-export const GROUPS = ['default', 'about', 'portfolio', 'contacts'] as const;
+export const GROUPS = [
+	'default',
+	'about',
+	'portfolio',
+	'music',
+	'contacts',
+] as const;
 
 export const PAGES = {
 	about: '/',

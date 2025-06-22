@@ -12,14 +12,27 @@ import { TimeoutType, IntervalType } from '!/types/misc';
 import moods from '!/assets/moods.json' assert { type: 'json' };
 import '!/styles/components/elements/Moods.css';
 
-export type MoodStatusType = 'idle' | 'init' | 'typing' | 'typed';
-export type MoodType = 'love' | 'hate' | 'music' | 'play' | 'code';
+type MoodStatusType = 'idle' | 'init' | 'typing' | 'typed';
 
-export interface MoodInterface {
-	type: MoodType;
-	title: string;
-	link?: string;
-}
+export type MoodCategoryType =
+	| 'love'
+	| 'hate'
+	| 'listenTo'
+	| 'makeMusicWith'
+	| 'play'
+	| 'design'
+	| 'code';
+
+type MoodType =
+	| {
+			title: string;
+			link: string;
+	  }
+	| string;
+
+type MoodsType = {
+	[K in MoodCategoryType]: MoodType[];
+};
 
 interface MoodsProps {
 	className?: string;
@@ -29,10 +42,9 @@ const Moods = ({ className = '' }: MoodsProps) => {
 	const { t } = useTranslation();
 	const { logEvent } = useFirebase();
 
-	const data = moods as MoodInterface[];
-
 	const [status, setStatus] = useState<MoodStatusType>('idle');
-	const [currentIdx, setCurrentIdx] = useState(-1);
+	const [currentCategory, setCurrentCategory] = useState<MoodCategoryType>();
+	const [currentIdx, setCurrentIdx] = useState<number>(-1);
 	const [typed, setTyped] = useState('');
 	const [isOver, setIsOver] = useState(false);
 
@@ -42,14 +54,7 @@ const Moods = ({ className = '' }: MoodsProps) => {
 	const typedRef = useRef<string[]>([]);
 	const isWrongRef = useRef(false);
 
-	const current = useMemo(
-		() =>
-			data[currentIdx] ?? {
-				type: 'love',
-				title: '',
-			},
-		[data, currentIdx]
-	);
+	const data = moods as MoodsType;
 
 	const timeoutCleanup = () => {
 		if (timeoutRef.current !== null) {
@@ -65,21 +70,47 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		}
 	};
 
-	const getRandom = useCallback(
+	const currentTitle = useMemo(
 		() =>
-			setCurrentIdx((prev) => {
-				if (data.length === 0) return -1;
-				if (data.length === 1) return 0;
-
-				let idx: number;
-				do {
-					idx = Math.floor(Math.random() * data.length);
-				} while (idx === prev);
-
-				return idx;
-			}),
-		[data.length]
+			currentCategory !== undefined && currentIdx >= 0
+				? typeof data[currentCategory][currentIdx] === 'object'
+					? data[currentCategory][currentIdx].title
+					: data[currentCategory][currentIdx]
+				: '',
+		[data, currentCategory, currentIdx]
 	);
+	const currentFullTitle = useMemo(
+		() =>
+			`${t('moods.I')} ${t(
+				`moods.${currentCategory}`
+			).toLowerCase()} ${currentTitle}`,
+		[currentCategory, currentTitle, t]
+	);
+	const currentLink = useMemo(
+		() =>
+			status === 'typed' &&
+			currentCategory !== undefined &&
+			currentIdx >= 0 &&
+			typeof data[currentCategory][currentIdx] === 'object'
+				? data[currentCategory][currentIdx].link
+				: '',
+		[data, currentCategory, currentIdx, status]
+	);
+
+	const getRandom = useRef((currentCategory?: MoodCategoryType) => {
+		let category: MoodCategoryType;
+		const categories = Object.keys(data) as MoodCategoryType[];
+
+		do {
+			category =
+				categories[Math.floor(Math.random() * categories.length)];
+		} while (category === currentCategory);
+
+		const idx = Math.floor(Math.random() * data[category].length);
+
+		setCurrentCategory(category);
+		setCurrentIdx(idx);
+	});
 
 	const idle = useCallback(() => {
 		setStatus('idle');
@@ -93,25 +124,21 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		setTyped('');
 		typedRef.current = [];
 		isWrongRef.current = false;
-		getRandom();
-	}, [getRandom]);
+		getRandom.current(currentCategory);
+	}, [currentCategory]);
 
 	const handleClick = () => {
-		if (status !== 'typed' || !current.link) return;
+		if (!currentLink) return;
 
-		const url = current.link;
-
-		openExternalLink(current.link);
+		openExternalLink(currentLink);
 		logEvent('mood_link', {
-			title: `${t('moods.I')} ${t(
-				`moods.${current.type}`
-			).toLowerCase()} ${current.title}`,
-			url,
+			title: currentFullTitle,
+			currentLink,
 		});
 	};
 
 	const typing = useCallback(() => {
-		if (!current.title) return idle();
+		if (!currentTitle) return idle();
 
 		setStatus('typing');
 
@@ -120,7 +147,7 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		// If last character was wrong, remove it
 		if (isWrongRef.current) typedRef.current.pop();
 
-		const nextChar = current.title[typedRef.current.length];
+		const nextChar = currentTitle[typedRef.current.length];
 
 		if (!nextChar) {
 			setStatus('typed');
@@ -150,7 +177,7 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		}
 
 		setTyped(typedRef.current.join(''));
-	}, [current, idle]);
+	}, [currentTitle, idle]);
 
 	useEffect(() => {
 		idle();
@@ -161,7 +188,7 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		};
 	}, [idle]);
 
-	useEffect(getRandom, [getRandom]);
+	useEffect(() => getRandom.current(), []);
 
 	// Handle status transitions
 	useEffect(() => {
@@ -173,73 +200,69 @@ const Moods = ({ className = '' }: MoodsProps) => {
 
 	// Start typing only after current.title is ready
 	useEffect(() => {
-		if (status === 'init' && current.title) {
+		if (status === 'init' && currentTitle) {
 			timeoutCleanup();
 			timeoutRef.current = setTimeout(() => {
 				intervalRef.current = setInterval(typing, 80);
 			}, 500);
 		}
-	}, [status, current.title, typing]);
+	}, [status, currentTitle, typing]);
 
 	// Handle auto-restart unless hovering
 	useEffect(() => {
 		if (status === 'typed') {
 			if (!isOver) {
-				timeoutRef.current = setTimeout(idle, 5000);
+				timeoutRef.current = setTimeout(
+					idle,
+					currentLink ? 5000 : 2000
+				);
 			} else {
 				timeoutCleanup();
 			}
 		}
-	}, [status, isOver, idle]);
+	}, [status, isOver, idle, currentLink]);
 
-	if (currentIdx < 0) return null;
+	if (!currentCategory || currentIdx < 0) return null;
 
 	return (
 		<button
 			type='button'
-			role='button'
+			role={currentLink ? 'button' : undefined}
 			className={classNames([
 				'moods btn btn-link !no-underline max-w-full whitespace-nowrap',
-				status === 'typed' && current.link
-					? 'text-[var(--color-link)]'
-					: 'text-[var(--color-content)]',
+				currentLink
+					? 'text-[var(--color-link)] cursor-pointer'
+					: 'text-[var(--color-content)] cursor-default',
 				className,
 			])}
-			aria-label={`${t('moods.I')} ${t(
-				`moods.${current.type}`
-			).toLowerCase()} ${current.title}`}
-			title={`${t('moods.I')} ${t(
-				`moods.${current.type}`
-			).toLowerCase()} ${current.title}`}
-			disabled={status !== 'typed' || !current.link}
-			onPointerEnter={() => setIsOver(true)}
-			onPointerLeave={() => {
-				setIsOver(false);
-				if (status === 'typed') idle();
-			}}
-			onClick={handleClick}>
+			disabled={!currentLink}
+			aria-label={currentFullTitle}
+			title={currentFullTitle}
+			onPointerEnter={currentLink ? () => setIsOver(true) : undefined}
+			onPointerLeave={
+				currentLink
+					? () => {
+							setIsOver(false);
+							idle();
+					  }
+					: undefined
+			}
+			onClick={currentLink ? handleClick : undefined}>
 			{t('moods.I')}
-			{status !== 'idle' ? (
-				<Icon
-					type={current.type}
-					className={classNames([
-						'transition-[scale] duration-200 ease-in-out',
-						{
-							'scale-140': isOver,
-						},
-					])}
-				/>
-			) : null}
+			<Icon
+				category={currentCategory}
+				isVisible={status !== 'idle'}
+				className={classNames([
+					'transition-[scale] duration-200 ease-in-out',
+					{
+						'scale-140': isOver,
+					},
+				])}
+			/>
 			<span className='truncate'>
 				{typed}
 				<span className='moods-cursor'>_</span>
 			</span>
-			{status === 'typed' && current.link && (
-				<Icon
-					type='go'
-					className='shrink-0'
-				/>
-			)}
 		</button>
 	);
 };
