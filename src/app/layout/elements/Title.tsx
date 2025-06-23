@@ -16,7 +16,7 @@ const Title = () => {
 
 	const y = useTransform(scrollYProgress, [0, 1], ['-15rem', '15rem']);
 	const opacity = useTransform(scrollYProgress, [0.75, 0.9], [1, 0]);
-	const zIndex = useTransform(scrollYProgress, [0.3, 0.35], [1, 0]);
+	const zIndex = useTransform(scrollYProgress, [0.3, 0.35], [5, 0]);
 	const patternThickness = useTransform(
 		scrollYProgress,
 		[0, 0.3, 0.5, 1],

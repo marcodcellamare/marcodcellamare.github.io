@@ -38,9 +38,9 @@ export const SectionProvider = ({
 		string | '#FFF'
 	>('#FFF');
 
-	const sectionRef = useRef<HTMLDivElement | null>(null);
+	const sectionRef = useRef<HTMLElement | null>(null);
 
-	const setSectionRef = (node: HTMLDivElement | null) =>
+	const setSectionRef = (node: HTMLElement | null) =>
 		(sectionRef.current = node);
 
 	const getTheme = useCallback(

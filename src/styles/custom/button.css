@@ -1,5 +1,7 @@
 .btn {
-	@apply rounded-none;
+	@apply rounded-none
+		shadow-none
+		text-shadow-none;
 
 	&.btn-outline,
 	&.btn-dash {

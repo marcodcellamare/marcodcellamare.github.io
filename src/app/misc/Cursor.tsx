@@ -48,7 +48,7 @@ const Cursor = () => {
 		const element = e.currentTarget as HTMLElement;
 
 		const isNav = element.closest('header') !== null;
-		const isApp = element.closest('.app') !== null;
+		const isApp = element.closest('.app, footer') !== null;
 		const isImage = element.closest('.image') !== null;
 
 		const status = isApp
@@ -134,16 +134,17 @@ const Cursor = () => {
 
 	useEffect(handlePointerRelaxed, []);
 
-	useEffect(() => {
-		setIsLoaderTickled(['link', 'nav'].includes(status));
-	}, [status, setIsLoaderTickled]);
+	useEffect(
+		() => setIsLoaderTickled(['link', 'nav'].includes(status)),
+		[status, setIsLoaderTickled]
+	);
 
 	if (isTouch) return null;
 
 	return (
 		<motion.div
 			className={classNames([
-				'cursor fixed top-0 left-0 -translate-1/2 p-2 box-content pointer-events-none z-[9999] border-[var(--color-palette-gray)] mix-blend-difference overflow-hidden',
+				'cursor fixed top-0 left-0 -translate-1/2 p-2 box-content pointer-events-none z-[99999] border-[var(--color-palette-gray)] mix-blend-difference overflow-hidden',
 				'transition-[background-color,border-width] duration-300 ease-in-out',
 				['relaxed', 'leave'].includes(status)
 					? 'bg-[var(--color-palette-gray)]'

@@ -3,7 +3,7 @@ import { createContext, RefObject } from 'react';
 import { TemplateType, ThemeType } from '!/types/config.const';
 
 export interface SectionContextProps {
-	sectionRef: RefObject<HTMLDivElement | null>;
+	sectionRef: RefObject<HTMLElement | null>;
 	sectionId: number;
 	template: TemplateType;
 	theme: ThemeType;
@@ -14,7 +14,7 @@ export interface SectionContextProps {
 	getTheme: (sectionId: number) => ThemeType;
 	getTemplate: (sectionId: number) => TemplateType;
 
-	setSectionRef: (node: HTMLDivElement | null) => void;
+	setSectionRef: (node: HTMLElement | null) => void;
 }
 
 export const SectionContext = createContext<SectionContextProps | undefined>(

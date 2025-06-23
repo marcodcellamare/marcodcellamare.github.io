@@ -243,7 +243,7 @@ const Moods = ({ className = '' }: MoodsProps) => {
 				currentLink
 					? () => {
 							setIsOver(false);
-							idle();
+							//idle();
 					  }
 					: undefined
 			}

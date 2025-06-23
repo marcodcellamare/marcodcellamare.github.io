@@ -18,8 +18,8 @@ const App = () => {
 				data-theme={pageTheme}
 				className='app min-w-xs select-none relative flex flex-col'>
 				<Router />
-				<Footer />
 			</div>
+			<Footer />
 			<Header />
 			<Cursor />
 		</>
