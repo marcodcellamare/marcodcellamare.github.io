@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
 import { useSettings } from '!/contexts/settings';
