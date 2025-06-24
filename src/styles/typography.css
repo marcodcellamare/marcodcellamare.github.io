@@ -29,8 +29,8 @@
 	}
 	h1,
 	.h1 {
-		@apply text-5xl leading-[0.9em]
-			md:text-6xl lg:leading-[0.85em];
+		@apply text-4xl leading-[0.9em]
+			md:text-5xl;
 
 		&.extra {
 			@apply text-5xl leading-[0.9em]

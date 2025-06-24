@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
 import { useSection } from '!/contexts/section';
 import classNames from 'classnames';
@@ -47,7 +47,10 @@ const Heading = ({ rootKey, className = '' }: HeadingProps) => {
 			</h2>
 			{subtitleExists && (
 				<h3 className={classNames([sectionId === 0 ? 'h3' : 'h4'])}>
-					{t(`${rootKey}.subtitle`)}
+					<Trans
+						ns={pageId}
+						i18nKey={`${rootKey}.subtitle`}
+					/>
 				</h3>
 			)}
 		</div>

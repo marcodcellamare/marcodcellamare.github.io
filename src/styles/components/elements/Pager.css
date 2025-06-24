@@ -1,0 +1,16 @@
+.pager {
+	.pager-line {
+		background: transparent;
+		background: linear-gradient(
+			0deg,
+			var(--color-next-background) 70%,
+			color-mix(in srgb, var(--color-next-background) 0%, transparent)
+				100%
+		);
+	}
+	&.pager-0 {
+		.pager-line {
+			background-color: var(--color-next-background);
+		}
+	}
+}

@@ -3,6 +3,10 @@
 		shadow-none
 		text-shadow-none;
 
+	&:active {
+		@apply translate-none;
+	}
+
 	&.btn-outline,
 	&.btn-dash {
 		@apply border-2
@@ -18,7 +22,9 @@
 			p-0
 			justify-start
 			text-start
-			align-baseline;
+			align-baseline
+			border-none
+			bg-transparent;
 
 		font-size: inherit;
 		line-height: inherit;

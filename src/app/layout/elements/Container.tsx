@@ -15,7 +15,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
 			<div
 				ref={ref}
 				className={classNames([
-					'container mx-auto relative',
+					'container mx-auto',
 					spaceRef.current.container,
 					className,
 				])}>

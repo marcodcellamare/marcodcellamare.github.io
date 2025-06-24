@@ -1,7 +1,7 @@
 {
 	"name": "marcodcellamare.github.io",
 	"private": false,
-	"version": "2025.0.6",
+	"version": "2025.0.7",
 	"repository": {
 		"url": "https://github.com/marcodcellamare/marcodcellamare.github.io.git"
 	},
@@ -31,7 +31,7 @@
 		"firebase": "^11.3.1",
 		"i18next": "^25.0.0",
 		"i18next-browser-languagedetector": "^8.0.2",
-		"lucide-react": "^0.515.0",
+		"lucide-react": "^0.522.0",
 		"motion": "^12.15.0",
 		"react": "^19.1.0",
 		"react-bootstrap-icons": "^1.11.6",

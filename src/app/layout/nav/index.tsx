@@ -25,7 +25,7 @@ const Nav = () => {
 				])}>
 				<Container
 					className={classNames([
-						'flex flex-col',
+						'flex flex-col relative',
 						spaceRef.current.nav,
 					])}>
 					<Menu />

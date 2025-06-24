@@ -35,6 +35,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 	const sectionRefs = useRef<Record<number, HTMLElement | null>>({});
 
 	const spaceRef = useRef({
+		absEdge: 'm-5 md:m-10',
 		nav: 'py-20',
 		section: 'py-20 lg:py-30 xl:py-40',
 		container: 'px-5 md:px-10 lg:px-20 xl:px-30',

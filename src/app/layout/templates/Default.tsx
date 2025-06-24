@@ -43,7 +43,7 @@ const Default = ({ slideId = 0 }: DefaultProps) => {
 	return (
 		<Container
 			className={classNames([
-				'flex flex-col lg:flex-row lg:items-center',
+				'flex flex-col lg:flex-row lg:items-center relative',
 				spaceRef.current.content,
 				spaceRef.current.section,
 			])}>

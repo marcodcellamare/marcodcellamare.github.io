@@ -16,7 +16,7 @@ const Footer = () => {
 				spaceRef.current.footer,
 			])}>
 			<div className='absolute bottom-0 left-0 right-0 h-[200%] pointer-events-none bg-linear-to-t from-black/15 to-black/0' />
-			<Container className='flex flex-col md:flex-row gap-2 md:items-center'>
+			<Container className='flex flex-col md:flex-row gap-2 md:items-center relative'>
 				<Socials className='md:ml-auto' />
 				<div className='flex-1 min-w-0 md:order-first'>
 					<Moods />

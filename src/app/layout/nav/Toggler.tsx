@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const Toggler = () => {
 	const { t } = useTranslation();
-	const { isNavOpened, setIsNavOpened } = useSettings();
+	const { spaceRef, isNavOpened, setIsNavOpened } = useSettings();
 
 	const [isOver, setIsOver] = useState(false);
 
@@ -14,7 +14,8 @@ const Toggler = () => {
 			type='button'
 			role='button'
 			className={classNames([
-				'toggler absolute top-0 right-0 m-5 md:m-10 w-[3.5rem] md:w-[3rem] aspect-square cursor-pointer mix-blend-difference',
+				'toggler absolute top-0 right-0 w-[3.5rem] md:w-[3rem] aspect-square cursor-pointer mix-blend-difference',
+				spaceRef.current.absEdge,
 				{
 					active: isNavOpened,
 				},

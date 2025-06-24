@@ -1,11 +1,11 @@
-import Carousel from '!/app/layout/elements/Carousel';
+import Carousel from '!/app/layout/elements/carousel';
 import Default from '!/app/layout/templates/Default';
+import Ruler from './Ruler';
 
-const Timeline = () => {
-	return (
-		<Carousel>
-			<Default />
-		</Carousel>
-	);
-};
+const Timeline = () => (
+	<Carousel template={<Default />}>
+		<Ruler />
+	</Carousel>
+);
+
 export default Timeline;

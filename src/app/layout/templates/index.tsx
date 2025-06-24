@@ -19,10 +19,14 @@ const Templates = () => {
 	const scale = useTransform(scrollYProgress, [0.9, 1], [1, 0.98], {
 		ease: easeInOut,
 	});
-	const opacity = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
+	const opacity = useTransform(
+		scrollYProgress,
+		[0.1, 0.2, 0.9, 1],
+		[0, 1, 1, 0]
+	);
 	const blurAmount = useTransform(
 		scrollYProgress,
-		[0, 0.3, 0.9, 1],
+		[0, 0.4, 0.8, 1],
 		['1.6rem', '0rem', '0rem', '1rem']
 	);
 	const filter = useTransform(blurAmount, (value) => `blur(${value})`);
@@ -44,7 +48,7 @@ const Templates = () => {
 		<motion.div
 			ref={targetRef}
 			style={{ y, scale, opacity, filter }}
-			className='template-wrapper w-full min-h-full z-1'>
+			className='template-wrapper flex items-stretch w-full relative z-1'>
 			{content}
 		</motion.div>
 	);

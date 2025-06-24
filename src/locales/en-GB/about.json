@@ -31,19 +31,43 @@
 		},
 		{
 			"theme": "brown",
-			"template": "default",
-			"title": "Hey there",
+			"template": "timeline",
+			"title": "Work experiences",
 			"content": [
 				{
 					"heading": {
-						"headline": "test",
-						"title": "Marco D. Cellamare",
-						"subtitle": "Senior Full-Stack Developer and Digital Designer"
-					},
-					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-					"paragraphs": [
-						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-					]
+						"headline": "2022 – Present",
+						"title": "Lead Senior Full-Stack Developer",
+						"subtitle": "<strong>Defensive Group</strong> — Cyber Security (Solrød Strand, DK)"
+					}
+				},
+				{
+					"heading": {
+						"headline": "2019 – 2022",
+						"title": "Senior Full-Stack Developer",
+						"subtitle": "<strong>Banyo</strong> — Digital Agency (Copenhagen, DK)"
+					}
+				},
+				{
+					"heading": {
+						"headline": "2008 – 2019",
+						"title": "Lead Full-Stack Developer, Digital Designer",
+						"subtitle": "<strong>Chimera</strong> — Digital Agency (Bari / Milan, IT)"
+					}
+				},
+				{
+					"heading": {
+						"headline": "2008",
+						"title": "Web Developer, Digital Designer",
+						"subtitle": "<strong>Promostudio 360</strong> — Digital Agency (Bari, IT)"
+					}
+				},
+				{
+					"heading": {
+						"headline": "2002 – 2008",
+						"title": "Web Developer, Digital Designer",
+						"subtitle": "<strong>Jcom Italia</strong> — Web Agency (Bari / Milan, IT)"
+					}
 				}
 			]
 		},
