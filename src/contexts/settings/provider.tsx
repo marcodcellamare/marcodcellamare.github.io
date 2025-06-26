@@ -30,6 +30,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isLoaderTickled, setIsLoaderTickled] = useState(false);
 	const [activeSectionId, setActiveSectionId] = useState(0);
+	const [pointerPosition, setPointerPosition] = useState({ x: 0, y: 0 });
 
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 	const sectionRefs = useRef<Record<number, HTMLElement | null>>({});
@@ -120,6 +121,15 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 		};
 	}, [pathname]);
 
+	useEffect(() => {
+		const handlePointerMove = (e: MouseEvent) => {
+			setPointerPosition({ x: e.clientX, y: e.clientY });
+		};
+		window.addEventListener('pointermove', handlePointerMove);
+		return () =>
+			window.removeEventListener('pointermove', handlePointerMove);
+	}, []);
+
 	return (
 		<SettingsContext.Provider
 			value={{
@@ -134,6 +144,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 				isLoaderTickled,
 				activeSectionId,
 				activeSectionTheme,
+				pointerPosition,
 
 				setScrollContainerRef,
 				setSectionRefs,

@@ -13,6 +13,7 @@ export interface SettingsContextProps {
 	isLoaderTickled: boolean;
 	activeSectionId: number;
 	activeSectionTheme: ThemeType;
+	pointerPosition: { x: number; y: number };
 
 	setScrollContainerRef: (node: HTMLDivElement | null) => void;
 	setSectionRefs: (sectionId: number, node: HTMLElement | null) => void;

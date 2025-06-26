@@ -8,7 +8,7 @@ import Pattern from './elements/Pattern';
 import Title from './elements/Title';
 import Templates from './templates';
 import Pager from './elements/Pager';
-import Polygon from '!/app/misc/Polygon';
+import Polygons from './elements/Polygons';
 
 interface SectionProps {
 	sectionId: number;
@@ -38,17 +38,14 @@ const Section = ({ sectionId, className = '' }: SectionProps) => {
 					)})`,
 				} as CSSProperties
 			}>
-			<Polygon
-				fill={`rgb(${colorToRgb(nextBackgroundColor)})`}
-				className='absolute -top-1/4 -left-1/4 w-1/2'
-			/>
-			<Polygon
-				fill={`rgb(${colorToRgb(nextBackgroundColor)})`}
-				className='absolute top-3/5 left-3/5 w-1/2'
-			/>
 			<Title />
 			<Pattern />
 			<Pager />
+			<Polygons
+				min={1}
+				max={1}
+			/>
+			<div className='absolute top-0 bottom-0 left-0 right-0 hidden sm:block sm:m-15 md:m-25 xl:m-40 pointer-events-none border-[0.1rem] border-[var(--color-next-background)]' />
 			<Templates />
 		</section>
 	);

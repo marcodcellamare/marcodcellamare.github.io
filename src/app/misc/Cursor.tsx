@@ -10,9 +10,8 @@ type StatusType = 'relaxed' | 'nav' | 'link' | 'image' | 'leave';
 
 const Cursor = () => {
 	const isTouch = useIsTouch();
-	const { setIsLoaderTickled } = useSettings();
+	const { setIsLoaderTickled, pointerPosition } = useSettings();
 
-	const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 	const [elements, setElements] = useState<NodeListOf<Element>>();
 	const [status, setStatus] = useState<StatusType>('relaxed');
 	const [cursorStyles, setCursorStyles] = useState({
@@ -101,11 +100,6 @@ const Cursor = () => {
 	useEffect(() => {
 		if (isTouch || !elements) return;
 
-		const handlePointerMove = (e: MouseEvent) => {
-			setCursorPos({ x: e.clientX, y: e.clientY });
-		};
-
-		window.addEventListener('pointermove', handlePointerMove);
 		document.addEventListener('pointerenter', handlePointerRelaxed);
 		document.addEventListener('pointerleave', handlePointerLeave);
 
@@ -115,7 +109,6 @@ const Cursor = () => {
 		});
 
 		return () => {
-			window.removeEventListener('pointermove', handlePointerMove);
 			document.removeEventListener('pointerenter', handlePointerRelaxed);
 			document.removeEventListener('pointerleave', handlePointerLeave);
 
@@ -156,8 +149,8 @@ const Cursor = () => {
 				},
 			])}
 			animate={{
-				x: cursorPos.x,
-				y: cursorPos.y,
+				x: pointerPosition.x,
+				y: pointerPosition.y,
 				opacity: status !== 'leave' ? 1 : 0,
 				width: cursorStyles.width,
 				height: cursorStyles.height,
