@@ -8,6 +8,7 @@ const useThrottleCallback = <T extends (...args: any[]) => void>(
 ) => {
 	const lastCallRef = useRef<number>(0);
 	const timeoutRef = useRef<TimeoutType>(null);
+	const callbackRef = useRef(callback);
 
 	const cleanup = () => {
 		if (timeoutRef.current !== null) {
@@ -23,19 +24,25 @@ const useThrottleCallback = <T extends (...args: any[]) => void>(
 
 			if (timeSinceLastCall >= delay) {
 				lastCallRef.current = now;
-				callback(...args);
+				callbackRef.current(...args);
 			} else if (!timeoutRef.current) {
 				timeoutRef.current = setTimeout(() => {
 					lastCallRef.current = Date.now();
 					timeoutRef.current = null;
-					callback(...args);
+					callbackRef.current(...args);
 				}, delay - timeSinceLastCall);
 			}
 		},
-		[callback, delay]
+		[delay]
 	);
 
-	useEffect(() => cleanup, []);
+	useEffect(() => {
+		callbackRef.current = callback;
+	}, [callback]);
+
+	useEffect(() => {
+		return cleanup;
+	}, []);
 
 	return throttled;
 };

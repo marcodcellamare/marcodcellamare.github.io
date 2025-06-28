@@ -7,6 +7,7 @@ export const useDebounceCallback = <T extends (...args: any[]) => void>(
 	delay: number
 ) => {
 	const timeoutRef = useRef<TimeoutType>(null);
+	const callbackRef = useRef(callback);
 
 	const cleanup = () => {
 		if (timeoutRef.current !== null) {
@@ -18,15 +19,21 @@ export const useDebounceCallback = <T extends (...args: any[]) => void>(
 	const debounced = useCallback(
 		(...args: Parameters<T>) => {
 			cleanup();
-
-			timeoutRef.current = setTimeout(() => {
-				callback(...args);
-			}, delay);
+			timeoutRef.current = setTimeout(
+				() => callbackRef.current(...args),
+				delay
+			);
 		},
-		[callback, delay]
+		[delay]
 	);
 
-	useEffect(() => cleanup, []);
+	useEffect(() => {
+		callbackRef.current = callback;
+	}, [callback]);
+
+	useEffect(() => {
+		return cleanup;
+	}, []);
 
 	return debounced;
 };

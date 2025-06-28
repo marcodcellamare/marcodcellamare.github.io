@@ -48,7 +48,9 @@ const Link = ({ thisPageId }: LinkProps) => {
 	);
 
 	useEffect(() => setOriginalText(text), [setOriginalText, text]);
-	useEffect(() => cleanup, []);
+	useEffect(() => {
+		return cleanup;
+	}, []);
 
 	return (
 		<NavLink

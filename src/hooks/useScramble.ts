@@ -71,8 +71,9 @@ const useScramble = (speed = 60) => {
 	}, [stop, originalText, scramble, speed]);
 
 	useEffect(() => setDisplayText(originalText), [originalText]);
-
-	useEffect(() => stop, [stop]);
+	useEffect(() => {
+		return stop;
+	}, [stop]);
 
 	return {
 		originalText,

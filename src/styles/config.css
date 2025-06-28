@@ -30,23 +30,11 @@
 	--color-palette-gray: #c2cfcd;
 	--color-palette-dark-gray: #757375;
 	--color-palette-darker-gray: #545254;
-
-	/*
-	--color-base-100: var(--color-palette-light-gray);
-	--color-base-200: var(--color-palette-light-gray2);
-	--color-base-300: var(--color-palette-light-gray3);
-	--color-base-content: var(--color-palette-dark-gray);
-	--color-primary: var(--color-palette-gray);
-	--color-secondary: var(--color-palette-red);
-	--color-accent: var(--color-palette-green);
-	--color-error: var(--color-palette-purple);
-	*/
 }
 
 @theme {
 	--text-xxs: 0.55rem;
-
 	--text-massive-lg: 12rem;
-	--text-massive-xl: 15rem;
-	--text-massive-2xl: 18rem;
+	--text-massive-xl: 14rem;
+	--text-massive-2xl: 16rem;
 }

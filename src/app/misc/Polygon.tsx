@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 interface PolygonProps {
 	sides?: number;
+	maxSides?: number;
 	fill?: string;
 	className?: string;
 }
@@ -16,11 +17,11 @@ const getRandomPoint = (size: number): [number, number] => {
 
 const Polygon = ({
 	sides = 0,
+	maxSides = 8,
 	fill = '#00FF00',
 	className = '',
 }: PolygonProps) => {
 	const size = useRef(100);
-	const maxSides = useRef(6);
 
 	const [actualSides, setActualSides] = useState(0);
 
@@ -65,11 +66,9 @@ const Polygon = ({
 	useEffect(
 		() =>
 			setActualSides(
-				sides < 3
-					? Math.floor(Math.random() * maxSides.current + 3)
-					: sides
+				sides < 3 ? Math.floor(Math.random() * maxSides + 3) : sides
 			),
-		[sides]
+		[sides, maxSides]
 	);
 
 	return (

@@ -39,11 +39,13 @@ const Nav = ({
 	const handleNext = () =>
 		setActiveIdx((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
 
-	useEffect(() => {
-		itemRefs.current[activeIdx]?.scrollIntoView({
-			behavior: 'smooth',
-		});
-	}, [itemRefs, activeIdx]);
+	useEffect(
+		() =>
+			itemRefs.current[activeIdx]?.scrollIntoView({
+				behavior: 'smooth',
+			}),
+		[itemRefs, activeIdx]
+	);
 
 	if (totalSlides < 2) return null;
 

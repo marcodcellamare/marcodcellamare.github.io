@@ -20,8 +20,8 @@ const Polygons = ({
 	ratio = 20,
 	min = 1,
 	max = 3,
-	minSize = 10,
-	maxSize = 40,
+	minSize = 50,
+	maxSize = 70,
 }: PolygonsProps) => {
 	const { nextBackgroundColor } = useSection();
 
@@ -37,13 +37,9 @@ const Polygons = ({
 
 	const size = useCallback(() => {
 		const supposedSize = 100 / total;
-		const normalizedMinSize =
-			supposedSize > minSize ? minSize : supposedSize;
-		const normalizedMaxSize =
-			supposedSize > maxSize ? maxSize : supposedSize;
 		const randomSize = random({
-			min: normalizedMinSize,
-			max: normalizedMaxSize,
+			min: Math.min(minSize, supposedSize),
+			max: Math.min(maxSize, supposedSize),
 		});
 		return Math.round(randomSize * 100) / 100;
 	}, [total, minSize, maxSize]);
@@ -68,7 +64,7 @@ const Polygons = ({
 	if (!polygons.length) return null;
 
 	return (
-		<div className='absolute -top-1/8 -bottom-1/8 -left-1/8 -right-1/8 pointer-events-none'>
+		<div className='absolute top-0 bottom-0 left-0 right-0 pointer-events-none perspective-midrange z-1'>
 			{polygons.map((polygon, k) => (
 				<Floating
 					key={k}

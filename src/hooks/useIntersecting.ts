@@ -6,9 +6,9 @@ const useIntersecting = (ref: RefObject<HTMLElement | null>): boolean => {
 	useEffect(() => {
 		if (!ref.current) return;
 
-		const observer = new IntersectionObserver(([entry]) =>
-			setIntersecting(entry.isIntersecting)
-		);
+		const observer = new IntersectionObserver(([entry]) => {
+			setIntersecting(entry.isIntersecting);
+		});
 		observer.observe(ref.current);
 		return () => observer.disconnect();
 	}, [ref]);

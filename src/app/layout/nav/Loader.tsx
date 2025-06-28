@@ -104,7 +104,7 @@ const Loader = () => {
 		setStrips(strips);
 	}, []);
 
-	const animate = useThrottleCallback(generate, 140);
+	const animate = useThrottleCallback(generate, 120);
 
 	useEffect(() => {
 		if (!isLoaderTickled) return;
@@ -135,7 +135,7 @@ const Loader = () => {
 		cleanup();
 		animate();
 
-		return () => cleanup();
+		return cleanup;
 	}, [scrollY, animate]);
 
 	usePageVisibility({

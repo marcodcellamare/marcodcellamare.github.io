@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import classNames from 'classnames';
 
-import { TimeoutType } from '!/types/timer';
+import { TimeoutType } from '!/types/misc';
 
 type StatusType =
 	| 'idle'
@@ -135,7 +135,7 @@ const MountTransition = ({
 				timeoutExiting
 			);
 		}
-		return () => cleanup();
+		return cleanup;
 	}, [
 		mountIf,
 		timeoutDelay,

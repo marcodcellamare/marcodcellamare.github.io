@@ -1,26 +1,33 @@
-import { useEffect, useRef, ReactNode, useState } from 'react';
+import { useRef, ReactNode, useEffect, useCallback } from 'react';
 import {
-	animate,
 	motion,
+	animate as animateJs,
 	MotionStyle,
+	useAnimate,
+	useInView,
 	useMotionValue,
 	ValueAnimationTransition,
+	useMotionTemplate,
 } from 'framer-motion';
 import { useSettings } from '!/contexts/settings';
-import useIntersecting from '!/hooks/useIntersecting';
+import { useResize } from '!/contexts/resize';
 import classNames from 'classnames';
+import useThrottleCallback from '!/hooks/useThrottleCallback';
 
 export type FloatingModeType = 'attract' | 'repel';
 
 interface FloatingProps {
 	mode?: FloatingModeType;
+	perspective?: boolean;
+	maxRotation?: number;
 	ratioX?: number;
 	ratioY?: number;
-	distanceMultiplier?: number;
-
-	perspective?: number;
-	shadow?: boolean | 'svg';
-
+	multiplier?: number;
+	duration?: number;
+	shadow?: boolean;
+	maxShadowBlur?: number;
+	minShadowOpacity?: number;
+	maxShadowOpacity?: number;
 	className?: string;
 	style?: MotionStyle;
 	children: ReactNode;
@@ -28,104 +35,163 @@ interface FloatingProps {
 
 const Floating = ({
 	mode = 'attract',
+	perspective = false,
+	maxRotation = 45,
 	ratioX = 0,
 	ratioY = 0,
-	distanceMultiplier = 500,
-
-	perspective,
+	multiplier = 2,
+	duration = 2,
 	shadow = false,
-
+	maxShadowBlur = 10,
+	minShadowOpacity = 0.1,
+	maxShadowOpacity = 0.3,
 	className = '',
 	style = {},
 	children,
 }: FloatingProps) => {
-	const ref = useRef<HTMLDivElement | null>(null);
+	const [scope, animate] = useAnimate();
+	const isInView = useInView(scope);
+
+	const direction = mode === 'attract' ? -1 : 1;
 
 	const { pointerPosition } = useSettings();
-	const isIntersecting = useIntersecting(ref);
+	const { width, height } = useResize();
 
-	const [distance, setDistance] = useState(0);
+	const motionShadowX = useMotionValue(0);
+	const motionShadowY = useMotionValue(0);
+	const motionShadowBlur = useMotionValue(0);
+	const motionShadowOpacity = useMotionValue(0);
 
-	const motionX = useMotionValue(0);
-	const motionY = useMotionValue(0);
+	const shadowFilter = useMotionTemplate`drop-shadow(${motionShadowX}px ${motionShadowY}px ${motionShadowBlur}px rgba(0,0,0,${motionShadowOpacity}))`;
 
-	useEffect(() => {
-		if (!isIntersecting || !ref.current) return;
+	const animateProps = useRef<ValueAnimationTransition>({
+		type: 'tween',
+		ease: 'easeOut',
+		duration,
+	});
 
-		const animateProps: ValueAnimationTransition = {
-			type: 'tween',
-		};
+	const update = useCallback(() => {
+		if (!isInView || !scope.current || (!ratioX && !ratioY)) return;
 
-		const direction: 1 | -1 = mode === 'attract' ? 1 : -1;
-		const rect = ref.current.getBoundingClientRect();
-
+		const rect = scope.current.getBoundingClientRect();
 		const centerX = rect.left + rect.width / 2;
 		const centerY = rect.top + rect.height / 2;
+
 		const dx = pointerPosition.x - centerX;
 		const dy = pointerPosition.y - centerY;
 		const distance = Math.sqrt(dx * dx + dy * dy);
 
-		const targetX =
-			ratioX > 0
-				? ((centerX - pointerPosition.x) /
-						ratioX /
-						(distance / (distanceMultiplier ?? 1))) *
+		const deadZone = distance < Math.min(rect.width / 6, rect.height / 6);
+
+		const rectDistanceWidth = Math.max(centerX, width - centerX);
+		const rectDistanceHeight = Math.max(centerY, height - centerY);
+		const maxDistance = Math.max(rectDistanceWidth, rectDistanceHeight);
+		const distancePercentage = maxDistance
+			? Math.max(0, Math.min(1, distance / maxDistance))
+			: 0;
+
+		const transformX =
+			!deadZone && ratioX > 0 && distance > 0
+				? ((centerX - pointerPosition.x) / ratioX) *
+				  ((1 - distancePercentage) * multiplier) *
 				  direction
 				: 0;
-		const targetY =
-			ratioY > 0
-				? ((centerY - pointerPosition.y) /
-						ratioY /
-						(distance / (distanceMultiplier ?? 1))) *
+		const transformY =
+			!deadZone && ratioY > 0 && distance > 0
+				? ((centerY - pointerPosition.y) / ratioY) *
+				  ((1 - distancePercentage) * multiplier) *
 				  direction
 				: 0;
 
-		animate(motionX, targetX, animateProps);
-		animate(motionY, targetY, animateProps);
-		setDistance(distance);
+		const rotateX =
+			!deadZone && perspective && ratioX > 0
+				? (((centerY - pointerPosition.y) * maxRotation) /
+						maxDistance) *
+				  direction
+				: 0;
+		const rotateY =
+			!deadZone && perspective && ratioY > 0
+				? (((centerX - pointerPosition.x) * maxRotation) /
+						maxDistance) *
+				  -direction
+				: 0;
+
+		const shadowX =
+			!deadZone && perspective && shadow
+				? ((centerX - pointerPosition.x) / (ratioX / 2)) * direction
+				: 0;
+		const shadowY =
+			!deadZone && perspective && shadow
+				? ((centerY - pointerPosition.y) / (ratioY / 2)) * direction
+				: 0;
+
+		const shadowBlur =
+			perspective && shadow
+				? Math.floor(distancePercentage * maxShadowBlur)
+				: 0;
+		const shadowOpacity =
+			perspective &&
+			shadow &&
+			distance > Math.min(rect.width / 3, rect.height / 3)
+				? Math.floor(
+						((1 - distancePercentage) *
+							(maxShadowOpacity - minShadowOpacity) +
+							minShadowOpacity) *
+							100
+				  ) / 100
+				: 0;
+
+		animateJs(motionShadowX, shadowX, animateProps.current);
+		animateJs(motionShadowY, shadowY, animateProps.current);
+		animateJs(motionShadowBlur, shadowBlur, animateProps.current);
+		animateJs(motionShadowOpacity, shadowOpacity, animateProps.current);
+
+		animate(
+			scope.current,
+			{ x: transformX, y: transformY, rotateX, rotateY },
+			animateProps.current
+		);
 	}, [
-		distanceMultiplier,
-		isIntersecting,
-		mode,
-		motionX,
-		motionY,
-		pointerPosition.x,
-		pointerPosition.y,
+		isInView,
+		scope,
 		ratioX,
 		ratioY,
+		pointerPosition.x,
+		pointerPosition.y,
+		width,
+		height,
+		multiplier,
+		direction,
+		perspective,
+		maxRotation,
+		maxShadowBlur,
+		minShadowOpacity,
+		maxShadowOpacity,
+		shadow,
+		motionShadowX,
+		motionShadowY,
+		motionShadowBlur,
+		motionShadowOpacity,
+		animate,
 	]);
+
+	const updateThrottled = useThrottleCallback(update, 100);
+
+	useEffect(() => {
+		updateThrottled();
+	}, [updateThrottled, pointerPosition]);
 
 	return (
 		<motion.div
-			ref={ref}
-			className={classNames(['floating', className])}
+			ref={scope}
+			className={classNames([
+				'floating will-change-transform',
+				className,
+			])}
 			style={{
 				...style,
-				x: motionX,
-				y: motionY,
-				//perspective: perspective ? `${perspective}px` : undefined,
-			}}
-			//style={{ x: springX, y: springY }}
-			/*
-			style={{
-				x,
-				y,
-				rotateX: perspective ? rotateX : 0,
-				rotateY: perspective ? rotateY : 0,
-				transformPerspective: perspective
-					? `${Math.max(100, perspective)}px`
-					: undefined,
-				boxShadow:
-					perspective && shadow === true
-						? `${shadowX.get()}px ${shadowY.get()}px 5px rgba(0,0,0,0.2)`
-						: undefined,
-				filter:
-					perspective && shadow === 'svg'
-						? `drop-shadow(${shadowX.get()}px ${shadowY.get()}px 5px rgba(0,0,0,0.2))`
-						: undefined,
-			}}
-			*/
-		>
+				filter: shadow && perspective ? shadowFilter : undefined,
+			}}>
 			{children}
 		</motion.div>
 	);

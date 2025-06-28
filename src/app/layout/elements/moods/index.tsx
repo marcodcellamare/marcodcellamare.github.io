@@ -188,7 +188,9 @@ const Moods = ({ className = '' }: MoodsProps) => {
 		};
 	}, [idle]);
 
-	useEffect(() => getRandom.current(), []);
+	useEffect(() => {
+		getRandom.current();
+	}, []);
 
 	// Handle status transitions
 	useEffect(() => {

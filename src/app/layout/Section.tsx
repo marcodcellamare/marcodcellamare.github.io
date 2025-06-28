@@ -42,10 +42,11 @@ const Section = ({ sectionId, className = '' }: SectionProps) => {
 			<Pattern />
 			<Pager />
 			<Polygons
+				mode='repel'
 				min={1}
-				max={1}
+				max={3}
 			/>
-			<div className='absolute top-0 bottom-0 left-0 right-0 hidden sm:block sm:m-15 md:m-25 xl:m-40 pointer-events-none border-[0.1rem] border-[var(--color-next-background)]' />
+			<div className='absolute top-0 bottom-0 left-0 right-0 hidden sm:block sm:m-15 md:m-25 xl:m-33 2xl:m-40 pointer-events-none border-[0.1rem] border-[var(--color-next-background)]/15 border-dashed' />
 			<Templates />
 		</section>
 	);

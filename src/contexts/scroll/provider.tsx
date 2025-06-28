@@ -43,10 +43,7 @@ export const ScrollProvider = ({ children }: ScrollProviderProps) => {
 		};
 
 		container.addEventListener('scroll', handleScroll, { passive: true });
-
-		return () => {
-			container.removeEventListener('scroll', handleScroll);
-		};
+		return () => container.removeEventListener('scroll', handleScroll);
 	}, [scrollContainerRef, handleScrollDebounced]);
 
 	return (
