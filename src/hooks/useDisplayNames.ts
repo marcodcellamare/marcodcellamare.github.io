@@ -12,7 +12,7 @@ const useDisplayNames = () => {
 					type,
 				});
 			} catch (error) {
-				console.error(error);
+				if (import.meta.env.DEV) console.error(error);
 			}
 			return new Intl.DisplayNames(config.locale.allowed.default, {
 				type,
@@ -26,7 +26,7 @@ const useDisplayNames = () => {
 			try {
 				return (iso && init(type).of(iso)) ?? null;
 			} catch (error) {
-				console.error(error);
+				if (import.meta.env.DEV) console.error(error);
 			}
 			return null;
 		},

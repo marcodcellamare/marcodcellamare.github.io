@@ -14,7 +14,7 @@ const useFormatDate = () => {
 			try {
 				return init(date).toLocaleDateString(i18n.language, opts);
 			} catch (error) {
-				console.error(error);
+				if (import.meta.env.DEV) console.error(error);
 
 				return init(date).toLocaleDateString(
 					config.locale.allowed.default,

@@ -5,6 +5,8 @@ interface PolygonProps {
 	sides?: number;
 	maxSides?: number;
 	fill?: string;
+	stroke?: string;
+	strokeWidth?: number;
 	className?: string;
 }
 
@@ -18,7 +20,9 @@ const getRandomPoint = (size: number): [number, number] => {
 const Polygon = ({
 	sides = 0,
 	maxSides = 8,
-	fill = '#00FF00',
+	fill = 'none',
+	stroke = 'none',
+	strokeWidth = 0,
 	className = '',
 }: PolygonProps) => {
 	const size = useRef(100);
@@ -79,6 +83,9 @@ const Polygon = ({
 			<polygon
 				points={pointsString}
 				fill={fill}
+				stroke={stroke}
+				strokeWidth={strokeWidth}
+				style={{ vectorEffect: 'non-scaling-stroke' }}
 			/>
 		</svg>
 	);

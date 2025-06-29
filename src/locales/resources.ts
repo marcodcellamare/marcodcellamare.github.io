@@ -6,7 +6,7 @@ const loader = async ({ iso, ns }: { iso: string; ns: string }) => {
 	try {
 		data = await import(`./${iso}/${ns}.json`);
 	} catch (error) {
-		console.error(error);
+		if (import.meta.env.DEV) console.error(error);
 	}
 	return data;
 };

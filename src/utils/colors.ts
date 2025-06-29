@@ -41,7 +41,8 @@ export const colorToRgb = (color: string): RGB => {
 				b = rgbColor.b * 255;
 			}
 		} else {
-			console.error('Invalid OKLCH format:', color);
+			if (import.meta.env.DEV)
+				console.error('Invalid OKLCH format:', color);
 		}
 	} else if (isRgb(color)) {
 		const matches = color.match(

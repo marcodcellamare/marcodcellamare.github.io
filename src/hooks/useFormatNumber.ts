@@ -10,7 +10,7 @@ const useFormatNumber = () => {
 			try {
 				return new Intl.NumberFormat(i18n.language, opts);
 			} catch (error) {
-				console.error(error);
+				if (import.meta.env.DEV) console.error(error);
 
 				return new Intl.NumberFormat(
 					config.locale.allowed.default,

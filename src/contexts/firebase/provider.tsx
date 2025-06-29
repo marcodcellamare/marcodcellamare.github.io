@@ -44,10 +44,11 @@ export const FirebaseProvider = ({ children }: FirebaseProviderProps) => {
 					prod: import.meta.env.PROD,
 				});
 			} catch (err) {
-				console.warn(
-					`Analytics: Failed to log event "${eventName}"`,
-					err
-				);
+				if (import.meta.env.DEV)
+					console.warn(
+						`Analytics: Failed to log event "${eventName}"`,
+						err
+					);
 			}
 		},
 		[analytics]

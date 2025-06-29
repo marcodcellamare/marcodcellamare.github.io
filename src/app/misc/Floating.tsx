@@ -42,9 +42,9 @@ const Floating = ({
 	multiplier = 2,
 	duration = 2,
 	shadow = false,
-	maxShadowBlur = 10,
-	minShadowOpacity = 0.1,
-	maxShadowOpacity = 0.3,
+	maxShadowBlur = 30,
+	minShadowOpacity = 0.05,
+	maxShadowOpacity = 0.2,
 	className = '',
 	style = {},
 	children,
@@ -81,8 +81,6 @@ const Floating = ({
 		const dy = pointerPosition.y - centerY;
 		const distance = Math.sqrt(dx * dx + dy * dy);
 
-		const deadZone = distance < Math.min(rect.width / 6, rect.height / 6);
-
 		const rectDistanceWidth = Math.max(centerX, width - centerX);
 		const rectDistanceHeight = Math.max(centerY, height - centerY);
 		const maxDistance = Math.max(rectDistanceWidth, rectDistanceHeight);
@@ -91,40 +89,39 @@ const Floating = ({
 			: 0;
 
 		const transformX =
-			!deadZone && ratioX > 0 && distance > 0
+			ratioX > 0 && distance > 0
 				? ((centerX - pointerPosition.x) / ratioX) *
 				  ((1 - distancePercentage) * multiplier) *
 				  direction
 				: 0;
 		const transformY =
-			!deadZone && ratioY > 0 && distance > 0
+			ratioY > 0 && distance > 0
 				? ((centerY - pointerPosition.y) / ratioY) *
 				  ((1 - distancePercentage) * multiplier) *
 				  direction
 				: 0;
 
 		const rotateX =
-			!deadZone && perspective && ratioX > 0
+			perspective && ratioX > 0
 				? (((centerY - pointerPosition.y) * maxRotation) /
 						maxDistance) *
 				  direction
 				: 0;
 		const rotateY =
-			!deadZone && perspective && ratioY > 0
+			perspective && ratioY > 0
 				? (((centerX - pointerPosition.x) * maxRotation) /
 						maxDistance) *
 				  -direction
 				: 0;
 
 		const shadowX =
-			!deadZone && perspective && shadow
+			perspective && shadow
 				? ((centerX - pointerPosition.x) / (ratioX / 2)) * direction
 				: 0;
 		const shadowY =
-			!deadZone && perspective && shadow
+			perspective && shadow
 				? ((centerY - pointerPosition.y) / (ratioY / 2)) * direction
 				: 0;
-
 		const shadowBlur =
 			perspective && shadow
 				? Math.floor(distancePercentage * maxShadowBlur)
@@ -175,7 +172,7 @@ const Floating = ({
 		animate,
 	]);
 
-	const updateThrottled = useThrottleCallback(update, 100);
+	const updateThrottled = useThrottleCallback(update, 30);
 
 	useEffect(() => {
 		updateThrottled();

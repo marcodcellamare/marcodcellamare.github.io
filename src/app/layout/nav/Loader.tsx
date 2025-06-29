@@ -44,7 +44,10 @@ const Loader = () => {
 			stripHeightRangeRef.current.min * totalStripsRef.current;
 
 		if (totalMin > 100) {
-			console.warn('Min height per strip is too high for total strips.');
+			if (import.meta.env.DEV)
+				console.warn(
+					'Min height per strip is too high for total strips.'
+				);
 			return;
 		}
 
