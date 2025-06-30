@@ -99,7 +99,7 @@ const Polygons = ({
 	if (!polygons.length) return null;
 
 	return (
-		<div className='absolute -top-1/5 -bottom-1/5 -left-1/5 -right-1/5 pointer-events-none z-1 mix-blend-difference'>
+		<div className='absolute -top-1/5 -bottom-1/5 -left-1/5 -right-1/5 pointer-events-none z-1'>
 			{polygons.map((polygon, k) => (
 				<Floating
 					key={k}
@@ -113,8 +113,9 @@ const Polygons = ({
 						width: `${polygon.width}%`,
 					}}>
 					<Polygon
-						stroke='var(--color-palette-gray)'
-						strokeWidth={2}
+						stroke='var(--color-next-background)'
+						strokeWidth={1}
+						strokeDasharray='10 5'
 					/>
 				</Floating>
 			))}

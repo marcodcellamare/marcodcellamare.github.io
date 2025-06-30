@@ -13,6 +13,7 @@ import classNames from 'classnames';
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
 
 interface NavProps {
+	containerRef: RefObject<HTMLDivElement | null>;
 	itemRefs: RefObject<(HTMLDivElement | null)[]>;
 	activeIdx: number;
 	setActiveIdx: Dispatch<SetStateAction<number>>;
@@ -21,6 +22,7 @@ interface NavProps {
 }
 
 const Nav = ({
+	containerRef,
 	itemRefs,
 	activeIdx,
 	setActiveIdx,
@@ -41,10 +43,11 @@ const Nav = ({
 
 	useEffect(
 		() =>
-			itemRefs.current[activeIdx]?.scrollIntoView({
+			containerRef.current?.scroll({
+				left: itemRefs.current[activeIdx]?.offsetLeft ?? 0,
 				behavior: 'smooth',
 			}),
-		[itemRefs, activeIdx]
+		[activeIdx, containerRef, itemRefs]
 	);
 
 	if (totalSlides < 2) return null;
@@ -52,7 +55,7 @@ const Nav = ({
 	return (
 		<div
 			className={classNames([
-				'absolute top-1/2 right-0 -translate-y-1/2 z-100',
+				'absolute bottom-0 sm:bottom-auto sm:top-1/2 right-0 -translate-y-1/2 z-100',
 				className,
 			])}>
 			<div

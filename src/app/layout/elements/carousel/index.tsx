@@ -61,6 +61,7 @@ const Carousel = ({ template, className = '', children }: CarouselProps) => {
 				))}
 			</div>
 			<Nav
+				containerRef={containerRef}
 				itemRefs={itemRefs}
 				activeIdx={activeIdx}
 				setActiveIdx={setActiveIdx}

@@ -18,18 +18,23 @@ export type FloatingModeType = 'attract' | 'repel';
 
 interface FloatingProps {
 	mode?: FloatingModeType;
-	perspective?: boolean;
-	maxRotation?: number;
 	ratioX?: number;
 	ratioY?: number;
 	multiplier?: number;
 	duration?: number;
-	shadow?: boolean;
+
+	changePerspective?: boolean;
+	maxRotation?: number;
+
+	changeOpacity?: boolean;
+	minOpacity?: number;
+	maxOpacity?: number;
+
+	changeShadow?: boolean;
 	maxShadowBlur?: number;
 	minShadowOpacity?: number;
 	maxShadowOpacity?: number;
-	minOpacity?: number;
-	maxOpacity?: number;
+
 	className?: string;
 	style?: MotionStyle;
 	children: ReactNode;
@@ -37,18 +42,23 @@ interface FloatingProps {
 
 const Floating = ({
 	mode = 'attract',
-	perspective = false,
-	maxRotation = 45,
 	ratioX = 0,
 	ratioY = 0,
 	multiplier = 2,
 	duration = 2,
-	shadow = false,
+
+	changePerspective = false,
+	maxRotation = 45,
+
+	changeOpacity = false,
+	minOpacity = 0,
+	maxOpacity = 1,
+
+	changeShadow = false,
 	maxShadowBlur = 30,
 	minShadowOpacity = 0.05,
 	maxShadowOpacity = 0.2,
-	minOpacity = 0,
-	maxOpacity = 1,
+
 	className = '',
 	style = {},
 	children,
@@ -106,7 +116,7 @@ const Floating = ({
 				: 0;
 
 		const opacity =
-			minOpacity < maxOpacity &&
+			changeOpacity &&
 			distance > Math.min(rect.width / 3, rect.height / 3)
 				? Math.floor(
 						((1 - distancePercentage) * (maxOpacity - minOpacity) +
@@ -116,33 +126,33 @@ const Floating = ({
 				: 1;
 
 		const rotateX =
-			perspective && ratioY > 0
+			changePerspective && ratioY > 0
 				? (((centerY - pointerPosition.y) * maxRotation) /
 						maxDistance) *
 				  direction
 				: 0;
 		const rotateY =
-			perspective && ratioX > 0
+			changePerspective && ratioX > 0
 				? (((centerX - pointerPosition.x) * maxRotation) /
 						maxDistance) *
 				  -direction
 				: 0;
 
 		const shadowX =
-			perspective && shadow
+			changePerspective && changeShadow
 				? ((centerX - pointerPosition.x) / (ratioX / 2)) * direction
 				: 0;
 		const shadowY =
-			perspective && shadow
+			changePerspective && changeShadow
 				? ((centerY - pointerPosition.y) / (ratioY / 2)) * direction
 				: 0;
 		const shadowBlur =
-			perspective && shadow
+			changePerspective && changeShadow
 				? Math.floor(distancePercentage * maxShadowBlur)
 				: 0;
 		const shadowOpacity =
-			perspective &&
-			shadow &&
+			changePerspective &&
+			changeShadow &&
 			distance > Math.min(rect.width / 3, rect.height / 3)
 				? Math.floor(
 						((1 - distancePercentage) *
@@ -173,14 +183,15 @@ const Floating = ({
 		height,
 		multiplier,
 		direction,
-		perspective,
+		changePerspective,
 		maxRotation,
 		maxShadowBlur,
 		minShadowOpacity,
 		maxShadowOpacity,
+		changeOpacity,
 		minOpacity,
 		maxOpacity,
-		shadow,
+		changeShadow,
 		motionShadowX,
 		motionShadowY,
 		motionShadowBlur,
@@ -203,7 +214,10 @@ const Floating = ({
 			])}
 			style={{
 				...style,
-				filter: shadow && perspective ? shadowFilter : undefined,
+				filter:
+					changeShadow && changePerspective
+						? shadowFilter
+						: undefined,
 			}}>
 			{children}
 		</motion.div>

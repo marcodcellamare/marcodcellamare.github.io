@@ -10,7 +10,7 @@
 			"content": [
 				{
 					"image": {
-						"src": "images/white.png",
+						"src": "images/mario.png",
 						"duotone": true
 					},
 					"heading": {
@@ -25,7 +25,8 @@
 				},
 				{
 					"image": {
-						"src": "images/black.png",
+						"position": "right",
+						"src": "images/mario.png",
 						"duotone": true
 					},
 					"heading": {
@@ -40,7 +41,6 @@
 				},
 				{
 					"image": {
-						"position": "right",
 						"src": "images/mario.png",
 						"blob": true,
 						"duotone": true

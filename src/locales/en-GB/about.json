@@ -73,16 +73,15 @@
 		},
 		{
 			"theme": "dark-gray",
-			"template": "default",
-			"title": "Hey there",
+			"template": "timeline",
+			"title": "Key Projects",
 			"content": [
 				{
-					"heading": {
-						"headline": "test",
-						"title": "Marco D. Cellamare",
-						"subtitle": "Senior Full-Stack Developer and Digital Designer"
-					},
-					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
+					"paragraphs": [
+						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					]
+				},
+				{
 					"paragraphs": [
 						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
 					]
@@ -92,15 +91,9 @@
 		{
 			"theme": "green",
 			"template": "default",
-			"title": "Hey there",
+			"title": "Clients",
 			"content": [
 				{
-					"heading": {
-						"headline": "test",
-						"title": "Marco D. Cellamare",
-						"subtitle": "Senior Full-Stack Developer and Digital Designer"
-					},
-					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
 					"paragraphs": [
 						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
 					]

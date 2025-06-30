@@ -63,12 +63,19 @@ const Default = ({ slideId = 0 }: DefaultProps) => {
 						className={classNames([
 							'h-60 lg:h-auto xl:translate-x-0',
 							'transition-[scale,filter] duration-200 ease-in-out',
-							'scale-190 lg:scale-350 xl:scale-160 2xl:scale-130 z-0',
-							'hover:scale-195 hover:lg:scale-355 hover:xl:scale-165 hover:2xl:scale-135 hover:z-2',
+							'scale-190 xl:scale-170 2xl:scale-160 z-0',
+							'hover:scale-195 hover:xl:scale-175 hover:2xl:scale-165 hover:z-2',
 							'hover:drop-shadow-2xl/30',
 							{
-								'lg:-translate-x-2/20': position === 'left',
-								'lg:translate-x-2/20 ': position === 'right',
+								'lg:scale-250 hover:lg:scale-255': isBlob,
+
+								'lg:-translate-x-2/20':
+									isBlob && position === 'left',
+								'lg:translate-x-2/20 ':
+									isBlob && position === 'right',
+								'translate-x-3/20 lg:translate-x-0 -translate-y-1/20 lg:translate-y-0':
+									!isBlob,
+
 								'lg:origin-right':
 									!isBlob && position === 'left',
 								'lg:origin-left':
@@ -84,7 +91,7 @@ const Default = ({ slideId = 0 }: DefaultProps) => {
 					'min-w-0 z-1',
 					!imageExists
 						? 'lg:basis-10/12 xl:basis-9/12'
-						: 'lg:basis-9/12 xl:basis-7/12',
+						: 'lg:basis-8/12 xl:basis-7/12',
 				])}
 			/>
 		</Container>

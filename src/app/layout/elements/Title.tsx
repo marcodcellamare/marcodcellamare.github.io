@@ -43,7 +43,7 @@ const Title = () => {
 				<Floating
 					mode='repel'
 					ratioY={20}
-					perspective={true}
+					changePerspective={true}
 					maxRotation={35}
 					duration={2}
 					className={classNames([

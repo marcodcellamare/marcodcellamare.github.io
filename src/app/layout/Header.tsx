@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import Nav from './nav';
 import Loader from './nav/Loader';
-import SectionsMap from './elements/SectionsMap';
+import MiniMap from './elements/minimap';
 
 const Header = () => {
 	const { isNavOpened } = useSettings();
@@ -16,7 +16,7 @@ const Header = () => {
 					'pointer-events-none': !isNavOpened,
 				},
 			])}>
-			<SectionsMap />
+			<MiniMap />
 			<Loader />
 			<Nav />
 		</header>

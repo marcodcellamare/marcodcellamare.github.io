@@ -9,7 +9,7 @@ const Ruler = ({ activeIdx = 0, totalSlides = 0 }: RulerProps) => {
 	if (totalSlides < 2) return null;
 
 	return (
-		<div className='absolute top-2/3 left-0 right-0 h-[0.1rem] bg-[var(--color-link)] flex justify-between items-center pointer-events-none'>
+		<div className='absolute top-2/3 left-0 right-0 h-[0.1rem] bg-[var(--color-link)] hidden lg:flex justify-between items-center pointer-events-none'>
 			{new Array(totalSlides + 2).fill(false).map((_, k) => (
 				<div
 					key={k}
