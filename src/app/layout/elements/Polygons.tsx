@@ -1,6 +1,4 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useSection } from '!/contexts/section';
-import { colorToRgb } from '!/utils/colors';
 import { random } from '!/utils/math';
 
 import Floating, { FloatingModeType } from '!/app/misc/Floating';
@@ -31,8 +29,6 @@ const Polygons = ({
 	maxSize = 40,
 	margin = 0,
 }: PolygonsProps) => {
-	const { nextBackgroundColor } = useSection();
-
 	const [polygons, setPolygons] = useState<PolygonType[]>([]);
 
 	const total = useMemo(() => Math.floor(random({ min, max })), [min, max]);
@@ -103,7 +99,7 @@ const Polygons = ({
 	if (!polygons.length) return null;
 
 	return (
-		<div className='absolute -top-1/5 -bottom-1/5 -left-1/5 -right-1/5 pointer-events-none perspective-midrange z-1'>
+		<div className='absolute -top-1/5 -bottom-1/5 -left-1/5 -right-1/5 pointer-events-none z-1 mix-blend-difference'>
 			{polygons.map((polygon, k) => (
 				<Floating
 					key={k}
@@ -117,7 +113,7 @@ const Polygons = ({
 						width: `${polygon.width}%`,
 					}}>
 					<Polygon
-						stroke={`rgb(${colorToRgb(nextBackgroundColor)})`}
+						stroke='var(--color-palette-gray)'
 						strokeWidth={2}
 					/>
 				</Floating>

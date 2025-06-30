@@ -7,6 +7,7 @@ interface PolygonProps {
 	fill?: string;
 	stroke?: string;
 	strokeWidth?: number;
+	strokeDasharray?: string;
 	className?: string;
 }
 
@@ -23,6 +24,7 @@ const Polygon = ({
 	fill = 'none',
 	stroke = 'none',
 	strokeWidth = 0,
+	strokeDasharray,
 	className = '',
 }: PolygonProps) => {
 	const size = useRef(100);
@@ -85,6 +87,7 @@ const Polygon = ({
 				fill={fill}
 				stroke={stroke}
 				strokeWidth={strokeWidth}
+				strokeDasharray={strokeDasharray}
 				style={{ vectorEffect: 'non-scaling-stroke' }}
 			/>
 		</svg>

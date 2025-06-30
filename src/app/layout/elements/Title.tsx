@@ -6,6 +6,7 @@ import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import classNames from 'classnames';
 
 import '!/styles/components/elements/Title.css';
+import Floating from '!/app/misc/Floating';
 
 const Title = () => {
 	const { pageId } = useRouter();
@@ -32,19 +33,27 @@ const Title = () => {
 	return (
 		<div className='title absolute top-0 bottom-0 left-0 right-0 flex overflow-hidden items-center pointer-events-none'>
 			<motion.div
+				className='perspective-midrange'
 				style={{
 					y,
 					opacity,
 					zIndex,
 					['--pattern-thickness' as string]: patternThickness,
-				}}
-				className={classNames([
-					'h0 font-black uppercase -translate-x-[2%] text-transparent origin-bottom-left',
-					{
-						extra: sectionId === 0,
-					},
-				])}>
-				{t(`sections.${sectionId}.title`)}
+				}}>
+				<Floating
+					mode='repel'
+					ratioY={20}
+					perspective={true}
+					maxRotation={35}
+					duration={2}
+					className={classNames([
+						'relative h0 font-black uppercase -translate-x-[2%] text-transparent origin-left',
+						{
+							extra: sectionId === 0,
+						},
+					])}>
+					{t(`sections.${sectionId}.title`)}
+				</Floating>
 			</motion.div>
 		</div>
 	);

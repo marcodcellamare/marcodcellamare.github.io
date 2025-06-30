@@ -102,6 +102,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 					if (entry.isIntersecting) {
 						const target = entry.target as HTMLElement;
 						setActiveSectionId(Number(target.dataset.id));
+						return;
 					}
 				});
 			},
@@ -126,8 +127,10 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 			setPointerPosition({ x: e.clientX, y: e.clientY });
 		};
 		window.addEventListener('pointermove', handlePointerMove);
-		return () =>
+
+		return () => {
 			window.removeEventListener('pointermove', handlePointerMove);
+		};
 	}, []);
 
 	return (

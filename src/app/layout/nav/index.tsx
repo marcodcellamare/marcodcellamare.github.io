@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Container from '!/app/layout/elements/Container';
 import Background from './Background';
 import Menu from './Menu';
+import Toggler from './Toggler';
 
 const Nav = () => {
 	const { pageTheme, overTheme, isNavOpened, spaceRef } = useSettings();
@@ -34,6 +35,7 @@ const Nav = () => {
 					</h6>
 				</Container>
 			</div>
+			<Toggler />
 		</nav>
 	);
 };

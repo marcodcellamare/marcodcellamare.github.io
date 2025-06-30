@@ -28,6 +28,8 @@ interface FloatingProps {
 	maxShadowBlur?: number;
 	minShadowOpacity?: number;
 	maxShadowOpacity?: number;
+	minOpacity?: number;
+	maxOpacity?: number;
 	className?: string;
 	style?: MotionStyle;
 	children: ReactNode;
@@ -45,6 +47,8 @@ const Floating = ({
 	maxShadowBlur = 30,
 	minShadowOpacity = 0.05,
 	maxShadowOpacity = 0.2,
+	minOpacity = 0,
+	maxOpacity = 1,
 	className = '',
 	style = {},
 	children,
@@ -101,14 +105,24 @@ const Floating = ({
 				  direction
 				: 0;
 
+		const opacity =
+			minOpacity < maxOpacity &&
+			distance > Math.min(rect.width / 3, rect.height / 3)
+				? Math.floor(
+						((1 - distancePercentage) * (maxOpacity - minOpacity) +
+							minOpacity) *
+							100
+				  ) / 100
+				: 1;
+
 		const rotateX =
-			perspective && ratioX > 0
+			perspective && ratioY > 0
 				? (((centerY - pointerPosition.y) * maxRotation) /
 						maxDistance) *
 				  direction
 				: 0;
 		const rotateY =
-			perspective && ratioY > 0
+			perspective && ratioX > 0
 				? (((centerX - pointerPosition.x) * maxRotation) /
 						maxDistance) *
 				  -direction
@@ -145,7 +159,7 @@ const Floating = ({
 
 		animate(
 			scope.current,
-			{ x: transformX, y: transformY, rotateX, rotateY },
+			{ x: transformX, y: transformY, rotateX, rotateY, opacity },
 			animateProps.current
 		);
 	}, [
@@ -164,6 +178,8 @@ const Floating = ({
 		maxShadowBlur,
 		minShadowOpacity,
 		maxShadowOpacity,
+		minOpacity,
+		maxOpacity,
 		shadow,
 		motionShadowX,
 		motionShadowY,

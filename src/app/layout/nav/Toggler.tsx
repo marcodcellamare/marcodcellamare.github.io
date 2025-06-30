@@ -14,7 +14,7 @@ const Toggler = () => {
 			type='button'
 			role='button'
 			className={classNames([
-				'toggler absolute top-0 right-0 w-[3.5rem] md:w-[3rem] aspect-square cursor-pointer mix-blend-difference',
+				'toggler absolute top-0 left-0 w-[3.5rem] md:w-[3rem] aspect-square cursor-pointer mix-blend-difference',
 				spaceRef.current.absEdge,
 				{
 					active: isNavOpened,
