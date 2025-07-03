@@ -1,9 +1,11 @@
 .content {
-	> :not(:last-child):not(.heading) {
-		margin-bottom: calc(var(--spacing) * 1.5);
+	.content-wrapper {
+		> :not(:last-child):not(.heading) {
+			margin-bottom: calc(var(--spacing) * 1.5);
 
-		&.leading {
-			margin-bottom: calc(var(--spacing) * 4);
+			&.leading {
+				margin-bottom: calc(var(--spacing) * 4);
+			}
 		}
 	}
 }

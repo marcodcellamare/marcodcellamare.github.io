@@ -5,8 +5,9 @@ import { useSection } from '!/contexts/section';
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import classNames from 'classnames';
 
-import '!/styles/components/elements/Title.css';
 import Floating from '!/app/misc/Floating';
+
+import '!/styles/components/elements/Title.css';
 
 const Title = () => {
 	const { pageId } = useRouter();
@@ -42,10 +43,10 @@ const Title = () => {
 				}}>
 				<Floating
 					mode='repel'
-					ratioY={20}
+					ratioY={10}
 					changePerspective={true}
-					maxRotation={35}
-					duration={2}
+					maxRotation={45}
+					duration={1.5}
 					className={classNames([
 						'relative h0 font-black uppercase -translate-x-[2%] text-transparent origin-left',
 						{

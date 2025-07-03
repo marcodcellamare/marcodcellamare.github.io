@@ -1,11 +1,14 @@
 import { useSettings } from '!/contexts/settings';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
+import { HeartIcon } from 'lucide-react';
 import Container from '!/app/layout/elements/Container';
 import Background from './Background';
 import Menu from './Menu';
 import Toggler from './Toggler';
+
+import pkg from '!package';
 
 const Nav = () => {
 	const { pageTheme, overTheme, isNavOpened, spaceRef } = useSettings();
@@ -30,9 +33,20 @@ const Nav = () => {
 						spaceRef.current.nav,
 					])}>
 					<Menu />
-					<h6 className='text-[var(--color-heading)] transform-[color] duration-200 ease-in-out uppercase font-black'>
-						{t('title')}
-					</h6>
+					<div className='text-[var(--color-heading)] transform-[color] duration-200 ease-in-out'>
+						<h6 className='uppercase font-black'>{t('title')}</h6>
+						<p className='text-xxs opacity-50'>
+							{`v${pkg.version}`} —{' '}
+							<Trans
+								i18nKey='copyright'
+								components={{
+									love: (
+										<HeartIcon className='text-svg-inline' />
+									),
+								}}
+							/>
+						</p>
+					</div>
 				</Container>
 			</div>
 			<Toggler />

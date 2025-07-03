@@ -1,5 +1,10 @@
 .heading {
 	> :not(:last-child) {
-		margin-bottom: calc(var(--spacing));
+		&:not(h2) {
+			margin-bottom: calc(var(--spacing));
+		}
+		&:is(h2) {
+			margin-bottom: calc(var(--spacing) * 2.5);
+		}
 	}
 }

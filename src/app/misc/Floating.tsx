@@ -167,11 +167,22 @@ const Floating = ({
 		animateJs(motionShadowBlur, shadowBlur, animateProps.current);
 		animateJs(motionShadowOpacity, shadowOpacity, animateProps.current);
 
-		animate(
-			scope.current,
-			{ x: transformX, y: transformY, rotateX, rotateY, opacity },
-			animateProps.current
-		);
+		const styles: {
+			x?: number;
+			y?: number;
+			rotateX?: number;
+			rotateY?: number;
+			opacity?: number;
+		} = {};
+
+		styles.x = transformX;
+		styles.y = transformY;
+
+		if (changePerspective && ratioY > 0) styles.rotateX = rotateX;
+		if (changePerspective && ratioX > 0) styles.rotateY = rotateY;
+		if (changeOpacity) styles.opacity = opacity;
+
+		animate(scope.current, styles, animateProps.current);
 	}, [
 		isInView,
 		scope,

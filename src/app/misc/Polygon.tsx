@@ -5,7 +5,9 @@ interface PolygonProps {
 	sides?: number;
 	maxSides?: number;
 	fill?: string;
+	fillOpacity?: number;
 	stroke?: string;
+	strokeOpacity?: number;
 	strokeWidth?: number;
 	strokeDasharray?: string;
 	className?: string;
@@ -22,7 +24,9 @@ const Polygon = ({
 	sides = 0,
 	maxSides = 8,
 	fill = 'none',
+	fillOpacity = 1,
 	stroke = 'none',
+	strokeOpacity = 1,
 	strokeWidth = 0,
 	strokeDasharray,
 	className = '',
@@ -85,7 +89,9 @@ const Polygon = ({
 			<polygon
 				points={pointsString}
 				fill={fill}
+				fillOpacity={fillOpacity}
 				stroke={stroke}
+				strokeOpacity={strokeOpacity}
 				strokeWidth={strokeWidth}
 				strokeDasharray={strokeDasharray}
 				style={{ vectorEffect: 'non-scaling-stroke' }}

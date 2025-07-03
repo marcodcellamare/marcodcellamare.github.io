@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import useIsTouch from '!/hooks/useIsTouch';
 import { useSettings } from '!/contexts/settings';
 import classNames from 'classnames';
+
+import { IntervalType } from '!/types/misc';
 
 import '!/styles/components/misc/Cursor.css';
 
@@ -23,65 +25,75 @@ const Cursor = () => {
 	const [damping, setDamping] = useState(50);
 	const [stiffness, setStiffness] = useState(500);
 
-	const handlePointerRelaxed = () => {
+	const intervalRef = useRef<IntervalType>(null);
+
+	const cleanup = () => {
+		if (intervalRef.current !== null) {
+			clearInterval(intervalRef.current);
+			intervalRef.current = null;
+		}
+	};
+
+	const handlePointerRelaxed = useCallback(() => {
+		cleanup();
 		setCursorStyles({
 			width: 5,
 			height: 5,
 			borderRadius: 50,
 		});
-		setDamping(50);
-		setStiffness(500);
+		setDamping(100);
+		setStiffness(2000);
 		setStatus('relaxed');
-	};
+	}, []);
 
-	const handlePointerLeave = () => {
+	const handlePointerLeave = useCallback(() => {
+		cleanup();
 		setCursorStyles({
 			width: 0,
 			height: 0,
 			borderRadius: 0,
 		});
 		setStatus('leave');
-	};
+	}, []);
 
-	const handlePointerStressed = (e: Event) => {
+	const handlePointerStressed = useCallback((e: Event) => {
+		cleanup();
 		const element = e.currentTarget as HTMLElement;
 
-		const isNav = element.closest('header') !== null;
-		const isApp = element.closest('.app, footer') !== null;
-		const isImage = element.closest('.image') !== null;
+		const update = () => {
+			const isNav = element.closest('header') !== null;
+			const isApp = element.closest('.app, footer') !== null;
+			const isImage = element.closest('.image') !== null;
 
-		const status = isApp
-			? !isImage
-				? 'link'
-				: 'image'
-			: isNav
-			? 'nav'
-			: 'leave';
+			const status = isApp
+				? !isImage
+					? 'link'
+					: 'image'
+				: isNav
+				? 'nav'
+				: 'leave';
 
-		const rect = element.getBoundingClientRect();
+			const rect = element.getBoundingClientRect();
 
-		setCursorStyles({
-			width:
-				status === 'image'
-					? (rect.width < rect.height ? rect.width : rect.height) *
-					  1.1
-					: rect.width,
-			height:
-				status === 'image'
-					? (rect.width < rect.height ? rect.width : rect.height) *
-					  1.1
-					: rect.height,
-			borderRadius:
-				status === 'image'
-					? rect.width > rect.height
-						? rect.width
-						: rect.height
-					: 5,
-		});
-		setDamping(25);
-		setStiffness(1000);
-		setStatus(status);
-	};
+			setCursorStyles({
+				width:
+					status === 'image'
+						? Math.min(rect.width, rect.height) * 1.1
+						: rect.width,
+				height:
+					status === 'image'
+						? Math.min(rect.width, rect.height) * 1.1
+						: rect.height,
+				borderRadius:
+					status === 'image' ? Math.max(rect.width, rect.height) : 5,
+			});
+			setDamping(25);
+			setStiffness(1000);
+			setStatus(status);
+		};
+		intervalRef.current = setInterval(update, 200);
+		update();
+	}, []);
 
 	useEffect(() => {
 		if (isTouch) return;
@@ -123,14 +135,24 @@ const Cursor = () => {
 				);
 			});
 		};
-	}, [elements, isTouch]);
+	}, [
+		elements,
+		handlePointerLeave,
+		handlePointerRelaxed,
+		handlePointerStressed,
+		isTouch,
+	]);
 
-	useEffect(handlePointerRelaxed, []);
+	useEffect(handlePointerRelaxed, [handlePointerRelaxed]);
 
 	useEffect(
 		() => setIsLoaderTickled(['link', 'nav'].includes(status)),
 		[status, setIsLoaderTickled]
 	);
+
+	useEffect(() => {
+		return cleanup;
+	}, []);
 
 	if (isTouch) return null;
 

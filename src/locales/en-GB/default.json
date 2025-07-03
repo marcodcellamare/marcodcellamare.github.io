@@ -3,6 +3,7 @@
 	"menu": "Menu",
 	"next": "Next",
 	"prev": "Prev",
+	"copyright": "Made with <love/> in Vite, TypeScript, React, Tailwindcss, Daisy UI, React Router, i18next and Framer Motion.",
 	"nav": {
 		"about": "About",
 		"portfolio": "Portfolio",

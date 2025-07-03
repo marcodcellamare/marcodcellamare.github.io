@@ -9,7 +9,7 @@ import Nav from './Nav';
 interface CarouselProps {
 	template: ReactElement<{ slideId: number }>;
 	className?: string;
-	children: ReactElement<{ activeIdx: number; totalSlides: number }>;
+	children?: ReactElement<{ activeIdx: number; totalSlides: number }>;
 }
 
 const Carousel = ({ template, className = '', children }: CarouselProps) => {
@@ -36,7 +36,11 @@ const Carousel = ({ template, className = '', children }: CarouselProps) => {
 
 	return (
 		<div className='carousel-wrapper flex relative w-full'>
-			{cloneElement(children, { activeIdx, totalSlides: content.length })}
+			{children &&
+				cloneElement(children, {
+					activeIdx,
+					totalSlides: content.length,
+				})}
 			<div
 				ref={containerRef}
 				className={classNames([

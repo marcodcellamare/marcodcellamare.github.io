@@ -5,6 +5,7 @@ export const CHARACTERS =
 export const LOCALES = ['en-GB'] as const;
 export const GROUPS = [
 	'default',
+	'demo',
 	'about',
 	'portfolio',
 	'music',
@@ -12,6 +13,7 @@ export const GROUPS = [
 ] as const;
 
 export const PAGES = {
+	demo: '^/demo',
 	about: '/',
 	portfolio: '/portfolio',
 	portfolio_test: '^/portfolio/test',

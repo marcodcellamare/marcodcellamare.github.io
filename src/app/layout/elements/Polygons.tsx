@@ -3,11 +3,15 @@ import { random } from '!/utils/math';
 
 import Floating, { FloatingModeType } from '!/app/misc/Floating';
 import Polygon from '!/app/misc/Polygon';
+import classNames from 'classnames';
 
+type BlurType = 'blur-sm' | 'blur-md' | 'blur-lg' | 'blur-xl' | 'blur-2xl';
 type PolygonType = {
 	x: number;
 	y: number;
 	width: number;
+	opacity: number;
+	blur: BlurType;
 };
 
 interface PolygonsProps {
@@ -26,21 +30,27 @@ const Polygons = ({
 	min = 1,
 	max = 3,
 	minSize = 20,
-	maxSize = 40,
+	maxSize = 90,
 	margin = 0,
 }: PolygonsProps) => {
 	const [polygons, setPolygons] = useState<PolygonType[]>([]);
 
 	const total = useMemo(() => Math.floor(random({ min, max })), [min, max]);
+	const blurClassNames = useMemo<BlurType[]>(
+		() => ['blur-sm', 'blur-md', 'blur-lg'],
+		[]
+	);
 
 	const randomWidthPercentage = useCallback(() => {
 		const supposedSize = 100 / total;
 		const randomSize = random({
-			min: Math.max(minSize, supposedSize),
-			max: Math.max(maxSize, supposedSize),
+			min: Math.min(minSize, supposedSize),
+			max: Math.min(maxSize, supposedSize),
 		});
 		return Math.round(randomSize * 100) / 100;
 	}, [total, minSize, maxSize]);
+
+	const randomOpacity = useCallback(() => random({ min: 0.3, max: 0.7 }), []);
 
 	useEffect(() => {
 		if (!total) return;
@@ -50,6 +60,11 @@ const Polygons = ({
 
 		for (let k = 0; k < total; k++) {
 			let placed = false;
+			const opacity = randomOpacity();
+			const blur =
+				blurClassNames[
+					Math.floor(Math.random() * blurClassNames.length)
+				];
 
 			for (let tryCount = 0; tryCount < attempts; tryCount++) {
 				const widthPercentage = randomWidthPercentage();
@@ -84,7 +99,13 @@ const Polygons = ({
 				});
 
 				if (!overlaps) {
-					polygons.push({ x, y, width: widthPercentage });
+					polygons.push({
+						x,
+						y,
+						width: widthPercentage,
+						opacity,
+						blur,
+					});
 					placed = true;
 					break;
 				}
@@ -94,29 +115,26 @@ const Polygons = ({
 			}
 		}
 		setPolygons(polygons);
-	}, [total, randomWidthPercentage, margin]);
+	}, [total, randomWidthPercentage, randomOpacity, margin, blurClassNames]);
 
 	if (!polygons.length) return null;
 
 	return (
-		<div className='absolute -top-1/5 -bottom-1/5 -left-1/5 -right-1/5 pointer-events-none z-1'>
+		<div className='absolute -top-1/10 -bottom-1/10 -left-1/10 -right-1/10 pointer-events-none z-1'>
 			{polygons.map((polygon, k) => (
 				<Floating
 					key={k}
 					mode={mode}
 					ratioX={ratio}
 					ratioY={ratio}
-					className='absolute'
+					className={classNames(['absolute', polygon.blur])}
 					style={{
 						left: `${polygon.x}%`,
 						top: `${polygon.y}%`,
 						width: `${polygon.width}%`,
+						opacity: polygon.opacity,
 					}}>
-					<Polygon
-						stroke='var(--color-next-background)'
-						strokeWidth={1}
-						strokeDasharray='10 5'
-					/>
+					<Polygon fill='var(--color-next-background)' />
 				</Floating>
 			))}
 		</div>

@@ -52,19 +52,16 @@ const Section = ({
 				/>
 			)}
 			<Title />
-			{!isLast && (
-				<>
-					<Pattern />
-					<Polygons
-						mode='repel'
-						min={isFirst ? 1 : 2}
-						max={isFirst ? 1 : 5}
-						ratio={10}
-						margin={-10}
-					/>
-				</>
+			{!isLast && <Pattern />}
+			{!isFirst && !isLast && (
+				<Polygons
+					mode='repel'
+					min={1}
+					max={1}
+					ratio={10}
+					margin={-10}
+				/>
 			)}
-			<div className='absolute top-0 bottom-0 left-0 right-0 hidden sm:block sm:m-15 md:m-25 xl:m-33 2xl:m-40 pointer-events-none border-[0.1rem] border-[var(--color-next-background)]/50 border-dashed' />
 			<Templates />
 		</section>
 	);

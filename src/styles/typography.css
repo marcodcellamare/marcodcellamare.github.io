@@ -64,7 +64,13 @@
 		@apply text-base md:text-lg;
 
 		&.leading {
-			@apply text-xl md:text-2xl;
+			font-family: var(--font-title);
+
+			@apply text-xl md:text-xl;
+
+			&.extra {
+				@apply text-xl md:text-2xl;
+			}
 		}
 	}
 }
