@@ -35,7 +35,7 @@ const Carousel = ({ template, className = '', children }: CarouselProps) => {
 	if (!contentExists) return null;
 
 	return (
-		<div className='carousel-wrapper flex relative w-full'>
+		<div className='carousel-wrapper flex relative w-full h-full'>
 			{children &&
 				cloneElement(children, {
 					activeIdx,

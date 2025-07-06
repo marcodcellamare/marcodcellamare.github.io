@@ -8,13 +8,15 @@ import Icon from './Icon';
 
 import { SocialInterface } from '.';
 
-const Link = ({ type, title, link }: SocialInterface) => {
+const Link = ({ type, highlight, title, link }: SocialInterface) => {
 	const { logEvent } = useFirebase();
 	const { setOriginalText, displayText, start, stop } = useScramble();
 
 	const [isOver, setIsOver] = useState(false);
 
 	const generate = useMemo(() => {
+		if (!link) return '';
+
 		switch (type) {
 			case 'phone':
 				return `tel:${link}`;
@@ -29,6 +31,7 @@ const Link = ({ type, title, link }: SocialInterface) => {
 
 	const handleClick = () => {
 		const url = generate;
+		if (!url) return;
 
 		openExternalLink(url);
 		logEvent('social_link', {
@@ -44,7 +47,12 @@ const Link = ({ type, title, link }: SocialInterface) => {
 		<button
 			type='button'
 			role='button'
-			className='btn btn-link text-[var(--color-link)] hover:text-[var(--color-link-hover)] active:text-[var(--color-link-active)] !no-underline relative'
+			className={classNames([
+				'btn btn-link disabled:text-[var(--color-heading)] !no-underline relative',
+				!highlight
+					? 'text-[var(--color-link)] hover:text-[var(--color-link-hover)] active:text-[var(--color-link-active)]'
+					: 'text-[var(--color-link-hover)] hover:text-[var(--color-link)] active:text-[var(--color-link-active)]',
+			])}
 			aria-label={title}
 			title={title}
 			onPointerEnter={() => {
@@ -55,6 +63,7 @@ const Link = ({ type, title, link }: SocialInterface) => {
 				stop();
 				setIsOver(false);
 			}}
+			disabled={!link}
 			onClick={handleClick}>
 			<Icon
 				type={type}

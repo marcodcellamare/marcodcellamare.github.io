@@ -11,12 +11,14 @@ export type SocialType =
 	| 'instagram'
 	| 'music'
 	| 'phone'
-	| 'email';
+	| 'email'
+	| 'location';
 
 export interface SocialInterface {
 	type: SocialType;
+	highlight?: boolean;
 	title: string;
-	link: string;
+	link?: string;
 }
 
 interface SocialsProps {
@@ -40,6 +42,7 @@ const Socials = ({ className = '' }: SocialsProps) => {
 						className='flex'>
 						<Link
 							type={social.type}
+							highlight={social.highlight}
 							title={social.title}
 							link={social.link}
 						/>

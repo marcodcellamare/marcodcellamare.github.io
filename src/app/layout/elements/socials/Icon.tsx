@@ -1,7 +1,13 @@
 import classNames from 'classnames';
 
 import { Behance, Github, Instagram, Linkedin } from 'react-bootstrap-icons';
-import { FileTextIcon, MailIcon, Music4Icon, VibrateIcon } from 'lucide-react';
+import {
+	FileTextIcon,
+	MailIcon,
+	MapPinIcon,
+	Music4Icon,
+	VibrateIcon,
+} from 'lucide-react';
 
 import { SocialType } from '.';
 
@@ -40,6 +46,9 @@ const Icon = ({ type, title = '', className = '' }: IconProps) => {
 
 		case 'email':
 			return <MailIcon {...props} />;
+
+		case 'location':
+			return <MapPinIcon {...props} />;
 	}
 };
 export default Icon;

@@ -53,7 +53,7 @@ const Section = ({
 			)}
 			<Title />
 			{!isLast && <Pattern />}
-			{!isFirst && !isLast && (
+			{/* {!isFirst && !isLast && (
 				<Polygons
 					mode='repel'
 					min={1}
@@ -61,7 +61,7 @@ const Section = ({
 					ratio={10}
 					margin={-10}
 				/>
-			)}
+			)} */}
 			<Templates />
 		</section>
 	);

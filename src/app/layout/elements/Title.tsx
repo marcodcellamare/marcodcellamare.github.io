@@ -1,11 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { useParallax } from '!/contexts/parallax';
 import { useRouter } from '!/contexts/router';
+import { useSettings } from '!/contexts/settings';
 import { useSection } from '!/contexts/section';
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import classNames from 'classnames';
 
 import Floating from '!/app/misc/Floating';
+import Container from './Container';
 
 import '!/styles/components/elements/Title.css';
 
@@ -13,6 +15,7 @@ const Title = () => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 	const { sectionId, sectionRef } = useSection();
+	const { spaceRef } = useSettings();
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
@@ -21,8 +24,8 @@ const Title = () => {
 	const zIndex = useTransform(scrollYProgress, [0.3, 0.35], [5, 0]);
 	const patternThickness = useTransform(
 		scrollYProgress,
-		[0, 0.3, 0.5, 1],
-		['0.7rem', '0.4rem', '0.15rem', '0.01rem'],
+		[0, 0.5, 1],
+		['0.3rem', '0.1rem', '0.01rem'],
 		{
 			ease: easeOut,
 		}
@@ -32,9 +35,13 @@ const Title = () => {
 		return null;
 
 	return (
-		<div className='title absolute top-0 bottom-0 left-0 right-0 flex overflow-hidden items-center pointer-events-none'>
+		<Container
+			className={classNames([
+				'absolute bottom-1/2 left-0 right-0 pointer-events-none',
+				spaceRef.current.container,
+			])}>
 			<motion.div
-				className='perspective-midrange'
+				className='title perspective-midrange'
 				style={{
 					y,
 					opacity,
@@ -45,10 +52,10 @@ const Title = () => {
 					mode='repel'
 					ratioY={10}
 					changePerspective={true}
-					maxRotation={45}
+					maxRotation={30}
 					duration={1.5}
 					className={classNames([
-						'relative h0 font-black uppercase -translate-x-[2%] text-transparent origin-left',
+						'relative h0 font-black uppercase text-transparent origin-left',
 						{
 							extra: sectionId === 0,
 						},
@@ -56,7 +63,7 @@ const Title = () => {
 					{t(`sections.${sectionId}.title`)}
 				</Floating>
 			</motion.div>
-		</div>
+		</Container>
 	);
 };
 export default Title;

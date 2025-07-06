@@ -39,7 +39,7 @@ const Image = ({ rootKey, className = '' }: ImageProps) => {
 	return (
 		<div
 			className={classNames([
-				'image relative max-w-fit max-h-80 lg:max-h-none pointer-events-auto',
+				'image relative max-w-fit pointer-events-auto',
 				className,
 			])}
 			onPointerEnter={() => setIsOver(true)}

@@ -29,8 +29,8 @@
 	}
 	h1,
 	.h1 {
-		@apply text-4xl leading-[0.9em]
-			md:text-5xl;
+		@apply text-5xl leading-[0.9em]
+			md:text-6xl md:leading-[0.85em];
 
 		&.extra {
 			@apply text-5xl leading-[0.9em]
@@ -54,18 +54,16 @@
 	}
 	h5,
 	.h5 {
-		@apply text-xl leading-[1.2em];
+		@apply text-xl leading-[1.1em];
 	}
 	h6,
 	.h6 {
-		@apply text-lg leading-[1.3em];
+		@apply text-lg leading-[1em];
 	}
 	p {
 		@apply text-base md:text-lg;
 
 		&.leading {
-			font-family: var(--font-title);
-
 			@apply text-xl md:text-xl;
 
 			&.extra {

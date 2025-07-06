@@ -43,7 +43,7 @@ const Default = ({ slideId = 0 }: DefaultProps) => {
 	return (
 		<Container
 			className={classNames([
-				'flex flex-col lg:flex-row lg:items-center relative',
+				'flex flex-col justify-center lg:flex-row lg:justify-normal lg:items-center relative',
 				spaceRef.current.content,
 				spaceRef.current.section,
 			])}>
@@ -61,26 +61,37 @@ const Default = ({ slideId = 0 }: DefaultProps) => {
 					<Image
 						rootKey={`${rootKey}.image`}
 						className={classNames([
-							'h-60 lg:h-auto xl:translate-x-0',
+							'flex flex-1 lg:max-h-fit xl:translate-x-0',
+							'z-0 hover:z-2 hover:drop-shadow-2xl/30',
 							'transition-[scale,filter] duration-200 ease-in-out',
-							'scale-190 xl:scale-170 2xl:scale-160 z-0',
-							'hover:scale-195 hover:xl:scale-175 hover:2xl:scale-165 hover:z-2',
-							'hover:drop-shadow-2xl/30',
-							{
-								'lg:scale-250 hover:lg:scale-255': isBlob,
-
-								'lg:-translate-x-2/20':
-									isBlob && position === 'left',
-								'lg:translate-x-2/20 ':
-									isBlob && position === 'right',
-								'translate-x-3/20 lg:translate-x-0 -translate-y-1/20 lg:translate-y-0':
-									!isBlob,
-
-								'lg:origin-right':
-									!isBlob && position === 'left',
-								'lg:origin-left':
-									!isBlob && position === 'right',
-							},
+							!isBlob
+								? [
+										'max-h-60 rounded-sm overflow-hidden',
+										'translate-x-3/20 lg:translate-x-0 -translate-y-1/20 lg:translate-y-0',
+										'scale-190 hover:scale-195',
+										'xl:scale-170 xl:hover:scale-175',
+										'2xl:scale-160 2xl:hover:scale-165',
+										'3xl:scale-120 3xl:hover:scale-120',
+										{
+											'lg:origin-right':
+												position === 'left',
+											'lg:origin-left':
+												position === 'right',
+										},
+								  ]
+								: [
+										'max-h-70',
+										'scale-200 hover:scale-205',
+										'lg:scale-280 lg:hover:scale-285',
+										'xl:scale-180 xl:hover:scale-185',
+										'2xl:scale-150 2xl:hover:scale-155',
+										{
+											'lg:-translate-x-2/20 lg:justify-end':
+												position === 'left',
+											'lg:translate-x-2/20 lg:justify-start':
+												position === 'right',
+										},
+								  ],
 						])}
 					/>
 				</motion.div>

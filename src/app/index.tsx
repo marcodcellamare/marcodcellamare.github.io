@@ -12,17 +12,19 @@ const App = () => {
 	const { pageTheme } = useSettings();
 
 	return (
-		<>
-			<Meta />
-			<div
-				data-theme={pageTheme}
-				className='app min-w-xs select-none relative flex flex-col'>
-				<Router />
+		<div className='app flex 3xl:justify-center 3xl:items-center bg-[var(--color-palette-gray)] 3xl:p-10 4xl:p-20 6xl:p-30 select-none'>
+			<div className='flex flex-1 h-full min-w-xs max-w-[var(--breakpoint-3xl)] 3xl:max-h-[var(--breakpoint-xl)] 3xl:border-10 3xl:border-white 3xl:shadow-2xl overflow-hidden relative'>
+				<Meta />
+				<div
+					data-theme={pageTheme}
+					className='flex flex-1 relative'>
+					<Router />
+				</div>
+				<Footer />
+				<Header />
+				<Cursor />
 			</div>
-			<Footer />
-			<Header />
-			<Cursor />
-		</>
+		</div>
 	);
 };
 export default App;

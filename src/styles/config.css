@@ -37,4 +37,10 @@
 	--text-massive-lg: 12rem;
 	--text-massive-xl: 14rem;
 	--text-massive-2xl: 16rem;
+
+	--breakpoint-3xl: 112rem;
+	--breakpoint-4xl: 128rem;
+	--breakpoint-5xl: 144rem;
+	--breakpoint-6xl: 160rem;
+	--breakpoint-7xl: 176rem;
 }

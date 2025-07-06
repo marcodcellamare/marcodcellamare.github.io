@@ -13,11 +13,6 @@
 	},
 	"socials": [
 		{
-			"type": "download",
-			"title": "Resume",
-			"link": "xxxxxx"
-		},
-		{
 			"type": "linkedin",
 			"title": "LinkedIn",
 			"link": "linkedin.com/in/marcocellamare"
@@ -43,14 +38,26 @@
 			"link": "beacons.ai/ruffiano.stuta.p"
 		},
 		{
+			"type": "download",
+			"highlight": true,
+			"title": "Resume",
+			"link": "xxxxxx"
+		},
+		{
 			"type": "phone",
+			"highlight": true,
 			"title": "Let's talk",
 			"link": "+45 52 11 33 61"
 		},
 		{
 			"type": "email",
+			"highlight": true,
 			"title": "Get in touch",
 			"link": "md.cellamare@gmail.com"
+		},
+		{
+			"type": "location",
+			"title": "Copenhagen"
 		}
 	],
 	"moods": {

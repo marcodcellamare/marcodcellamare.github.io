@@ -7,9 +7,10 @@
 			transparent 0,
 			transparent 50%
 		);
-		background-size: 0.9rem 0.9rem;
+		background-size: 0.5rem 0.5rem;
 		background-position: left center;
 		background-attachment: fixed;
+		min-width: fit-content;
 
 		-webkit-background-clip: text;
 		background-clip: text;

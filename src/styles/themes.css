@@ -5,7 +5,7 @@
 		--color-content: var(--color-palette-light-gray);
 
 		--color-link: var(--color-palette-green);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 35%, white);
 		--color-link-active: var(--color-palette-light-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -17,7 +17,7 @@
 		--color-content: var(--color-palette-light-gray);
 
 		--color-link: var(--color-palette-green);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 35%, white);
 		--color-link-active: var(--color-palette-light-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -29,7 +29,7 @@
 		--color-content: var(--color-palette-light-gray);
 
 		--color-link: var(--color-palette-yellow);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 35%, white);
 		--color-link-active: var(--color-palette-light-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -41,7 +41,7 @@
 		--color-content: var(--color-palette-light-gray);
 
 		--color-link: var(--color-palette-yellow);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, white);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 35%, white);
 		--color-link-active: var(--color-palette-light-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -54,7 +54,7 @@
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-red);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 75%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -66,7 +66,7 @@
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-brown);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 75%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -79,7 +79,7 @@
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-red);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 75%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -91,7 +91,7 @@
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-red);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 75%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -103,7 +103,7 @@
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-red);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 75%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -115,7 +115,7 @@
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-red);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 75%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 
 		--duotone-color-background: var(--color-palette-purple);
@@ -128,7 +128,7 @@
 		--color-content: var(--color-palette-dark-gray);
 
 		--color-link: var(--color-palette-purple);
-		--color-link-hover: color-mix(in srgb, var(--color-link) 50%, black);
+		--color-link-hover: color-mix(in srgb, var(--color-link) 75%, black);
 		--color-link-active: var(--color-palette-dark-gray);
 
 		--duotone-color-background: var(--color-palette-purple);

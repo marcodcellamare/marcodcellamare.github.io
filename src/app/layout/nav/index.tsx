@@ -3,7 +3,6 @@ import { Trans, useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
 import { HeartIcon } from 'lucide-react';
-import Container from '!/app/layout/elements/Container';
 import Background from './Background';
 import Menu from './Menu';
 import Toggler from './Toggler';
@@ -27,14 +26,16 @@ const Nav = () => {
 						? 'translate-x-0 delay-300'
 						: '-translate-x-full',
 				])}>
-				<Container
+				<div
 					className={classNames([
-						'flex flex-col relative',
+						'flex flex-col gap-10 w-5/6 md:w-2/3',
 						spaceRef.current.nav,
 					])}>
 					<Menu />
 					<div className='text-[var(--color-heading)] transform-[color] duration-200 ease-in-out'>
-						<h6 className='uppercase font-black'>{t('title')}</h6>
+						<h6 className='uppercase font-black mb-2'>
+							{t('title')}
+						</h6>
 						<p className='text-xxs opacity-50'>
 							{`v${pkg.version}`} —{' '}
 							<Trans
@@ -47,7 +48,7 @@ const Nav = () => {
 							/>
 						</p>
 					</div>
-				</Container>
+				</div>
 			</div>
 			<Toggler />
 		</nav>

@@ -37,10 +37,10 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 
 	const spaceRef = useRef({
 		absEdge: 'm-5 md:m-10',
-		nav: 'py-20',
+		nav: 'p-20',
 		section: 'py-20 lg:py-30 xl:py-40',
-		container: 'px-5 md:px-10 lg:px-20 xl:px-30',
-		content: 'gap-8 lg:gap-12',
+		container: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:px-50 3xl:px-80',
+		content: 'gap-8 lg:gap-12 3xl:gap-24',
 		footer: 'py-4 md:py-5',
 	});
 

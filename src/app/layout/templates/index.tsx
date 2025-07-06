@@ -48,7 +48,7 @@ const Templates = () => {
 		<motion.div
 			ref={targetRef}
 			style={{ y, scale, opacity, filter }}
-			className='template-wrapper flex items-stretch w-full relative z-1'>
+			className='template-wrapper flex items-center w-full relative z-1'>
 			{content}
 		</motion.div>
 	);

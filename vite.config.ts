@@ -56,7 +56,7 @@ export default defineConfig(({ mode }) => {
 			rollupOptions: {
 				output: {
 					format: 'es',
-					manualChunks(id) {
+					/* manualChunks(id) {
 						if (id.includes('node_modules')) {
 							if (id.includes('react-dom')) return 'react-dom';
 
@@ -73,7 +73,7 @@ export default defineConfig(({ mode }) => {
 
 							return 'vendor';
 						}
-					},
+					}, */
 				},
 			},
 			commonjsOptions: {
