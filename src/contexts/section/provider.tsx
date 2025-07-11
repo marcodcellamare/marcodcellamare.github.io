@@ -16,6 +16,7 @@ import { cssVariable } from '!/utils/misc';
 import config from '!config';
 
 import { TemplateType, ThemeType } from '!/types/config.const';
+import { SettingsInterface } from '!/types/layout';
 
 interface SectionProviderProps {
 	sectionId: number;
@@ -63,6 +64,14 @@ export const SectionProvider = ({
 		() => getTemplate(sectionId),
 		[getTemplate, sectionId]
 	);
+	const settings = useMemo(
+		() =>
+			t(`sections.${sectionId}.settings`, {
+				returnObjects: true,
+				defaultValue: {},
+			}) as SettingsInterface,
+		[t, sectionId]
+	);
 
 	const themeCssVar = (theme: ThemeType, cssVar: string) =>
 		cssVariable(cssVar, `[data-theme="${theme}"]`);
@@ -90,6 +99,7 @@ export const SectionProvider = ({
 				sectionRef,
 				sectionId,
 				template,
+				settings,
 				theme,
 				nextBackgroundColor,
 				duotoneColorBackground,

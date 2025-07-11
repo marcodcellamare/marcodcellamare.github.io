@@ -3,8 +3,8 @@ import { TemplateType, ThemeType } from './config.const';
 export interface SectionInterface {
 	theme: ThemeType;
 	template?: TemplateType;
+	settings?: SettingsInterface;
 	title?: string;
-	heading?: HeadingInterface;
 	content?: ContentInterface;
 }
 
@@ -15,6 +15,14 @@ interface HeadingInterface {
 }
 
 interface ContentInterface {
+	heading?: HeadingInterface;
 	leading?: string;
 	paragraphs?: string[];
+}
+
+export interface SettingsInterface {
+	className?: string;
+	children?: {
+		className?: string;
+	};
 }

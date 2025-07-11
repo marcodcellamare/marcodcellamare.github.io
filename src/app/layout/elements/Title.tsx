@@ -25,7 +25,7 @@ const Title = () => {
 	const patternThickness = useTransform(
 		scrollYProgress,
 		[0, 0.5, 1],
-		['0.3rem', '0.1rem', '0.01rem'],
+		['0.5rem', '0.07rem', '0.01rem'],
 		{
 			ease: easeOut,
 		}

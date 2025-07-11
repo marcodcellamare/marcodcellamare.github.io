@@ -5,9 +5,50 @@
 	"sections": [
 		{
 			"theme": "light-gray",
-			"template": "default",
+			"template": "carousel",
+			"settings": {
+				"children": {
+					"className": "w-full lg:w-[400px]"
+				}
+			},
 			"title": "Hey there",
 			"content": [
+				{
+					"image": {
+						"src": "images/mario.png",
+						"duotone": true
+					},
+					"paragraphs": [
+						"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+					]
+				},
+				{
+					"paragraphs": [
+						"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+					]
+				},
+				{
+					"paragraphs": [
+						"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+					]
+				}
+			]
+		},
+		{
+			"theme": "light-gray",
+			"template": "carousel",
+			"title": "Hey there",
+			"content": [
+				{
+					"paragraphs": [
+						"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+					]
+				},
+				{
+					"paragraphs": [
+						"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."
+					]
+				},
 				{
 					"paragraphs": [
 						"Focused on modern front-end frameworks, responsive interfaces, user-centered design systems, and industry-standard coding patterns and best practices. Based in Copenhagen, originally from Italy — fluent in Italian and English (and a little Danish)."

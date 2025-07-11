@@ -31,7 +31,7 @@
 		},
 		{
 			"theme": "brown",
-			"template": "timeline",
+			"template": "carousel",
 			"title": "Work experiences",
 			"content": [
 				{
@@ -73,7 +73,7 @@
 		},
 		{
 			"theme": "dark-gray",
-			"template": "timeline",
+			"template": "carousel",
 			"title": "Key Projects",
 			"content": [
 				{

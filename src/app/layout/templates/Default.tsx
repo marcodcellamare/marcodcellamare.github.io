@@ -6,15 +6,15 @@ import { useParallax } from '!/contexts/parallax';
 import { easeInOut, motion, useScroll, useTransform } from 'motion/react';
 import classNames from 'classnames';
 
-import Container from '!/app/layout/elements/Container';
 import Content from '!/app/layout/elements/content';
 import Image from '!/app/layout/elements/Image';
 
 interface DefaultProps {
 	slideId?: number;
+	className?: string;
 }
 
-const Default = ({ slideId = 0 }: DefaultProps) => {
+const Default = ({ slideId = 0, className = '' }: DefaultProps) => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 	const { sectionId, sectionRef } = useSection();
@@ -41,19 +41,14 @@ const Default = ({ slideId = 0 }: DefaultProps) => {
 	});
 
 	return (
-		<Container
-			className={classNames([
-				'flex flex-col justify-center lg:flex-row lg:justify-normal lg:items-center relative',
-				spaceRef.current.content,
-				spaceRef.current.section,
-			])}>
+		<div className={classNames('@container', className)}>
 			{imageExists && (
 				<motion.div
 					className={classNames([
-						'flex lg:flex-1 shrink-0 min-w-0',
+						'flex lg:flex-1 shrink-0 min-w-0 border-5 @sm:border-red-500 @md:border-yellow-500 @lg:border-blue-500 @xl:border-green-500',
 						{
-							'lg:justify-end': position === 'left',
-							'lg:order-last lg:justify-start':
+							'@lg:justify-end': position === 'left',
+							'@lg:order-last @lg:justify-start':
 								position === 'right',
 						},
 					])}
@@ -61,36 +56,37 @@ const Default = ({ slideId = 0 }: DefaultProps) => {
 					<Image
 						rootKey={`${rootKey}.image`}
 						className={classNames([
-							'flex flex-1 lg:max-h-fit xl:translate-x-0',
+							'flex flex-1 @lg:max-h-auto @xl:translate-x-0',
 							'z-0 hover:z-2 hover:drop-shadow-2xl/30',
 							'transition-[scale,filter] duration-200 ease-in-out',
 							!isBlob
 								? [
 										'max-h-60 rounded-sm overflow-hidden',
-										'translate-x-3/20 lg:translate-x-0 -translate-y-1/20 lg:translate-y-0',
+										/* 'translate-x-3/20 @lg:translate-x-0',
+										'-translate-y-1/20 @lg:translate-y-0',
 										'scale-190 hover:scale-195',
-										'xl:scale-170 xl:hover:scale-175',
-										'2xl:scale-160 2xl:hover:scale-165',
-										'3xl:scale-120 3xl:hover:scale-120',
+										'@xl:scale-170 @xl:hover:scale-175',
+										'@2xl:scale-160 @2xl:hover:scale-165',
+										'@3xl:scale-120 @3xl:hover:scale-120', */
 										{
-											'lg:origin-right':
+											'origin-[left_80%] @lg:origin-right':
 												position === 'left',
-											'lg:origin-left':
+											'@lg:origin-[left,20%]':
 												position === 'right',
 										},
 								  ]
 								: [
 										'max-h-70',
-										'scale-200 hover:scale-205',
-										'lg:scale-280 lg:hover:scale-285',
-										'xl:scale-180 xl:hover:scale-185',
-										'2xl:scale-150 2xl:hover:scale-155',
-										{
+										//'scale-200 hover:scale-205',
+										//'lg:scale-280 lg:hover:scale-285',
+										//'xl:scale-180 xl:hover:scale-185',
+										//'2xl:scale-150 2xl:hover:scale-155',
+										/* {
 											'lg:-translate-x-2/20 lg:justify-end':
 												position === 'left',
 											'lg:translate-x-2/20 lg:justify-start':
 												position === 'right',
-										},
+										}, */
 								  ],
 						])}
 					/>
@@ -105,7 +101,7 @@ const Default = ({ slideId = 0 }: DefaultProps) => {
 						: 'lg:basis-8/12 xl:basis-7/12',
 				])}
 			/>
-		</Container>
+		</div>
 	);
 };
 export default Default;

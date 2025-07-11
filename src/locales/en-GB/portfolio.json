@@ -5,7 +5,7 @@
 	"sections": [
 		{
 			"theme": "green",
-			"template": "timeline",
+			"template": "carousel",
 			"title": "Work experiences",
 			"content": [
 				{

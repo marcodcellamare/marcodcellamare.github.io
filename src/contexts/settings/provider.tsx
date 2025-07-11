@@ -40,6 +40,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 		nav: 'p-20',
 		section: 'py-20 lg:py-30 xl:py-40',
 		container: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:px-50 3xl:px-80',
+		carouselItem: 'px-5 md:pl-10 lg:pl-20 xl:pl-30 2xl:pl-50 3xl:pl-80',
 		content: 'gap-8 lg:gap-12 3xl:gap-24',
 		footer: 'py-4 md:py-5',
 	});

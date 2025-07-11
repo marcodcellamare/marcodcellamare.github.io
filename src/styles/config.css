@@ -9,7 +9,7 @@
 @plugin 'daisyui' {
 	themes: light --default;
 	root: ':root';
-	include: button, link, carousel;
+	include: button, link;
 	logs: true;
 }
 
@@ -34,9 +34,9 @@
 
 @theme {
 	--text-xxs: 0.55rem;
-	--text-massive-lg: 12rem;
-	--text-massive-xl: 14rem;
-	--text-massive-2xl: 16rem;
+	--text-massive-lg: 10rem;
+	--text-massive-xl: 11rem;
+	--text-massive-2xl: 12rem;
 
 	--breakpoint-3xl: 112rem;
 	--breakpoint-4xl: 128rem;
