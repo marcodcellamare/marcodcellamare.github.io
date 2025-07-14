@@ -25,7 +25,7 @@ const Toggler = () => {
 			onPointerEnter={() => setIsOver(true)}
 			onPointerLeave={() => setIsOver(false)}
 			onClick={() => setIsNavOpened(!isNavOpened)}>
-			{new Array(3).fill(false).map((_, k) => (
+			{Array.from({ length: 3 }).map((_, k) => (
 				<div
 					key={k}
 					className={classNames([

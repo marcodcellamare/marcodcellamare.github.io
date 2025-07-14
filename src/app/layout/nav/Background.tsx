@@ -6,7 +6,7 @@ const Background = () => {
 
 	return (
 		<div className='absolute top-0 bottom-0 left-0 right-0'>
-			{new Array(3).fill(false).map((_, k) => (
+			{Array.from({ length: 3 }).map((_, k) => (
 				<div
 					key={k}
 					data-theme={overTheme ?? pageTheme}

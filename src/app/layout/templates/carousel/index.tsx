@@ -6,6 +6,7 @@ import { useSettings } from '!/contexts/settings';
 import classNames from 'classnames';
 
 import Nav from './Nav';
+import Indicators from './Indicators';
 
 import { SectionInterface } from '!/types/layout';
 
@@ -106,6 +107,10 @@ const Carousel = ({ template, className = '', children }: CarouselProps) => {
 				))}
 				<div className='hidden sm:block shrink-0 w-full snap-none' />
 			</div>
+			<Indicators
+				activeIdx={activeIdx}
+				totalSlides={content.length}
+			/>
 			<Nav
 				containerRef={containerRef}
 				itemRefs={itemRefs}
