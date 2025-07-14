@@ -43,9 +43,8 @@ const Templates = () => {
 						'flex flex-col justify-center lg:flex-row lg:justify-normal lg:items-center relative',
 						spaceRef.current.content,
 						spaceRef.current.section,
-						//className,
 					])}>
-					<Default />
+					<Default className='flex-1' />
 				</Container>
 			);
 			break;

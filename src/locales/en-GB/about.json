@@ -32,6 +32,11 @@
 		{
 			"theme": "brown",
 			"template": "carousel",
+			"settings": {
+				"children": {
+					"className": "lg:w-[60%] 2xl:w-[70%]"
+				}
+			},
 			"title": "Work experiences",
 			"content": [
 				{

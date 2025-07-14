@@ -5,7 +5,7 @@ import { RouterProvider } from './contexts/router';
 import { FirebaseProvider } from './contexts/firebase';
 import { SettingsProvider } from './contexts/settings';
 import { ScrollProvider } from './contexts/scroll';
-
+import { DevUtilitiesProvider } from './contexts/dev-utilities';
 import { ResizeProvider } from './contexts/resize';
 import { ParallaxProvider } from './contexts/parallax';
 
@@ -28,7 +28,9 @@ createRoot(document.getElementById('root')!).render(
 						<ScrollProvider>
 							<ResizeProvider>
 								<ParallaxProvider>
-									<App />
+									<DevUtilitiesProvider>
+										<App />
+									</DevUtilitiesProvider>
 								</ParallaxProvider>
 							</ResizeProvider>
 						</ScrollProvider>

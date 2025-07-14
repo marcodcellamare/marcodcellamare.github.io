@@ -65,6 +65,22 @@ const Duotone = ({
 					/>
 				</feComponentTransfer>
 			</filter>
+			<filter id={`${id}.negative`}>
+				<feComponentTransfer>
+					<feFuncR
+						type='table'
+						tableValues='1 0'
+					/>
+					<feFuncG
+						type='table'
+						tableValues='1 0'
+					/>
+					<feFuncB
+						type='table'
+						tableValues='1 0'
+					/>
+				</feComponentTransfer>
+			</filter>
 		</svg>
 	);
 };

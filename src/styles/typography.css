@@ -61,13 +61,13 @@
 		@apply text-lg leading-[1em];
 	}
 	p {
-		@apply text-base md:text-lg;
+		@apply text-base lg:text-lg;
 
 		&.leading {
-			@apply text-xl md:text-xl;
+			@apply text-xl lg:text-xl;
 
 			&.extra {
-				@apply text-xl md:text-2xl;
+				@apply text-xl lg:text-2xl;
 			}
 		}
 	}

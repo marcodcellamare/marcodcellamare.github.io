@@ -39,7 +39,7 @@ const Image = ({ rootKey, className = '' }: ImageProps) => {
 	return (
 		<div
 			className={classNames([
-				'image relative max-w-fit pointer-events-auto',
+				'image relative pointer-events-auto',
 				className,
 			])}
 			onPointerEnter={() => setIsOver(true)}
@@ -59,10 +59,10 @@ const Image = ({ rootKey, className = '' }: ImageProps) => {
 					fgColor={colorToRgb(duotoneColorForeground)}
 				/>
 			)}
-			<div className='relative h-full pointer-events-none'>
+			<div className='relative w-full h-full pointer-events-none'>
 				<img
 					src={t(`${rootKey}.src`)}
-					className={classNames(['h-full max-h-full'])}
+					className='h-full max-h-full'
 					style={{
 						clipPath: blob ? `url(#mask.${id})` : undefined,
 						filter: duotone ? `url(#duotone.${id})` : undefined,

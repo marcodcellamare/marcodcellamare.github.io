@@ -72,18 +72,16 @@ const Carousel = ({ template, className = '', children }: CarouselProps) => {
 							itemRefs.current[k] = ref;
 						}}
 						className={classNames([
-							'box-content shrink-0 text-9xl',
+							'box-border shrink-0',
 							'w-full',
-							'min-w-[min(100vw,10rem)]',
-							'2xl:min-w-[35rem]',
-							'3xl:min-w-[40rem]',
-							'max-w-[calc(100vw-(var(--spacing)*(5+5)))]',
-							'sm:max-w-[calc(100vw-max((100vw-var(--breakpoint-sm)),0rem)-(var(--spacing)*(5+5)))]',
-							'md:max-w-[calc(100vw-max((100vw-var(--breakpoint-md)),0rem)-(var(--spacing)*(10+5)))]',
-							'lg:max-w-[calc(100vw-max((100vw-var(--breakpoint-lg)),0rem)-(var(--spacing)*(20+5)))]',
-							'xl:max-w-[calc(100vw-max((100vw-var(--breakpoint-xl)),0rem)-(var(--spacing)*(30+5)))]',
-							'2xl:max-w-[calc(100vw-max((100vw-var(--breakpoint-2xl)),0rem)-(var(--spacing)*(50+5)))]',
-							'3xl:max-w-[calc(100vw-(var(--spacing)*(80+5)))]',
+							'min-w-fit',
+							'max-w-[100vw]',
+							'sm:max-w-[var(--breakpoint-sm)]',
+							'md:max-w-[var(--breakpoint-md)]',
+							'lg:max-w-[var(--breakpoint-lg)]',
+							'xl:max-w-[var(--breakpoint-xl)]',
+							'2xl:max-w-[var(--breakpoint-2xl)]',
+							'3xl:max-w-[100vw]',
 							'snap-start',
 							'transition-[opacity,filter] ease-in-out',
 							k === activeIdx
@@ -102,6 +100,7 @@ const Carousel = ({ template, className = '', children }: CarouselProps) => {
 						])}>
 						{cloneElement(template, {
 							slideId: k,
+							className: 'w-full md:min-w-70',
 						})}
 					</div>
 				))}

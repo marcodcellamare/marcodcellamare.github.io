@@ -4,7 +4,7 @@ import { useResize } from '!/contexts/resize';
 import { cssVariable } from '!/utils/misc';
 import { remToPx } from '!/utils/math';
 
-export type BreakpointsType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+type BreakpointsType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 const useBreakpoints = () => {
 	const [current, setCurrent] = useState<BreakpointsType | ''>('');

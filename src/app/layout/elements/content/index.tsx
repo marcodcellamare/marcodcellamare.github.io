@@ -44,7 +44,7 @@ const Content = ({ rootKey, className = '' }: ContentProps) => {
 				changePerspective={true}
 				maxRotation={20}
 				duration={0.5}
-				className={classNames(['content-wrapper relative', className])}>
+				className='content-wrapper relative'>
 				<Heading
 					rootKey={`${rootKey}.heading`}
 					className={classNames({

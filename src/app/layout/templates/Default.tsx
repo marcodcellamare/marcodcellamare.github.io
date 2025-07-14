@@ -1,8 +1,8 @@
 import { useSection } from '!/contexts/section';
-import { useSettings } from '!/contexts/settings';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '!/contexts/router';
 import { useParallax } from '!/contexts/parallax';
+import { useDevUtilities } from '!/contexts/dev-utilities';
 import { easeInOut, motion, useScroll, useTransform } from 'motion/react';
 import classNames from 'classnames';
 
@@ -18,8 +18,8 @@ const Default = ({ slideId = 0, className = '' }: DefaultProps) => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 	const { sectionId, sectionRef } = useSection();
-	const { spaceRef } = useSettings();
 	const { getScrollConfig } = useParallax();
+	const { DevBreakpoints } = useDevUtilities();
 
 	const rootKey = `sections.${sectionId}.content.${slideId}`;
 	const imageExists = i18n.exists(`${rootKey}.image`, {
@@ -41,66 +41,61 @@ const Default = ({ slideId = 0, className = '' }: DefaultProps) => {
 	});
 
 	return (
-		<div className={classNames('@container', className)}>
-			{imageExists && (
-				<motion.div
-					className={classNames([
-						'flex lg:flex-1 shrink-0 min-w-0 border-5 @sm:border-red-500 @md:border-yellow-500 @lg:border-blue-500 @xl:border-green-500',
-						{
-							'@lg:justify-end': position === 'left',
-							'@lg:order-last @lg:justify-start':
-								position === 'right',
-						},
-					])}
-					style={{ y, scale }}>
-					<Image
-						rootKey={`${rootKey}.image`}
+		<div className={classNames('@container relative', className)}>
+			<DevBreakpoints subContainer={true} />
+			<div className='flex flex-1 flex-col @2xl:flex-row @2xl:items-center gap-5 @2xl:gap-7 @3xl:gap-10'>
+				{imageExists && (
+					<motion.div
 						className={classNames([
-							'flex flex-1 @lg:max-h-auto @xl:translate-x-0',
-							'z-0 hover:z-2 hover:drop-shadow-2xl/30',
-							'transition-[scale,filter] duration-200 ease-in-out',
-							!isBlob
-								? [
-										'max-h-60 rounded-sm overflow-hidden',
-										/* 'translate-x-3/20 @lg:translate-x-0',
-										'-translate-y-1/20 @lg:translate-y-0',
-										'scale-190 hover:scale-195',
-										'@xl:scale-170 @xl:hover:scale-175',
-										'@2xl:scale-160 @2xl:hover:scale-165',
-										'@3xl:scale-120 @3xl:hover:scale-120', */
-										{
-											'origin-[left_80%] @lg:origin-right':
-												position === 'left',
-											'@lg:origin-[left,20%]':
-												position === 'right',
-										},
-								  ]
-								: [
-										'max-h-70',
-										//'scale-200 hover:scale-205',
-										//'lg:scale-280 lg:hover:scale-285',
-										//'xl:scale-180 xl:hover:scale-185',
-										//'2xl:scale-150 2xl:hover:scale-155',
-										/* {
-											'lg:-translate-x-2/20 lg:justify-end':
-												position === 'left',
-											'lg:translate-x-2/20 lg:justify-start':
-												position === 'right',
-										}, */
-								  ],
+							'flex flex-1 min-w-0',
+							{
+								'@2xl:justify-end': position === 'left',
+								'@2xl:justify-start @2xl:order-last':
+									position === 'right',
+							},
 						])}
-					/>
-				</motion.div>
-			)}
-			<Content
-				rootKey={rootKey}
-				className={classNames([
-					'min-w-0 z-1',
-					!imageExists
-						? 'lg:basis-10/12 xl:basis-9/12'
-						: 'lg:basis-8/12 xl:basis-7/12',
-				])}
-			/>
+						style={{ y, scale }}>
+						<Image
+							rootKey={`${rootKey}.image`}
+							className={classNames([
+								'z-0 hover:z-2 hover:drop-shadow-2xl/30',
+								'transition-[scale,filter] duration-200 ease-in-out',
+								'max-w-80',
+								'@2xl:max-w-none',
+								!isBlob
+									? [
+											'rounded-sm overflow-hidden',
+											'scale-120 hover:scale-125',
+											'@md:scale-130 @md:hover:scale-135',
+											'@2xl:scale-140 @2xl:hover:scale-145',
+											'@3xl:scale-120 @3xl:hover:scale-120',
+											'origin-bottom-left',
+											{
+												'@2xl:origin-right':
+													position === 'left',
+												'@2xl:origin-left':
+													position === 'right',
+											},
+									  ]
+									: [
+											'scale-140 hover:scale-145',
+											'@md:scale-150 @md:hover:scale-155',
+											'@3xl:scale-160 @3xl:hover:scale-165',
+									  ],
+							])}
+						/>
+					</motion.div>
+				)}
+				<Content
+					rootKey={rootKey}
+					className={classNames([
+						'shrink-0 min-w-30 z-1',
+						!imageExists
+							? '@2xl:basis-9/12 @6xl:basis-7/12'
+							: '@2xl:basis-6/12 @3xl:basis-7/12',
+					])}
+				/>
+			</div>
 		</div>
 	);
 };
