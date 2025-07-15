@@ -14,7 +14,7 @@ interface HeadingInterface {
 	subtitle?: string;
 }
 
-interface ContentInterface {
+export interface ContentInterface {
 	heading?: HeadingInterface;
 	leading?: string;
 	paragraphs?: string[];

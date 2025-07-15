@@ -16,7 +16,7 @@ import { cssVariable } from '!/utils/misc';
 import config from '!config';
 
 import { TemplateType, ThemeType } from '!/types/config.const';
-import { SettingsInterface } from '!/types/layout';
+import { ContentInterface, SettingsInterface } from '!/types/layout';
 
 interface SectionProviderProps {
 	sectionId: number;
@@ -73,6 +73,15 @@ export const SectionProvider = ({
 		[t, sectionId]
 	);
 
+	const hasImage = useMemo(() => {
+		const content = t(`sections.${sectionId}.content`, {
+			returnObjects: true,
+			defaultValue: [],
+		}) as ContentInterface[];
+
+		return content.some((item) => 'image' in item);
+	}, [t, sectionId]);
+
 	const themeCssVar = (theme: ThemeType, cssVar: string) =>
 		cssVariable(cssVar, `[data-theme="${theme}"]`);
 
@@ -104,6 +113,7 @@ export const SectionProvider = ({
 				nextBackgroundColor,
 				duotoneColorBackground,
 				duotoneColorForeground,
+				hasImage,
 
 				getTheme,
 				getTemplate,

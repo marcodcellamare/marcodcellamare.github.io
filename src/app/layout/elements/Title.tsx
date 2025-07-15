@@ -6,7 +6,6 @@ import { useSection } from '!/contexts/section';
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import classNames from 'classnames';
 
-import Floating from '!/app/misc/Floating';
 import Container from './Container';
 
 import '!/styles/components/elements/Title.css';
@@ -41,27 +40,16 @@ const Title = () => {
 				spaceRef.current.container,
 			])}>
 			<motion.div
-				className='title perspective-midrange'
+				className='title'
 				style={{
 					y,
 					opacity,
 					zIndex,
 					['--pattern-thickness' as string]: patternThickness,
 				}}>
-				<Floating
-					mode='repel'
-					ratioY={10}
-					changePerspective={true}
-					maxRotation={30}
-					duration={1.5}
-					className={classNames([
-						'relative h0 font-black uppercase text-transparent origin-left',
-						{
-							extra: sectionId === 0,
-						},
-					])}>
+				<h4 className='relative h0 font-black uppercase text-transparent origin-left'>
 					{t(`sections.${sectionId}.title`)}
-				</Floating>
+				</h4>
 			</motion.div>
 		</Container>
 	);

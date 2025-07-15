@@ -25,7 +25,7 @@ const Pager = ({ isFirst, isLast }: PagerProps) => {
 					'pager-last bottom-1/2': isLast,
 				},
 			])}>
-			<div className='pager-line relative left-1/20 w-[0.2rem]' />
+			<div className='pager-line relative left-10 w-[0.2rem]' />
 		</Container>
 	);
 };

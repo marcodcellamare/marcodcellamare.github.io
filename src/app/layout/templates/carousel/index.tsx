@@ -6,17 +6,15 @@ import { useSettings } from '!/contexts/settings';
 import classNames from 'classnames';
 
 import Nav from './Nav';
-import Indicators from './Indicators';
 
 import { SectionInterface } from '!/types/layout';
 
 interface CarouselProps {
 	template: ReactElement<{ slideId: number; className?: string }>;
 	className?: string;
-	children?: ReactElement<{ activeIdx: number; totalSlides: number }>;
 }
 
-const Carousel = ({ template, className = '', children }: CarouselProps) => {
+const Carousel = ({ template, className = '' }: CarouselProps) => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 	const { sectionId, settings } = useSection();
@@ -46,12 +44,6 @@ const Carousel = ({ template, className = '', children }: CarouselProps) => {
 				settings?.className,
 				className,
 			])}>
-			{/* {children &&
-				cloneElement(children, {
-					activeIdx,
-					totalSlides: content.length,
-				})} */}
-
 			<div
 				ref={containerRef}
 				className={classNames([
@@ -107,10 +99,6 @@ const Carousel = ({ template, className = '', children }: CarouselProps) => {
 				))}
 				<div className='hidden sm:block shrink-0 w-full snap-none' />
 			</div>
-			<Indicators
-				activeIdx={activeIdx}
-				totalSlides={content.length}
-			/>
 			<Nav
 				containerRef={containerRef}
 				itemRefs={itemRefs}

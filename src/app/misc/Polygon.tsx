@@ -22,7 +22,7 @@ const getRandomPoint = (size: number): [number, number] => {
 
 const Polygon = ({
 	sides = 0,
-	maxSides = 8,
+	maxSides = 5,
 	fill = 'none',
 	fillOpacity = 1,
 	stroke = 'none',
@@ -94,7 +94,7 @@ const Polygon = ({
 				strokeOpacity={strokeOpacity}
 				strokeWidth={strokeWidth}
 				strokeDasharray={strokeDasharray}
-				style={{ vectorEffect: 'non-scaling-stroke' }}
+				vectorEffect={'non-scaling-stroke'}
 			/>
 		</svg>
 	);

@@ -36,13 +36,10 @@ const Content = ({ rootKey, className = '' }: ContentProps) => {
 	if (!headingExists && !leadingExists && !paragraphsExists) return null;
 
 	return (
-		<div
-			className={classNames(['content perspective-midrange', className])}>
+		<div className={classNames(['content', className])}>
 			<Floating
 				mode='repel'
 				ratioY={30}
-				changePerspective={true}
-				maxRotation={20}
 				duration={0.5}
 				className='content-wrapper relative'>
 				<Heading

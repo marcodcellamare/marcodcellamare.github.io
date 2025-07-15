@@ -12,6 +12,7 @@ export interface SectionContextProps {
 	nextBackgroundColor: string;
 	duotoneColorBackground: string;
 	duotoneColorForeground: string;
+	hasImage: boolean;
 
 	getTheme: (sectionId: number) => ThemeType;
 	getTemplate: (sectionId: number) => TemplateType;

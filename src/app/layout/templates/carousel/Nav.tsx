@@ -13,6 +13,7 @@ import useThrottleCallback from '!/hooks/useThrottleCallback';
 import classNames from 'classnames';
 
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
+import Indicators from './Indicators';
 
 interface NavProps {
 	containerRef: RefObject<HTMLDivElement | null>;
@@ -108,7 +109,7 @@ const Nav = ({
 	return (
 		<div
 			className={classNames([
-				'absolute top-1/2 right-0 -translate-y-1/2 z-100',
+				'absolute top-1/2 right-2 -translate-y-1/2 z-100',
 				className,
 			])}>
 			<div
@@ -147,6 +148,10 @@ const Nav = ({
 					onClick={handleNext}>
 					<ArrowRightIcon className='text-svg-inline text-7xl' />
 				</button>
+				<Indicators
+					activeIdx={activeIdx}
+					totalSlides={totalSlides}
+				/>
 			</div>
 		</div>
 	);

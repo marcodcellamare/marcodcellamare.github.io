@@ -100,18 +100,21 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 	useEffect(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						const target = entry.target as HTMLElement;
-						setActiveSectionId(Number(target.dataset.id));
-						return;
-					}
-				});
+				const visible = entries
+					.filter((e) => e.isIntersecting)
+					.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+				if (visible.length > 0) {
+					const target = visible[0].target as HTMLElement;
+					setActiveSectionId(Number(target.dataset.id));
+				}
 			},
-			{ threshold: [0.1, 0.5, 0.9] }
+			{ threshold: 0.5 }
 		);
 
 		const id = requestAnimationFrame(() => {
+			if (!Object.values(sectionRefs.current).every(Boolean)) return;
+
 			Object.keys(sectionRefs.current).forEach((k) => {
 				const ref = sectionRefs.current[Number(k)];
 				if (ref) observer.observe(ref);

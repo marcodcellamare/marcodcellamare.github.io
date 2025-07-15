@@ -123,7 +123,7 @@ const Floating = ({
 							minOpacity) *
 							100
 				  ) / 100
-				: 1;
+				: maxOpacity;
 
 		const rotateX =
 			changePerspective && ratioY > 0
@@ -225,6 +225,7 @@ const Floating = ({
 			])}
 			style={{
 				...style,
+				opacity: maxOpacity,
 				filter:
 					changeShadow && changePerspective
 						? shadowFilter

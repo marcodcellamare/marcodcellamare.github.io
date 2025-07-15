@@ -3,15 +3,12 @@ import { random } from '!/utils/math';
 
 import Floating, { FloatingModeType } from '!/app/misc/Floating';
 import Polygon from '!/app/misc/Polygon';
-import classNames from 'classnames';
 
-type BlurType = 'blur-sm' | 'blur-md' | 'blur-lg' | 'blur-xl' | 'blur-2xl';
 type PolygonType = {
 	x: number;
 	y: number;
 	width: number;
 	opacity: number;
-	blur: BlurType;
 };
 
 interface PolygonsProps {
@@ -29,17 +26,13 @@ const Polygons = ({
 	ratio = 20,
 	min = 1,
 	max = 3,
-	minSize = 20,
-	maxSize = 90,
+	minSize = 30,
+	maxSize = 60,
 	margin = 0,
 }: PolygonsProps) => {
 	const [polygons, setPolygons] = useState<PolygonType[]>([]);
 
 	const total = useMemo(() => Math.floor(random({ min, max })), [min, max]);
-	const blurClassNames = useMemo<BlurType[]>(
-		() => ['blur-sm', 'blur-md', 'blur-lg'],
-		[]
-	);
 
 	const randomWidthPercentage = useCallback(() => {
 		const supposedSize = 100 / total;
@@ -61,10 +54,6 @@ const Polygons = ({
 		for (let k = 0; k < total; k++) {
 			let placed = false;
 			const opacity = randomOpacity();
-			const blur =
-				blurClassNames[
-					Math.floor(Math.random() * blurClassNames.length)
-				];
 
 			for (let tryCount = 0; tryCount < attempts; tryCount++) {
 				const widthPercentage = randomWidthPercentage();
@@ -104,7 +93,6 @@ const Polygons = ({
 						y,
 						width: widthPercentage,
 						opacity,
-						blur,
 					});
 					placed = true;
 					break;
@@ -115,7 +103,7 @@ const Polygons = ({
 			}
 		}
 		setPolygons(polygons);
-	}, [total, randomWidthPercentage, randomOpacity, margin, blurClassNames]);
+	}, [total, randomWidthPercentage, randomOpacity, margin]);
 
 	if (!polygons.length) return null;
 
@@ -127,12 +115,15 @@ const Polygons = ({
 					mode={mode}
 					ratioX={ratio}
 					ratioY={ratio}
-					className={classNames(['absolute', polygon.blur])}
+					changeOpacity={true}
+					minOpacity={0.1}
+					maxOpacity={0.5}
+					className='absolute'
 					style={{
 						left: `${polygon.x}%`,
 						top: `${polygon.y}%`,
 						width: `${polygon.width}%`,
-						opacity: polygon.opacity,
+						//opacity: polygon.opacity,
 					}}>
 					<Polygon fill='var(--color-next-background)' />
 				</Floating>

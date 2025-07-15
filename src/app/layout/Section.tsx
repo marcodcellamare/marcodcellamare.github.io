@@ -23,7 +23,8 @@ const Section = ({
 	isLast,
 	className = '',
 }: SectionProps) => {
-	const { theme, setSectionRef, nextBackgroundColor } = useSection();
+	const { theme, setSectionRef, nextBackgroundColor, hasImage } =
+		useSection();
 	const { setSectionRefs, sectionRefs } = useSettings();
 
 	return (
@@ -53,7 +54,7 @@ const Section = ({
 			)}
 			<Title />
 			{!isLast && <Pattern />}
-			{/* {!isFirst && !isLast && (
+			{!hasImage && !isFirst && !isLast && (
 				<Polygons
 					mode='repel'
 					min={1}
@@ -61,7 +62,7 @@ const Section = ({
 					ratio={10}
 					margin={-10}
 				/>
-			)} */}
+			)}
 			<Templates />
 		</section>
 	);
