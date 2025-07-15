@@ -18,6 +18,7 @@ export interface ContentInterface {
 	heading?: HeadingInterface;
 	leading?: string;
 	paragraphs?: string[];
+	links?: string[];
 }
 
 export interface SettingsInterface {

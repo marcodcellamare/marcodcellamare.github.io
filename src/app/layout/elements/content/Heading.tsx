@@ -24,21 +24,21 @@ const Heading = ({ rootKey, className = '' }: HeadingProps) => {
 	return (
 		<div
 			className={classNames([
-				'heading text-[var(--color-heading)] uppercase',
+				'heading text-(--color-heading) uppercase',
 				className,
 			])}>
 			{headlineExists && (
 				<span
 					className={classNames([
 						sectionId === 0 ? 'h2' : 'h5',
-						'font-black',
+						'block font-black',
 					])}>
 					{t(`${rootKey}.headline`)}
 				</span>
 			)}
 			<h2
 				className={classNames([
-					'h1 font-black',
+					'h1 block font-black',
 					{
 						extra: sectionId === 0,
 					},
@@ -46,7 +46,11 @@ const Heading = ({ rootKey, className = '' }: HeadingProps) => {
 				{t(`${rootKey}.title`)}
 			</h2>
 			{subtitleExists && (
-				<h3 className={classNames([sectionId === 0 ? 'h3' : 'h4'])}>
+				<h3
+					className={classNames([
+						'block',
+						sectionId === 0 ? 'h3' : 'h4',
+					])}>
 					<Trans
 						ns={pageId}
 						i18nKey={`${rootKey}.subtitle`}

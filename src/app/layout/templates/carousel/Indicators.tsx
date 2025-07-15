@@ -11,7 +11,7 @@ const Indicators = ({ activeIdx = 0, totalSlides = 0 }: IndicatorsProps) => (
 			<div
 				key={k}
 				className={classNames([
-					'w-1.5 bg-[var(--color-link)] transform-[height,opacity] duration-500 delay-150 ease-in-out rounded-full',
+					'w-1.5 bg-(--color-link) transform-[height,opacity] duration-500 delay-150 ease-in-out rounded-full',
 					k !== activeIdx ? 'h-1.5 opacity-50' : 'h-10 opacity-100',
 				])}
 			/>

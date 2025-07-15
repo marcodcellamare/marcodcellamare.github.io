@@ -12,7 +12,7 @@ const Footer = () => {
 		<footer
 			data-theme={activeSectionTheme}
 			className={classNames([
-				'absolute bottom-0 left-0 right-0 text-[var(--color-content)] text-xl md:text-lg pointer-events-none backdrop-blur-md lg:backdrop-blur-none',
+				'absolute bottom-0 left-0 right-0 text-(--color-content) text-xl md:text-lg pointer-events-none backdrop-blur-md lg:backdrop-blur-none',
 				spaceRef.current.footer,
 			])}>
 			<div className='absolute bottom-0 left-0 right-0 h-[200%] pointer-events-none bg-linear-to-t from-black/15 to-black/0' />

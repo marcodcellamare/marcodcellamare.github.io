@@ -32,7 +32,7 @@ const Nav = () => {
 						spaceRef.current.nav,
 					])}>
 					<Menu />
-					<div className='text-[var(--color-heading)] transform-[color] duration-200 ease-in-out'>
+					<div className='text-(--color-heading) transform-[color] duration-200 ease-in-out'>
 						<h6 className='uppercase font-black mb-2'>
 							{t('title')}
 						</h6>

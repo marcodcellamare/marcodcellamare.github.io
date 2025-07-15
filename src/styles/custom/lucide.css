@@ -14,15 +14,15 @@
 	svg {
 		&.text-svg-inline {
 			@apply inline-block
-			w-[1em]
-			h-[1em];
+				w-[1em]
+				h-[1em];
 		}
 	}
 	.text-svg-inline {
 		svg {
 			@apply inline-block
-			w-[1em]
-			h-[1em];
+				w-[1em]
+				h-[1em];
 		}
 	}
 }

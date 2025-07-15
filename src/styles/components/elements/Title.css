@@ -1,5 +1,12 @@
+@reference '!/styles/index.css';
+
 .title {
 	.h0 {
+		@apply bg-left bg-fixed
+			bg-size-[0.7rem_0.7rem]
+			bg-clip-text
+			min-w-fit;
+
 		background-image: repeating-linear-gradient(
 			45deg,
 			var(--color-next-background) 0,
@@ -7,12 +14,5 @@
 			transparent 0,
 			transparent 50%
 		);
-		background-size: 0.7rem 0.7rem;
-		background-position: left center;
-		background-attachment: fixed;
-		min-width: fit-content;
-
-		-webkit-background-clip: text;
-		background-clip: text;
 	}
 }

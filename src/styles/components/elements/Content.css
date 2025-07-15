@@ -1,11 +1,11 @@
-.content {
-	.content-wrapper {
-		> :not(:last-child):not(.heading) {
-			margin-bottom: calc(var(--spacing) * 1.5);
+@reference '!/styles/index.css';
 
-			&.leading {
-				margin-bottom: calc(var(--spacing) * 4);
-			}
+.content {
+	> :not(:last-child):not(.heading) {
+		@apply mb-1.5;
+
+		&.leading {
+			@apply mb-4;
 		}
 	}
 }

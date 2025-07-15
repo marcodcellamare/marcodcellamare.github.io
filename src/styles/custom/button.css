@@ -38,7 +38,6 @@ button {
 	&:disabled {
 		@apply pointer-events-none;
 	}
-
 	* {
 		@apply !pointer-events-none;
 	}

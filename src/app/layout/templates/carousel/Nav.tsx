@@ -114,7 +114,7 @@ const Nav = ({
 			])}>
 			<div
 				className={classNames([
-					'absolute top-1/2 right-0 -translate-y-1/2 h-[0.2rem] bg-[var(--color-link)]/35 pointer-events-none transform-[width] duration-300 ease-in-out hidden md:block',
+					'absolute top-1/2 right-0 -translate-y-1/2 h-[0.2rem] bg-(--color-link)/35 pointer-events-none transform-[width] duration-300 ease-in-out hidden md:block',
 					!isOver ? 'w-[100%]' : 'w-[120%]',
 				])}
 			/>
@@ -128,21 +128,21 @@ const Nav = ({
 						type='button'
 						role='button'
 						aria-label={t('default:prev')}
-						className='btn btn-link text-[var(--color-link)] hover:text-[var(--color-link-hover)] active:text-[var(--color-link-active)] !no-underline hidden lg:block'
+						className='btn btn-link text-(--color-link) hover:text-(--color-link-hover) active:text-(--color-link-active) !no-underline hidden lg:block'
 						onPointerEnter={() => setIsOver(true)}
 						onPointerLeave={() => setIsOver(false)}
 						onClick={handlePrev}>
 						<ArrowLeftIcon className='text-svg-inline text-2xl' />
 					</button>
 				)}
-				<div className='text-xxs font-bold text-[var(--color-link)] hidden md:block'>
+				<div className='text-xxs font-bold text-(--color-link) hidden md:block'>
 					{activeIdx + 1} / {totalSlides}
 				</div>
 				<button
 					type='button'
 					role='button'
 					aria-label={t('default:next')}
-					className='btn btn-link text-[var(--color-link)] hover:text-[var(--color-link-hover)] active:text-[var(--color-link-active)] !no-underline'
+					className='btn btn-link text-(--color-link) hover:text-(--color-link-hover) active:text-(--color-link-active) !no-underline'
 					onPointerEnter={() => setIsOver(true)}
 					onPointerLeave={() => setIsOver(false)}
 					onClick={handleNext}>

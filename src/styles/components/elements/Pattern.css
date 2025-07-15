@@ -1,50 +1,39 @@
+@reference '!/styles/index.css';
+
 .pattern {
-	background: transparent;
-	background: linear-gradient(
-		0deg,
-		var(--color-next-background) 0%,
-		color-mix(in srgb, var(--color-next-background) 0%, transparent) 80%
-	);
+	@apply bg-transparent
+		bg-gradient-to-b
+		from-(--color-next-background)/0 from-0%
+		to-(--color-next-background) to-80%;
 
 	> div {
-		background-position: center top;
-		background-attachment: fixed;
-		background-size: 0.6rem 0.6rem;
+		@apply bg-top bg-fixed
+			bg-size-[0.6rem_0.6rem];
 
 		&:nth-child(1) {
-			background-image: radial-gradient(
-				var(--color-next-background) 0.05rem,
-				color-mix(in srgb, var(--color-next-background) 0%, transparent)
-					0
-			);
+			@apply bg-radial
+				from-(--color-next-background) from-[0.05rem]
+				to-(--color-next-background)/0 to-[0rem];
 		}
 		&:nth-child(2) {
-			background-image: radial-gradient(
-				var(--color-next-background) 0.1rem,
-				color-mix(in srgb, var(--color-next-background) 0%, transparent)
-					0
-			);
+			@apply bg-radial
+				from-(--color-next-background) from-[0.1rem]
+				to-(--color-next-background)/0 to-[0rem];
 		}
 		&:nth-child(3) {
-			background-image: radial-gradient(
-				var(--color-next-background) 0.15rem,
-				color-mix(in srgb, var(--color-next-background) 0%, transparent)
-					0
-			);
+			@apply bg-radial
+				from-(--color-next-background) from-[0.15rem]
+				to-(--color-next-background)/0 to-[0rem];
 		}
 		&:nth-child(4) {
-			background-image: radial-gradient(
-				var(--color-next-background) 0.2rem,
-				color-mix(in srgb, var(--color-next-background) 0%, transparent)
-					0
-			);
+			@apply bg-radial
+				from-(--color-next-background) from-[0.2rem]
+				to-(--color-next-background)/0 to-[0rem];
 		}
 		&:nth-child(5) {
-			background-image: radial-gradient(
-				var(--color-next-background) 0.25rem,
-				color-mix(in srgb, var(--color-next-background) 0%, transparent)
-					0
-			);
+			@apply bg-radial
+				from-(--color-next-background) from-[0.25rem]
+				to-(--color-next-background)/0 to-[0rem];
 		}
 	}
 }

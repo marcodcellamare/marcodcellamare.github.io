@@ -29,7 +29,7 @@ const Toggler = () => {
 				<div
 					key={k}
 					className={classNames([
-						'absolute left-0 right-0 -translate-y-1/2 origin-center bg-[var(--color-palette-gray)]',
+						'absolute left-0 right-0 -translate-y-1/2 origin-center bg-(--color-palette-gray)',
 						'transition-[top,translate,rotate,height,background-color] duration-400 ease-in-out',
 						{
 							'delay-[200ms]': k === 0,

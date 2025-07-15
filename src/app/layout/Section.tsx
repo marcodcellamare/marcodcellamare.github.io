@@ -36,7 +36,7 @@ const Section = ({
 			data-id={sectionId}
 			data-theme={theme}
 			className={classNames([
-				'flex items-stretch min-h-full relative bg-[var(--color-background)] text-[var(--color-heading)]',
+				'flex items-stretch min-h-full relative bg-(--color-background) text-(--color-heading)',
 				className,
 			])}
 			style={

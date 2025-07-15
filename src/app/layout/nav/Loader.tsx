@@ -151,8 +151,8 @@ const Loader = () => {
 			className={classNames([
 				'absolute top-0 bottom-0 left-0 right-0 overflow-hidden pointer-events-none transition-[background-color,backdrop-filter] duration-700',
 				isNavOpened || isLoading
-					? 'bg-[var(--color-palette-dark-gray)]/50 backdrop-blur-[0.2rem]'
-					: 'bg-[var(--color-palette-dark-gray)]/0 backdrop-blur-[0rem] delay-600',
+					? 'bg-(--color-palette-dark-gray)/50 backdrop-blur-[0.2rem]'
+					: 'bg-(--color-palette-dark-gray)/0 backdrop-blur-[0rem] delay-600',
 			])}>
 			{strips.map((strip, k) => (
 				<div

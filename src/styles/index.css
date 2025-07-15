@@ -9,22 +9,21 @@
 	}
 
 	html {
-		scroll-behavior: smooth;
-		width: -webkit-fill-available;
-		height: -webkit-fill-available;
+		@apply scroll-smooth
+			w-[-webkit-fill-available]
+			h-[-webkit-fill-available];
 	}
 
 	body {
 		@apply overscroll-x-none
 			overscroll-y-none
 			min-h-[100vh]
+			min-w-[-webkit-fill-available]
 			max-w-[100%]
 			overflow-hidden
 			select-none
-			bg-base-100;
-
-		min-height: -webkit-fill-available;
-		font-family: var(--font-body);
+			bg-base-100
+			font-(family-name:--font-body);
 	}
 
 	* {

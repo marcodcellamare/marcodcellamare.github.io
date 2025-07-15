@@ -1,11 +1,13 @@
+@reference '!/styles/index.css';
+
 .cursor {
 	&::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		@apply content-['']
+		 	absolute top-0 bottom-0 left-0 right-0
+			bg-left-top bg-fixed
+			bg-size-[1.5rem_1.5rem]
+			opacity-0;
+
 		background-image: repeating-linear-gradient(
 			45deg,
 			var(--color-palette-gray) 0,
@@ -13,19 +15,19 @@
 			transparent 0,
 			transparent 50%
 		);
-		background-size: 1.5rem 1.5rem;
-		background-position: 0 0;
-		background-attachment: fixed;
-		opacity: 0;
 	}
 	&.cursor-link {
 		&::before {
+			@apply opacity-100
+				transition-opacity
+				duration-1000
+				delay-1000
+				ease-in-out;
+
 			animation-name: cursor-link;
 			animation-duration: 500ms;
 			animation-iteration-count: infinite;
 			animation-timing-function: linear;
-			opacity: 1;
-			transition: opacity 1s ease-in-out 1s;
 		}
 	}
 }

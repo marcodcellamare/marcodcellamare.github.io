@@ -69,11 +69,11 @@ const Carousel = ({ template, className = '' }: CarouselProps) => {
 							'w-full',
 							'min-w-fit',
 							'max-w-[100vw]',
-							'sm:max-w-[var(--breakpoint-sm)]',
-							'md:max-w-[var(--breakpoint-md)]',
-							'lg:max-w-[var(--breakpoint-lg)]',
-							'xl:max-w-[var(--breakpoint-xl)]',
-							'2xl:max-w-[var(--breakpoint-2xl)]',
+							'sm:max-w-(--breakpoint-sm)',
+							'md:max-w-(--breakpoint-md)',
+							'lg:max-w-(--breakpoint-lg)',
+							'xl:max-w-(--breakpoint-xl)',
+							'2xl:max-w-(--breakpoint-2xl)',
 							'3xl:max-w-[100vw]',
 							'snap-start',
 							'transition-[opacity,filter] ease-in-out',
@@ -84,11 +84,10 @@ const Carousel = ({ template, className = '' }: CarouselProps) => {
 							settings?.children?.className,
 							{
 								'z-1': k === activeIdx,
-								'opacity-80 blur-xs':
-									k - 1 === activeIdx || k + 1 === activeIdx,
-								'opacity-50 blur-sm':
-									k !== activeIdx &&
-									(k - 1 < activeIdx || k + 1 > activeIdx),
+								'pointer-events-none': k !== activeIdx,
+								'opacity-60 blur-xxs': k === activeIdx + 1,
+								'opacity-30 blur-xs': k > activeIdx + 1,
+								'opacity-0': k < activeIdx,
 							},
 						])}>
 						{cloneElement(template, {

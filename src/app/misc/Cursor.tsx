@@ -160,11 +160,11 @@ const Cursor = () => {
 		<motion.div
 			className={classNames([
 				'cursor fixed top-0 left-0 -translate-1/2 p-2 box-content pointer-events-none z-[99999] overflow-hidden',
-				'border-[var(--color-palette-gray)] mix-blend-difference',
+				'border-(--color-palette-gray) mix-blend-difference',
 				'transition-[background-color,border-width] duration-300 ease-in-out',
 				['relaxed', 'leave'].includes(status)
-					? 'bg-[var(--color-palette-gray)]'
-					: 'bg-[var(--color-palette-gray)]/0',
+					? 'bg-(--color-palette-gray)'
+					: 'bg-(--color-palette-gray)/0',
 				{
 					'cursor-link border-5': ['nav', 'link'].includes(status),
 					'cursor-image border-10': ['image'].includes(status),

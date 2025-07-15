@@ -1,10 +1,7 @@
+@reference '!/styles/index.css';
+
 .heading {
 	> :not(:last-child) {
-		&:not(h2) {
-			margin-bottom: calc(var(--spacing));
-		}
-		&:is(h2) {
-			margin-bottom: calc(var(--spacing) * 2.5);
-		}
+		@apply mb-1 xl:mb-2;
 	}
 }

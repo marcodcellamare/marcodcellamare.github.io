@@ -233,22 +233,15 @@ const Moods = ({ className = '' }: MoodsProps) => {
 			className={classNames([
 				'moods btn btn-link !no-underline max-w-full whitespace-nowrap',
 				currentLink
-					? 'text-[var(--color-link)] cursor-pointer'
-					: 'text-[var(--color-content)] cursor-default',
+					? 'text-(--color-link) cursor-pointer'
+					: 'text-(--color-content) cursor-default',
 				className,
 			])}
 			disabled={!currentLink}
 			aria-label={currentFullTitle}
 			title={currentFullTitle}
 			onPointerEnter={currentLink ? () => setIsOver(true) : undefined}
-			onPointerLeave={
-				currentLink
-					? () => {
-							setIsOver(false);
-							//idle();
-					  }
-					: undefined
-			}
+			onPointerLeave={currentLink ? () => setIsOver(false) : undefined}
 			onClick={currentLink ? handleClick : undefined}>
 			{t('moods.I')}
 			<Icon

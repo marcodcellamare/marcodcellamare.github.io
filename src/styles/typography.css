@@ -12,7 +12,7 @@
 	.h5,
 	h6,
 	.h6 {
-		font-family: var(--font-title);
+		@apply font-(family-name:--font-title);
 	}
 
 	.h0 {
@@ -30,23 +30,23 @@
 	h1,
 	.h1 {
 		@apply text-5xl leading-[0.9em]
-			md:text-6xl md:leading-[0.85em];
+			xl:text-6xl xl:leading-[0.85em];
 
 		&.extra {
 			@apply text-5xl leading-[0.9em]
 				md:text-6xl md:leading-[0.85em]
-				lg:text-7xl;
+				xl:text-7xl;
 		}
 	}
 	h2,
 	.h2 {
 		@apply text-3xl leading-[0.95em]
-			md:text-4xl lg:leading-[0.9em];
+			xl:text-4xl xl:leading-[0.9em];
 	}
 	h3,
 	.h3 {
 		@apply text-2xl leading-[1.1em]
-			md:text-3xl lg:leading-[0.95em];
+			xl:text-3xl xl:leading-[0.95em];
 	}
 	h4,
 	.h4 {
@@ -61,13 +61,13 @@
 		@apply text-lg leading-[1em];
 	}
 	p {
-		@apply text-base lg:text-lg;
+		@apply text-base xl:text-lg;
 
 		&.leading {
-			@apply text-xl lg:text-xl;
+			@apply text-xl xl:text-xl;
 
 			&.extra {
-				@apply text-xl lg:text-2xl;
+				@apply text-xl xl:text-2xl;
 			}
 		}
 	}
@@ -75,9 +75,9 @@
 
 @layer components {
 	.font-title {
-		font-family: var(--font-title);
+		@apply font-(family-name:--font-title);
 	}
 	.font-body {
-		font-family: var(--font-body);
+		@apply font-(family-name:--font-body);
 	}
 }

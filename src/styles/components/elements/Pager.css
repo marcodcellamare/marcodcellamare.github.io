@@ -1,26 +1,23 @@
+@reference '!/styles/index.css';
+
 .pager {
 	.pager-line {
-		background: transparent;
-		background: linear-gradient(
-			0deg,
-			var(--color-next-background) 70%,
-			color-mix(in srgb, var(--color-next-background) 0%, transparent)
-				100%
-		);
+		@apply bg-transparent
+			bg-gradient-to-b
+			from-(--color-next-background)/0 from-0%
+			to-(--color-next-background) to-30%;
 	}
 	&.pager-first {
 		.pager-line {
-			background-color: var(--color-next-background);
+			@apply bg-(--color-next-background);
 		}
 	}
 	&.pager-last {
 		.pager-line {
-			background: linear-gradient(
-				0deg,
-				var(--color-next-background) 50%,
-				color-mix(in srgb, var(--color-next-background) 0%, transparent)
-					100%
-			);
+			@apply bg-transparent
+				bg-gradient-to-b
+				from-(--color-next-background)/0 from-0%
+				to-(--color-next-background) to-50%;
 		}
 	}
 }
