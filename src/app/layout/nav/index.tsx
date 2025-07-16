@@ -41,9 +41,7 @@ const Nav = () => {
 							<Trans
 								i18nKey='copyright'
 								components={{
-									love: (
-										<HeartIcon className='text-svg-inline' />
-									),
+									love: <HeartIcon className='text-svg' />,
 								}}
 							/>
 						</p>

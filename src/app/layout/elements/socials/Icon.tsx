@@ -20,7 +20,7 @@ interface IconProps {
 const Icon = ({ type, title = '', className = '' }: IconProps) => {
 	const props = {
 		title,
-		className: classNames(['text-svg-inline', className]),
+		className: classNames(['text-svg', className]),
 	};
 	switch (type) {
 		case 'download':

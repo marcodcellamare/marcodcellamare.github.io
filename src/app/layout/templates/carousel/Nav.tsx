@@ -132,7 +132,7 @@ const Nav = ({
 						onPointerEnter={() => setIsOver(true)}
 						onPointerLeave={() => setIsOver(false)}
 						onClick={handlePrev}>
-						<ArrowLeftIcon className='text-svg-inline text-2xl' />
+						<ArrowLeftIcon className='text-svg text-2xl' />
 					</button>
 				)}
 				<div className='text-xxs font-bold text-(--color-link) hidden md:block'>
@@ -146,7 +146,7 @@ const Nav = ({
 					onPointerEnter={() => setIsOver(true)}
 					onPointerLeave={() => setIsOver(false)}
 					onClick={handleNext}>
-					<ArrowRightIcon className='text-svg-inline text-7xl' />
+					<ArrowRightIcon className='text-svg text-7xl' />
 				</button>
 				<Indicators
 					activeIdx={activeIdx}

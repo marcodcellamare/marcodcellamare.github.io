@@ -1,6 +1,6 @@
 {
 	"title": "About",
-	"theme": "red",
+	"theme": "gray",
 	"sections": [
 		{
 			"theme": "red",
@@ -9,8 +9,7 @@
 			"content": [
 				{
 					"image": {
-						"src": "images/mario.png",
-						"duotone": true
+						"icon": "HELLO"
 					},
 					"heading": {
 						"headline": "This is",
@@ -23,7 +22,7 @@
 					],
 					"links": [
 						"/portfolio",
-						"/contacts"
+						"https://www.google.com"
 					]
 				}
 			]

@@ -33,6 +33,7 @@ const Link = ({ to, children }: LinkProps) => {
 
 		logEvent('inline_link', {
 			url: to,
+			external: to.toLowerCase().startsWith('http'),
 		});
 	};
 

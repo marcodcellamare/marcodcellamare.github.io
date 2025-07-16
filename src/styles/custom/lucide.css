@@ -12,13 +12,13 @@
 		}
 	}
 	svg {
-		&.text-svg-inline {
+		&.text-svg {
 			@apply inline-block
 				w-[1em]
 				h-[1em];
 		}
 	}
-	.text-svg-inline {
+	.text-svg {
 		svg {
 			@apply inline-block
 				w-[1em]

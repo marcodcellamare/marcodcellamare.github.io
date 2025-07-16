@@ -41,7 +41,7 @@ const Icon = ({ category, isVisible = false, className = '' }: IconProps) => {
 
 	const props = {
 		title: t(`moods.${category}`),
-		className: classNames(['text-svg-inline text-[140%]', className]),
+		className: classNames(['text-svg text-[140%]', className]),
 	};
 
 	const icons = useRef<Record<MoodCategoryType | 'go', ReactElement[]>>({

@@ -10,7 +10,11 @@ import Nav from './Nav';
 import { SectionInterface } from '!/types/layout';
 
 interface CarouselProps {
-	template: ReactElement<{ slideId: number; className?: string }>;
+	template: ReactElement<{
+		slideId: number;
+		activeIdx: number;
+		className?: string;
+	}>;
 	className?: string;
 }
 
@@ -92,6 +96,7 @@ const Carousel = ({ template, className = '' }: CarouselProps) => {
 						])}>
 						{cloneElement(template, {
 							slideId: k,
+							activeIdx,
 							className: 'w-full md:min-w-70',
 						})}
 					</div>
