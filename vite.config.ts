@@ -6,7 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 // https://vite.dev/config/
 

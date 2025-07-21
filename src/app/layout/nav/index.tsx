@@ -32,23 +32,28 @@ const Nav = () => {
 						spaceRef.current.nav,
 					])}>
 					<Menu />
-					<div className='text-(--color-heading) transform-[color] duration-200 ease-in-out'>
-						<h6 className='uppercase font-black mb-2'>
-							{t('title')}
-						</h6>
-						<p className='text-xxs opacity-50'>
-							{`v${pkg.version}`} —{' '}
-							<Trans
-								i18nKey='copyright'
-								components={{
-									love: <HeartIcon className='text-svg' />,
-								}}
-							/>
-						</p>
+					<div className='text-xs text-(--color-heading)/50 transform-[color] duration-200 ease-in-out'>
+						<strong>{`v${pkg.version}`}</strong>
+						<br />
+						<Trans
+							i18nKey='copyright'
+							components={{
+								love: <HeartIcon className='text-svg' />,
+							}}
+						/>
 					</div>
 				</div>
 			</div>
-			<Toggler />
+			<div
+				className={classNames([
+					'absolute top-0 left-0 flex flex-row gap-3 md:gap-5 items-center mix-blend-difference',
+					spaceRef.current.absEdge,
+				])}>
+				<Toggler className='shrink-0' />
+				<h6 className='hidden sm:block uppercase font-black text-xs text-(--color-palette-gray) pointer-events-none'>
+					{t('title')}
+				</h6>
+			</div>
 		</nav>
 	);
 };

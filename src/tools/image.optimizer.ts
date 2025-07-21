@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import * as dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,8 +16,6 @@ const optimizedDir = env?.VITE_OPTIMIZED_DIR ?? '';
 
 const sizes = [800, 1200, 1600, 2160];
 const formats = ['avif', 'webp', '@own'];
-
-console.log('>>>>>>>>>>>>', optimizedDir);
 
 const isValid = () => {
 	if (!optimizedDir) {
