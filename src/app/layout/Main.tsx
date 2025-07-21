@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
-import { useSettings } from '!/contexts/settings';
-import { SectionProvider } from '!/contexts/section';
+import { useRouter } from '@/contexts/router';
+import { useSettings } from '@/contexts/settings';
+import { SectionProvider } from '@/contexts/section';
 
 import Section from './Section';
 
-import { SectionInterface } from '!/types/layout';
+import { SectionInterface } from '@/types/layout';
 
 const Main = () => {
 	const { pageId } = useRouter();

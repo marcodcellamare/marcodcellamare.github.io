@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { useResize } from '!/contexts/resize';
+import { useResize } from '@/contexts/resize';
 
 export interface BreakpointsProps {
 	showBreakpoints?: boolean;

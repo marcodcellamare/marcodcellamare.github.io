@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
+import { useRouter } from '@/contexts/router';
 
-import Favicon from '!/app/misc/Favicon';
-import config from '!config';
+import Favicon from '@/app/misc/Favicon';
+import config from '@config';
 
-import pkg from '!package';
+import pkg from '@package';
 
 const Meta = () => {
 	const { pageId } = useRouter();

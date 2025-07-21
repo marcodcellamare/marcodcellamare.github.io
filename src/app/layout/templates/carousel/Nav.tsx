@@ -6,10 +6,10 @@ import {
 	useRef,
 	useState,
 } from 'react';
-import { useRouter } from '!/contexts/router';
+import { useRouter } from '@/contexts/router';
 import { useTranslation } from 'react-i18next';
-import { useSettings } from '!/contexts/settings';
-import useThrottleCallback from '!/hooks/useThrottleCallback';
+import { useSettings } from '@/contexts/settings';
+import useThrottleCallback from '@/hooks/useThrottleCallback';
 import classNames from 'classnames';
 
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';

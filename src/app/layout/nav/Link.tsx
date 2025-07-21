@@ -1,15 +1,15 @@
 import { MouseEvent, useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
-import { useSettings } from '!/contexts/settings';
-import useScramble from '!/hooks/useScramble';
+import { useRouter } from '@/contexts/router';
+import { useSettings } from '@/contexts/settings';
+import useScramble from '@/hooks/useScramble';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
-import config from '!config';
+import config from '@config';
 
-import { TimeoutType } from '!/types/misc';
-import { PageIdType } from '!/types/config.const';
+import { TimeoutType } from '@/types/misc';
+import { PageIdType } from '@/types/config.const';
 
 interface LinkProps {
 	thisPageId: PageIdType;

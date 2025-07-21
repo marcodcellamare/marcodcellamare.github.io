@@ -9,10 +9,10 @@ import {
 	ValueAnimationTransition,
 	useMotionTemplate,
 } from 'framer-motion';
-import { useSettings } from '!/contexts/settings';
-import { useResize } from '!/contexts/resize';
+import { useSettings } from '@/contexts/settings';
+import { useResize } from '@/contexts/resize';
 import classNames from 'classnames';
-import useThrottleCallback from '!/hooks/useThrottleCallback';
+import useThrottleCallback from '@/hooks/useThrottleCallback';
 
 export type FloatingModeType = 'attract' | 'repel';
 

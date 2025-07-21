@@ -1,9 +1,9 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
-import { useSection } from '!/contexts/section';
+import { useRouter } from '@/contexts/router';
+import { useSection } from '@/contexts/section';
 import classNames from 'classnames';
 
-import '!/styles/components/elements/Heading.css';
+import '@/styles/components/elements/Heading.css';
 
 interface HeadingProps {
 	rootKey: string;

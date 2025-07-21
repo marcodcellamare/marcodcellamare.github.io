@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useRouter } from '!/contexts/router';
-import { useSettings } from '!/contexts/settings';
+import { useRouter } from '@/contexts/router';
+import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 

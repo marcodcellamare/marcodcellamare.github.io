@@ -1,14 +1,14 @@
 import { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
+import { useRouter } from '@/contexts/router';
 import classNames from 'classnames';
 
 import Heading from './Heading';
 import Leading from './Leading';
 import Paragraph from './Paragraph';
-import Link from '!/app/misc/Link';
+import Link from '@/app/misc/Link';
 
-import '!/styles/components/elements/Content.css';
+import '@/styles/components/elements/Content.css';
 
 interface ContentProps {
 	rootKey: string;

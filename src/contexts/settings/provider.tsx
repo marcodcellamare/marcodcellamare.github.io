@@ -10,11 +10,11 @@ import { SettingsContext } from './context';
 
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
-import { useRouter } from '!/contexts/router';
+import { useRouter } from '@/contexts/router';
 
-import config from '!config';
+import config from '@config';
 
-import { PageIdType, ThemeType } from '!/types/config.const';
+import { PageIdType, ThemeType } from '@/types/config.const';
 
 interface SettingsProviderProps {
 	children: ReactNode;

@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { openExternalLink } from '!/utils/misc';
-import { useFirebase } from '!/contexts/firebase';
+import { openExternalLink } from '@/utils/misc';
+import { useFirebase } from '@/contexts/firebase';
 import classNames from 'classnames';
 
 import Icon from './Icon';
-import { CHARACTERS } from '!const';
+import { CHARACTERS } from '@const';
 
-import { TimeoutType, IntervalType } from '!/types/misc';
+import { TimeoutType, IntervalType } from '@/types/misc';
 
-import moods from '!/assets/moods.json' assert { type: 'json' };
-import '!/styles/components/elements/Moods.css';
+import moods from '@/assets/moods.json' assert { type: 'json' };
+import '@/styles/components/elements/Moods.css';
 
 type MoodStatusType = 'idle' | 'init' | 'typing' | 'typed';
 

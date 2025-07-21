@@ -1,4 +1,4 @@
-import { useSettings } from '!/contexts/settings';
+import { useSettings } from '@/contexts/settings';
 
 import Meta from './layout/Meta';
 import Header from './layout/Header';
@@ -6,7 +6,7 @@ import Footer from './layout/Footer';
 import Router from './misc/Router';
 import Cursor from './misc/Cursor';
 
-import '!/styles/components/App.css';
+import '@/styles/components/App.css';
 
 const App = () => {
 	const { pageTheme } = useSettings();

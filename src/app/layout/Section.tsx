@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
-import { useSection } from '!/contexts/section';
-import { colorToRgb } from '!/utils/colors';
-import { useSettings } from '!/contexts/settings';
+import { useSection } from '@/contexts/section';
+import { colorToRgb } from '@/utils/colors';
+import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 
 import Pattern from './elements/Pattern';
@@ -63,6 +63,34 @@ const Section = ({
 					margin={-10}
 				/>
 			)}
+			<picture className='absolute top-0 bottom-0 left-0 right-0 p-20'>
+				{/* <source
+					type='image/avif'
+					srcSet='
+      /images/head-800.avif 800w,
+      /images/head-1200.avif 1200w,
+      /images/head-1600.avif 1600w,
+      /images/head-2160.avif 2160w
+    '
+					sizes='100vw'
+				/>
+				<source
+					type='image/webp'
+					srcSet='
+      /images/head-800.webp 800w,
+      /images/head-1200.webp 1200w,
+      /images/head-1600.webp 1600w,
+      /images/head-2160.webp 2160w
+    '
+					sizes='100vw'
+				/> */}
+				<img
+					src='/images/marco-d-cellamare.png'
+					loading='lazy'
+					decoding='async'
+					className='w-full h-full object-contain'
+				/>
+			</picture>
 			<Templates />
 		</section>
 	);

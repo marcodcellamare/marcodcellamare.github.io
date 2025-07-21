@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { CHARACTERS } from '!const';
+import { CHARACTERS } from '@const';
 
-import { IntervalType } from '!/types/misc';
+import { IntervalType } from '@/types/misc';
 
 const useScramble = (speed = 60) => {
 	const [originalText, setOriginalText] = useState('');

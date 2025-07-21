@@ -1,7 +1,7 @@
 import Link from './Link';
-import config from '!config';
+import config from '@config';
 
-import { PageIdType } from '!/types/config.const';
+import { PageIdType } from '@/types/config.const';
 
 const Menu = () => (
 	<ul className='relative my-auto flex flex-col justify-center h1'>

@@ -1,5 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
-import { aliases } from './vite.alias';
+import { aliases } from './vite.alias.ts';
 
 import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -56,6 +56,7 @@ export default defineConfig(({ mode }) => {
 			rollupOptions: {
 				output: {
 					format: 'es',
+					// TODO
 					/* manualChunks(id) {
 						if (id.includes('node_modules')) {
 							if (id.includes('react-dom')) return 'react-dom';

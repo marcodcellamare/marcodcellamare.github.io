@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSettings } from '!/contexts/settings';
+import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 

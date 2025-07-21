@@ -1,12 +1,11 @@
 {
-	"extends": [
-		"./tsconfig.base.json",
-		"./tsconfig.paths.json"
-	],
+	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "bundler",
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo"
 	},
 	"include": [
-		"src"
+		"src",
 	]
 }

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app';
 import { Analytics } from 'firebase/analytics';
 
-import pkg from '!package';
+import pkg from '@package';
 
 interface FirebaseProviderProps {
 	children: ReactNode;

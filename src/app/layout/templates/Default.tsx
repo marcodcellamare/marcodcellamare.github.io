@@ -1,15 +1,15 @@
-import { useSection } from '!/contexts/section';
+import { useSection } from '@/contexts/section';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
-import { useParallax } from '!/contexts/parallax';
-import { useDevUtilities } from '!/contexts/dev-utilities';
+import { useRouter } from '@/contexts/router';
+import { useParallax } from '@/contexts/parallax';
+import { useDevUtilities } from '@/contexts/dev-utilities';
 import { easeInOut, motion, useScroll, useTransform } from 'motion/react';
 import classNames from 'classnames';
 
-import Content from '!/app/layout/elements/content';
-import Image from '!/app/layout/elements/Image';
-import Floating from '!/app/misc/Floating';
-import AnimatedIcon from '!/app/layout/elements/animated-icon';
+import Content from '@/app/layout/elements/content';
+import Image from '@/app/layout/elements/Image';
+import Floating from '@/app/misc/Floating';
+import AnimatedIcon from '@/app/layout/elements/animated-icon';
 
 interface DefaultProps {
 	slideId?: number;

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import useScramble from '!/hooks/useScramble';
-import { useFirebase } from '!/contexts/firebase';
-import { openExternalLink } from '!/utils/misc';
+import useScramble from '@/hooks/useScramble';
+import { useFirebase } from '@/contexts/firebase';
+import { openExternalLink } from '@/utils/misc';
 import classNames from 'classnames';
 
 import Icon from './Icon';

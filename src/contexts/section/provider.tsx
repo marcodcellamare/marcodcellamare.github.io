@@ -8,15 +8,15 @@ import {
 } from 'react';
 import { SectionContext } from './context';
 
-import { useSettings } from '!/contexts/settings';
+import { useSettings } from '@/contexts/settings';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
-import { cssVariable } from '!/utils/misc';
+import { useRouter } from '@/contexts/router';
+import { cssVariable } from '@/utils/misc';
 
-import config from '!config';
+import config from '@config';
 
-import { TemplateType, ThemeType } from '!/types/config.const';
-import { ContentInterface, SettingsInterface } from '!/types/layout';
+import { TemplateType, ThemeType } from '@/types/config.const';
+import { ContentInterface, SettingsInterface } from '@/types/layout';
 
 interface SectionProviderProps {
 	sectionId: number;

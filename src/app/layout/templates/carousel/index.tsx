@@ -1,13 +1,13 @@
 import { cloneElement, ReactElement, useRef, useState } from 'react';
-import { useSection } from '!/contexts/section';
-import { useRouter } from '!/contexts/router';
+import { useSection } from '@/contexts/section';
+import { useRouter } from '@/contexts/router';
 import { useTranslation } from 'react-i18next';
-import { useSettings } from '!/contexts/settings';
+import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 
 import Nav from './Nav';
 
-import { SectionInterface } from '!/types/layout';
+import { SectionInterface } from '@/types/layout';
 
 interface CarouselProps {
 	template: ReactElement<{

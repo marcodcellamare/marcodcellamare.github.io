@@ -3,9 +3,9 @@ import { RouterContext } from './context';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import config from '!config';
+import config from '@config';
 
-import { PageIdType } from '!/types/config.const';
+import { PageIdType } from '@/types/config.const';
 
 interface RouterProviderProps {
 	children: ReactNode;

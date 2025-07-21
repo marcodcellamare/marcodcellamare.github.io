@@ -1,7 +1,7 @@
 import { forwardRef, ReactNode } from 'react';
-import { useSettings } from '!/contexts/settings';
+import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
-import { useDevUtilities } from '!/contexts/dev-utilities';
+import { useDevUtilities } from '@/contexts/dev-utilities';
 
 interface ContainerProps {
 	className?: string;

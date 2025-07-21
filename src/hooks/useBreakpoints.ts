@@ -1,8 +1,8 @@
 import { useRef, useState } from 'react';
-import { useResize } from '!/contexts/resize';
+import { useResize } from '@/contexts/resize';
 
-import { cssVariable } from '!/utils/misc';
-import { remToPx } from '!/utils/math';
+import { cssVariable } from '@/utils/misc';
+import { remToPx } from '@/utils/math';
 
 type BreakpointsType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 

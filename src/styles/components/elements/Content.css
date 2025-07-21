@@ -1,4 +1,4 @@
-@reference '!/styles/index.css';
+@reference '@/styles/index.css';
 
 .content {
 	> :not(:last-child):not(.heading) {

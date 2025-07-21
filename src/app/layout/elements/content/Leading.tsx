@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
-import { useSection } from '!/contexts/section';
+import { useRouter } from '@/contexts/router';
+import { useSection } from '@/contexts/section';
 import classNames from 'classnames';
 
 interface LeadingProps {

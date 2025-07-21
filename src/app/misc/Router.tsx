@@ -1,10 +1,10 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import Main from '!/app/layout/Main';
+import Main from '@/app/layout/Main';
 
-import config from '!config';
+import config from '@config';
 
-import { PageIdType } from '!/types/config.const';
+import { PageIdType } from '@/types/config.const';
 
 const Router = () => (
 	<Routes>

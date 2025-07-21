@@ -25,3 +25,5 @@ dist-ssr
 
 .env.firebase
 stats.html
+public/images/@optimized
+public/images/**/@optimized

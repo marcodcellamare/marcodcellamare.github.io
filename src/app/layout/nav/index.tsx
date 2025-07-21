@@ -1,4 +1,4 @@
-import { useSettings } from '!/contexts/settings';
+import { useSettings } from '@/contexts/settings';
 import { Trans, useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
@@ -7,7 +7,7 @@ import Background from './Background';
 import Menu from './Menu';
 import Toggler from './Toggler';
 
-import pkg from '!package';
+import pkg from '@package';
 
 const Nav = () => {
 	const { pageTheme, overTheme, isNavOpened, spaceRef } = useSettings();

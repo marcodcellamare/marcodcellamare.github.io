@@ -1,7 +1,7 @@
 import { ReactNode, useEffect } from 'react';
-import useScramble from '!/hooks/useScramble';
-import { useFirebase } from '!/contexts/firebase';
-import { openExternalLink } from '!/utils/misc';
+import useScramble from '@/hooks/useScramble';
+import { useFirebase } from '@/contexts/firebase';
+import { openExternalLink } from '@/utils/misc';
 import { useNavigate } from 'react-router-dom';
 
 interface LinkProps {

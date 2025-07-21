@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
+import { useRouter } from '@/contexts/router';
 
 interface ParagraphProps {
 	rootKey: string;

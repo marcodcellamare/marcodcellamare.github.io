@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import config from '!config';
+import config from '@config';
 
 const useFormatDate = () => {
 	const { i18n } = useTranslation();

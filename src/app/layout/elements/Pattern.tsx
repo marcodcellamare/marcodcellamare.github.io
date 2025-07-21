@@ -1,8 +1,8 @@
-import { useSection } from '!/contexts/section';
-import { useParallax } from '!/contexts/parallax';
+import { useSection } from '@/contexts/section';
+import { useParallax } from '@/contexts/parallax';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-import '!/styles/components/elements/Pattern.css';
+import '@/styles/components/elements/Pattern.css';
 
 const Pattern = () => {
 	const { sectionRef } = useSection();

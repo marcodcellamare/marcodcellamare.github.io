@@ -1,9 +1,9 @@
-import { useSettings } from '!/contexts/settings';
+import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 
 import Container from './Container';
 
-import '!/styles/components/elements/Pager.css';
+import '@/styles/components/elements/Pager.css';
 
 interface PagerProps {
 	isFirst: boolean;

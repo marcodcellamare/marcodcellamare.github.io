@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { RGB } from '!/types/misc';
+import { RGB } from '@/types/misc';
 
 interface DuotoneProps {
 	id: string;

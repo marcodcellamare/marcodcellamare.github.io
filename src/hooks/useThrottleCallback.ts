@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-import { TimeoutType } from '!/types/misc';
+import { TimeoutType } from '@/types/misc';
 
 const useThrottleCallback = <T extends (...args: any[]) => void>(
 	callback: T,

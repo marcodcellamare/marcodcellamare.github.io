@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import useIsTouch from '!/hooks/useIsTouch';
-import { useSettings } from '!/contexts/settings';
+import useIsTouch from '@/hooks/useIsTouch';
+import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 
-import { IntervalType } from '!/types/misc';
+import { IntervalType } from '@/types/misc';
 
-import '!/styles/components/misc/Cursor.css';
+import '@/styles/components/misc/Cursor.css';
 
 type StatusType = 'relaxed' | 'nav' | 'link' | 'image' | 'leave';
 

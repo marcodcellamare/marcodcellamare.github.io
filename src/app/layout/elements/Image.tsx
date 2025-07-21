@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import { useSection } from '!/contexts/section';
+import { useSection } from '@/contexts/section';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
+import { useRouter } from '@/contexts/router';
 import { v4 as uuidv4 } from 'uuid';
-import { colorToRgb } from '!/utils/colors';
+import { colorToRgb } from '@/utils/colors';
 import classNames from 'classnames';
 
-import Blob from '!/app/misc/Blob';
-import Duotone from '!/app/misc/Duotone';
+import Blob from '@/app/misc/Blob';
+import Duotone from '@/app/misc/Duotone';
 
 interface ImageProps {
 	rootKey: string;

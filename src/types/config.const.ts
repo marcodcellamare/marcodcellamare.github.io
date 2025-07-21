@@ -1,4 +1,4 @@
-import { GROUPS, LOCALES, PAGES, PALETTE, TEMPLATES, THEMES } from '!const';
+import { GROUPS, LOCALES, PAGES, PALETTE, TEMPLATES, THEMES } from '@const';
 
 export type LocaleType = (typeof LOCALES)[number];
 export type GroupType = (typeof GROUPS)[number];

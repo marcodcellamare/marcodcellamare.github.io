@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { random } from '!/utils/math';
+import { random } from '@/utils/math';
 
-import Floating, { FloatingModeType } from '!/app/misc/Floating';
-import Polygon from '!/app/misc/Polygon';
+import Floating, { FloatingModeType } from '@/app/misc/Floating';
+import Polygon from '@/app/misc/Polygon';
 
 type PolygonType = {
 	x: number;

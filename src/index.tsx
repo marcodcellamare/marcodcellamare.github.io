@@ -17,7 +17,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/700.css';
 
 import './locales/i18n';
-import '!/styles/index.css';
+import '@/styles/index.css';
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>

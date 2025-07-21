@@ -1,4 +1,4 @@
-import { GROUPS, LOCALES, PAGES, TEMPLATES, THEMES } from '!const';
+import { GROUPS, LOCALES, PAGES, TEMPLATES, THEMES } from '@const';
 import ConfigType from './types/config.type';
 
 const config = {

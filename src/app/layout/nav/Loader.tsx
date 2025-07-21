@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useSettings } from '!/contexts/settings';
-import { useScroll } from '!/contexts/scroll';
-import useThrottleCallback from '!/hooks/useThrottleCallback';
-import usePageVisibility from '!/hooks/usePageVisibility';
-import { random } from '!/utils/math';
+import { useSettings } from '@/contexts/settings';
+import { useScroll } from '@/contexts/scroll';
+import useThrottleCallback from '@/hooks/useThrottleCallback';
+import usePageVisibility from '@/hooks/usePageVisibility';
+import { random } from '@/utils/math';
 import classNames from 'classnames';
 
-import { PALETTE } from '!const';
+import { PALETTE } from '@const';
 
-import { ThemeType } from '!/types/config.const';
-import { IntervalType } from '!/types/misc';
+import { ThemeType } from '@/types/config.const';
+import { IntervalType } from '@/types/misc';
 
 type StripType = {
 	height: number;

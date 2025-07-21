@@ -1,14 +1,14 @@
 import { useTranslation } from 'react-i18next';
-import { useParallax } from '!/contexts/parallax';
-import { useRouter } from '!/contexts/router';
-import { useSettings } from '!/contexts/settings';
-import { useSection } from '!/contexts/section';
+import { useParallax } from '@/contexts/parallax';
+import { useRouter } from '@/contexts/router';
+import { useSettings } from '@/contexts/settings';
+import { useSection } from '@/contexts/section';
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import classNames from 'classnames';
 
 import Container from './Container';
 
-import '!/styles/components/elements/Title.css';
+import '@/styles/components/elements/Title.css';
 
 const Title = () => {
 	const { pageId } = useRouter();

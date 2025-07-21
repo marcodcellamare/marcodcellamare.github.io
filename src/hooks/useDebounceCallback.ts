@@ -1,6 +1,6 @@
 import { useEffect, useRef, useCallback } from 'react';
 
-import { TimeoutType } from '!/types/misc';
+import { TimeoutType } from '@/types/misc';
 
 export const useDebounceCallback = <T extends (...args: any[]) => void>(
 	callback: T,

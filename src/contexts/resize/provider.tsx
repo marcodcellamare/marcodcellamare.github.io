@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { ResizeContext } from './context';
 
-import { windowSize } from '!/utils/misc';
+import { windowSize } from '@/utils/misc';
 
 interface ResizeProviderProps {
 	children: ReactNode;

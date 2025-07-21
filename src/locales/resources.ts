@@ -1,4 +1,4 @@
-import config from '!config';
+import config from '@config';
 
 const loader = async ({ iso, ns }: { iso: string; ns: string }) => {
 	let data = {};

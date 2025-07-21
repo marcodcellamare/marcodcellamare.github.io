@@ -1,5 +1,5 @@
 import { createContext, RefObject } from 'react';
-import { PageIdType, ThemeType } from '!/types/config.const';
+import { PageIdType, ThemeType } from '@/types/config.const';
 
 export interface SettingsContextProps {
 	scrollContainerRef: RefObject<HTMLDivElement | null>;

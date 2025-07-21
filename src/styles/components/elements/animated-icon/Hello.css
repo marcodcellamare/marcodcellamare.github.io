@@ -1,0 +1,48 @@
+@reference '@/styles/index.css';
+
+.animated-icon {
+	&.hello {
+		@apply transition-[rotate,translate] duration-200 ease-in-out;
+
+		&.waving {
+			@apply rotate-15 -translate-x-5;
+
+			svg {
+				@apply origin-[center_250%];
+
+				animation-name: waving;
+				animation-duration: 1s;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+			}
+		}
+		&.rocking {
+			@apply -rotate-10;
+
+			svg {
+				animation-name: rocking;
+				animation-duration: 0.6s;
+				animation-timing-function: ease-out;
+				animation-iteration-count: infinite;
+			}
+		}
+	}
+}
+@keyframes waving {
+	0%,
+	100% {
+		rotate: -3deg;
+	}
+	50% {
+		rotate: 3deg;
+	}
+}
+@keyframes rocking {
+	0%,
+	100% {
+		translate: 0rem;
+	}
+	50% {
+		translate: 0rem -1rem;
+	}
+}

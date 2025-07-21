@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { PageIdType } from '!/types/config.const';
+import { PageIdType } from '@/types/config.const';
 
 export interface RouterContextProps {
 	pageId: PageIdType;

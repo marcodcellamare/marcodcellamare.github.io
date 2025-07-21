@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '!/contexts/router';
-import { useSettings } from '!/contexts/settings';
+import { useRouter } from '@/contexts/router';
+import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 
 import Button from './Button';
 
-import { SectionInterface } from '!/types/layout';
+import { SectionInterface } from '@/types/layout';
 
 const MiniMap = () => {
 	const { pageId } = useRouter();

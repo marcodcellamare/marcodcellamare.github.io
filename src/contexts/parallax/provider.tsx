@@ -1,6 +1,6 @@
 import { ReactNode, RefObject } from 'react';
 import { ParallaxContext } from './context';
-import { useSettings } from '!/contexts/settings';
+import { useSettings } from '@/contexts/settings';
 
 interface ParallaxProviderProps {
 	children: ReactNode;

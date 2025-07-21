@@ -1,11 +1,11 @@
 import { Fragment, JSX, useRef } from 'react';
-import { useParallax } from '!/contexts/parallax';
+import { useParallax } from '@/contexts/parallax';
 import { motion, easeInOut, useScroll, useTransform } from 'motion/react';
-import { useSection } from '!/contexts/section';
-import { useSettings } from '!/contexts/settings';
+import { useSection } from '@/contexts/section';
+import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 
-import Container from '!/app/layout/elements/Container';
+import Container from '@/app/layout/elements/Container';
 import Default from './Default';
 import Carousel from './carousel';
 
