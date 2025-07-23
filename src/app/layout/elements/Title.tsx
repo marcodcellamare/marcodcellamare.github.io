@@ -10,7 +10,11 @@ import Container from './Container';
 
 import '@/styles/components/elements/Title.css';
 
-const Title = () => {
+interface TitleProps {
+	isFirst?: boolean;
+}
+
+const Title = ({ isFirst }: TitleProps) => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 	const { sectionId, sectionRef } = useSection();
@@ -36,7 +40,7 @@ const Title = () => {
 	return (
 		<Container
 			className={classNames([
-				'absolute bottom-1/2 left-0 right-0 pointer-events-none',
+				'absolute top-1/2 left-0 right-0 -translate-y-1/2 pointer-events-none',
 				spaceRef.current.container,
 			])}>
 			<motion.div
@@ -47,7 +51,13 @@ const Title = () => {
 					zIndex,
 					['--pattern-thickness' as string]: patternThickness,
 				}}>
-				<h4 className='relative h0 font-black uppercase text-transparent origin-left'>
+				<h4
+					className={classNames([
+						'relative h0 font-black uppercase text-transparent origin-left',
+						{
+							extra: isFirst,
+						},
+					])}>
 					{t(`sections.${sectionId}.title`)}
 				</h4>
 			</motion.div>

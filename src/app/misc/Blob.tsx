@@ -46,7 +46,7 @@ const Blob = ({
 	speed = 0.001,
 	numPoints = 5,
 	radius = 80,
-	className = '',
+	className,
 }: BlobProps) => {
 	const pathRef = useRef<SVGPathElement | null>(null);
 	const simplex = useRef(createNoise2D());

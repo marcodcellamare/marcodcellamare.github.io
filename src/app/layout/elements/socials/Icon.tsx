@@ -17,7 +17,7 @@ interface IconProps {
 	className?: string;
 }
 
-const Icon = ({ type, title = '', className = '' }: IconProps) => {
+const Icon = ({ type, title = '', className }: IconProps) => {
 	const props = {
 		title,
 		className: classNames(['text-svg', className]),

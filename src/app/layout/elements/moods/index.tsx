@@ -38,7 +38,7 @@ interface MoodsProps {
 	className?: string;
 }
 
-const Moods = ({ className = '' }: MoodsProps) => {
+const Moods = ({ className }: MoodsProps) => {
 	const { t } = useTranslation();
 	const { logEvent } = useFirebase();
 

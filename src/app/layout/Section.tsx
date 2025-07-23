@@ -9,6 +9,7 @@ import Title from './elements/Title';
 import Templates from './templates';
 import Pager from './elements/Pager';
 import Polygons from './elements/Polygons';
+import Background from './elements/Background';
 
 interface SectionProps {
 	sectionId: number;
@@ -17,12 +18,7 @@ interface SectionProps {
 	className?: string;
 }
 
-const Section = ({
-	sectionId,
-	isFirst,
-	isLast,
-	className = '',
-}: SectionProps) => {
+const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 	const { theme, setSectionRef, nextBackgroundColor, hasImage } =
 		useSection();
 	const { setSectionRefs, sectionRefs } = useSettings();
@@ -52,7 +48,7 @@ const Section = ({
 					isLast={isLast}
 				/>
 			)}
-			<Title />
+			<Title isFirst={isFirst} />
 			{!isLast && <Pattern />}
 			{!hasImage && !isFirst && !isLast && (
 				<Polygons
@@ -63,34 +59,7 @@ const Section = ({
 					margin={-10}
 				/>
 			)}
-			<picture className='absolute top-0 bottom-0 left-0 right-0 p-20'>
-				{/* <source
-					type='image/avif'
-					srcSet='
-      /images/head-800.avif 800w,
-      /images/head-1200.avif 1200w,
-      /images/head-1600.avif 1600w,
-      /images/head-2160.avif 2160w
-    '
-					sizes='100vw'
-				/>
-				<source
-					type='image/webp'
-					srcSet='
-      /images/head-800.webp 800w,
-      /images/head-1200.webp 1200w,
-      /images/head-1600.webp 1600w,
-      /images/head-2160.webp 2160w
-    '
-					sizes='100vw'
-				/> */}
-				<img
-					src='/images/marco-d-cellamare.png'
-					loading='lazy'
-					decoding='async'
-					className='w-full h-full object-contain'
-				/>
-			</picture>
+			{/* <Background /> */}
 			<Templates />
 		</section>
 	);

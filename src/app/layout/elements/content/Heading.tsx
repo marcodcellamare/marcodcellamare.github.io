@@ -10,7 +10,7 @@ interface HeadingProps {
 	className?: string;
 }
 
-const Heading = ({ rootKey, className = '' }: HeadingProps) => {
+const Heading = ({ rootKey, className }: HeadingProps) => {
 	const { sectionId } = useSection();
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);

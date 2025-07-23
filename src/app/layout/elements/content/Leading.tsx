@@ -9,7 +9,7 @@ interface LeadingProps {
 	className?: string;
 }
 
-const Leading = ({ rootKey, components, className = '' }: LeadingProps) => {
+const Leading = ({ rootKey, components, className }: LeadingProps) => {
 	const { pageId } = useRouter();
 	const { i18n } = useTranslation(pageId);
 	const { sectionId } = useSection();

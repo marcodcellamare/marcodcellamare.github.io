@@ -3,7 +3,8 @@
 .title {
 	.h0 {
 		@apply bg-left bg-fixed
-			bg-size-[0.7rem_0.7rem]
+			bg-size-[0.5rem_0.5rem]
+			lg:bg-size-[0.7rem_0.7rem]
 			bg-clip-text
 			min-w-fit;
 

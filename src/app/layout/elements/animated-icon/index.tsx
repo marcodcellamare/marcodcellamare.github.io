@@ -1,32 +1,21 @@
-import { useTranslation } from 'react-i18next';
-import { useRouter } from '@/contexts/router';
 import classNames from 'classnames';
 
-import Wrapper, { WrapperType } from './Wrapper';
+import Wrapper from './Wrapper';
+
+import { ImageIconType } from '@/types/layout';
 
 interface AnimatedIconProps {
-	rootKey: string;
+	icon: ImageIconType;
 	className?: string;
 }
 
-const AnimatedIcon = ({ rootKey, className = '' }: AnimatedIconProps) => {
-	const { pageId } = useRouter();
-	const { i18n, t } = useTranslation(pageId);
+const AnimatedIcon = ({ icon, className }: AnimatedIconProps) => (
+	<div className={classNames(['animated-icon relative', className])}>
+		<Wrapper
+			icon={icon}
+			className='flex-1 h-full stroke-[0.5]'
+		/>
+	</div>
+);
 
-	const iconExists = i18n.exists(rootKey, {
-		ns: pageId,
-	});
-	const icon = t(rootKey) as WrapperType;
-
-	if (!iconExists) return null;
-
-	return (
-		<div className={classNames(['animated-icon relative', className])}>
-			<Wrapper
-				type={icon}
-				className='flex-1 h-full stroke-[0.5]'
-			/>
-		</div>
-	);
-};
 export default AnimatedIcon;

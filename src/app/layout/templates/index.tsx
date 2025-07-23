@@ -6,7 +6,7 @@ import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 
 import Container from '@/app/layout/elements/Container';
-import Default from './Default';
+import Default from './default';
 import Carousel from './carousel';
 
 const Templates = () => {
@@ -61,7 +61,7 @@ const Templates = () => {
 		<motion.div
 			ref={targetRef}
 			style={{ y, scale, opacity, filter }}
-			className='template-wrapper flex items-center w-full relative z-1'>
+			className='template-wrapper flex items-center w-full relative z-3'>
 			{content}
 		</motion.div>
 	);

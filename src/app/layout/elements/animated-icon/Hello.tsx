@@ -34,8 +34,6 @@ const Hello = ({ className }: WrapperProps) => {
 		};
 	}, []);
 
-	useEffect(() => console.log(isRocking), [isRocking]);
-
 	return (
 		<div
 			className={classNames([

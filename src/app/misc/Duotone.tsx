@@ -15,7 +15,7 @@ const Duotone = ({
 	toAlpha = false,
 	bgColor,
 	fgColor,
-	className = '',
+	className,
 }: DuotoneProps) => {
 	const normalize = (color: number) => (color / 255).toFixed(3);
 

@@ -30,7 +30,7 @@ const Nav = ({
 	activeIdx,
 	setActiveIdx,
 	totalSlides,
-	className = '',
+	className,
 }: NavProps) => {
 	const { pageId } = useRouter();
 	const { t } = useTranslation(pageId);

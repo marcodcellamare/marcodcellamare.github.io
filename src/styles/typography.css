@@ -16,15 +16,10 @@
 	}
 
 	.h0 {
-		@apply text-7xl leading-[0.8em]
-			sm:text-8xl
-			md:text-9xl;
+		@apply text-[clamp(var(--text-6xl),10vw,15rem)] leading-[0.85em] md:leading-[0.8em];
 
 		&.extra {
-			@apply text-8xl leading-[0.8em]
-				sm:text-massive-lg sm:tracking-tight
-				md:text-massive-xl 
-				lg:text-massive-2xl;
+			@apply text-[clamp(var(--text-7xl),20vw,20rem)] leading-[0.85em] md:leading-[0.8em];
 		}
 	}
 	h1,

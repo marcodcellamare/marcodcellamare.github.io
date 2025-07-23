@@ -9,7 +9,7 @@ interface ContainerProps {
 }
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
-	({ className = '', children }, ref) => {
+	({ className, children }, ref) => {
 		const { DevBreakpoints } = useDevUtilities();
 		const { spaceRef } = useSettings();
 

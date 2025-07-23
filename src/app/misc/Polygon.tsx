@@ -29,7 +29,7 @@ const Polygon = ({
 	strokeOpacity = 1,
 	strokeWidth = 0,
 	strokeDasharray,
-	className = '',
+	className,
 }: PolygonProps) => {
 	const size = useRef(100);
 

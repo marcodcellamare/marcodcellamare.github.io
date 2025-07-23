@@ -20,8 +20,6 @@ export const i18n = i18next
 		supportedLngs: config.locale.allowed.list,
 		returnEmptyString: true,
 		debug: false,
-		//process.env.NODE_ENV !== 'production' &&
-		//process.env.NODE_ENV !== 'test',
 
 		interpolation: {
 			escapeValue: false,

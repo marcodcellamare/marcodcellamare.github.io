@@ -2,18 +2,18 @@ import { Fragment } from 'react/jsx-runtime';
 
 import Hello from './Hello';
 
-export type WrapperType = 'HELLO' | string;
+import { ImageIconType } from '@/types/layout';
 
 interface WrapperProps {
-	type: WrapperType;
+	icon: ImageIconType;
 	className?: string;
 }
 
-const Wrapper = ({ type, className }: WrapperProps) => {
+const Wrapper = ({ icon, className }: WrapperProps) => {
 	const props = {
 		className,
 	};
-	switch (type) {
+	switch (icon) {
 		case 'HELLO':
 			return <Hello {...props} />;
 	}

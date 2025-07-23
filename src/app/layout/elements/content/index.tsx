@@ -15,7 +15,7 @@ interface ContentProps {
 	className?: string;
 }
 
-const Content = ({ rootKey, className = '' }: ContentProps) => {
+const Content = ({ rootKey, className }: ContentProps) => {
 	const { pageId } = useRouter();
 	const { t, i18n } = useTranslation(pageId);
 

@@ -25,7 +25,7 @@ interface SocialsProps {
 	className?: string;
 }
 
-const Socials = ({ className = '' }: SocialsProps) => {
+const Socials = ({ className }: SocialsProps) => {
 	const { t } = useTranslation();
 
 	const socials = t(`socials`, {

@@ -3,8 +3,8 @@
 .pattern {
 	@apply bg-transparent
 		bg-gradient-to-b
-		from-(--color-next-background)/0 from-0%
-		to-(--color-next-background) to-80%;
+		from-(--color-next-background)/0 from-50%
+		to-(--color-next-background) to-100%;
 
 	> div {
 		@apply bg-top bg-fixed

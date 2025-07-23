@@ -8,13 +8,14 @@ import classNames from 'classnames';
 
 import Blob from '@/app/misc/Blob';
 import Duotone from '@/app/misc/Duotone';
+import Picture from '@/app/misc/picture';
 
 interface ImageProps {
 	rootKey: string;
 	className?: string;
 }
 
-const Image = ({ rootKey, className = '' }: ImageProps) => {
+const Image = ({ rootKey, className }: ImageProps) => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 	const { duotoneColorBackground, duotoneColorForeground } = useSection();
@@ -60,18 +61,17 @@ const Image = ({ rootKey, className = '' }: ImageProps) => {
 				/>
 			)}
 			<div className='relative w-full h-full pointer-events-none'>
-				<img
+				<Picture
 					src={t(`${rootKey}.src`)}
-					className='h-full max-h-full'
 					style={{
 						clipPath: blob ? `url(#mask.${id})` : undefined,
 						filter: duotone ? `url(#duotone.${id})` : undefined,
 					}}
 				/>
 				{duotone && (
-					<img
+					<Picture
 						src={t(`${rootKey}.src`)}
-						className={classNames([
+						pictureClassName={classNames([
 							'absolute top-0 bottom-0 left-0 right-0 h-full transition-opacity duration-400 ease-in-out',
 							!isOver ? 'opacity-0' : 'opacity-100 delay-100',
 						])}

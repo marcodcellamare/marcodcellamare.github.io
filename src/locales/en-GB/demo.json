@@ -6,9 +6,17 @@
 			"theme": "red",
 			"template": "default",
 			"title": "Hello",
+			"settings": {
+				"background": {
+					"src": "/images/marco-d-cellamare.png",
+					"floating": true,
+					"contain": true
+				}
+			},
 			"content": [
 				{
 					"image": {
+						"src": "ICON",
 						"icon": "HELLO"
 					},
 					"heading": {

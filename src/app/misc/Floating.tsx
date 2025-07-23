@@ -59,7 +59,7 @@ const Floating = ({
 	minShadowOpacity = 0.05,
 	maxShadowOpacity = 0.2,
 
-	className = '',
+	className,
 	style = {},
 	children,
 }: FloatingProps) => {

@@ -34,7 +34,7 @@ interface IconProps {
 	className?: string;
 }
 
-const Icon = ({ category, isVisible = false, className = '' }: IconProps) => {
+const Icon = ({ category, isVisible = false, className }: IconProps) => {
 	const { t } = useTranslation();
 
 	const [icon, setIcon] = useState<ReactElement>();

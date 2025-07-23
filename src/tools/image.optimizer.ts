@@ -8,18 +8,21 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const env = dotenv.config().parsed;
+
 const rootDir = '../../';
 const imagesDir = path.join(__dirname, rootDir, 'public/images');
 const imageFiles: string[] = [];
 const imageDirs: Set<string> = new Set();
-const optimizedDir = env?.VITE_OPTIMIZED_DIR ?? '';
 
-const sizes = [800, 1200, 1600, 2160];
-const formats = ['avif', 'webp', '@own'];
+const optimizedDir = env?.VITE_OPTIMIZED_IMAGES_DIR ?? '';
+const optimizedSizes: number[] =
+	env?.VITE_OPTIMIZED_IMAGES_SIZES.split('|').map(Number) ?? [];
+const optimizedFormats: string[] =
+	env?.VITE_OPTIMIZED_IMAGES_FORMATS.split('|') ?? [];
 
 const isValid = () => {
-	if (!optimizedDir) {
-		console.error('❌❌ No .env VITE_OPTIMIZED_DIR found.');
+	if (!optimizedDir || !optimizedSizes || !optimizedFormats) {
+		console.error('❌❌ No .env VITE_OPTIMIZED_IMAGES_ found.');
 		return false;
 	}
 	return true;
@@ -39,7 +42,11 @@ const cleanup = () => {
 			if (fs.existsSync(optimizedPath)) {
 				fs.rmSync(optimizedPath, { recursive: true, force: true });
 			}
-			fs.mkdirSync(optimizedPath, { recursive: true });
+			optimizedSizes.forEach((size) => {
+				fs.mkdirSync(path.join(optimizedPath, `${size}`), {
+					recursive: true,
+				});
+			});
 		}
 	});
 	console.log(`✅✅ Successfully cleaned up ${optimizedDir}`);
@@ -67,7 +74,7 @@ const getImageFiles = (dir: string): string[] => {
 
 // Perform optimization
 const optimize = async () => {
-	if (!isValid) return;
+	if (!isValid || !imageFiles) return;
 
 	cleanup();
 	const tasks: Promise<unknown>[] = [];
@@ -76,14 +83,15 @@ const optimize = async () => {
 		const parsed = path.parse(file);
 		const optimizedPath = path.join(parsed.dir, optimizedDir);
 
-		formats.forEach((format) => {
+		optimizedFormats.forEach((format) => {
 			const actualFormat =
 				format === '@own' ? parsed.ext.replace('.', '') : format;
 
-			sizes.forEach((size) => {
+			optimizedSizes.forEach((size) => {
 				const destinationFile = path.join(
 					optimizedPath,
-					`${parsed.name}.${size}.${actualFormat}`
+					`${size}`,
+					`${parsed.name}.${actualFormat}`
 				);
 
 				const task = sharp(file)
