@@ -39,7 +39,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 		absEdge: 'm-5 md:m-10',
 		absEdgePadding: 'p-5 md:p-10',
 		nav: 'p-20',
-		section: 'py-20 lg:py-30 xl:py-40',
+		section: 'pt-20 pb-35 lg:py-35 xl:py-40',
 		container: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:px-50 3xl:px-80',
 		carouselItem: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:pl-50 3xl:pl-80',
 		content: 'gap-8 lg:gap-12 3xl:gap-24',
@@ -91,6 +91,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 	useEffect(() => {
 		if (scrollContainerRef.current === null) return;
 
+		setIsNavOpened(false);
 		scrollContainerRef.current.scroll({
 			top: 0,
 			behavior: 'smooth',

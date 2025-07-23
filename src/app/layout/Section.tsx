@@ -59,7 +59,7 @@ const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 					margin={-10}
 				/>
 			)}
-			{/* <Background /> */}
+			<Background />
 			<Templates />
 		</section>
 	);
