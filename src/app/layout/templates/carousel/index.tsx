@@ -21,7 +21,7 @@ interface CarouselProps {
 
 const Carousel = ({ template, className }: CarouselProps) => {
 	const { pageId } = useRouter();
-	const { i18n, t } = useTranslation(pageId);
+	const { i18n } = useTranslation(pageId);
 	const { sectionId, settings } = useSection();
 	const { spaceRef } = useSettings();
 

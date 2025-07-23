@@ -18,7 +18,7 @@ interface ContentProps {
 
 const Content = ({ rootKey, className }: ContentProps) => {
 	const { pageId } = useRouter();
-	const { t, i18n } = useTranslation(pageId);
+	const { i18n } = useTranslation(pageId);
 
 	const headingExists = i18n.exists(`${rootKey}.heading`, {
 		ns: pageId,

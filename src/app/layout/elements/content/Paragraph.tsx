@@ -11,7 +11,7 @@ const Paragraph = ({ rootKey, components }: ParagraphProps) => {
 	const { pageId } = useRouter();
 	const { i18n } = useTranslation(pageId);
 
-	const paragraphsExists = i18n.exists(`${rootKey}`, {
+	const paragraphsExists = i18n.exists(rootKey, {
 		ns: pageId,
 	});
 	const paragraphs = useTranslationFallback<string[]>(rootKey, [], pageId);
