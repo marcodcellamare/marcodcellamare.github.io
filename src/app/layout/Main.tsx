@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next';
 import { useRouter } from '@/contexts/router';
 import { useSettings } from '@/contexts/settings';
 import { SectionProvider } from '@/contexts/section';
+import useTranslationFallback from '@/hooks/useTranslationFallback';
 
 import Section from './Section';
 
@@ -9,13 +9,13 @@ import { SectionInterface } from '@/types/layout';
 
 const Main = () => {
 	const { pageId } = useRouter();
-	const { t } = useTranslation(pageId);
 	const { setScrollContainerRef } = useSettings();
 
-	const sections = t('sections', {
-		returnObjects: true,
-		defaultValue: [],
-	}) as SectionInterface[];
+	const sections = useTranslationFallback<Partial<SectionInterface[]>>(
+		`sections`,
+		[],
+		pageId
+	);
 
 	return (
 		<main className='flex flex-col flex-1 h-full relative z-0'>

@@ -6,6 +6,7 @@ export type ImageIconType = 'HELLO' | string;
 export interface SectionInterface {
 	theme: ThemeType;
 	template?: TemplateType;
+	background: BackgroundInterface;
 	settings?: SettingsInterface;
 	title?: string;
 	content?: ContentInterface;
@@ -40,7 +41,6 @@ export interface BackgroundInterface {
 }
 
 export interface SettingsInterface {
-	background: BackgroundInterface;
 	className?: string;
 	children?: {
 		className?: string;

@@ -1,5 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { useRouter } from '@/contexts/router';
+import useTranslationFallback from '@/hooks/useTranslationFallback';
 
 interface ParagraphProps {
 	rootKey: string;
@@ -8,15 +9,12 @@ interface ParagraphProps {
 
 const Paragraph = ({ rootKey, components }: ParagraphProps) => {
 	const { pageId } = useRouter();
-	const { i18n, t } = useTranslation(pageId);
+	const { i18n } = useTranslation(pageId);
 
 	const paragraphsExists = i18n.exists(`${rootKey}`, {
 		ns: pageId,
 	});
-	const paragraphs = t(`${rootKey}`, {
-		returnObjects: true,
-		defaultValue: [],
-	}) as string[];
+	const paragraphs = useTranslationFallback<string[]>(rootKey, [], pageId);
 
 	if (!paragraphsExists || paragraphs.length === 0) return null;
 

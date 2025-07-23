@@ -1,6 +1,6 @@
 import { useRouter } from '@/contexts/router';
 import { ImageInterface } from '@/types/layout';
-import { useTranslation } from 'react-i18next';
+import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
 import AnimatedIcon from '@/app/layout/elements/animated-icon';
@@ -12,12 +12,12 @@ interface DefaultProps {
 
 const ImageWrapper = ({ rootKey }: DefaultProps) => {
 	const { pageId } = useRouter();
-	const { t } = useTranslation(pageId);
 
-	const image = t(`${rootKey}`, {
-		returnObjects: true,
-		defaultValue: {},
-	}) as unknown as ImageInterface;
+	const image = useTranslationFallback<Partial<ImageInterface>>(
+		rootKey,
+		{},
+		pageId
+	);
 
 	switch (image.src) {
 		case 'ICON':
@@ -74,37 +74,5 @@ const ImageWrapper = ({ rootKey }: DefaultProps) => {
 				)
 			);
 	}
-
-	/* 
-	const { sectionId, sectionRef } = useSection();
-	const { getScrollConfig } = useParallax();
-	const { DevBreakpoints } = useDevUtilities();
-
-	const rootKey = `sections.${sectionId}.content.${slideId}`;
-	const imageExists = i18n.exists(`${rootKey}.image.src`, {
-		ns: pageId,
-	});
-	const iconExists = i18n.exists(`${rootKey}.image.icon`, {
-		ns: pageId,
-	});
-
-	const position = t(
-		`${rootKey}.image.position`,
-		'left'
-	) as ImagePositionType;
-	const isBlob = t(`${rootKey}.image.blob`, {
-		returnObjects: true,
-		defaultValue: false,
-	}) as unknown as boolean;
-
-	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
-	const y = useTransform(scrollYProgress, [0, 1], ['-3rem', '3rem'], {
-		ease: easeInOut,
-	});
-	const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1, 0.8], {
-		ease: easeInOut,
-	}); */
-
-	return <div>xxxx</div>;
 };
 export default ImageWrapper;

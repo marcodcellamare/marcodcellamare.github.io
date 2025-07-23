@@ -1,6 +1,7 @@
 import { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '@/contexts/router';
+import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
 import Heading from './Heading';
@@ -28,10 +29,12 @@ const Content = ({ rootKey, className }: ContentProps) => {
 	const paragraphsExists = i18n.exists(`${rootKey}.paragraphs`, {
 		ns: pageId,
 	});
-	const links = t(`${rootKey}.links`, {
-		returnObjects: true,
-		defaultValue: [],
-	}) as string[];
+
+	const links = useTranslationFallback<string[]>(
+		`${rootKey}.links`,
+		[],
+		pageId
+	);
 
 	const transComponents: Record<string, JSX.Element> = {
 		linked: <Link />,

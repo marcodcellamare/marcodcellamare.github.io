@@ -2,14 +2,21 @@ import { useSection } from '@/contexts/section';
 
 import Picture from '@/app/misc/picture';
 import Floating from '@/app/misc/Floating';
+import classNames from 'classnames';
 
 const Background = () => {
-	const { settings } = useSection();
+	const { background } = useSection();
 
-	if (!settings?.background?.src) return;
+	if (!background.src) return;
 
 	return (
-		<div className='absolute top-0 bottom-0 left-0 right-0 m-10 lg:m-20 pointer-events-none z-2 perspective-midrange'>
+		<div
+			className={classNames([
+				'absolute top-0 bottom-0 left-0 right-0 pointer-events-none z-2 perspective-midrange',
+				{
+					'm-10 lg:m-20': background?.contain,
+				},
+			])}>
 			<Floating
 				mode='repel'
 				ratioX={30}
@@ -19,8 +26,8 @@ const Background = () => {
 				maxRotation={5}
 				className='absolute top-0 bottom-0 left-0 right-0'>
 				<Picture
-					src={settings.background.src}
-					contain={settings?.background?.contain}
+					src={background.src}
+					contain={background?.contain}
 					pictureClassName='absolute top-0 bottom-0 left-0 right-0'
 					async={true}
 				/>

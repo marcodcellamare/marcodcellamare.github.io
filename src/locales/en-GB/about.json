@@ -6,18 +6,17 @@
 			"theme": "red",
 			"template": "default",
 			"title": "Hello",
-			"settings": {
-				"background": {
-					"src": "/images/marco-d-cellamare.png",
-					"floating": true,
-					"contain": true
-				}
+			"background": {
+				"src": "/images/mario.png",
+				"floating": false,
+				"contain": false
 			},
 			"content": [
 				{
 					"image": {
 						"src": "ICON",
-						"icon": "HELLO"
+						"icon": "HELLO",
+						"blob": false
 					},
 					"heading": {
 						"headline": "This is",

@@ -11,12 +11,17 @@ import { SectionContext } from './context';
 import { useSettings } from '@/contexts/settings';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from '@/contexts/router';
+import useTranslationFallback from '@/hooks/useTranslationFallback';
 import { cssVariable } from '@/utils/misc';
 
 import config from '@config';
 
 import { TemplateType, ThemeType } from '@/types/config.const';
-import { ContentInterface, SettingsInterface } from '@/types/layout';
+import {
+	BackgroundInterface,
+	ContentInterface,
+	SettingsInterface,
+} from '@/types/layout';
 
 interface SectionProviderProps {
 	sectionId: number;
@@ -64,23 +69,29 @@ export const SectionProvider = ({
 		() => getTemplate(sectionId),
 		[getTemplate, sectionId]
 	);
-	const settings = useMemo(
-		() =>
-			t(`sections.${sectionId}.settings`, {
-				returnObjects: true,
-				defaultValue: {},
-			}) as SettingsInterface,
-		[t, sectionId]
+
+	const settings = useTranslationFallback<Partial<SettingsInterface>>(
+		`sections.${sectionId}.settings`,
+		{},
+		pageId
 	);
 
-	const hasImage = useMemo(() => {
-		const content = t(`sections.${sectionId}.content`, {
-			returnObjects: true,
-			defaultValue: [],
-		}) as ContentInterface[];
+	const background = useTranslationFallback<Partial<BackgroundInterface>>(
+		`sections.${sectionId}.background`,
+		{},
+		pageId
+	);
 
-		return content.some((item) => 'image' in item);
-	}, [t, sectionId]);
+	const content = useTranslationFallback<Partial<ContentInterface[]>>(
+		`sections.${sectionId}.content`,
+		[],
+		pageId
+	);
+
+	const hasImage = useMemo(
+		() => content.some((item) => item && 'image' in item),
+		[content]
+	);
 
 	const themeCssVar = (theme: ThemeType, cssVar: string) =>
 		cssVariable(cssVar, `[data-theme="${theme}"]`);
@@ -108,6 +119,7 @@ export const SectionProvider = ({
 				sectionRef,
 				sectionId,
 				template,
+				background,
 				settings,
 				theme,
 				nextBackgroundColor,

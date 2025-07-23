@@ -1,6 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { useRouter } from '@/contexts/router';
 import { useSettings } from '@/contexts/settings';
+import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
 import Button from './Button';
@@ -9,13 +9,13 @@ import { SectionInterface } from '@/types/layout';
 
 const MiniMap = () => {
 	const { pageId } = useRouter();
-	const { t } = useTranslation(pageId);
 	const { spaceRef } = useSettings();
 
-	const sections = t('sections', {
-		returnObjects: true,
-		defaultValue: [],
-	}) as SectionInterface[];
+	const sections = useTranslationFallback<Partial<SectionInterface[]>>(
+		'sections',
+		[],
+		pageId
+	);
 
 	if (sections.length < 2) return null;
 

@@ -3,6 +3,7 @@ import { useSection } from '@/contexts/section';
 import { useRouter } from '@/contexts/router';
 import { useTranslation } from 'react-i18next';
 import { useSettings } from '@/contexts/settings';
+import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
 import Nav from './Nav';
@@ -31,13 +32,15 @@ const Carousel = ({ template, className }: CarouselProps) => {
 
 	const rootKey = `sections.${sectionId}.content`;
 
-	const contentExists = i18n.exists(`${rootKey}`, {
+	const contentExists = i18n.exists(rootKey, {
 		ns: pageId,
 	});
-	const content = t(`${rootKey}`, {
-		returnObjects: true,
-		defaultValue: [],
-	}) as SectionInterface[];
+
+	const content = useTranslationFallback<Partial<SectionInterface[]>>(
+		rootKey,
+		[],
+		pageId
+	);
 
 	if (!contentExists) return null;
 

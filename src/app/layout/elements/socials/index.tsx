@@ -1,7 +1,7 @@
-import { useTranslation } from 'react-i18next';
+import useTranslationFallback from '@/hooks/useTranslationFallback';
+import classNames from 'classnames';
 
 import Link from './Link';
-import classNames from 'classnames';
 
 export type SocialType =
 	| 'download'
@@ -26,28 +26,29 @@ interface SocialsProps {
 }
 
 const Socials = ({ className }: SocialsProps) => {
-	const { t } = useTranslation();
+	const socials = useTranslationFallback<SocialInterface[]>('socials', []);
 
-	const socials = t(`socials`, {
-		returnObjects: true,
-		defaultValue: [],
-	}) as SocialInterface[];
+	if (socials.length === 0) return;
 
 	return (
 		<div className={classNames(['socials', className])}>
 			<ul className='flex flex-row gap-1.5 md:gap-2 flex-nowrap'>
-				{socials.map((social, k) => (
-					<li
-						key={k}
-						className='flex'>
-						<Link
-							type={social.type}
-							highlight={social.highlight}
-							title={social.title}
-							link={social.link}
-						/>
-					</li>
-				))}
+				{socials.map(
+					(social, k) =>
+						social?.type &&
+						social?.title && (
+							<li
+								key={k}
+								className='flex'>
+								<Link
+									type={social.type}
+									highlight={social?.highlight}
+									title={social.title}
+									link={social?.link}
+								/>
+							</li>
+						)
+				)}
 			</ul>
 		</div>
 	);
