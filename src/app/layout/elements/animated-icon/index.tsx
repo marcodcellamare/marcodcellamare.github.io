@@ -13,9 +13,8 @@ const AnimatedIcon = ({ icon, className }: AnimatedIconProps) => (
 	<div className={classNames(['animated-icon relative', className])}>
 		<Wrapper
 			icon={icon}
-			className='flex-1 h-full stroke-[0.5]'
+			className='flex-1 h-full stroke-[0.3]'
 		/>
 	</div>
 );
-
 export default AnimatedIcon;

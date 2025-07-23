@@ -5,6 +5,7 @@
 		&.font-bold {
 			@apply stroke-3;
 		}
+		vector-effect: non-scaling-stroke;
 	}
 	.font-bold {
 		.lucide {

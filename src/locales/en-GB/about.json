@@ -7,9 +7,8 @@
 			"template": "default",
 			"title": "Hello",
 			"background": {
-				"src": "/images/mario.png",
-				"contain": false,
-				"className": "mix-blend-multiply opacity-100"
+				"src": "/images/marco-d-cellamare.png",
+				"contain": true
 			},
 			"content": [
 				{

@@ -12,7 +12,7 @@ import pkg from '@package';
 
 const Nav = () => {
 	const { pageTheme, overTheme, isNavOpened, spaceRef } = useSettings();
-	const { isScrolling } = useScroll();
+	const { isWheeling } = useScroll();
 	const { t } = useTranslation();
 
 	return (
@@ -58,7 +58,7 @@ const Nav = () => {
 						'text-xxs lg:text-xs font-black uppercase text-nowrap',
 						'origin-[-1.75rem_center] md:origin-[-1.5rem_center] overflow-hidden',
 						'transition-[max-width,rotate] duration-500 ease-in-out',
-						!isScrolling || isNavOpened
+						!isWheeling || isNavOpened
 							? 'max-w-[100vh]'
 							: 'max-w-[0vh]',
 						!isNavOpened ? 'rotate-90' : 'rotate-0',

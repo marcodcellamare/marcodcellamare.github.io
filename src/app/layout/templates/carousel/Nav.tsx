@@ -9,6 +9,7 @@ import {
 import { useRouter } from '@/contexts/router';
 import { useTranslation } from 'react-i18next';
 import { useSettings } from '@/contexts/settings';
+import { useScroll } from '@/contexts/scroll';
 import useThrottleCallback from '@/hooks/useThrottleCallback';
 import classNames from 'classnames';
 
@@ -35,6 +36,7 @@ const Nav = ({
 	const { pageId } = useRouter();
 	const { t } = useTranslation(pageId);
 	const { spaceRef } = useSettings();
+	const { isWheeling } = useScroll();
 
 	const [isOver, setIsOver] = useState(false);
 
@@ -74,17 +76,7 @@ const Nav = ({
 
 	const handleWheelThrottled = useThrottleCallback(handleWheel, 200);
 
-	useEffect(() => {
-		const container = containerRef.current;
-		if (!container) return;
-
-		container.addEventListener('wheel', handleWheelThrottled, {
-			passive: true,
-		});
-		return () => {
-			container.removeEventListener('wheel', handleWheelThrottled);
-		};
-	}, [containerRef, handleWheelThrottled]);
+	useEffect(handleWheelThrottled, [isWheeling, handleWheelThrottled]);
 
 	useEffect(() => {
 		if (isWheelScroll.current) return;

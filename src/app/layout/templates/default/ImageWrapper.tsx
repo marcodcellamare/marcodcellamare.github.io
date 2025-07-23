@@ -24,11 +24,9 @@ const ImageWrapper = ({ rootKey }: DefaultProps) => {
 						className={classNames([
 							'flex flex-1 text-(--color-link)',
 							'scale-150',
-							'@md:scale-170',
-							'@3xl:scale-250',
-							'@5xl:scale-210',
-							'max-w-60',
-							'@4xl:max-w-70',
+							'@3xl:scale-115',
+							'min-w-50 max-w-[33vw]',
+							'@3xl:max-w-none',
 						])}
 					/>
 				)

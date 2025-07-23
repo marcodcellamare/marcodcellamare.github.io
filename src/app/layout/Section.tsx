@@ -42,13 +42,13 @@ const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 					)})`,
 				} as CSSProperties
 			}>
+			<Background />
 			{Object.keys(sectionRefs.current).length > 0 && (
 				<Pager
 					isFirst={isFirst}
 					isLast={isLast}
 				/>
 			)}
-			<Background />
 			<Title isFirst={isFirst} />
 			{!isLast && <Pattern />}
 			{!hasImage && !isFirst && !isLast && (

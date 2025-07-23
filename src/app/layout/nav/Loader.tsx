@@ -19,7 +19,7 @@ type StripType = {
 const Loader = () => {
 	const { isNavOpened, isLoading, isLoaderTickled, setIsLoading } =
 		useSettings();
-	const { scrollY } = useScroll();
+	const { isWheeling } = useScroll();
 
 	const [strips, setStrips] = useState<StripType[]>([]);
 	const [stripsWidths, setStripsWidths] = useState<number[]>([]);
@@ -139,7 +139,7 @@ const Loader = () => {
 		animate();
 
 		return cleanup;
-	}, [scrollY, animate]);
+	}, [isWheeling, animate]);
 
 	usePageVisibility({
 		onBlur: () => setIsLoading(true),

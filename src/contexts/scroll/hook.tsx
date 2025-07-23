@@ -24,6 +24,7 @@ export const useScroll = (callback?: () => void) => {
 	return {
 		scrollX: context.scrollX,
 		scrollY: context.scrollY,
+		isWheeling: context.isWheeling,
 		isScrolling: context.isScrolling,
 	};
 };
