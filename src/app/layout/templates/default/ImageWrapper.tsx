@@ -13,11 +13,7 @@ interface DefaultProps {
 const ImageWrapper = ({ rootKey }: DefaultProps) => {
 	const { pageId } = useRouter();
 
-	const image = useTranslationFallback<Partial<ImageInterface>>(
-		rootKey,
-		{},
-		pageId
-	);
+	const image = useTranslationFallback<ImageInterface>(rootKey, {}, pageId);
 
 	switch (image.src) {
 		case 'ICON':

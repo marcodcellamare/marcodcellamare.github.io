@@ -35,7 +35,6 @@ export interface ContentInterface {
 
 export interface BackgroundInterface {
 	src: string;
-	floating?: boolean;
 	contain?: boolean;
 	className?: string;
 }

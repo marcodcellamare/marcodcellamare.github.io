@@ -48,6 +48,7 @@ const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 					isLast={isLast}
 				/>
 			)}
+			<Background />
 			<Title isFirst={isFirst} />
 			{!isLast && <Pattern />}
 			{!hasImage && !isFirst && !isLast && (
@@ -59,7 +60,6 @@ const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 					margin={-10}
 				/>
 			)}
-			<Background />
 			<Templates />
 		</section>
 	);

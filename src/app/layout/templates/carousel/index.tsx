@@ -36,7 +36,7 @@ const Carousel = ({ template, className }: CarouselProps) => {
 		ns: pageId,
 	});
 
-	const content = useTranslationFallback<Partial<SectionInterface[]>>(
+	const content = useTranslationFallback<SectionInterface[]>(
 		rootKey,
 		[],
 		pageId

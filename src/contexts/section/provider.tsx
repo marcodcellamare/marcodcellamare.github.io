@@ -70,19 +70,19 @@ export const SectionProvider = ({
 		[getTemplate, sectionId]
 	);
 
-	const settings = useTranslationFallback<Partial<SettingsInterface>>(
+	const settings = useTranslationFallback<SettingsInterface>(
 		`sections.${sectionId}.settings`,
 		{},
 		pageId
 	);
 
-	const background = useTranslationFallback<Partial<BackgroundInterface>>(
+	const background = useTranslationFallback<BackgroundInterface>(
 		`sections.${sectionId}.background`,
 		{},
 		pageId
 	);
 
-	const content = useTranslationFallback<Partial<ContentInterface[]>>(
+	const content = useTranslationFallback<ContentInterface[]>(
 		`sections.${sectionId}.content`,
 		[],
 		pageId

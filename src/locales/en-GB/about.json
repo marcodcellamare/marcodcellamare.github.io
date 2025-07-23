@@ -8,8 +8,8 @@
 			"title": "Hello",
 			"background": {
 				"src": "/images/mario.png",
-				"floating": false,
-				"contain": false
+				"contain": false,
+				"className": "mix-blend-multiply opacity-100"
 			},
 			"content": [
 				{

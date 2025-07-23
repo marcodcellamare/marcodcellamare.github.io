@@ -11,7 +11,7 @@ const MiniMap = () => {
 	const { pageId } = useRouter();
 	const { spaceRef } = useSettings();
 
-	const sections = useTranslationFallback<Partial<SectionInterface[]>>(
+	const sections = useTranslationFallback<SectionInterface[]>(
 		'sections',
 		[],
 		pageId

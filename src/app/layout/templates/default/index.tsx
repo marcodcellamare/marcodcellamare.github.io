@@ -72,7 +72,7 @@ const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 					ratioY={40}
 					duration={0.5}
 					className={classNames([
-						'shrink-0 min-w-30 z-1',
+						'shrink-0 min-w-30',
 						!imageExists
 							? '@3xl:basis-9/12 @6xl:basis-7/12'
 							: '@3xl:basis-6/12 @4xl:basis-7/12',

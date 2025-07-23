@@ -11,7 +11,7 @@ const Main = () => {
 	const { pageId } = useRouter();
 	const { setScrollContainerRef } = useSettings();
 
-	const sections = useTranslationFallback<Partial<SectionInterface[]>>(
+	const sections = useTranslationFallback<SectionInterface[]>(
 		`sections`,
 		[],
 		pageId
