@@ -70,11 +70,11 @@ const Link = ({ thisPageId }: LinkProps) => {
 					'relative uppercase font-black inline-block transition-[color,font-size,line-height,padding-left,margin-left] duration-250 ease-in-out',
 					!isActive
 						? 'text-(--color-link) hover:text-(--color-link-hover) leading-[0.9em]'
-						: 'text-(--color-link-active) text-[150%] leading-[0.8em]',
+						: 'text-(--color-link-active) text-[120%] lg:text-[150%] leading-[0.8em]',
 					{
 						'cursor-pointer': !isActive,
 						'!pointer-events-none': isActive || !isNavOpened,
-						'-ms-[4%] lg:-ms-[3%]': isActive,
+						'md:-translate-x-5 lg:-translate-x-10': isActive,
 					},
 				])
 			}>

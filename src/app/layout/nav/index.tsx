@@ -34,12 +34,16 @@ const Nav = () => {
 						spaceRef.current.nav,
 					])}>
 					<Menu />
-					<Counter
-						date={new Date(t('counter.experience'))}
-						sentenceLike={true}
-						className='min-w-50 w-full lg:max-w-1/2 uppercase font-black text-(--color-link-active) h6 text-xs md:text-sm transition-color duration-250 ease-in-out pointer-events-none'
-						suffx={`${t('counter.ofExperience').toLowerCase()}.`}
-					/>
+					<div className='min-w-50 min-h-15 flex items-end w-full lg:max-w-1/2'>
+						<Counter
+							date={new Date(t('counter.experience'))}
+							sentenceLike={true}
+							className='uppercase font-black text-(--color-link-active) h6 text-xs md:text-sm transition-color duration-250 ease-in-out pointer-events-none'
+							suffx={`${t(
+								'counter.ofExperience'
+							).toLowerCase()}.`}
+						/>
+					</div>
 					<div className='min-w-50 text-xs text-(--color-link-active) transform-[color] duration-200 ease-in-out'>
 						<strong>{`v${pkg.version}`}</strong>
 						<br />
