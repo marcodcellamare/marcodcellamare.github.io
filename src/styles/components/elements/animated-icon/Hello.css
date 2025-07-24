@@ -11,7 +11,7 @@
 				@apply origin-[center_250%];
 
 				animation-name: waving;
-				animation-duration: 1s;
+				animation-duration: 1.5s;
 				animation-timing-function: ease-in-out;
 				animation-iteration-count: infinite;
 			}
@@ -21,7 +21,7 @@
 
 			svg {
 				animation-name: rocking;
-				animation-duration: 0.6s;
+				animation-duration: 0.5s;
 				animation-timing-function: ease-out;
 				animation-iteration-count: infinite;
 			}
@@ -31,10 +31,10 @@
 @keyframes waving {
 	0%,
 	100% {
-		rotate: -3deg;
+		rotate: -2deg;
 	}
 	50% {
-		rotate: 3deg;
+		rotate: 2deg;
 	}
 }
 @keyframes rocking {
@@ -43,6 +43,6 @@
 		translate: 0rem;
 	}
 	50% {
-		translate: 0rem -1rem;
+		translate: 0rem -2rem;
 	}
 }

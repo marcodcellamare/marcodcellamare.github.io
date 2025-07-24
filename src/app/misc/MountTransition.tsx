@@ -42,7 +42,7 @@ interface MountTransitionProps {
 const MountTransition = ({
 	mountIf,
 	timeout,
-	className: transitionClassName = '',
+	className: transitionClassName,
 	unmountOnExit = true,
 
 	onMounted,

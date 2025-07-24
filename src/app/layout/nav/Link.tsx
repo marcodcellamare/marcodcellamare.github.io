@@ -67,12 +67,12 @@ const Link = ({ thisPageId }: LinkProps) => {
 			onClick={handleClick}
 			className={({ isActive }) =>
 				classNames([
-					'relative uppercase font-black transition-[color,font-size,line-height,padding-left,margin-left] inline-block duration-250 ease-in-out',
+					'relative uppercase font-black inline-block transition-[color,font-size,line-height,padding-left,margin-left] duration-250 ease-in-out',
 					!isActive
 						? 'text-(--color-link) hover:text-(--color-link-hover) leading-[0.9em]'
 						: 'text-(--color-link-active) text-[150%] leading-[0.8em]',
 					{
-						'cursor-pointer ----hover:pl-5': !isActive,
+						'cursor-pointer': !isActive,
 						'!pointer-events-none': isActive || !isNavOpened,
 						'-ms-[4%] lg:-ms-[3%]': isActive,
 					},

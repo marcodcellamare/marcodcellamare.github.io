@@ -7,7 +7,6 @@ import { easeInOut, motion, useScroll, useTransform } from 'motion/react';
 import classNames from 'classnames';
 
 import Content from '@/app/layout/elements/content';
-import Floating from '@/app/misc/Floating';
 
 import { ImagePositionType } from '@/types/layout';
 import ImageWrapper from './ImageWrapper';
@@ -57,28 +56,18 @@ const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 							},
 						])}
 						style={{ y, scale }}>
-						<Floating
-							mode='attract'
-							ratioX={50}
-							ratioY={15}
-							duration={1}
-							className='flex flex-1'>
-							<ImageWrapper rootKey={`${rootKey}.image`} />
-						</Floating>
+						<ImageWrapper rootKey={`${rootKey}.image`} />
 					</motion.div>
 				)}
-				<Floating
-					mode='repel'
-					ratioY={40}
-					duration={0.5}
+				<Content
+					rootKey={rootKey}
 					className={classNames([
 						'shrink-0 min-w-30',
 						!imageExists
 							? '@3xl:basis-9/12 @6xl:basis-7/12'
 							: '@3xl:basis-6/12 @4xl:basis-7/12',
-					])}>
-					<Content rootKey={rootKey} />
-				</Floating>
+					])}
+				/>
 			</div>
 		</div>
 	);

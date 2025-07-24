@@ -38,15 +38,15 @@ const ImageWrapper = ({ rootKey }: DefaultProps) => {
 					<Image
 						rootKey={rootKey}
 						className={classNames([
-							'flex-1 z-0 hover:z-2 hover:drop-shadow-2xl/30',
+							'flex-1 hover:drop-shadow-2xl/30',
 							'transition-[scale,filter] duration-200 ease-in-out',
-							'max-w-80',
+							'min-w-60 max-w-2/3 @lg:max-w-1/2',
+							'-translate-x-1/5 @3xl:translate-x-0',
 							'@3xl:max-w-none',
 							!image.blob
 								? [
 										'rounded-sm overflow-hidden',
-										'scale-120 hover:scale-125',
-										'@md:scale-130 @md:hover:scale-135',
+										'scale-100 hover:scale-105',
 										'@3xl:scale-140 @3xl:hover:scale-145',
 										'@4xl:scale-120 @4xl:hover:scale-120',
 										'origin-bottom-left',
@@ -59,9 +59,15 @@ const ImageWrapper = ({ rootKey }: DefaultProps) => {
 										},
 								  ]
 								: [
-										'scale-140 hover:scale-145',
-										'@md:scale-150 @md:hover:scale-155',
-										'@3xl:scale-160 @3xl:hover:scale-165',
+										'scale-170 hover:scale-175',
+										'@md:scale-155 @md:hover:scale-160',
+										{
+											'@3xl:origin-[55%_center]':
+												!image.position ||
+												image.position === 'left',
+											'@3xl:origin-[45%_center]':
+												image.position === 'right',
+										},
 								  ],
 						])}
 					/>

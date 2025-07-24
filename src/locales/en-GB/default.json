@@ -70,5 +70,22 @@
 		"design": "Design",
 		"code": "Code in",
 		"go": "Go"
+	},
+	"counter": {
+		"experience": "2002-08-01 09:00:00",
+		"ofExperience": "Of experience",
+		"and": "And",
+		"years_one": "Year",
+		"years_other": "Years",
+		"months_one": "Month",
+		"months_other": "Months",
+		"days_one": "Day",
+		"days_other": "Days",
+		"hours_one": "Hour",
+		"hours_other": "Hours",
+		"minutes_one": "Minute",
+		"minutes_other": "Minutes",
+		"seconds_one": "Second",
+		"seconds_other": "Seconds"
 	}
 }

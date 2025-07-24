@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import Source from './Source';
 
-interface PictureProps {
+export interface PictureProps {
 	src: string;
 	contain?: boolean;
 	async?: boolean;

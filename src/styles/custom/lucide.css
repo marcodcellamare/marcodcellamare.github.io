@@ -1,6 +1,7 @@
 @layer components {
 	.lucide {
-		@apply stroke-2;
+		@apply stroke-2
+			transform-[color,fill,stroke] duration-300 ease-in-out;
 
 		&.font-bold {
 			@apply stroke-3;
