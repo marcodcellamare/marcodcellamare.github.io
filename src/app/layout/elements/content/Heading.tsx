@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { useRouter } from '@/contexts/router';
+import { useUIStore } from '@/stores/useUIStore';
 import { useSection } from '@/contexts/section';
 import classNames from 'classnames';
 
@@ -12,7 +12,7 @@ interface HeadingProps {
 
 const Heading = ({ rootKey, className }: HeadingProps) => {
 	const { sectionId } = useSection();
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { i18n, t } = useTranslation(pageId);
 
 	const titleExists = i18n.exists(`${rootKey}.title`, { ns: pageId });

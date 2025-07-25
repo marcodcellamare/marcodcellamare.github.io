@@ -1,6 +1,6 @@
 import { JSX } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '@/contexts/router';
+import { useUIStore } from '@/stores/useUIStore';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
@@ -17,7 +17,7 @@ interface ContentProps {
 }
 
 const Content = ({ rootKey, className }: ContentProps) => {
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { i18n } = useTranslation(pageId);
 
 	const headingExists = i18n.exists(`${rootKey}.heading`, {

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import useIsTouch from '@/hooks/useIsTouch';
 import { useUIStore } from '@/stores/useUIStore';
+import useThrottleCallback from '@/hooks/useThrottleCallback';
 import classNames from 'classnames';
 
 import { IntervalType } from '@/types/misc';
@@ -96,19 +97,28 @@ const Cursor = () => {
 		update();
 	}, []);
 
+	const mutationObserverThrottled = useThrottleCallback(() => {
+		const elements = document.querySelectorAll('a, button, .app .image');
+		setElements((prev) => {
+			if (prev && prev.length === elements.length) return prev;
+			return elements;
+		});
+	}, 100);
+
 	useEffect(() => {
 		if (isTouch) return;
+		const observer = new MutationObserver(mutationObserverThrottled);
 
-		const updateElements = () =>
-			setElements(document.querySelectorAll('a, button, .app .image'));
+		const id = requestAnimationFrame(() => {
+			mutationObserverThrottled();
+			observer.observe(document.body, { childList: true, subtree: true });
+		});
 
-		updateElements();
-
-		const observer = new MutationObserver(updateElements);
-		observer.observe(document.body, { childList: true, subtree: true });
-
-		return () => observer.disconnect();
-	}, [isTouch]);
+		return () => {
+			observer.disconnect();
+			cancelAnimationFrame(id);
+		};
+	}, [isTouch, mutationObserverThrottled]);
 
 	useEffect(() => {
 		if (isTouch || !elements) return;

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '@/contexts/router';
+import { useUIStore } from '@/stores/useUIStore';
 
 import Favicon from '@/app/misc/Favicon';
 import config from '@config';
@@ -8,7 +8,7 @@ import config from '@config';
 import pkg from '@package';
 
 const Meta = () => {
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { i18n, t } = useTranslation(pageId);
 
 	useEffect(

@@ -1,4 +1,4 @@
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 
 import Meta from './layout/Meta';
 import Header from './layout/Header';
@@ -7,9 +7,18 @@ import Router from './misc/Router';
 import Cursor from './misc/Cursor';
 
 import '@/styles/components/App.css';
+import { useEffect, useState } from 'react';
 
 const App = () => {
-	const { pageTheme } = useSettings();
+	const pageTheme = useUIStore((state) => state.pageTheme);
+
+	const [isReady, setIsReady] = useState(false);
+
+	useEffect(() => {
+		setIsReady(true);
+	}, []);
+
+	if (!isReady) return null;
 
 	return (
 		<div className='app flex 3xl:justify-center 3xl:items-center bg-(--color-palette-gray) 3xl:p-10 4xl:p-20 6xl:p-30 select-none'>

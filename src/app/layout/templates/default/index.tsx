@@ -1,6 +1,6 @@
 import { useSection } from '@/contexts/section';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '@/contexts/router';
+import { useUIStore } from '@/stores/useUIStore';
 import { useParallax } from '@/contexts/parallax';
 import { useDevUtilities } from '@/contexts/dev-utilities';
 import { easeInOut, motion, useScroll, useTransform } from 'motion/react';
@@ -18,7 +18,7 @@ interface DefaultProps {
 }
 
 const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { i18n, t } = useTranslation(pageId);
 	const { sectionId, sectionRef } = useSection();
 	const { getScrollConfig } = useParallax();

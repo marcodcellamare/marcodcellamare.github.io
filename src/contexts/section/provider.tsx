@@ -8,9 +8,8 @@ import {
 } from 'react';
 import { SectionContext } from './context';
 
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '@/contexts/router';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
 import { cssVariable } from '@/utils/misc';
 
@@ -32,9 +31,9 @@ export const SectionProvider = ({
 	sectionId,
 	children,
 }: SectionProviderProps) => {
-	const { pageId } = useRouter();
+	const pageTheme = useUIStore((state) => state.pageTheme);
+	const pageId = useUIStore((state) => state.pageId);
 	const { t } = useTranslation(pageId);
-	const { pageTheme } = useSettings();
 
 	const [duotoneColorBackground, setDuotoneColorBackground] =
 		useState<string>('#000');

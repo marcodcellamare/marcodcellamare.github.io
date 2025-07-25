@@ -1,6 +1,5 @@
 import { cloneElement, ReactElement, useRef, useState } from 'react';
 import { useSection } from '@/contexts/section';
-import { useRouter } from '@/contexts/router';
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
@@ -21,7 +20,7 @@ interface CarouselProps {
 
 const Carousel = ({ template, className }: CarouselProps) => {
 	const spacing = useUIStore((state) => state.spacing);
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { i18n } = useTranslation(pageId);
 	const { sectionId, settings } = useSection();
 

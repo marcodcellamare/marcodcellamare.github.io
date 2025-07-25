@@ -1,6 +1,8 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { ResizeContext } from './context';
 
+import useThrottleCallback from '@/hooks/useThrottleCallback';
+
 import { windowSize } from '@/utils/misc';
 
 interface ResizeProviderProps {
@@ -19,18 +21,25 @@ export const ResizeProvider = ({ children }: ResizeProviderProps) => {
 		return () => listeners.current.delete(callback);
 	};
 
-	useEffect(() => {
-		const observer = new ResizeObserver(() => {
-			setWidth(windowSize.width());
-			setHeight(windowSize.height());
+	const resizeObserverThrottled = useThrottleCallback(() => {
+		setWidth(windowSize.width());
+		setHeight(windowSize.height());
 
-			listeners.current.forEach((callback) => callback());
+		listeners.current.forEach((callback) => callback());
+	}, 500);
+
+	useEffect(() => {
+		const observer = new ResizeObserver(resizeObserverThrottled);
+
+		const id = requestAnimationFrame(() => {
+			observer.observe(document.documentElement);
 		});
 
-		observer.observe(document.documentElement);
-
-		return () => observer.disconnect();
-	}, []);
+		return () => {
+			observer.disconnect();
+			cancelAnimationFrame(id);
+		};
+	}, [resizeObserverThrottled]);
 
 	useEffect(
 		() => document.documentElement.style.setProperty('--dvw', `${width}px`),

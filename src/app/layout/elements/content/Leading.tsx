@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from 'react-i18next';
-import { useRouter } from '@/contexts/router';
+import { useUIStore } from '@/stores/useUIStore';
 import { useSection } from '@/contexts/section';
 import classNames from 'classnames';
 
@@ -10,7 +10,7 @@ interface LeadingProps {
 }
 
 const Leading = ({ rootKey, components, className }: LeadingProps) => {
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { i18n } = useTranslation(pageId);
 	const { sectionId } = useSection();
 

@@ -1,7 +1,7 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { ScrollContext } from './context';
 
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import { useDebounceCallback } from '@/hooks/useDebounceCallback';
 
 interface ScrollProviderProps {
@@ -9,7 +9,7 @@ interface ScrollProviderProps {
 }
 
 export const ScrollProvider = ({ children }: ScrollProviderProps) => {
-	const { scrollContainerRef } = useSettings();
+	const { scrollContainerRef } = useUIStore();
 
 	const [scrollX, setScrollX] = useState(0);
 	const [scrollY, setScrollY] = useState(0);
@@ -24,8 +24,7 @@ export const ScrollProvider = ({ children }: ScrollProviderProps) => {
 	};
 
 	const handleScrollDebounced = useDebounceCallback(() => {
-		const container = scrollContainerRef.current;
-		if (!container) return;
+		if (scrollContainerRef.current === null) return;
 
 		setIsScrolling(false);
 		listeners.current.forEach((callback) => callback());

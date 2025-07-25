@@ -1,33 +1,75 @@
+import { RefObject } from 'react';
 import { create } from 'zustand';
-import { PageIdType } from '@/types/config.const';
+
+import config from '@config';
+
+import { PageIdType, ThemeType } from '@/types/config.const';
 
 type PointerPosition = { x: number; y: number };
 
 interface UIStoreInterface {
+	scrollContainerRef: RefObject<HTMLDivElement | null>;
+	sectionRefs: RefObject<Record<number, HTMLElement | null>>;
+
+	pointerPosition: PointerPosition;
+
 	isNavOpened: boolean;
 	isLoading: boolean;
 	isLoaderTickled: boolean;
+
+	pageId: PageIdType;
 	overPageId: PageIdType | null;
 	activeSectionId: number;
-	pointerPosition: PointerPosition;
+
+	pageTheme: ThemeType;
+	overPageTheme: ThemeType | null;
+	activeSectionTheme: ThemeType;
 
 	spacing: Record<string, string>;
+
+	setScrollContainerRef: (node: HTMLDivElement | null) => void;
+	setSectionRefs: (id: number, node: HTMLElement | null) => void;
+
+	setPointerPosition: (pos: PointerPosition) => void;
 
 	setIsNavOpened: (v: boolean) => void;
 	setIsLoading: (v: boolean) => void;
 	setIsLoaderTickled: (v: boolean) => void;
+
+	setPageId: (v: PageIdType) => void;
 	setOverPageId: (v: PageIdType | null) => void;
 	setActiveSectionId: (v: number) => void;
-	setPointerPosition: (pos: PointerPosition) => void;
+
+	setPageTheme: (v: ThemeType) => void;
+	setOverPageTheme: (v: ThemeType | null) => void;
+	setActiveSectionTheme: (v: ThemeType) => void;
 }
 
+const scrollContainerRef = {
+	current: null,
+} as RefObject<HTMLDivElement | null>;
+
+const sectionRefs = { current: {} } as RefObject<
+	Record<number, HTMLElement | null>
+>;
+
 export const useUIStore = create<UIStoreInterface>((set) => ({
+	scrollContainerRef,
+	sectionRefs,
+
+	pointerPosition: { x: 0, y: 0 },
+
 	isNavOpened: false,
 	isLoading: false,
 	isLoaderTickled: false,
+
+	pageId: config.pages.default,
 	overPageId: null,
 	activeSectionId: 0,
-	pointerPosition: { x: 0, y: 0 },
+
+	pageTheme: config.themes.default,
+	overPageTheme: null,
+	activeSectionTheme: config.themes.default,
 
 	spacing: {
 		absEdge: 'm-5 md:m-10',
@@ -40,10 +82,28 @@ export const useUIStore = create<UIStoreInterface>((set) => ({
 		footer: 'py-4 md:py-5',
 	},
 
+	setScrollContainerRef: (node) => {
+		scrollContainerRef.current = node;
+	},
+	setSectionRefs: (id, node) => {
+		if (node) {
+			sectionRefs.current[id] = node;
+		} else {
+			delete sectionRefs.current[id];
+		}
+	},
+
+	setPointerPosition: (pos) => set({ pointerPosition: pos }),
+
 	setIsNavOpened: (v) => set({ isNavOpened: v }),
 	setIsLoading: (v) => set({ isLoading: v }),
 	setIsLoaderTickled: (v) => set({ isLoaderTickled: v }),
+
+	setPageId: (v) => set({ pageId: v }),
 	setOverPageId: (v) => set({ overPageId: v }),
 	setActiveSectionId: (v) => set({ activeSectionId: v }),
-	setPointerPosition: (pos) => set({ pointerPosition: pos }),
+
+	setPageTheme: (v) => set({ pageTheme: v }),
+	setOverPageTheme: (v) => set({ overPageTheme: v }),
+	setActiveSectionTheme: (v) => set({ activeSectionTheme: v }),
 }));

@@ -1,4 +1,3 @@
-import { useRouter } from '@/contexts/router';
 import { useUIStore } from '@/stores/useUIStore';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
@@ -9,7 +8,7 @@ import { SectionInterface } from '@/types/layout';
 
 const MiniMap = () => {
 	const spacing = useUIStore((state) => state.spacing);
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 
 	const sections = useTranslationFallback<SectionInterface[]>(
 		'sections',

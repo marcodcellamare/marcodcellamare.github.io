@@ -1,5 +1,4 @@
-import { useRouter } from '@/contexts/router';
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import { SectionProvider } from '@/contexts/section';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
 
@@ -8,8 +7,8 @@ import Section from './Section';
 import { SectionInterface } from '@/types/layout';
 
 const Main = () => {
-	const { pageId } = useRouter();
-	const { setScrollContainerRef } = useSettings();
+	const { setScrollContainerRef } = useUIStore();
+	const pageId = useUIStore((state) => state.pageId);
 
 	const sections = useTranslationFallback<SectionInterface[]>(
 		`sections`,

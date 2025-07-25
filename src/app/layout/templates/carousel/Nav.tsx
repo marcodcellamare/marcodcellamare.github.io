@@ -6,7 +6,6 @@ import {
 	useRef,
 	useState,
 } from 'react';
-import { useRouter } from '@/contexts/router';
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
 import { useScroll } from '@/contexts/scroll';
@@ -34,7 +33,7 @@ const Nav = ({
 	className,
 }: NavProps) => {
 	const spacing = useUIStore((state) => state.spacing);
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { t } = useTranslation(pageId);
 	const { isWheeling } = useScroll();
 

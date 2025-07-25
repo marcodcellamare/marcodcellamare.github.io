@@ -1,4 +1,4 @@
-import { useRouter } from '@/contexts/router';
+import { useUIStore } from '@/stores/useUIStore';
 import { ImageInterface } from '@/types/layout';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
@@ -11,7 +11,7 @@ interface DefaultProps {
 }
 
 const ImageWrapper = ({ rootKey }: DefaultProps) => {
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 
 	const image = useTranslationFallback<ImageInterface>(rootKey, {}, pageId);
 

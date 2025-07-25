@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSection } from '@/contexts/section';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '@/contexts/router';
+import { useUIStore } from '@/stores/useUIStore';
 import { v4 as uuidv4 } from 'uuid';
 import { colorToRgb } from '@/utils/colors';
 import classNames from 'classnames';
@@ -16,7 +16,7 @@ interface ImageProps {
 }
 
 const Image = ({ rootKey, className }: ImageProps) => {
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { i18n, t } = useTranslation(pageId);
 	const { duotoneColorBackground, duotoneColorForeground } = useSection();
 

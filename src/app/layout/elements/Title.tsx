@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useParallax } from '@/contexts/parallax';
-import { useRouter } from '@/contexts/router';
+import { useUIStore } from '@/stores/useUIStore';
 import { useSection } from '@/contexts/section';
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import classNames from 'classnames';
@@ -12,7 +12,7 @@ interface TitleProps {
 }
 
 const Title = ({ isFirst }: TitleProps) => {
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { i18n, t } = useTranslation(pageId);
 	const { sectionId, sectionRef } = useSection();
 	const { getScrollConfig } = useParallax();

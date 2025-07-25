@@ -1,6 +1,5 @@
 import { MouseEvent, useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter } from '@/contexts/router';
 import useScramble from '@/hooks/useScramble';
 import { useUIStore } from '@/stores/useUIStore';
 import { NavLink } from 'react-router-dom';
@@ -21,7 +20,7 @@ const Link = ({ thisPageId }: LinkProps) => {
 	const setOverPageId = useUIStore((state) => state.setOverPageId);
 
 	const { t } = useTranslation();
-	const { pageId } = useRouter();
+	const pageId = useUIStore((state) => state.pageId);
 	const { setOriginalText, originalText, displayText, start, stop } =
 		useScramble(100);
 

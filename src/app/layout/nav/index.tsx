@@ -1,4 +1,3 @@
-import { useSettings } from '@/contexts/settings';
 import { Trans, useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
@@ -15,12 +14,13 @@ import pkg from '@package';
 const Nav = () => {
 	const spacing = useUIStore((state) => state.spacing);
 	const isNavOpened = useUIStore((state) => state.isNavOpened);
+	const pageTheme = useUIStore((state) => state.pageTheme);
+	const overPageTheme = useUIStore((state) => state.overPageTheme);
 	const { t } = useTranslation();
-	const { pageTheme, overTheme } = useSettings();
 
 	return (
 		<nav
-			data-theme={overTheme ?? pageTheme}
+			data-theme={overPageTheme ?? pageTheme}
 			className='absolute top-0 left-0 right-0 bottom-0'>
 			<Background />
 			<div

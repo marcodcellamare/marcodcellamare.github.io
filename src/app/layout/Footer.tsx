@@ -1,4 +1,3 @@
-import { useSettings } from '@/contexts/settings';
 import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
@@ -8,7 +7,7 @@ import Socials from './elements/socials';
 
 const Footer = () => {
 	const spacing = useUIStore((state) => state.spacing);
-	const { activeSectionTheme } = useSettings();
+	const activeSectionTheme = useUIStore((state) => state.activeSectionTheme);
 
 	return (
 		<footer

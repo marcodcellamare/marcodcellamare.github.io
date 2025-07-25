@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react';
 import { useSection } from '@/contexts/section';
 import { colorToRgb } from '@/utils/colors';
-import { useSettings } from '@/contexts/settings';
 import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
@@ -22,9 +21,9 @@ interface SectionProps {
 
 const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 	const spacing = useUIStore((state) => state.spacing);
+	const { setSectionRefs, sectionRefs } = useUIStore();
 	const { theme, setSectionRef, nextBackgroundColor, hasImage } =
 		useSection();
-	const { setSectionRefs, sectionRefs } = useSettings();
 
 	return (
 		<section
