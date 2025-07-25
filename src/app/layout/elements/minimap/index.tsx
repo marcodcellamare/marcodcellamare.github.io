@@ -1,5 +1,5 @@
 import { useRouter } from '@/contexts/router';
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
@@ -8,8 +8,8 @@ import Button from './Button';
 import { SectionInterface } from '@/types/layout';
 
 const MiniMap = () => {
+	const spacing = useUIStore((state) => state.spacing);
 	const { pageId } = useRouter();
-	const { spaceRef } = useSettings();
 
 	const sections = useTranslationFallback<SectionInterface[]>(
 		'sections',
@@ -23,7 +23,7 @@ const MiniMap = () => {
 		<div
 			className={classNames([
 				'sections absolute top-0 right-0 flex flex-col items-end',
-				spaceRef.current.absEdge,
+				spacing.absEdge,
 			])}>
 			{sections.map((_, k) => (
 				<Button

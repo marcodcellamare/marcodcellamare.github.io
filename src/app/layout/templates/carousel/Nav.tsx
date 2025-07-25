@@ -8,7 +8,7 @@ import {
 } from 'react';
 import { useRouter } from '@/contexts/router';
 import { useTranslation } from 'react-i18next';
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import { useScroll } from '@/contexts/scroll';
 import useThrottleCallback from '@/hooks/useThrottleCallback';
 import classNames from 'classnames';
@@ -33,9 +33,9 @@ const Nav = ({
 	totalSlides,
 	className,
 }: NavProps) => {
+	const spacing = useUIStore((state) => state.spacing);
 	const { pageId } = useRouter();
 	const { t } = useTranslation(pageId);
-	const { spaceRef } = useSettings();
 	const { isWheeling } = useScroll();
 
 	const [isOver, setIsOver] = useState(false);
@@ -113,7 +113,7 @@ const Nav = ({
 			<div
 				className={classNames([
 					'flex items-center gap-1.5 relative',
-					spaceRef.current.absEdge,
+					spacing.absEdge,
 				])}>
 				{totalSlides > 2 && (
 					<button

@@ -1,5 +1,6 @@
 import { useSettings } from '@/contexts/settings';
 import { Trans, useTranslation } from 'react-i18next';
+import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
 import { HeartIcon } from 'lucide-react';
@@ -7,13 +8,15 @@ import Background from './Background';
 import Menu from './Menu';
 import Toggler from './Toggler';
 import Title from './Title';
-
-import pkg from '@package';
 import Counter from '@/app/misc/Counter';
 
+import pkg from '@package';
+
 const Nav = () => {
+	const spacing = useUIStore((state) => state.spacing);
+	const isNavOpened = useUIStore((state) => state.isNavOpened);
 	const { t } = useTranslation();
-	const { pageTheme, overTheme, isNavOpened, spaceRef } = useSettings();
+	const { pageTheme, overTheme } = useSettings();
 
 	return (
 		<nav
@@ -31,7 +34,7 @@ const Nav = () => {
 				<div
 					className={classNames([
 						'flex flex-col gap-5 lg:gap-10 w-5/6 md:w-2/3',
-						spaceRef.current.nav,
+						spacing.nav,
 					])}>
 					<Menu />
 					<div className='min-w-50 min-h-15 flex items-end w-full lg:max-w-1/2'>
@@ -39,6 +42,7 @@ const Nav = () => {
 							date={new Date(t('counter.experience'))}
 							sentenceLike={true}
 							className='uppercase font-black text-(--color-link-active) h6 text-xs md:text-sm transition-color duration-250 ease-in-out pointer-events-none'
+							suffxClassName='text-nowrap'
 							suffx={`${t(
 								'counter.ofExperience'
 							).toLowerCase()}.`}
@@ -61,7 +65,7 @@ const Nav = () => {
 			<div
 				className={classNames([
 					'absolute top-0 left-0 mix-blend-difference',
-					spaceRef.current.absEdge,
+					spacing.absEdge,
 				])}>
 				<Toggler />
 				<Title />

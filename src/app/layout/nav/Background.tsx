@@ -1,8 +1,11 @@
 import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
 const Background = () => {
-	const { pageTheme, overTheme, isNavOpened } = useSettings();
+	const isNavOpened = useUIStore((state) => state.isNavOpened);
+
+	const { pageTheme, overTheme } = useSettings();
 
 	return (
 		<div className='absolute top-0 bottom-0 left-0 right-0'>

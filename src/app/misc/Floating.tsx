@@ -9,10 +9,10 @@ import {
 	ValueAnimationTransition,
 	useMotionTemplate,
 } from 'framer-motion';
-import { useSettings } from '@/contexts/settings';
 import { useResize } from '@/contexts/resize';
-import classNames from 'classnames';
 import useThrottleCallback from '@/hooks/useThrottleCallback';
+import { useUIStore } from '@/stores/useUIStore';
+import classNames from 'classnames';
 
 export type FloatingModeType = 'attract' | 'repel';
 
@@ -63,12 +63,12 @@ const Floating = ({
 	style = {},
 	children,
 }: FloatingProps) => {
+	const pointerPosition = useUIStore((state) => state.pointerPosition);
 	const [scope, animate] = useAnimate();
 	const isInView = useInView(scope);
 
 	const direction = mode === 'attract' ? -1 : 1;
 
-	const { pointerPosition } = useSettings();
 	const { width, height } = useResize();
 
 	const motionShadowX = useMotionValue(0);

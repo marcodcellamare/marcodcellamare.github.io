@@ -1,12 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useParallax } from '@/contexts/parallax';
 import { useRouter } from '@/contexts/router';
-import { useSettings } from '@/contexts/settings';
 import { useSection } from '@/contexts/section';
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import classNames from 'classnames';
-
-import Container from './Container';
 
 import '@/styles/components/elements/Title.css';
 
@@ -18,7 +15,6 @@ const Title = ({ isFirst }: TitleProps) => {
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 	const { sectionId, sectionRef } = useSection();
-	const { spaceRef } = useSettings();
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
@@ -38,30 +34,24 @@ const Title = ({ isFirst }: TitleProps) => {
 		return null;
 
 	return (
-		<Container
-			className={classNames([
-				'absolute top-1/2 left-0 right-0 -translate-y-1/2 pointer-events-none',
-				spaceRef.current.container,
-			])}>
-			<motion.div
-				className='title'
-				style={{
-					y,
-					opacity,
-					zIndex,
-					['--pattern-thickness' as string]: patternThickness,
-				}}>
-				<h4
-					className={classNames([
-						'relative h0 font-black uppercase text-transparent origin-left',
-						{
-							extra: isFirst,
-						},
-					])}>
-					{t(`sections.${sectionId}.title`)}
-				</h4>
-			</motion.div>
-		</Container>
+		<motion.div
+			className='title absolute top-1/2 -left-3 lg:left-5 3xl:left-20 -translate-y-1/2'
+			style={{
+				y,
+				opacity,
+				zIndex,
+				['--pattern-thickness' as string]: patternThickness,
+			}}>
+			<h4
+				className={classNames([
+					'relative h0 font-black uppercase text-transparent origin-left',
+					{
+						extra: isFirst,
+					},
+				])}>
+				{t(`sections.${sectionId}.title`)}
+			</h4>
+		</motion.div>
 	);
 };
 export default Title;

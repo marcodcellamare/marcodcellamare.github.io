@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useSettings } from '@/contexts/settings';
 import { useScroll } from '@/contexts/scroll';
 import useThrottleCallback from '@/hooks/useThrottleCallback';
 import usePageVisibility from '@/hooks/usePageVisibility';
+import { useUIStore } from '@/stores/useUIStore';
 import { random } from '@/utils/math';
 import classNames from 'classnames';
 
@@ -17,8 +17,10 @@ type StripType = {
 };
 
 const Loader = () => {
-	const { isNavOpened, isLoading, isLoaderTickled, setIsLoading } =
-		useSettings();
+	const isNavOpened = useUIStore((state) => state.isNavOpened);
+	const isLoading = useUIStore((state) => state.isLoading);
+	const isLoaderTickled = useUIStore((state) => state.isLoaderTickled);
+	const setIsLoading = useUIStore((state) => state.setIsLoading);
 	const { isWheeling } = useScroll();
 
 	const [strips, setStrips] = useState<StripType[]>([]);

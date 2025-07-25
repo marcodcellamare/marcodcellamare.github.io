@@ -1,4 +1,4 @@
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
 import Nav from './nav';
@@ -6,7 +6,7 @@ import Loader from './nav/Loader';
 import MiniMap from './elements/minimap';
 
 const Header = () => {
-	const { isNavOpened } = useSettings();
+	const isNavOpened = useUIStore((state) => state.isNavOpened);
 
 	return (
 		<header

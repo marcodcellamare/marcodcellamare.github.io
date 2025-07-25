@@ -18,6 +18,9 @@
 			"@/assets/*": [
 				"src/assets/*"
 			],
+			"@/stores/*": [
+				"src/stores/*"
+			],
 			"@/hooks/*": [
 				"src/hooks/*"
 			],

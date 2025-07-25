@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import useIsTouch from '@/hooks/useIsTouch';
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
 import { IntervalType } from '@/types/misc';
@@ -11,8 +11,9 @@ import '@/styles/components/misc/Cursor.css';
 type StatusType = 'relaxed' | 'nav' | 'link' | 'image' | 'leave';
 
 const Cursor = () => {
+	const pointerPosition = useUIStore((state) => state.pointerPosition);
+	const setIsLoaderTickled = useUIStore((state) => state.setIsLoaderTickled);
 	const isTouch = useIsTouch();
-	const { setIsLoaderTickled, pointerPosition } = useSettings();
 
 	const [elements, setElements] = useState<NodeListOf<Element>>();
 	const [status, setStatus] = useState<StatusType>('relaxed');

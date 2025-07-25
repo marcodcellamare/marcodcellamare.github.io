@@ -13,15 +13,8 @@ interface CounterProps {
 	itemSeparatorClassName?: string;
 	prefx?: string;
 	suffx?: string;
-
-	/* since: string;
-	showOnly?: string[];
-	newLineAt?: string;
-	className?: string;
-	classNamePre?: string;
-	classNamePost?: string;
-	prefx?: string;
-	suffx?: string; */
+	prefxClassName?: string;
+	suffxClassName?: string;
 }
 
 const Counter = ({
@@ -34,6 +27,8 @@ const Counter = ({
 	itemSeparatorClassName,
 	prefx,
 	suffx,
+	prefxClassName,
+	suffxClassName,
 }: CounterProps) => {
 	const { t } = useTranslation();
 	const counter = useCounter(date, true);
@@ -42,7 +37,13 @@ const Counter = ({
 
 	return (
 		<div className={classNames(['counter text-wrap', className])}>
-			{prefx && <span className='counter-prefx'>{`${prefx} `}</span>}
+			{prefx && (
+				<span
+					className={classNames([
+						'counter-prefx',
+						prefxClassName,
+					])}>{`${prefx} `}</span>
+			)}
 			{(Object.keys(counter) as Partial<keyof CounterType>[]).map(
 				(type, k) => (
 					<Fragment key={k}>
@@ -85,7 +86,13 @@ const Counter = ({
 					</Fragment>
 				)
 			)}
-			{suffx && <span className='counter-suffx'>{` ${suffx}`}</span>}
+			{suffx && (
+				<span
+					className={classNames([
+						'counter-suffx',
+						suffxClassName,
+					])}>{` ${suffx}`}</span>
+			)}
 		</div>
 	);
 };

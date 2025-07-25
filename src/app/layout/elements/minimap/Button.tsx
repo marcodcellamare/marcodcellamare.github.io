@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { useRouter } from '@/contexts/router';
 import { useSettings } from '@/contexts/settings';
-import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { useUIStore } from '@/stores/useUIStore';
+import classNames from 'classnames';
 
 interface ButtonProps {
 	sectionId: number;
 }
 
 const Button = ({ sectionId }: ButtonProps) => {
+	const activeSectionId = useUIStore((state) => state.activeSectionId);
 	const { pageId } = useRouter();
 	const { t } = useTranslation(pageId);
-	const { sectionRefs, activeSectionId } = useSettings();
+	const { sectionRefs } = useSettings();
 
 	const [isOver, setIsOver] = useState(false);
 

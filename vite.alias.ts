@@ -9,6 +9,7 @@ export const aliases = {
 	'@/app': r('src/app'),
 	'@/assets': r('src/assets'),
 	'@/hooks': r('src/hooks'),
+	'@/stores': r('src/stores'),
 	'@/contexts': r('src/contexts'),
 	'@/styles': r('src/styles'),
 	'@/types': r('src/types'),

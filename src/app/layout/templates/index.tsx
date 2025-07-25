@@ -2,7 +2,7 @@ import { Fragment, JSX, useRef } from 'react';
 import { useParallax } from '@/contexts/parallax';
 import { motion, easeInOut, useScroll, useTransform } from 'motion/react';
 import { useSection } from '@/contexts/section';
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
 import Container from '@/app/layout/elements/Container';
@@ -10,9 +10,9 @@ import Default from './default';
 import Carousel from './carousel';
 
 const Templates = () => {
+	const spacing = useUIStore((state) => state.spacing);
 	const { template } = useSection();
 	const { getScrollConfig } = useParallax();
-	const { spaceRef } = useSettings();
 
 	const targetRef = useRef<HTMLDivElement>(null);
 	const { scrollYProgress } = useScroll(getScrollConfig(targetRef));
@@ -41,8 +41,8 @@ const Templates = () => {
 				<Container
 					className={classNames([
 						'flex flex-col justify-center lg:flex-row lg:justify-normal lg:items-center relative',
-						spaceRef.current.content,
-						spaceRef.current.section,
+						spacing.content,
+						spacing.section,
 					])}>
 					<Default className='flex-1' />
 				</Container>
@@ -61,7 +61,7 @@ const Templates = () => {
 		<motion.div
 			ref={targetRef}
 			style={{ y, scale, opacity, filter }}
-			className='template-wrapper flex items-center w-full relative z-2'>
+			className='template-wrapper flex items-center w-full relative ---z-2'>
 			{content}
 		</motion.div>
 	);

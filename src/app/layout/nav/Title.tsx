@@ -1,10 +1,10 @@
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import { useTranslation } from 'react-i18next';
 import { useScroll } from '@/contexts/scroll';
 import classNames from 'classnames';
 
 const Title = () => {
-	const { isNavOpened } = useSettings();
+	const isNavOpened = useUIStore((state) => state.isNavOpened);
 	const { isWheeling } = useScroll();
 	const { t } = useTranslation();
 

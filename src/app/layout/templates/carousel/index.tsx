@@ -2,7 +2,7 @@ import { cloneElement, ReactElement, useRef, useState } from 'react';
 import { useSection } from '@/contexts/section';
 import { useRouter } from '@/contexts/router';
 import { useTranslation } from 'react-i18next';
-import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
@@ -20,10 +20,10 @@ interface CarouselProps {
 }
 
 const Carousel = ({ template, className }: CarouselProps) => {
+	const spacing = useUIStore((state) => state.spacing);
 	const { pageId } = useRouter();
 	const { i18n } = useTranslation(pageId);
 	const { sectionId, settings } = useSection();
-	const { spaceRef } = useSettings();
 
 	const [activeIdx, setActiveIdx] = useState(0);
 
@@ -62,7 +62,7 @@ const Carousel = ({ template, className }: CarouselProps) => {
 					'xl:scroll-pl-[max((100vw-var(--breakpoint-xl))/2,0rem)]',
 					'2xl:scroll-pl-[max((100vw-var(--breakpoint-2xl))/2,0rem)]',
 					'3xl:scroll-pl-0',
-					spaceRef.current.section,
+					spacing.section,
 				])}>
 				<div className='hidden sm:block shrink-0 w-1/2 snap-none' />
 				{content.map((_, k) => (
@@ -87,7 +87,7 @@ const Carousel = ({ template, className }: CarouselProps) => {
 							k === activeIdx
 								? 'duration-800 delay-400'
 								: 'duration-500',
-							spaceRef.current.carouselItem,
+							spacing.carouselItem,
 							settings?.children?.className,
 							{
 								'z-1': k === activeIdx,

@@ -1,15 +1,16 @@
 import { useState } from 'react';
-import { useSettings } from '@/contexts/settings';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { useUIStore } from '@/stores/useUIStore';
 
 interface TogglerProps {
 	className?: string;
 }
 
 const Toggler = ({ className }: TogglerProps) => {
+	const isNavOpened = useUIStore((state) => state.isNavOpened);
+	const setIsNavOpened = useUIStore((state) => state.setIsNavOpened);
 	const { t } = useTranslation();
-	const { isNavOpened, setIsNavOpened } = useSettings();
 
 	const [isOver, setIsOver] = useState(false);
 

@@ -1,50 +1,31 @@
-import {
-	ReactNode,
-	useCallback,
-	useEffect,
-	useMemo,
-	useRef,
-	useState,
-} from 'react';
+import { ReactNode, useEffect, useMemo, useRef } from 'react';
 import { SettingsContext } from './context';
 
+import { useUIStore } from '@/stores/useUIStore';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { useRouter } from '@/contexts/router';
 
 import config from '@config';
 
-import { PageIdType, ThemeType } from '@/types/config.const';
+import { ThemeType } from '@/types/config.const';
 
 interface SettingsProviderProps {
 	children: ReactNode;
 }
 
 export const SettingsProvider = ({ children }: SettingsProviderProps) => {
+	const activeSectionId = useUIStore((state) => state.activeSectionId);
+	const overPageId = useUIStore((state) => state.overPageId);
+	const setActiveSectionId = useUIStore((state) => state.setActiveSectionId);
+	const setIsNavOpened = useUIStore((state) => state.setIsNavOpened);
+	const setPointerPosition = useUIStore((state) => state.setPointerPosition);
 	const { pageId } = useRouter();
 	const { i18n, t } = useTranslation(pageId);
 	const { pathname } = useLocation();
 
-	const [overPageId, setOverPageId] = useState<PageIdType | null>(null);
-	const [isNavOpened, setIsNavOpened] = useState(false);
-	const [isLoading, setIsLoading] = useState(false);
-	const [isLoaderTickled, setIsLoaderTickled] = useState(false);
-	const [activeSectionId, setActiveSectionId] = useState(0);
-	const [pointerPosition, setPointerPosition] = useState({ x: 0, y: 0 });
-
 	const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 	const sectionRefs = useRef<Record<number, HTMLElement | null>>({});
-
-	const spaceRef = useRef({
-		absEdge: 'm-5 md:m-10',
-		absEdgePadding: 'p-5 md:p-10',
-		nav: 'p-5 md:p-10 lg:p-25',
-		section: 'pt-20 pb-35 lg:py-35 xl:py-40',
-		container: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:px-50 3xl:px-80',
-		carouselItem: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:pl-50 3xl:pl-80',
-		content: 'gap-8 lg:gap-12 3xl:gap-24',
-		footer: 'py-4 md:py-5',
-	});
 
 	const setScrollContainerRef = (node: HTMLDivElement | null) =>
 		(scrollContainerRef.current = node);
@@ -79,15 +60,6 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 		[t, pageId, activeSectionId]
 	);
 
-	const memoizedSetIsNavOpened = useCallback(setIsNavOpened, [
-		setIsNavOpened,
-	]);
-	const memoizedSetOverPageId = useCallback(setOverPageId, [setOverPageId]);
-	const memoizedSetIsLoading = useCallback(setIsLoading, [setIsLoading]);
-	const memoizedSetIsLoaderTickled = useCallback(setIsLoaderTickled, [
-		setIsLoaderTickled,
-	]);
-
 	useEffect(() => {
 		if (scrollContainerRef.current === null) return;
 
@@ -96,7 +68,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 			top: 0,
 			behavior: 'smooth',
 		});
-	}, [pathname]);
+	}, [pathname, setIsNavOpened]);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -126,7 +98,7 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 			observer.disconnect();
 			cancelAnimationFrame(id);
 		};
-	}, [pathname]);
+	}, [pathname, setActiveSectionId]);
 
 	useEffect(() => {
 		const handlePointerMove = (e: MouseEvent) => {
@@ -137,30 +109,19 @@ export const SettingsProvider = ({ children }: SettingsProviderProps) => {
 		return () => {
 			window.removeEventListener('pointermove', handlePointerMove);
 		};
-	}, []);
+	}, [setPointerPosition]);
 
 	return (
 		<SettingsContext.Provider
 			value={{
 				scrollContainerRef,
 				sectionRefs,
-				spaceRef,
-				overPageId,
-				isNavOpened,
 				pageTheme,
 				overTheme,
-				isLoading,
-				isLoaderTickled,
-				activeSectionId,
 				activeSectionTheme,
-				pointerPosition,
 
 				setScrollContainerRef,
 				setSectionRefs,
-				setOverPageId: memoizedSetOverPageId,
-				setIsNavOpened: memoizedSetIsNavOpened,
-				setIsLoading: memoizedSetIsLoading,
-				setIsLoaderTickled: memoizedSetIsLoaderTickled,
 			}}>
 			{children}
 		</SettingsContext.Provider>

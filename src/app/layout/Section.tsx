@@ -2,6 +2,7 @@ import { CSSProperties } from 'react';
 import { useSection } from '@/contexts/section';
 import { colorToRgb } from '@/utils/colors';
 import { useSettings } from '@/contexts/settings';
+import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
 import Pattern from './elements/Pattern';
@@ -10,6 +11,7 @@ import Templates from './templates';
 import Pager from './elements/Pager';
 import Polygons from './elements/Polygons';
 import Background from './elements/Background';
+import Container from './elements/Container';
 
 interface SectionProps {
 	sectionId: number;
@@ -19,6 +21,7 @@ interface SectionProps {
 }
 
 const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
+	const spacing = useUIStore((state) => state.spacing);
 	const { theme, setSectionRef, nextBackgroundColor, hasImage } =
 		useSection();
 	const { setSectionRefs, sectionRefs } = useSettings();
@@ -43,13 +46,19 @@ const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 				} as CSSProperties
 			}>
 			<Background />
-			{Object.keys(sectionRefs.current).length > 0 && (
-				<Pager
-					isFirst={isFirst}
-					isLast={isLast}
-				/>
-			)}
-			<Title isFirst={isFirst} />
+			<Container
+				className={classNames([
+					'absolute top-0 bottom-0 left-0 right-0 pointer-events-none',
+					spacing.container,
+				])}>
+				{Object.keys(sectionRefs.current).length > 0 && (
+					<Pager
+						isFirst={isFirst}
+						isLast={isLast}
+					/>
+				)}
+				<Title isFirst={isFirst} />
+			</Container>
 			{!isLast && <Pattern />}
 			{!hasImage && !isFirst && !isLast && (
 				<Polygons
