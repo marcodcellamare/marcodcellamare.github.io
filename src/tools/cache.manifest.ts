@@ -1,3 +1,5 @@
+console.log('TODO cache.manifest');
+
 /* class CacheManifest {
 	fs: any;
 	path: any;

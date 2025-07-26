@@ -6,7 +6,7 @@ import {
 	ThemeType,
 } from './config.const';
 
-type CrossOrigin = 'anonymous' | 'use-credentials' | undefined;
+type CrossOrigin = '' | 'anonymous' | 'use-credentials' | undefined;
 
 interface HtmlInterface {
 	whitelist: string[];
@@ -39,6 +39,14 @@ interface TemplatesInterface {
 	list: readonly TemplateType[];
 }
 
+type FontsWeightType = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+
+interface FontInterface {
+	family: string;
+	weights: FontsWeightType[];
+	italic: boolean;
+}
+
 type MetaType = Array<
 	| {
 			httpEquiv: string;
@@ -62,6 +70,7 @@ export default interface ConfigType {
 	pages: PagesInterface;
 	themes: ThemesInterface;
 	templates: TemplatesInterface;
+	fonts: FontInterface[];
 	meta: MetaType;
 	preload: PreloadType;
 }

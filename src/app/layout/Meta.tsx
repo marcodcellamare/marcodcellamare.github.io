@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
 
+import Fonts from './Fonts';
 import Favicon from '@/app/misc/Favicon';
-import config from '@config';
 
+import config from '@config';
 import pkg from '@package';
 
 const Meta = () => {
@@ -35,6 +36,7 @@ const Meta = () => {
 					rel={preload.rel}
 					href={preload.href}
 					crossOrigin={preload.crossorigin}
+					precedence='default'
 				/>
 			))}
 			{config.meta.map((meta, k) => (
@@ -49,6 +51,7 @@ const Meta = () => {
 					}
 				/>
 			))}
+			<Fonts />
 		</>
 	);
 };

@@ -1,3 +1,5 @@
+console.log('TODO sitemap');
+
 /* interface ItfRoutesTree {
 	path: string;
 	current?: string;

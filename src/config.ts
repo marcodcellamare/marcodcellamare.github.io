@@ -33,6 +33,19 @@ const config = {
 		list: TEMPLATES,
 	},
 
+	fonts: [
+		{
+			family: 'Roboto',
+			weights: [400, 700],
+			italic: false,
+		},
+		{
+			family: 'Montserrat',
+			weights: [500, 900],
+			italic: false,
+		},
+	],
+
 	meta: [
 		{
 			httpEquiv: 'Content-Security-Policy',
@@ -40,9 +53,9 @@ const config = {
 				"default-src 'self'",
 				"script-src 'self' https://www.googletagmanager.com https://apis.google.com",
 				"connect-src 'self' https://firebase.googleapis.com https://region1.google-analytics.com https://firebaseinstallations.googleapis.com",
-				"style-src 'self' 'unsafe-inline'",
+				"style-src 'self' https://fonts.googleapis.com",
 				"img-src 'self' data: https://www.googletagmanager.com",
-				"font-src 'self'",
+				"font-src 'self' https://fonts.gstatic.com",
 				"frame-src 'self'",
 				"object-src 'none'",
 				"base-uri 'self'",
@@ -101,6 +114,16 @@ const config = {
 			rel: 'preconnect',
 			href: 'https://firebaseinstallations.googleapis.com',
 			crossorigin: 'anonymous',
+		},
+		{
+			rel: 'preconnect',
+			href: 'https://fonts.googleapis.com',
+			crossorigin: 'anonymous',
+		},
+		{
+			rel: 'preconnect',
+			href: 'https://fonts.gstatic.com',
+			crossorigin: '',
 		},
 	],
 } satisfies ConfigType;

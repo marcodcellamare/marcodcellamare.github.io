@@ -60,25 +60,24 @@ export default defineConfig(({ mode }) => {
 			rollupOptions: {
 				output: {
 					format: 'es',
-					// TODO
-					/* manualChunks(id) {
+					manualChunks(id) {
 						if (id.includes('node_modules')) {
-							if (id.includes('react-dom')) return 'react-dom';
-
+							if (id.includes('react-dom-server'))
+								return 'server';
+							if (id.includes('react-dom-client'))
+								return 'client';
 							if (id.includes('react-router')) return 'router';
-
-							if (id.includes('firebase/firestore'))
-								return 'firestore';
+							if (id.includes('framer-motion')) return 'motion';
 							if (id.includes('firebase')) return 'firebase';
-
 							if (id.includes('i18next')) return 'localization';
 							if (id.includes('lucide-react')) return 'icons';
-
+							if (id.includes('react-bootstrap-icons'))
+								return 'icons';
 							if (id.includes('culori')) return 'utils';
 
 							return 'vendor';
 						}
-					}, */
+					},
 				},
 			},
 			commonjsOptions: {
