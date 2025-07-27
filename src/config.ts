@@ -41,7 +41,7 @@ const config = {
 		},
 		{
 			family: 'Montserrat',
-			weights: [500, 900],
+			weights: [400, 900],
 			italic: false,
 		},
 	],
@@ -53,7 +53,7 @@ const config = {
 				"default-src 'self'",
 				"script-src 'self' https://www.googletagmanager.com https://apis.google.com",
 				"connect-src 'self' https://firebase.googleapis.com https://region1.google-analytics.com https://firebaseinstallations.googleapis.com",
-				"style-src 'self' https://fonts.googleapis.com",
+				"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
 				"img-src 'self' data: https://www.googletagmanager.com",
 				"font-src 'self' https://fonts.gstatic.com",
 				"frame-src 'self'",

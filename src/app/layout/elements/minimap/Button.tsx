@@ -20,29 +20,27 @@ const Button = ({ sectionId }: ButtonProps) => {
 			behavior: 'smooth',
 		});
 
+	//py-2 px-3
+
 	return (
 		<button
 			type='button'
 			role='button'
-			className={classNames([
-				'pr-5 mb-0.5 bg-(--color-palette-gray) transition-[min-width,height,padding-left] duration-500 delay-100 ease-in-out flex flex-col justify-center items-end overflow-hidden mix-blend-difference',
-				activeSectionId !== sectionId && !isOver
-					? 'min-w-[1rem] h-5 pl-0'
-					: 'h-10 pl-5',
-			])}
+			className='min-w-8 min-h-2 bg-(--color-palette-gray) flex flex-col items-end'
 			disabled={activeSectionId === sectionId}
 			onPointerEnter={() => setIsOver(true)}
 			onPointerLeave={() => setIsOver(false)}
 			onClick={handleClick}>
-			<div
+			<h6
 				className={classNames([
-					'text-xxs font-black font-title uppercase text-nowrap text-end transition-[max-width] duration-600 ease-in-out overflow-hidden text-(--color-palette-gray) mix-blend-difference',
+					'block mr-3 text-xxs font-black uppercase text-nowrap text-end overflow-hidden text-(--color-palette-gray) mix-blend-difference',
+					'transition-[max-width,padding] duration-800 ease-in-out',
 					activeSectionId !== sectionId && !isOver
-						? 'max-w-0'
-						: 'max-w-100 delay-400',
+						? 'max-w-0 py-0 pl-0'
+						: 'max-w-100 py-2 pl-3',
 				])}>
 				{t(`sections.${sectionId}.title`)}
-			</div>
+			</h6>
 		</button>
 	);
 };

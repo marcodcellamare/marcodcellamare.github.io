@@ -11,9 +11,9 @@ const Title = () => {
 	return (
 		<h6
 			className={classNames([
-				'absolute left-full top-1/2 -translate-y-1/2 pl-2 md:pl-5 hidden sm:block pointer-events-none',
+				'absolute left-full top-1/2 -translate-y-1/2 pl-0.5 hidden sm:block pointer-events-none',
 				'font-black uppercase text-nowrap',
-				'origin-[-1.75rem_center] md:origin-[-1.5rem_center] overflow-hidden',
+				'origin-[calc(var(--spacing)*14/2*-1)_center] md:origin-[calc(var(--spacing)*12/2*-1)_center] overflow-hidden',
 				'transition-[max-width,rotate,font-size] duration-500 ease-in-out',
 				!isWheeling || isNavOpened ? 'max-w-[100vh]' : 'max-w-[0vh]',
 				!isNavOpened ? 'rotate-90 text-xxs' : 'rotate-0 text-xs',

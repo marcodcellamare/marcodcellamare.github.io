@@ -19,7 +19,7 @@ const Toggler = ({ className }: TogglerProps) => {
 			type='button'
 			role='button'
 			className={classNames([
-				'toggler block relative w-[3.5rem] md:w-[3rem] aspect-square cursor-pointer',
+				'toggler block relative w-14 md:w-12 aspect-square cursor-pointer',
 				className,
 				{
 					active: isNavOpened,
@@ -34,40 +34,42 @@ const Toggler = ({ className }: TogglerProps) => {
 				<div
 					key={k}
 					className={classNames([
-						'absolute left-0 right-0 -translate-y-1/2 origin-center bg-(--color-palette-gray)',
-						'transition-[top,translate,rotate,height,background-color] duration-400 ease-in-out',
+						'absolute top-1/2 left-1/2 -translate-x-1/2 bg-(--color-palette-gray)',
+						'transition-[translate,rotate,width,height,background-color] duration-400 ease-in-out',
 						{
-							'delay-[200ms]': k === 0,
-							'delay-[300ms]': k === 2,
+							'delay-200': !isNavOpened && k === 0,
+							'delay-400': !isNavOpened && k === 2,
 						},
+						!isOver ? 'h-2' : 'h-1.5',
 						!isNavOpened
-							? [
-									'h-1/7',
-									!isOver
-										? {
-												'top-1/4': k === 0,
-												'top-2/4': k === 1,
-												'top-3/4': k === 2,
-										  }
-										: {
-												'top-3/10': k === 0,
-												'top-5/10': k === 1,
-												'top-7/10': k === 2,
-										  },
-							  ]
+							? !isOver
+								? {
+										'w-full translate-y-[calc(-50%-(var(--spacing)*2)-(var(--spacing)*0.5))]':
+											k === 0,
+										'w-full -translate-y-1/2': k === 1,
+										'w-full translate-y-[calc(-50%+(var(--spacing)*2)+(var(--spacing)*0.5))]':
+											k === 2,
+								  }
+								: {
+										'w-full translate-y-[calc(-50%-(var(--spacing)*1.5)-(var(--spacing)*0.5))]':
+											k === 0,
+										'w-4/5 -translate-y-1/2': k === 1,
+										'w-full translate-y-[calc(-50%+(var(--spacing)*1.5)+(var(--spacing)*0.5))]':
+											k === 2,
+								  }
 							: [
-									'top-1/2',
+									'-translate-y-1/2',
 									{
-										'h-0': k === 1,
-										'-rotate-45': k === 0,
-										'rotate-45': k === 2,
+										'w-4/5 !h-0': k === 1,
 									},
 									!isOver
 										? {
-												'h-1/7': k === 0 || k === 2,
+												'w-full -rotate-45': k === 0,
+												'w-full rotate-45': k === 2,
 										  }
 										: {
-												'h-1/5': k === 0 || k === 2,
+												'w-6/4 -rotate-50': k === 0,
+												'w-6/4 rotate-50': k === 2,
 										  },
 							  ],
 					])}
