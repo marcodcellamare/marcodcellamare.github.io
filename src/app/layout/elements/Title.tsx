@@ -13,6 +13,7 @@ interface TitleProps {
 
 const Title = ({ isFirst }: TitleProps) => {
 	const pageId = useUIStore((state) => state.pageId);
+	const spacing = useUIStore((state) => state.spacing);
 	const { i18n, t } = useTranslation(pageId);
 	const { sectionId, sectionRef } = useSection();
 	const { getScrollConfig } = useParallax();
@@ -33,23 +34,39 @@ const Title = ({ isFirst }: TitleProps) => {
 	if (!i18n.exists(`sections.${sectionId}.title`, { ns: pageId }))
 		return null;
 
+	const maxLength = t(`sections.${sectionId}.title`)
+		.split(/\s+/)
+		.reduce(
+			(longest, word) => (word.length > longest.length ? word : longest),
+			''
+		).length;
+
 	return (
 		<motion.div
-			className='title absolute top-1/2 -left-3 lg:left-5 3xl:left-20 -translate-y-1/2'
+			className='title absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 max-w-(--main-vw) lg:-translate-x-1/2'
 			style={{
 				y,
 				opacity,
 				zIndex,
 				['--pattern-thickness' as string]: patternThickness,
+				['--char-count' as string]: maxLength,
 			}}>
 			<h4
 				className={classNames([
-					'relative h0 font-black uppercase text-transparent origin-left',
+					'relative block font-black uppercase',
+					'text-(--color-theme-background-contrast)/20',
+					'-rotate-90 lg:rotate-0 origin-top',
 					{
 						extra: isFirst,
 					},
 				])}>
-				{t(`sections.${sectionId}.title`)}
+				<div
+					className={classNames([
+						'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 max-w-(--main-vh) lg:max-w-(--main-vw)',
+						spacing.absEdgePadding,
+					])}>
+					{t(`sections.${sectionId}.title`)}
+				</div>
 			</h4>
 		</motion.div>
 	);

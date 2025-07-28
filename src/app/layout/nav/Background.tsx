@@ -28,7 +28,7 @@ const Background = () => {
 					])}>
 					<div
 						className={classNames([
-							'absolute top-0 bottom-0 left-0 right-0 bg-(--color-background) transition-[background-color] duration-300',
+							'absolute top-0 bottom-0 left-0 right-0 bg-(--color-theme-background) transition-[background-color] duration-300',
 							{
 								'delay-150': k === 1,
 								'delay-300': k === 2,

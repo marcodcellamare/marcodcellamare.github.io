@@ -8,6 +8,7 @@ import { PageIdType, ThemeType } from '@/types/config.const';
 type PointerPosition = { x: number; y: number };
 
 interface UIStoreInterface {
+	mainContainerRef: RefObject<HTMLDivElement | null>;
 	scrollContainerRef: RefObject<HTMLDivElement | null>;
 	sectionRefs: RefObject<Record<number, HTMLElement | null>>;
 
@@ -27,6 +28,7 @@ interface UIStoreInterface {
 
 	spacing: Record<string, string>;
 
+	setMainContainerRef: (node: HTMLDivElement | null) => void;
 	setScrollContainerRef: (node: HTMLDivElement | null) => void;
 	setSectionRefs: (id: number, node: HTMLElement | null) => void;
 
@@ -45,6 +47,10 @@ interface UIStoreInterface {
 	setActiveSectionTheme: (v: ThemeType) => void;
 }
 
+const mainContainerRef = {
+	current: null,
+} as RefObject<HTMLDivElement | null>;
+
 const scrollContainerRef = {
 	current: null,
 } as RefObject<HTMLDivElement | null>;
@@ -54,6 +60,7 @@ const sectionRefs = { current: {} } as RefObject<
 >;
 
 export const useUIStore = create<UIStoreInterface>((set) => ({
+	mainContainerRef,
 	scrollContainerRef,
 	sectionRefs,
 
@@ -82,6 +89,9 @@ export const useUIStore = create<UIStoreInterface>((set) => ({
 		footer: 'py-4 md:py-5',
 	},
 
+	setMainContainerRef: (node) => {
+		mainContainerRef.current = node;
+	},
 	setScrollContainerRef: (node) => {
 		scrollContainerRef.current = node;
 	},

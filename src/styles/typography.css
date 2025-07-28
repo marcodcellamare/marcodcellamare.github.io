@@ -1,5 +1,4 @@
 @layer base {
-	.h0,
 	h1,
 	.h1,
 	h2,
@@ -13,14 +12,6 @@
 	h6,
 	.h6 {
 		@apply font-(family-name:--font-title);
-	}
-
-	.h0 {
-		@apply text-[clamp(var(--text-6xl),10vw,15rem)] leading-[0.85em] md:leading-[0.8em];
-
-		&.extra {
-			@apply text-[clamp(var(--text-7xl),20vw,20rem)] leading-[0.85em] md:leading-[0.8em];
-		}
 	}
 	h1,
 	.h1 {
@@ -58,11 +49,15 @@
 	p {
 		@apply text-base xl:text-lg;
 
+		&.extra {
+			@apply text-lg xl:text-xl;
+		}
+
 		&.leading {
-			@apply text-xl xl:text-xl;
+			@apply text-xl;
 
 			&.extra {
-				@apply text-xl xl:text-2xl;
+				@apply text-2xl;
 			}
 		}
 	}

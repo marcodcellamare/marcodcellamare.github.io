@@ -4,20 +4,20 @@
 	.pager-line {
 		@apply bg-transparent
 			bg-gradient-to-b
-			from-(--color-next-background)/0 from-0%
-			to-(--color-next-background) to-30%;
+			from-(--color-theme-next-background)/0 from-0%
+			to-(--color-theme-next-background) to-30%;
 	}
 	&.pager-first {
 		.pager-line {
-			@apply bg-(--color-next-background);
+			@apply bg-(--color-theme-next-background);
 		}
 	}
 	&.pager-last {
 		.pager-line {
 			@apply bg-transparent
 				bg-gradient-to-b
-				from-(--color-next-background)/0 from-0%
-				to-(--color-next-background) to-50%;
+				from-(--color-theme-next-background)/0 from-0%
+				to-(--color-theme-next-background) to-50%;
 		}
 	}
 }

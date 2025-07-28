@@ -125,7 +125,7 @@ const Polygons = ({
 						width: `${polygon.width}%`,
 						//opacity: polygon.opacity,
 					}}>
-					<Polygon fill='var(--color-next-background)' />
+					<Polygon fill='var(--color-theme-next-background)' />
 				</Floating>
 			))}
 		</div>

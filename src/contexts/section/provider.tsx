@@ -97,17 +97,17 @@ export const SectionProvider = ({
 
 	useEffect(() => {
 		setDuotoneColorBackground(
-			themeCssVar(theme, '--duotone-color-background')
+			themeCssVar(theme, '--color-theme-duotone-black')
 		);
 		setDuotoneColorForeground(
-			themeCssVar(theme, '--duotone-color-foreground')
+			themeCssVar(theme, '--color-theme-duotone-white')
 		);
 	}, [theme, sectionId]);
 
 	useEffect(
 		() =>
 			setNextBackgroundColor(
-				themeCssVar(getTheme(sectionId + 1), '--color-background')
+				themeCssVar(getTheme(sectionId + 1), '--color-theme-background')
 			),
 		[getTheme, sectionId]
 	);

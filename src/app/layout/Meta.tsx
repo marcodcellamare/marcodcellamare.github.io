@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
 
-import Fonts from './Fonts';
 import Favicon from '@/app/misc/Favicon';
 
 import config from '@config';
@@ -51,7 +50,6 @@ const Meta = () => {
 					}
 				/>
 			))}
-			<Fonts />
 		</>
 	);
 };

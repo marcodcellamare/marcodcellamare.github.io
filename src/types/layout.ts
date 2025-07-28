@@ -9,7 +9,7 @@ export interface SectionInterface {
 	background: BackgroundInterface;
 	settings?: SettingsInterface;
 	title?: string;
-	content?: ContentInterface;
+	content?: ContentInterface[];
 }
 
 export interface HeadingInterface {

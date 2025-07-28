@@ -1,14 +1,18 @@
 import { useUIStore } from '@/stores/useUIStore';
 import { SectionProvider } from '@/contexts/section';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
+import { useResize } from '@/contexts/resize';
 
 import Section from './Section';
 
 import { SectionInterface } from '@/types/layout';
 
 const Main = () => {
-	const { setScrollContainerRef } = useUIStore();
+	const { setMainContainerRef, setScrollContainerRef, mainContainerRef } =
+		useUIStore();
+
 	const pageId = useUIStore((state) => state.pageId);
+	const pageTheme = useUIStore((state) => state.pageTheme);
 
 	const sections = useTranslationFallback<SectionInterface[]>(
 		`sections`,
@@ -16,8 +20,27 @@ const Main = () => {
 		pageId
 	);
 
+	useResize(() => {
+		const container = mainContainerRef.current;
+		if (!container) return;
+
+		const rect = container.getBoundingClientRect();
+
+		document.documentElement.style.setProperty(
+			'--main-vw',
+			`${rect.width}px`
+		);
+		document.documentElement.style.setProperty(
+			'--main-vh',
+			`${rect.height}px`
+		);
+	});
+
 	return (
-		<main className='flex flex-col flex-1 h-full relative z-0'>
+		<main
+			ref={setMainContainerRef}
+			data-theme={pageTheme}
+			className='flex flex-col flex-1 h-full relative z-0'>
 			{sections.length > 0 && (
 				<div
 					ref={setScrollContainerRef}

@@ -24,7 +24,7 @@ const Heading = ({ rootKey, className }: HeadingProps) => {
 	return (
 		<div
 			className={classNames([
-				'heading text-(--color-heading) uppercase',
+				'heading text-(--color-theme-heading) uppercase',
 				className,
 			])}>
 			{headlineExists && (

@@ -22,7 +22,7 @@ const ImageWrapper = ({ rootKey }: DefaultProps) => {
 					<AnimatedIcon
 						icon={image.icon}
 						className={classNames([
-							'flex flex-1 text-(--color-link)',
+							'flex flex-1 text-(--color-theme-heading)',
 							'scale-150',
 							'@3xl:scale-115',
 							'min-w-50 max-w-[33vw]',

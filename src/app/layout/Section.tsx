@@ -34,12 +34,12 @@ const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 			data-id={sectionId}
 			data-theme={theme}
 			className={classNames([
-				'flex items-stretch min-h-full relative bg-(--color-background) text-(--color-heading)',
+				'flex items-stretch min-h-full relative bg-(--color-theme-background) text-(--color-theme-content)',
 				className,
 			])}
 			style={
 				{
-					'--color-next-background': `rgb(${colorToRgb(
+					'--color-theme-next-background': `rgb(${colorToRgb(
 						nextBackgroundColor
 					)})`,
 				} as CSSProperties
@@ -56,8 +56,8 @@ const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 						isLast={isLast}
 					/>
 				)}
-				<Title isFirst={isFirst} />
 			</Container>
+			<Title isFirst={isFirst} />
 			{!isLast && <Pattern />}
 			{!hasImage && !isFirst && !isLast && (
 				<Polygons

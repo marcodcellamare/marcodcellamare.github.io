@@ -48,10 +48,10 @@ const Link = ({ type, highlight, title, link }: SocialInterface) => {
 			type='button'
 			role='button'
 			className={classNames([
-				'btn btn-link disabled:text-(--color-heading) !no-underline relative',
+				'btn btn-link disabled:text-(--color-theme-heading) !no-underline relative',
 				!highlight
-					? 'text-(--color-link) hover:text-(--color-link-hover) active:text-(--color-link-active)'
-					: 'text-(--color-link-hover) hover:text-(--color-link) active:text-(--color-link-active)',
+					? 'text-(--color-theme-link) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active)'
+					: 'text-(--color-theme-link-hover) hover:text-(--color-theme-link) active:text-(--color-theme-link-active)',
 			])}
 			aria-label={title}
 			title={title}

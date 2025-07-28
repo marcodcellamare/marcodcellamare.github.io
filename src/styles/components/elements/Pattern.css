@@ -3,8 +3,8 @@
 .pattern {
 	@apply bg-transparent
 		bg-gradient-to-b
-		from-(--color-next-background)/0 from-50%
-		to-(--color-next-background) to-100%;
+		from-(--color-theme-next-background)/0 from-50%
+		to-(--color-theme-next-background) to-100%;
 
 	> div {
 		@apply bg-top bg-fixed
@@ -12,28 +12,28 @@
 
 		&:nth-child(1) {
 			@apply bg-radial
-				from-(--color-next-background) from-[0.05rem]
-				to-(--color-next-background)/0 to-[0rem];
+				from-(--color-theme-next-background) from-[0.05rem]
+				to-(--color-theme-next-background)/0 to-[0rem];
 		}
 		&:nth-child(2) {
 			@apply bg-radial
-				from-(--color-next-background) from-[0.1rem]
-				to-(--color-next-background)/0 to-[0rem];
+				from-(--color-theme-next-background) from-[0.1rem]
+				to-(--color-theme-next-background)/0 to-[0rem];
 		}
 		&:nth-child(3) {
 			@apply bg-radial
-				from-(--color-next-background) from-[0.15rem]
-				to-(--color-next-background)/0 to-[0rem];
+				from-(--color-theme-next-background) from-[0.15rem]
+				to-(--color-theme-next-background)/0 to-[0rem];
 		}
 		&:nth-child(4) {
 			@apply bg-radial
-				from-(--color-next-background) from-[0.2rem]
-				to-(--color-next-background)/0 to-[0rem];
+				from-(--color-theme-next-background) from-[0.2rem]
+				to-(--color-theme-next-background)/0 to-[0rem];
 		}
 		&:nth-child(5) {
 			@apply bg-radial
-				from-(--color-next-background) from-[0.25rem]
-				to-(--color-next-background)/0 to-[0rem];
+				from-(--color-theme-next-background) from-[0.25rem]
+				to-(--color-theme-next-background)/0 to-[0rem];
 		}
 	}
 }

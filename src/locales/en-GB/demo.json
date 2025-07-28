@@ -4,30 +4,120 @@
 	"sections": [
 		{
 			"theme": "red",
-			"template": "default",
-			"title": "Hello",
-			"background": {
-				"src": "/images/marco-d-cellamare.png",
-				"contain": true
-			},
+			"title": "red",
 			"content": [
 				{
 					"image": {
-						"src": "ICON",
-						"icon": "HELLO"
+						"src": "/images/marco-d-cellamare-full.jpg",
+						"duotone": true,
+						"blob": true
 					},
 					"heading": {
-						"headline": "This is",
-						"title": "Marco D. Cellamare",
-						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+						"title": "Marco D. Cellamare"
 					},
-					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-					"paragraphs": [
-						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, <linked1>specializing</linked1> in Front-End Development and creating scalable <linked>web applications</linked> with intuitive Web / UI design."
-					],
+					"leading": "Over <strong>20 years</strong> of experience as a Full-Stack <linked>Developer</linked> and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
 					"links": [
-						"/portfolio",
-						"https://www.google.com"
+						"xxxx"
+					]
+				}
+			]
+		},
+		{
+			"theme": "purple",
+			"title": "purple",
+			"content": [
+				{
+					"image": {
+						"src": "/images/marco-d-cellamare-full.jpg",
+						"duotone": true,
+						"blob": true
+					},
+					"heading": {
+						"title": "Marco D. Cellamare"
+					},
+					"leading": "Over <strong>20 years</strong> of experience as a Full-Stack <linked>Developer</linked> and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
+					"links": [
+						"xxxx"
+					]
+				}
+			]
+		},
+		{
+			"theme": "brown",
+			"title": "brown",
+			"content": [
+				{
+					"image": {
+						"src": "/images/marco-d-cellamare-full.jpg",
+						"duotone": true,
+						"blob": true
+					},
+					"heading": {
+						"title": "Marco D. Cellamare"
+					},
+					"leading": "Over <strong>20 years</strong> of experience as a Full-Stack <linked>Developer</linked> and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
+					"links": [
+						"xxxx"
+					]
+				}
+			]
+		},
+		{
+			"theme": "dark-gray",
+			"title": "dark-gray",
+			"content": [
+				{
+					"image": {
+						"src": "/images/marco-d-cellamare-full.jpg",
+						"duotone": true,
+						"blob": true
+					},
+					"heading": {
+						"title": "Marco D. Cellamare"
+					},
+					"leading": "Over <strong>20 years</strong> of experience as a Full-Stack <linked>Developer</linked> and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
+					"links": [
+						"xxxx"
+					]
+				}
+			]
+		},
+		{
+			"theme": "green",
+			"title": "green",
+			"content": [
+				{
+					"image": {
+						"src": "/images/marco-d-cellamare-full.jpg",
+						"duotone": true,
+						"blob": true
+					},
+					"heading": {
+						"title": "Marco D. Cellamare"
+					},
+					"leading": "Over <strong>20 years</strong> of experience as a Full-Stack <linked>Developer</linked> and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
+					"links": [
+						"xxxx"
+					]
+				}
+			]
+		},
+		{
+			"theme": "yellow",
+			"title": "yellow",
+			"content": [
+				{
+					"image": {
+						"src": "/images/marco-d-cellamare-full.jpg",
+						"duotone": true,
+						"blob": true
+					},
+					"heading": {
+						"title": "Marco D. Cellamare"
+					},
+					"leading": "Over <strong>20 years</strong> of experience as a Full-Stack <linked>Developer</linked> and Digital Designer, specializing in <strong>Front-End Development</strong> and creating scalable web applications with intuitive <strong>Web / UI design</strong>.",
+					"links": [
+						"xxxx"
 					]
 				}
 			]

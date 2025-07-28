@@ -45,14 +45,16 @@ const Link = ({ to, children }: LinkProps) => {
 		<button
 			type='button'
 			role='button'
-			className='btn btn-link text-(--color-link) hover:text-(--color-link-hover) active:text-(--color-link-active) whitespace-nowrap relative'
+			className='btn btn-link text-(--color-theme-link) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active) whitespace-nowrap relative transition-color duration-500'
 			aria-label={displayText}
 			onPointerEnter={start}
 			onPointerLeave={stop}
 			onClick={handleClick}
 			title={to}>
 			<span className='invisible'>{originalText}</span>
-			<span className='absolute left-0 top-0'>{displayText}</span>
+			<span className='absolute left-0 top-0 underline'>
+				{displayText}
+			</span>
 		</button>
 	);
 };

@@ -71,8 +71,8 @@ const Link = ({ thisPageId }: LinkProps) => {
 				classNames([
 					'relative uppercase font-black inline-block transition-[color,font-size,line-height,padding-left,margin-left] duration-250 ease-in-out',
 					!isActive
-						? 'text-(--color-link) hover:text-(--color-link-hover) leading-[0.9em]'
-						: 'text-(--color-link-active) text-[120%] lg:text-[150%] leading-[0.8em]',
+						? 'text-(--color-theme-link) hover:text-(--color-theme-link-hover) leading-[0.9em]'
+						: 'text-(--color-theme-link-active) text-[120%] lg:text-[150%] leading-[0.8em]',
 					{
 						'cursor-pointer': !isActive,
 						'!pointer-events-none': isActive || !isNavOpened,

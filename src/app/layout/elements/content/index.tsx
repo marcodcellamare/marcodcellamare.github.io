@@ -63,10 +63,16 @@ const Content = ({ rootKey, className }: ContentProps) => {
 			<Leading
 				rootKey={`${rootKey}.leading`}
 				components={transComponents}
+				className={classNames({
+					extra: !headingExists,
+				})}
 			/>
 			<Paragraph
 				rootKey={`${rootKey}.paragraphs`}
 				components={transComponents}
+				className={classNames({
+					extra: !headingExists,
+				})}
 			/>
 		</div>
 	);

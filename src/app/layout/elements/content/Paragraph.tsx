@@ -5,9 +5,10 @@ import useTranslationFallback from '@/hooks/useTranslationFallback';
 interface ParagraphProps {
 	rootKey: string;
 	components: any;
+	className?: string;
 }
 
-const Paragraph = ({ rootKey, components }: ParagraphProps) => {
+const Paragraph = ({ rootKey, components, className }: ParagraphProps) => {
 	const pageId = useUIStore((state) => state.pageId);
 	const { i18n } = useTranslation(pageId);
 
@@ -19,7 +20,9 @@ const Paragraph = ({ rootKey, components }: ParagraphProps) => {
 	if (!paragraphsExists || paragraphs.length === 0) return null;
 
 	return paragraphs.map((_, k) => (
-		<p key={k}>
+		<p
+			key={k}
+			className={className}>
 			<Trans
 				ns={pageId}
 				i18nKey={`${rootKey}.${k}`}

@@ -233,8 +233,8 @@ const Moods = ({ className }: MoodsProps) => {
 			className={classNames([
 				'moods btn btn-link !no-underline max-w-full whitespace-nowrap',
 				currentLink
-					? 'text-(--color-link) cursor-pointer'
-					: 'text-(--color-content) cursor-default',
+					? 'text-(--color-theme-link) cursor-pointer'
+					: 'text-(--color-theme-content) cursor-default',
 				className,
 			])}
 			disabled={!currentLink}
