@@ -40,6 +40,11 @@ const config = {
 			italic: false,
 		},
 		{
+			family: 'Roboto+Mono',
+			weights: [400, 700],
+			italic: false,
+		},
+		{
 			family: 'Montserrat',
 			weights: [400, 900],
 			italic: false,

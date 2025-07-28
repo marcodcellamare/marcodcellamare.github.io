@@ -21,7 +21,8 @@ interface SectionProps {
 
 const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 	const spacing = useUIStore((state) => state.spacing);
-	const { setSectionRefs, sectionRefs } = useUIStore();
+	const { setSectionRefs, sectionRefs, areAllSectionRefsReady } =
+		useUIStore();
 	const { theme, setSectionRef, nextBackgroundColor, hasImage } =
 		useSection();
 
@@ -50,12 +51,13 @@ const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 					'absolute top-0 bottom-0 left-0 right-0 pointer-events-none',
 					spacing.container,
 				])}>
-				{Object.keys(sectionRefs.current).length > 0 && (
-					<Pager
-						isFirst={isFirst}
-						isLast={isLast}
-					/>
-				)}
+				{areAllSectionRefsReady() &&
+					Object.keys(sectionRefs.current).length > 0 && (
+						<Pager
+							isFirst={isFirst}
+							isLast={isLast}
+						/>
+					)}
 			</Container>
 			<Title isFirst={isFirst} />
 			{!isLast && <Pattern />}

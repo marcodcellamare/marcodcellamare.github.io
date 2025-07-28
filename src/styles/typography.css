@@ -70,4 +70,7 @@
 	.font-body {
 		@apply font-(family-name:--font-body);
 	}
+	.font-mono {
+		@apply font-(family-name:--font-mono);
+	}
 }

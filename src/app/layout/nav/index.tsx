@@ -41,7 +41,7 @@ const Nav = () => {
 						<Counter
 							date={new Date(t('counter.experience'))}
 							sentenceLike={true}
-							className='uppercase font-black text-(--color-theme-link-active) h6 text-xs md:text-sm transition-color duration-250 ease-in-out pointer-events-none'
+							className='uppercase font-black text-(--color-theme-link-active) h6 text-xs md:text-sm transition-[color] duration-250 ease-in-out pointer-events-none'
 							suffxClassName='text-nowrap'
 							suffx={`${t(
 								'counter.ofExperience'

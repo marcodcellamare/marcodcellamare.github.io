@@ -48,7 +48,7 @@ const Link = ({ type, highlight, title, link }: SocialInterface) => {
 			type='button'
 			role='button'
 			className={classNames([
-				'btn btn-link disabled:text-(--color-theme-heading) !no-underline relative',
+				'btn btn-link disabled:text-(--color-theme-heading) !no-underline relative transition-[color] duration-500 ease-in-out',
 				!highlight
 					? 'text-(--color-theme-link) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active)'
 					: 'text-(--color-theme-link-hover) hover:text-(--color-theme-link) active:text-(--color-theme-link-active)',
@@ -71,11 +71,11 @@ const Link = ({ type, highlight, title, link }: SocialInterface) => {
 				className={classNames([
 					'transition-[scale] duration-200 ease-in-out',
 					{
-						'scale-120': isOver,
+						'scale-130': isOver,
 					},
 				])}
 			/>
-			<span className='hidden md:block text-xs absolute left-1/2 bottom-full -rotate-90 origin-left whitespace-nowrap pointer-events-none'>
+			<span className='hidden md:block font-mono font-black text-xs absolute left-1/2 bottom-full -rotate-90 origin-left whitespace-nowrap pointer-events-none'>
 				{displayText}
 			</span>
 		</button>

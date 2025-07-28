@@ -6,6 +6,7 @@
 	:root {
 		--font-title: 'Montserrat', sans-serif;
 		--font-body: 'Roboto', sans-serif;
+		--font-mono: 'Roboto Mono', sans-serif;
 	}
 
 	html {

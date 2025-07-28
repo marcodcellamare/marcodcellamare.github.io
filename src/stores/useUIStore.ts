@@ -45,6 +45,8 @@ interface UIStoreInterface {
 	setPageTheme: (v: ThemeType) => void;
 	setOverPageTheme: (v: ThemeType | null) => void;
 	setActiveSectionTheme: (v: ThemeType) => void;
+
+	areAllSectionRefsReady: () => boolean;
 }
 
 const mainContainerRef = {
@@ -59,7 +61,7 @@ const sectionRefs = { current: {} } as RefObject<
 	Record<number, HTMLElement | null>
 >;
 
-export const useUIStore = create<UIStoreInterface>((set) => ({
+export const useUIStore = create<UIStoreInterface>((set, get) => ({
 	mainContainerRef,
 	scrollContainerRef,
 	sectionRefs,
@@ -96,10 +98,12 @@ export const useUIStore = create<UIStoreInterface>((set) => ({
 		scrollContainerRef.current = node;
 	},
 	setSectionRefs: (id, node) => {
+		if (!get().sectionRefs.current) get().sectionRefs.current = {};
+
 		if (node) {
-			sectionRefs.current[id] = node;
+			get().sectionRefs.current[id] = node;
 		} else {
-			delete sectionRefs.current[id];
+			delete get().sectionRefs.current[id];
 		}
 	},
 
@@ -116,4 +120,9 @@ export const useUIStore = create<UIStoreInterface>((set) => ({
 	setPageTheme: (v) => set({ pageTheme: v }),
 	setOverPageTheme: (v) => set({ overPageTheme: v }),
 	setActiveSectionTheme: (v) => set({ activeSectionTheme: v }),
+
+	areAllSectionRefsReady: () => {
+		const refs = Object.values(get().sectionRefs.current ?? {});
+		return refs.length > 0 && refs.every((ref) => ref !== null);
+	},
 }));

@@ -13,8 +13,8 @@ export const GROUPS = [
 ] as const;
 
 export const PAGES = {
-	demo: '^/demo',
 	about: '/',
+	demo: '^/demo',
 	portfolio: '/portfolio',
 	portfolio_test: '^/portfolio/test',
 	music: '/music',

@@ -109,14 +109,14 @@ const Cursor = () => {
 		if (isTouch) return;
 		const observer = new MutationObserver(mutationObserverThrottled);
 
-		const id = requestAnimationFrame(() => {
+		const frameId = requestAnimationFrame(() => {
 			mutationObserverThrottled();
 			observer.observe(document.body, { childList: true, subtree: true });
 		});
 
 		return () => {
 			observer.disconnect();
-			cancelAnimationFrame(id);
+			cancelAnimationFrame(frameId);
 		};
 	}, [isTouch, mutationObserverThrottled]);
 

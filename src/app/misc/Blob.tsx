@@ -64,6 +64,8 @@ const Blob = ({
 	) => ((n - start1) / (end1 - start1)) * (end2 - start2) + start2;
 
 	useEffect(() => {
+		let frameId: number;
+
 		const animate = () => {
 			const path = pathRef.current;
 			if (!path) return;
@@ -91,9 +93,13 @@ const Blob = ({
 				point.noiseOffsetX += noiseStepRef.current;
 				point.noiseOffsetY += noiseStepRef.current;
 			});
-			requestAnimationFrame(animate);
+			frameId = requestAnimationFrame(animate);
 		};
 		animate();
+
+		return () => {
+			cancelAnimationFrame(frameId);
+		};
 	}, []);
 
 	useEffect(() => {

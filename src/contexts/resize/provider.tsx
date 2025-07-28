@@ -31,13 +31,13 @@ export const ResizeProvider = ({ children }: ResizeProviderProps) => {
 	useEffect(() => {
 		const observer = new ResizeObserver(resizeObserverThrottled);
 
-		const id = requestAnimationFrame(() => {
+		const frameId = requestAnimationFrame(() => {
 			observer.observe(document.documentElement);
 		});
 
 		return () => {
 			observer.disconnect();
-			cancelAnimationFrame(id);
+			cancelAnimationFrame(frameId);
 		};
 	}, [resizeObserverThrottled]);
 

@@ -12,7 +12,8 @@ interface RouterProviderProps {
 }
 
 export const RouterProvider = ({ children }: RouterProviderProps) => {
-	const { scrollContainerRef, sectionRefs } = useUIStore();
+	const { scrollContainerRef, sectionRefs, areAllSectionRefsReady } =
+		useUIStore();
 	const setPageId = useUIStore((state) => state.setPageId);
 	const setIsNavOpened = useUIStore((state) => state.setIsNavOpened);
 	const setActiveSectionId = useUIStore((state) => state.setActiveSectionId);
@@ -64,26 +65,30 @@ export const RouterProvider = ({ children }: RouterProviderProps) => {
 	// Get the active section
 
 	useEffect(() => {
+		let frameId: number;
 		const observer = new IntersectionObserver(
 			intersectionObserverDebounced,
 			{ threshold: 0.5 }
 		);
-
-		const id = requestAnimationFrame(() => {
-			if (!Object.values(sectionRefs.current).every(Boolean)) return;
-
-			Object.entries(sectionRefs.current).forEach(([_, ref]) => {
+		const waitForRefs = () => {
+			if (!areAllSectionRefsReady()) {
+				frameId = requestAnimationFrame(waitForRefs);
+				return;
+			}
+			Object.values(sectionRefs.current ?? {}).forEach((ref) => {
 				if (ref) observer.observe(ref);
 			});
-		});
+		};
+		frameId = requestAnimationFrame(waitForRefs);
 
 		return () => {
 			observer.disconnect();
-			cancelAnimationFrame(id);
+			cancelAnimationFrame(frameId);
 		};
 	}, [
 		pathname,
 		sectionRefs,
+		areAllSectionRefsReady,
 		setActiveSectionId,
 		intersectionObserverDebounced,
 	]);

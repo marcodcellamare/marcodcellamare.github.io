@@ -19,13 +19,13 @@ const Title = ({ isFirst }: TitleProps) => {
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
-	const y = useTransform(scrollYProgress, [0, 1], ['-15rem', '15rem']);
+	const y = useTransform(scrollYProgress, [0, 1], ['-20rem', '20rem']);
 	const opacity = useTransform(scrollYProgress, [0.75, 0.9], [1, 0]);
 	const zIndex = useTransform(scrollYProgress, [0.3, 0.35], [5, 0]);
 	const patternThickness = useTransform(
 		scrollYProgress,
 		[0, 0.5, 1],
-		['0.5rem', '0.07rem', '0.01rem'],
+		['0.3rem', '0.05rem', '0.01rem'],
 		{
 			ease: easeOut,
 		}
@@ -43,7 +43,7 @@ const Title = ({ isFirst }: TitleProps) => {
 
 	return (
 		<motion.div
-			className='title absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 max-w-(--main-vw) lg:-translate-x-1/2'
+			className='title absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 lg:-translate-x-1/2'
 			style={{
 				y,
 				opacity,
@@ -54,16 +54,16 @@ const Title = ({ isFirst }: TitleProps) => {
 			<h4
 				className={classNames([
 					'relative block font-black uppercase',
-					'text-(--color-theme-background-contrast)/20',
-					'-rotate-90 lg:rotate-0 origin-top',
+					'text-(--color-theme-background-contrast)/10',
+					'-rotate-90 lg:-rotate-3 lg:-skew-x-3 origin-top lg:origin-center',
 					{
 						extra: isFirst,
 					},
 				])}>
 				<div
 					className={classNames([
-						'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 max-w-(--main-vh) lg:max-w-(--main-vw)',
-						spacing.absEdgePadding,
+						'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 min-w-fit max-w-(--main-vh) lg:max-w-(--main-vw) drop-shadow-md drop-shadow-black/10',
+						//spacing.absEdgePadding,
 					])}>
 					{t(`sections.${sectionId}.title`)}
 				</div>

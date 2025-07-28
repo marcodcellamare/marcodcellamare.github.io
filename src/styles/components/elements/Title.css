@@ -2,16 +2,23 @@
 
 .title {
 	h4 {
-		@apply text-[clamp(var(--text-7xl),calc((var(--main-vh))/var(--char-count)*0.9),calc(var(--main-vh)/var(--char-count)*0.9))]
-			lg:text-[clamp(var(--text-7xl),calc((var(--main-vw))/var(--char-count)*1.1),calc(var(--main-vw)/var(--char-count)*1.1))]
+		@apply text-[clamp(var(--text-8xl),calc(var(--main-vh)/var(--char-count)*0.9),calc(var(--main-vh)/var(--char-count)*0.9))] 
+			lg:text-[clamp(var(--text-7xl),calc(var(--main-vw)/var(--char-count)*1.2),calc(var(--main-vw)/var(--char-count)*1.2))] 
 			leading-[0.85em] md:leading-[0.8em]
 			transition-[font-size] duration-150;
 
+		&.extra {
+			@apply lg:text-[clamp(var(--text-7xl),calc(var(--main-vw)/var(--char-count)*1.4),calc(var(--main-vw)/var(--char-count)*1.4))];
+		}
+
 		> div {
-			@apply bg-left bg-fixed
-				bg-size-[0.5rem_0.5rem]
-				lg:bg-size-[0.7rem_0.7rem]
-				bg-clip-text;
+			@apply bg-left bg-fixed bg-clip-text
+				bg-size-[0.5rem_0.5rem] lg:bg-size-[0.7rem_0.7rem];
+
+			text-stroke: var(--pattern-thickness)
+				var(--color-theme-background-contrast);
+			-webkit-text-stroke: var(--pattern-thickness)
+				var(--color-theme-background-contrast);
 
 			background-image: repeating-linear-gradient(
 				45deg,
