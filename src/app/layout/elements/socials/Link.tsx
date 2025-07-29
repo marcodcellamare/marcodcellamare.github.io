@@ -75,7 +75,7 @@ const Link = ({ type, highlight, title, link }: SocialInterface) => {
 					},
 				])}
 			/>
-			<span className='hidden md:block font-mono font-black text-xs absolute left-1/2 bottom-full -rotate-90 origin-left whitespace-nowrap pointer-events-none'>
+			<span className='hidden md:block font-black text-xs absolute left-1/2 bottom-full -rotate-90 origin-left whitespace-nowrap pointer-events-none'>
 				{displayText}
 			</span>
 		</button>

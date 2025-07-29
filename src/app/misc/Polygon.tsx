@@ -94,6 +94,8 @@ const Polygon = ({
 				strokeOpacity={strokeOpacity}
 				strokeWidth={strokeWidth}
 				strokeDasharray={strokeDasharray}
+				strokeLinejoin='miter'
+				strokeLinecap='square'
 				vectorEffect='non-scaling-stroke'
 			/>
 		</svg>

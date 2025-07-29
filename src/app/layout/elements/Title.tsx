@@ -31,8 +31,12 @@ const Title = ({ isFirst }: TitleProps) => {
 		}
 	);
 
-	if (!i18n.exists(`sections.${sectionId}.title`, { ns: pageId }))
-		return null;
+	const blurAmount = useTransform(
+		scrollYProgress,
+		[0, 0.1],
+		['1rem', '0rem']
+	);
+	const filter = useTransform(blurAmount, (value) => `blur(${value})`);
 
 	const maxLength = t(`sections.${sectionId}.title`)
 		.split(/\s+/)
@@ -41,12 +45,16 @@ const Title = ({ isFirst }: TitleProps) => {
 			''
 		).length;
 
+	if (!i18n.exists(`sections.${sectionId}.title`, { ns: pageId }))
+		return null;
+
 	return (
 		<motion.div
 			className='title absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 lg:-translate-x-1/2'
 			style={{
 				y,
 				opacity,
+				filter,
 				zIndex,
 				['--pattern-thickness' as string]: patternThickness,
 				['--char-count' as string]: maxLength,
@@ -63,7 +71,7 @@ const Title = ({ isFirst }: TitleProps) => {
 				<div
 					className={classNames([
 						'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 min-w-fit max-w-(--main-vh) lg:max-w-(--main-vw) drop-shadow-md drop-shadow-black/10',
-						//spacing.absEdgePadding,
+						spacing.absEdgePadding,
 					])}>
 					{t(`sections.${sectionId}.title`)}
 				</div>

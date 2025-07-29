@@ -22,6 +22,7 @@ export const PAGES = {
 } as const;
 
 export const PALETTE = [
+	'white',
 	'light-gray',
 	'light-gray2',
 	'light-gray3',
@@ -30,12 +31,14 @@ export const PALETTE = [
 	'darker-gray',
 	'red',
 	'purple',
+	'blue',
 	'brown',
 	'green',
 	'yellow',
 ] as const;
 
 export const THEMES: PaletteType[] = [
+	'white',
 	'light-gray',
 	'light-gray2',
 	'light-gray3',
@@ -43,6 +46,7 @@ export const THEMES: PaletteType[] = [
 	'dark-gray',
 	'red',
 	'purple',
+	'blue',
 	'brown',
 	'green',
 	'yellow',

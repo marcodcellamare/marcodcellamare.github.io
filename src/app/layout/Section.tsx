@@ -65,7 +65,7 @@ const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
 				<Polygons
 					mode='repel'
 					min={1}
-					max={1}
+					max={3}
 					ratio={10}
 					margin={-10}
 				/>

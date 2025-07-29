@@ -115,17 +115,19 @@ const Polygons = ({
 					mode={mode}
 					ratioX={ratio}
 					ratioY={ratio}
-					changeOpacity={true}
-					minOpacity={0.1}
-					maxOpacity={0.5}
 					className='absolute'
 					style={{
 						left: `${polygon.x}%`,
 						top: `${polygon.y}%`,
 						width: `${polygon.width}%`,
-						//opacity: polygon.opacity,
+						opacity: polygon.opacity,
 					}}>
-					<Polygon fill='var(--color-theme-next-background)' />
+					<Polygon
+						strokeWidth={1}
+						fill='var(--color-theme-next-background)'
+						fillOpacity={0.1}
+						stroke='var(--color-theme-next-background)'
+					/>
 				</Floating>
 			))}
 		</div>
