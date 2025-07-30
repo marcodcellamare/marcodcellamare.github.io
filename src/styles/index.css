@@ -18,9 +18,9 @@
 	body {
 		@apply overscroll-x-none
 			overscroll-y-none
-			min-h-[100vh]
+			min-h-screen
 			min-w-[-webkit-fill-available]
-			max-w-[100%]
+			max-w-screen
 			overflow-hidden
 			select-none
 			bg-base-100

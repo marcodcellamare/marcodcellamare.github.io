@@ -43,8 +43,8 @@ const Picture = ({
 				loading='lazy'
 				decoding={async ? 'async' : 'auto'}
 				className={classNames([
-					className,
 					contain ? 'object-contain' : 'object-cover',
+					className,
 				])}
 				style={style}
 			/>

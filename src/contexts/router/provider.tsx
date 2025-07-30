@@ -12,8 +12,12 @@ interface RouterProviderProps {
 }
 
 export const RouterProvider = ({ children }: RouterProviderProps) => {
-	const { scrollContainerRef, sectionRefs, areAllSectionRefsReady } =
-		useUIStore();
+	const {
+		isScrollContainerRefReady,
+		scrollContainerRef,
+		sectionRefs,
+		areAllSectionRefsReady,
+	} = useUIStore();
 	const setPageId = useUIStore((state) => state.setPageId);
 	const setIsNavOpened = useUIStore((state) => state.setIsNavOpened);
 	const setActiveSectionId = useUIStore((state) => state.setActiveSectionId);
@@ -44,7 +48,12 @@ export const RouterProvider = ({ children }: RouterProviderProps) => {
 				top: 0,
 				behavior: 'smooth',
 			});
-	}, [pathname, setIsNavOpened, scrollContainerRef]);
+	}, [
+		pathname,
+		setIsNavOpened,
+		isScrollContainerRefReady,
+		scrollContainerRef,
+	]);
 
 	// Get the active section (debounced)
 

@@ -19,10 +19,14 @@ const Toggler = ({ className }: TogglerProps) => {
 			type='button'
 			role='button'
 			className={classNames([
-				'toggler block relative w-14 md:w-12 aspect-square cursor-pointer',
+				'toggler block relative w-14 md:w-12 aspect-square transition-[border-width,border-color] duration-1000 ease-in-out cursor-pointer',
 				className,
 				{
 					active: isNavOpened,
+					[!isOver
+						? 'border-0 border-(--color-palette-gray)/0'
+						: 'border-[calc(var(--spacing)*2)] border-(--color-palette-gray)']:
+						isNavOpened,
 				},
 			])}
 			aria-label={t('menu')}
@@ -60,16 +64,16 @@ const Toggler = ({ className }: TogglerProps) => {
 							: [
 									'-translate-y-1/2',
 									{
+										'-rotate-45': k === 0,
 										'w-4/5 !h-0': k === 1,
+										'rotate-45': k === 2,
 									},
 									!isOver
 										? {
-												'w-full -rotate-45': k === 0,
-												'w-full rotate-45': k === 2,
+												'w-full': k === 0 || k === 2,
 										  }
 										: {
-												'w-6/4 -rotate-50': k === 0,
-												'w-6/4 rotate-50': k === 2,
+												'w-3/2': k === 0 || k === 2,
 										  },
 							  ],
 					])}

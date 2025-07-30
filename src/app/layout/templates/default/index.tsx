@@ -65,7 +65,7 @@ const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 						'shrink-0 min-w-30',
 						!imageExists
 							? '@3xl:basis-9/12 @6xl:basis-7/12'
-							: '@3xl:basis-6/12 @4xl:basis-7/12',
+							: '@3xl:basis-7/12 @4xl:basis-7/12',
 					])}
 				/>
 			</div>

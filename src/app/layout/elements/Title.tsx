@@ -20,7 +20,11 @@ const Title = ({ isFirst }: TitleProps) => {
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
 	const y = useTransform(scrollYProgress, [0, 1], ['-20rem', '20rem']);
-	const opacity = useTransform(scrollYProgress, [0.75, 0.9], [1, 0]);
+	const opacity = useTransform(
+		scrollYProgress,
+		[0, 0.1, 0.75, 0.9],
+		[0.3, 1, 1, 0]
+	);
 	const zIndex = useTransform(scrollYProgress, [0.3, 0.35], [5, 0]);
 	const patternThickness = useTransform(
 		scrollYProgress,
@@ -70,7 +74,7 @@ const Title = ({ isFirst }: TitleProps) => {
 				])}>
 				<div
 					className={classNames([
-						'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 min-w-fit max-w-(--main-vh) lg:max-w-(--main-vw) drop-shadow-md drop-shadow-black/10',
+						'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 min-w-fit max-w-(--main-vh) lg:max-w-(--main-vw)',
 						spacing.absEdgePadding,
 					])}>
 					{t(`sections.${sectionId}.title`)}

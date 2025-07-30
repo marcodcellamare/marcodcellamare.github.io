@@ -8,7 +8,8 @@
 			"title": "Hello",
 			"background": {
 				"src": "/images/marco-d-cellamare.png",
-				"contain": true
+				"contain": true,
+				"pictureClassName": "opacity-55"
 			},
 			"content": [
 				{

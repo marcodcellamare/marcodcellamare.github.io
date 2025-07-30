@@ -71,7 +71,8 @@ const Content = ({ rootKey, className }: ContentProps) => {
 				rootKey={`${rootKey}.paragraphs`}
 				components={transComponents}
 				className={classNames({
-					extra: !headingExists,
+					extra: !headingExists && leadingExists,
+					'extra-2x': !headingExists && !leadingExists,
 				})}
 			/>
 		</div>

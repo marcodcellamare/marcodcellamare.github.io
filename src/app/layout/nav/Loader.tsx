@@ -96,7 +96,9 @@ const Loader = () => {
 				color = PALETTE[Math.floor(Math.random() * PALETTE.length)];
 			} while (
 				color === prevColor ||
-				['light-gray', 'light-gray2', 'light-gray3'].includes(color)
+				['white', 'light-gray', 'light-gray2', 'light-gray3'].includes(
+					color
+				)
 			);
 
 			strips.push({

@@ -177,8 +177,13 @@ const Cursor = () => {
 					? 'bg-(--color-palette-gray)'
 					: 'bg-(--color-palette-gray)/0',
 				{
-					'cursor-link border-5': ['nav', 'link'].includes(status),
-					'cursor-image border-10': ['image'].includes(status),
+					'cursor-link border-[calc(var(--spacing)*2)]': [
+						'nav',
+						'link',
+					].includes(status),
+					'cursor-image border-[calc(var(--spacing)*2)]': [
+						'image',
+					].includes(status),
 					'border-0': ['leave'].includes(status),
 				},
 			])}

@@ -9,12 +9,12 @@ interface ScrollProviderProps {
 }
 
 export const ScrollProvider = ({ children }: ScrollProviderProps) => {
-	const { scrollContainerRef } = useUIStore();
+	const { scrollContainerRef, isScrollContainerRefReady } = useUIStore();
 
 	const [scrollX, setScrollX] = useState(0);
 	const [scrollY, setScrollY] = useState(0);
-	const [isWheeling, setIsWheeling] = useState(false);
-	const [isScrolling, setIsScrolling] = useState(false);
+	const [isWheeling, setIsWheeling] = useState<number | false>(false);
+	const [isScrolling, setIsScrolling] = useState<boolean>(false);
 
 	const listeners = useRef<Set<() => void>>(new Set());
 
@@ -32,7 +32,7 @@ export const ScrollProvider = ({ children }: ScrollProviderProps) => {
 
 	const handleWheelDebounced = useDebounceCallback(
 		() => setIsWheeling(false),
-		10
+		300
 	);
 
 	useEffect(() => {
@@ -45,8 +45,8 @@ export const ScrollProvider = ({ children }: ScrollProviderProps) => {
 			setIsScrolling(true);
 			handleScrollDebounced();
 		};
-		const handleWheel = () => {
-			setIsWheeling(true);
+		const handleWheel = (e: WheelEvent) => {
+			setIsWheeling(e.timeStamp);
 			handleWheelDebounced();
 		};
 
@@ -57,7 +57,12 @@ export const ScrollProvider = ({ children }: ScrollProviderProps) => {
 			container.removeEventListener('scroll', handleScroll);
 			container.removeEventListener('wheel', handleWheel);
 		};
-	}, [scrollContainerRef, handleScrollDebounced, handleWheelDebounced]);
+	}, [
+		isScrollContainerRefReady,
+		scrollContainerRef,
+		handleScrollDebounced,
+		handleWheelDebounced,
+	]);
 
 	return (
 		<ScrollContext.Provider

@@ -1,4 +1,4 @@
-import { ReactNode, RefObject } from 'react';
+import { ReactNode, RefObject, useCallback } from 'react';
 import { ParallaxContext } from './context';
 import { useUIStore } from '@/stores/useUIStore';
 
@@ -7,14 +7,23 @@ interface ParallaxProviderProps {
 }
 
 export const ParallaxProvider = ({ children }: ParallaxProviderProps) => {
-	const { scrollContainerRef } = useUIStore();
+	const { isScrollContainerRefReady, scrollContainerRef } = useUIStore();
 
-	const getScrollConfig = (targetRef?: RefObject<HTMLElement | null>) => ({
-		container: scrollContainerRef,
-		target: targetRef,
-		offset: ['start end', 'end start'] as ('start end' | 'end start')[],
-		layoutEffect: false,
-	});
+	const getScrollConfig = useCallback(
+		(targetRef?: RefObject<HTMLElement | null>) =>
+			isScrollContainerRefReady
+				? {
+						container: scrollContainerRef,
+						target: targetRef,
+						offset: ['start end', 'end start'] as (
+							| 'start end'
+							| 'end start'
+						)[],
+						layoutEffect: false,
+				  }
+				: {},
+		[isScrollContainerRefReady, scrollContainerRef]
+	);
 
 	return (
 		<ParallaxContext.Provider

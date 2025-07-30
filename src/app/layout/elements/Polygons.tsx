@@ -124,9 +124,10 @@ const Polygons = ({
 					}}>
 					<Polygon
 						strokeWidth={1}
-						fill='var(--color-theme-next-background)'
-						fillOpacity={0.1}
-						stroke='var(--color-theme-next-background)'
+						strokeOpacity={0.5}
+						fill='var(--color-theme-background-contrast)'
+						fillOpacity={0.15}
+						stroke='var(--color-theme-background-contrast)'
 					/>
 				</Floating>
 			))}

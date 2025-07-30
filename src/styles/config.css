@@ -4,7 +4,6 @@
 @import './custom/lucide.css';
 @import './custom/overlay.css';
 @import './custom/button.css';
-@import './custom/badge.css';
 
 @plugin 'daisyui' {
 	themes: light --default;

@@ -37,6 +37,7 @@ export interface BackgroundInterface {
 	src: string;
 	contain?: boolean;
 	className?: string;
+	pictureClassName?: string;
 }
 
 export interface SettingsInterface {

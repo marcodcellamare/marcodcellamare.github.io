@@ -22,7 +22,7 @@ const ImageWrapper = ({ rootKey }: DefaultProps) => {
 					<AnimatedIcon
 						icon={image.icon}
 						className={classNames([
-							'flex flex-1 text-(--color-theme-heading)',
+							'flex flex-1 text-(--color-theme-link)',
 							'scale-150',
 							'@3xl:scale-115',
 							'min-w-50 max-w-[33vw]',
@@ -61,6 +61,7 @@ const ImageWrapper = ({ rootKey }: DefaultProps) => {
 								: [
 										'scale-170 hover:scale-175',
 										'@md:scale-155 @md:hover:scale-160',
+										'origin-[center_80%]',
 										{
 											'@3xl:origin-[55%_center]':
 												!image.position ||

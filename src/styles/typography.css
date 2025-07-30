@@ -52,12 +52,15 @@
 		&.extra {
 			@apply text-lg xl:text-xl;
 		}
+		&.extra-2x {
+			@apply text-2xl xl:text-3xl;
+		}
 
 		&.leading {
 			@apply text-xl;
 
 			&.extra {
-				@apply text-2xl;
+				@apply text-2xl xl:text-3xl;
 			}
 		}
 	}

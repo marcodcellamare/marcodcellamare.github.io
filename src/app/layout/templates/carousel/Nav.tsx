@@ -37,7 +37,7 @@ const Nav = ({
 	const { t } = useTranslation(pageId);
 	const { isWheeling } = useScroll();
 
-	const [isOver, setIsOver] = useState(false);
+	const [isOver, setIsOver] = useState<'prev' | 'next' | false>(false);
 
 	const isWheelScroll = useRef(false);
 
@@ -50,8 +50,7 @@ const Nav = ({
 		isWheelScroll.current = false;
 		setActiveIdx((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
 	};
-
-	const handleWheel = () => {
+	const handleWheelThrottled = useThrottleCallback(() => {
 		const container = containerRef.current;
 		if (!container) return;
 
@@ -70,10 +69,9 @@ const Nav = ({
 				}
 			}
 		});
-		setActiveIdx(closestIdx);
-	};
 
-	const handleWheelThrottled = useThrottleCallback(handleWheel, 200);
+		setActiveIdx(closestIdx);
+	}, 50);
 
 	useEffect(handleWheelThrottled, [isWheeling, handleWheelThrottled]);
 
@@ -100,13 +98,14 @@ const Nav = ({
 	return (
 		<div
 			className={classNames([
-				'absolute top-1/2 right-2 -translate-y-1/2 z-100',
+				'absolute top-1/2 right-0 -translate-y-1/2 z-100',
 				className,
 			])}>
 			<div
 				className={classNames([
-					'absolute top-1/2 right-0 -translate-y-1/2 h-[0.2rem] bg-(--color-theme-link)/35 pointer-events-none transform-[width] duration-300 ease-in-out hidden md:block',
-					!isOver ? 'w-[100%]' : 'w-[120%]',
+					'absolute top-1/2 right-0 -translate-y-1/2 h-0.5 bg-(--color-theme-link)/35 hidden md:block pointer-events-none',
+					'transform-[width] duration-500 ease-in-out',
+					!isOver ? 'w-full' : 'w-(--main-vw)',
 				])}
 			/>
 			<div
@@ -120,10 +119,17 @@ const Nav = ({
 						role='button'
 						aria-label={t('default:prev')}
 						className='btn btn-link text-(--color-theme-link) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active) !no-underline hidden lg:block'
-						onPointerEnter={() => setIsOver(true)}
+						onPointerEnter={() => setIsOver('prev')}
 						onPointerLeave={() => setIsOver(false)}
 						onClick={handlePrev}>
-						<ArrowLeftIcon className='text-svg text-2xl' />
+						<ArrowLeftIcon
+							className={classNames([
+								'text-svg text-2xl',
+								{
+									'scale-150': isOver === 'prev',
+								},
+							])}
+						/>
 					</button>
 				)}
 				<div className='text-xxs font-bold text-(--color-theme-link) hidden md:block'>
@@ -134,10 +140,17 @@ const Nav = ({
 					role='button'
 					aria-label={t('default:next')}
 					className='btn btn-link text-(--color-theme-link) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active) !no-underline'
-					onPointerEnter={() => setIsOver(true)}
+					onPointerEnter={() => setIsOver('next')}
 					onPointerLeave={() => setIsOver(false)}
 					onClick={handleNext}>
-					<ArrowRightIcon className='text-svg text-7xl' />
+					<ArrowRightIcon
+						className={classNames([
+							'text-svg text-7xl',
+							{
+								'scale-150': isOver === 'next',
+							},
+						])}
+					/>
 				</button>
 				<Indicators
 					activeIdx={activeIdx}

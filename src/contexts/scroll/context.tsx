@@ -3,7 +3,7 @@ import { createContext } from 'react';
 export interface ScrollContextProps {
 	scrollX: number;
 	scrollY: number;
-	isWheeling: boolean;
+	isWheeling: number | false;
 	isScrolling: boolean;
 
 	subscribe: (callback: () => void) => () => void;

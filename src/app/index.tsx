@@ -24,7 +24,7 @@ const App = () => {
 			<Meta />
 			<Fonts />
 			<div className='app flex 3xl:justify-center 3xl:items-center bg-(--color-palette-gray) 3xl:p-10 4xl:p-20 6xl:p-30 select-none'>
-				<div className='flex flex-1 h-full min-w-xs max-w-(--breakpoint-3xl) 3xl:max-h-(--breakpoint-xl) 3xl:border-10 3xl:border-white 3xl:shadow-2xl overflow-hidden relative'>
+				<div className='flex flex-1 h-full min-w-xs max-w-(--breakpoint-3xl) 3xl:max-h-(--breakpoint-xl) 3xl:border-[calc(var(--spacing)*2)] 3xl:border-white 3xl:shadow-2xl overflow-hidden relative'>
 					<Router />
 					<Footer />
 					<Header />

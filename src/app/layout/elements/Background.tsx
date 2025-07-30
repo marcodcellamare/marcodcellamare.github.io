@@ -10,8 +10,12 @@ const Background = () => {
 	if (!background.src) return;
 
 	const props = {
-		...background,
-		pictureClassName: 'absolute top-0 bottom-0 left-0 right-0',
+		src: background.src,
+		contain: background?.contain,
+		pictureClassName: classNames([
+			'absolute top-0 bottom-0 left-0 right-0',
+			background?.pictureClassName,
+		]),
 		async: true,
 	} as PictureProps;
 
