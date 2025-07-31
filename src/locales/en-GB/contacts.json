@@ -15,7 +15,7 @@
 			"content": [
 				{
 					"image": {
-						"src": "/images/mario.png",
+						"src": "/images/marco-d-cellamare-full.jpg",
 						"duotone": true
 					},
 					"paragraphs": [
@@ -41,7 +41,7 @@
 			"content": [
 				{
 					"image": {
-						"src": "/images/mario.png",
+						"src": "/images/marco-d-cellamare-full.jpg",
 						"position": "left",
 						"blob": true,
 						"duotone": true

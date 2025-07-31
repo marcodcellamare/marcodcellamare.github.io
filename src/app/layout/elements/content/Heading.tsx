@@ -1,17 +1,14 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
-import { useSection } from '@/contexts/section';
 import classNames from 'classnames';
-
-import '@/styles/components/elements/Heading.css';
 
 interface HeadingProps {
 	rootKey: string;
+	extra?: boolean;
 	className?: string;
 }
 
-const Heading = ({ rootKey, className }: HeadingProps) => {
-	const { sectionId } = useSection();
+const Heading = ({ rootKey, extra, className }: HeadingProps) => {
 	const pageId = useUIStore((state) => state.pageId);
 	const { i18n, t } = useTranslation(pageId);
 
@@ -24,13 +21,13 @@ const Heading = ({ rootKey, className }: HeadingProps) => {
 	return (
 		<div
 			className={classNames([
-				'heading text-(--color-theme-heading) uppercase',
+				'flex flex-col heading space-y-1 xl:space-y-2 text-(--color-theme-heading) uppercase',
 				className,
 			])}>
 			{headlineExists && (
 				<span
 					className={classNames([
-						sectionId === 0 ? 'h2' : 'h5',
+						extra ? 'h2' : 'h5',
 						'block font-black',
 					])}>
 					{t(`${rootKey}.headline`)}
@@ -40,17 +37,13 @@ const Heading = ({ rootKey, className }: HeadingProps) => {
 				className={classNames([
 					'h1 block font-black',
 					{
-						extra: sectionId === 0,
+						extra: extra,
 					},
 				])}>
 				{t(`${rootKey}.title`)}
 			</h2>
 			{subtitleExists && (
-				<h3
-					className={classNames([
-						'block',
-						sectionId === 0 ? 'h3' : 'h4',
-					])}>
+				<h3 className={classNames(['block', extra ? 'h3' : 'h4'])}>
 					<Trans
 						ns={pageId}
 						i18nKey={`${rootKey}.subtitle`}

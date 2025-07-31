@@ -61,6 +61,7 @@ const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 				)}
 				<Content
 					rootKey={rootKey}
+					sectionId={sectionId}
 					className={classNames([
 						'shrink-0 min-w-30',
 						!imageExists

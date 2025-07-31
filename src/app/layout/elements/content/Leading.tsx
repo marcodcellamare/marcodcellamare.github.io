@@ -4,11 +4,12 @@ import classNames from 'classnames';
 
 interface LeadingProps {
 	rootKey: string;
+	extra?: boolean;
 	components: any;
 	className?: string;
 }
 
-const Leading = ({ rootKey, components, className }: LeadingProps) => {
+const Leading = ({ rootKey, extra, components, className }: LeadingProps) => {
 	const pageId = useUIStore((state) => state.pageId);
 	const { i18n } = useTranslation(pageId);
 
@@ -19,7 +20,14 @@ const Leading = ({ rootKey, components, className }: LeadingProps) => {
 	if (!leadingExists) return null;
 
 	return (
-		<p className={classNames(['leading', className])}>
+		<p
+			className={classNames([
+				'leading',
+				className,
+				{
+					extra: extra,
+				},
+			])}>
 			<Trans
 				ns={pageId}
 				i18nKey={rootKey}

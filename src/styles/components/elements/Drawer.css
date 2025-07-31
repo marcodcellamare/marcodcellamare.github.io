@@ -1,0 +1,26 @@
+@reference '@/styles/index.css';
+
+.drawer {
+	.drawer-overlay {
+		@apply bg-left bg-fixed bg-size-[0.7rem_0.7rem];
+
+		background-image: repeating-linear-gradient(
+			45deg,
+			var(--color-theme-background-contrast) 0,
+			var(--color-theme-background-contrast) 0.05rem,
+			transparent 0,
+			transparent 50%
+		);
+	}
+	.drawer-content {
+		@apply bg-left bg-fixed bg-size-[0.7rem_0.7rem];
+
+		background-image: repeating-linear-gradient(
+			45deg,
+			var(--color-theme-background) 0,
+			var(--color-theme-background) 0.4rem,
+			transparent 0,
+			transparent 50%
+		);
+	}
+}

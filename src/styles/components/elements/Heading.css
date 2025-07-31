@@ -1,7 +1,0 @@
-@reference '@/styles/index.css';
-
-.heading {
-	> :not(:last-child) {
-		@apply mb-1 xl:mb-2;
-	}
-}

@@ -10,6 +10,7 @@ export interface SectionInterface {
 	settings?: SettingsInterface;
 	title?: string;
 	content?: ContentInterface[];
+	drawer?: ContentInterface[];
 }
 
 export interface HeadingInterface {
@@ -30,7 +31,8 @@ export interface ContentInterface {
 	heading?: HeadingInterface;
 	leading?: string;
 	paragraphs?: string[];
-	links?: string[];
+	list?: string[];
+	links?: (number | string)[];
 }
 
 export interface BackgroundInterface {

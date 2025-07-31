@@ -24,6 +24,11 @@
 		--color-theme-background-contrast: var(--color-palette-darker-gray);
 		--color-theme-link: var(--color-palette-red);
 	}
+	[data-theme='darker-gray'] {
+		--color-theme-background: var(--color-palette-darker-gray);
+		--color-theme-background-contrast: var(--color-palette-dark-gray);
+		--color-theme-link: var(--color-palette-green);
+	}
 
 	/**/
 
@@ -72,9 +77,9 @@
 	[data-theme='purple'],
 	[data-theme='blue'],
 	[data-theme='brown'],
-	[data-theme='dark-gray'] {
-		--color-theme-heading: var(--color-palette-gray);
-		--color-theme-content: var(--color-palette-gray);
+	[data-theme='dark-gray'],
+	[data-theme='darker-gray'] {
+		--color-theme-foreground: var(--color-palette-gray);
 		--color-theme-duotone-black: var(--color-theme-background-contrast);
 		--color-theme-duotone-white: var(--color-theme-link);
 
@@ -96,9 +101,8 @@
 	[data-theme='light-gray2'],
 	[data-theme='light-gray3'],
 	[data-theme='gray'] {
-		--color-theme-heading: var(--color-palette-dark-gray);
-		--color-theme-content: var(--color-palette-dark-gray);
-		--color-theme-duotone-black: var(--color-theme-heading);
+		--color-theme-foreground: var(--color-palette-dark-gray);
+		--color-theme-duotone-black: var(--color-theme-foreground);
 		--color-theme-duotone-white: var(--color-theme-link);
 
 		--color-theme-link-hover: color-mix(
@@ -111,5 +115,15 @@
 			var(--color-theme-link) 70%,
 			var(--color-black)
 		);
+	}
+
+	[data-theme] {
+		--color-theme-heading: var(--color-theme-foreground);
+		--color-theme-content: var(--color-theme-foreground);
+
+		&[data-id='0'] {
+			--color-theme-heading: var(--color-theme-link);
+			--color-theme-content: var(--color-theme-link);
+		}
 	}
 }

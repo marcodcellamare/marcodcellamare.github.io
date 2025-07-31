@@ -10,7 +10,7 @@ const Menu = () => (
 			(pageId) =>
 				!config.pages.list[pageId].startsWith(config.pages.hide) && (
 					<li key={pageId}>
-						<Link thisPageId={pageId} />
+						<Link id={pageId} />
 					</li>
 				)
 		)}

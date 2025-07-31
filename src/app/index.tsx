@@ -5,6 +5,7 @@ import Fonts from './layout/Fonts';
 
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import Drawer from './layout/Drawer';
 import Router from './misc/Router';
 import Cursor from './misc/Cursor';
 
@@ -28,6 +29,7 @@ const App = () => {
 					<Router />
 					<Footer />
 					<Header />
+					<Drawer />
 					<Cursor />
 				</div>
 			</div>

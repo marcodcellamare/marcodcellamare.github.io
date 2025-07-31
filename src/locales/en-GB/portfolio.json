@@ -10,7 +10,7 @@
 			"content": [
 				{
 					"image": {
-						"src": "/images/mario.png",
+						"src": "/images/marco-d-cellamare-full.jpg",
 						"duotone": true
 					},
 					"heading": {
@@ -26,7 +26,7 @@
 				{
 					"image": {
 						"position": "right",
-						"src": "/images/mario.png",
+						"src": "/images/marco-d-cellamare-full.jpg",
 						"duotone": true
 					},
 					"heading": {
@@ -41,7 +41,7 @@
 				},
 				{
 					"image": {
-						"src": "/images/mario.png",
+						"src": "/images/marco-d-cellamare-full.jpg",
 						"blob": true,
 						"duotone": true
 					},
@@ -83,7 +83,7 @@
 				{
 					"image": {
 						"position": "right",
-						"src": "/images/mario.png",
+						"src": "/images/marco-d-cellamare-full.jpg",
 						"blob": true,
 						"duotone": true
 					},
@@ -106,7 +106,7 @@
 			"content": [
 				{
 					"image": {
-						"src": "/images/nyhavn-night.jpeg",
+						"src": "/images/marco-d-cellamare-full.jpg",
 						"blob": true
 					},
 					"heading": {

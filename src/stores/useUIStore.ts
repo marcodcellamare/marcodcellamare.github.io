@@ -17,6 +17,9 @@ interface UIStoreInterface {
 	isNavOpened: boolean;
 	isLoading: boolean;
 	isLoaderTickled: boolean;
+	isDrawerOpened: boolean;
+	drawerRootKey: string;
+	drawerTheme: ThemeType;
 
 	pageId: PageIdType;
 	overPageId: PageIdType | null;
@@ -37,6 +40,9 @@ interface UIStoreInterface {
 	setIsNavOpened: (v: boolean) => void;
 	setIsLoading: (v: boolean) => void;
 	setIsLoaderTickled: (v: boolean) => void;
+	setIsDrawerOpened: (v: boolean) => void;
+	setDrawerRootKey: (v: string) => void;
+	setDrawerTheme: (v: ThemeType) => void;
 
 	setPageId: (v: PageIdType) => void;
 	setOverPageId: (v: PageIdType | null) => void;
@@ -73,6 +79,9 @@ export const useUIStore = create<UIStoreInterface>((set, get) => ({
 	isNavOpened: false,
 	isLoading: false,
 	isLoaderTickled: false,
+	isDrawerOpened: false,
+	drawerRootKey: '',
+	drawerTheme: config.themes.default,
 
 	pageId: config.pages.default,
 	overPageId: null,
@@ -88,6 +97,7 @@ export const useUIStore = create<UIStoreInterface>((set, get) => ({
 		nav: 'p-5 md:p-10 lg:p-27 pt-24 md:pt-32 lg:pt-40',
 		section: 'py-30 lg:py-35 xl:py-40',
 		container: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:px-50 3xl:px-80',
+		drawer: 'px-5 md:px-10 xl:px-20 py-30 lg:py-35 xl:py-40',
 		carouselItem: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:pl-50 3xl:pl-80',
 		content: 'gap-8 lg:gap-12 3xl:gap-24',
 		footer: 'py-4 md:py-5',
@@ -116,6 +126,9 @@ export const useUIStore = create<UIStoreInterface>((set, get) => ({
 	setIsNavOpened: (v) => set({ isNavOpened: v }),
 	setIsLoading: (v) => set({ isLoading: v }),
 	setIsLoaderTickled: (v) => set({ isLoaderTickled: v }),
+	setIsDrawerOpened: (v) => set({ isDrawerOpened: v }),
+	setDrawerRootKey: (v) => set({ drawerRootKey: v }),
+	setDrawerTheme: (v) => set({ drawerTheme: v }),
 
 	setPageId: (v) => set({ pageId: v }),
 	setOverPageId: (v) => set({ overPageId: v }),

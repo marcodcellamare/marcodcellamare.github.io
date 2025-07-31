@@ -3,7 +3,7 @@ import ConfigType from './types/config.type';
 
 const config = {
 	html: {
-		whitelist: ['p', 'strong', 'em'],
+		whitelist: ['strong', 'em', 'small', 'br'],
 	},
 
 	locale: {

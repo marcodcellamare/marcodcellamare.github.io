@@ -11,21 +11,21 @@ import { TimeoutType } from '@/types/misc';
 import { PageIdType } from '@/types/config.const';
 
 interface LinkProps {
-	thisPageId: PageIdType;
+	id: PageIdType;
 }
 
-const Link = ({ thisPageId }: LinkProps) => {
+const Link = ({ id }: LinkProps) => {
 	const isNavOpened = useUIStore((state) => state.isNavOpened);
 	const setIsNavOpened = useUIStore((state) => state.setIsNavOpened);
 	const setOverPageId = useUIStore((state) => state.setOverPageId);
+	const pageId = useUIStore((state) => state.pageId);
 
 	const { t } = useTranslation();
-	const pageId = useUIStore((state) => state.pageId);
 	const { setOriginalText, originalText, displayText, start, stop } =
 		useScramble(100);
 
 	const timeoutRef = useRef<TimeoutType>(null);
-	const text = t(`nav.${thisPageId}`, thisPageId);
+	const text = t(`nav.${id}`, id);
 
 	const cleanup = () => {
 		if (timeoutRef.current !== null) {
@@ -36,7 +36,7 @@ const Link = ({ thisPageId }: LinkProps) => {
 
 	const handleClick = useCallback(
 		(e: MouseEvent<HTMLAnchorElement>) => {
-			if (isNavOpened && pageId !== thisPageId) {
+			if (isNavOpened && pageId !== id) {
 				cleanup();
 				timeoutRef.current = setTimeout(
 					() => setIsNavOpened(false),
@@ -46,7 +46,7 @@ const Link = ({ thisPageId }: LinkProps) => {
 				e.preventDefault();
 			}
 		},
-		[setIsNavOpened, isNavOpened, pageId, thisPageId]
+		[setIsNavOpened, isNavOpened, pageId, id]
 	);
 
 	useEffect(() => setOriginalText(text), [setOriginalText, text]);
@@ -56,10 +56,10 @@ const Link = ({ thisPageId }: LinkProps) => {
 
 	return (
 		<NavLink
-			to={config.pages.list[thisPageId]}
+			to={config.pages.list[id]}
 			onPointerEnter={() => {
 				start();
-				setOverPageId(thisPageId);
+				setOverPageId(id);
 			}}
 			onPointerLeave={() => {
 				stop();

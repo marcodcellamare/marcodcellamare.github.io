@@ -9,7 +9,7 @@
 			"background": {
 				"src": "/images/marco-d-cellamare.png",
 				"contain": true,
-				"pictureClassName": "opacity-55"
+				"pictureClassName": "opacity-80"
 			},
 			"content": [
 				{
@@ -51,28 +51,40 @@
 					"className": "lg:w-[60%] 2xl:w-[70%]"
 				}
 			},
-			"title": "Work experiences",
+			"title": "Work Experiences & Key Projects",
 			"content": [
 				{
 					"heading": {
 						"headline": "2022 – Present",
 						"title": "Lead Senior Full-Stack Developer",
 						"subtitle": "<strong>Defensive Group</strong> — Cyber Security (Solrød Strand, DK)"
-					}
+					},
+					"leading": "<linked>Key Projects…</linked>",
+					"links": [
+						0
+					]
 				},
 				{
 					"heading": {
 						"headline": "2019 – 2022",
 						"title": "Senior Full-Stack Developer",
 						"subtitle": "<strong>Banyo</strong> — Digital Agency (Copenhagen, DK)"
-					}
+					},
+					"leading": "<linked>Key Projects…</linked>",
+					"links": [
+						1
+					]
 				},
 				{
 					"heading": {
 						"headline": "2008 – 2019",
 						"title": "Lead Full-Stack Developer, Digital Designer",
 						"subtitle": "<strong>Chimera</strong> — Digital Agency (Bari / Milan, IT)"
-					}
+					},
+					"leading": "<linked>Key Projects…</linked>",
+					"links": [
+						2
+					]
 				},
 				{
 					"heading": {
@@ -86,7 +98,72 @@
 						"headline": "2002 – 2008",
 						"title": "Web Developer, Digital Designer",
 						"subtitle": "<strong>Jcom Italia</strong> — Web Agency (Bari / Milan, IT)"
-					}
+					},
+					"leading": "<linked>Key Projects…</linked>",
+					"links": [
+						3
+					]
+				}
+			],
+			"drawer": [
+				{
+					"heading": {
+						"headline": "2022 – Present",
+						"title": "Lead Senior Full-Stack Developer",
+						"subtitle": "<strong>Defensive Group</strong>"
+					},
+					"leading": "<strong>Cyber Security</strong> (Solrød Strand, DK)",
+					"paragraphs": [
+						"<strong>Tech Stack:</strong> JavaScript, TypeScript, React, Tailwindcss, Daisy UI, Vite, React Router, i18next, Phaser.js, Framer Motion, Howler, PHP, MySQL, SCORM, Google Maps API, Firebase."
+					],
+					"list": [
+						"<strong>Built and maintained a high-performance data dashboard</strong> for internal analytics, enabling real-time visualization of <strong>over 1,000,000 records</strong> (and growing) across map and table views. Reduced manual data processing time <strong>by approximately 80%</strong>.",
+						"<strong>Architected a custom LMS platform with a real-time SCORM-like tracking framework</strong> for collecting detailed user interaction statistics across learning modules. Enabled deep behavioral analytics and reporting beyond standard LMS capabilities, supporting compliance and performance evaluations at scale.",
+						"<strong>Developed SCORM-compliant e-learning modules and serious games</strong>—such as “Who Wants to Be a Millionaire” and “Space Invaders” clones, as well as custom point-and-click experiences—using React and TypeScript. Each module was fully customizable to match client branding and deployed to <strong>over 50,000 users</strong> in cybersecurity awareness campaigns, significantly boosting engagement and completion tracking.",
+						"<strong>Collaborated cross-functionally</strong> with instructional designers, product managers, and stakeholders to align technical implementation with business goals and regulatory standards.",
+						"Ensured <strong>secure development practices, performance optimization, and maintainability</strong> across all applications."
+					]
+				},
+				{
+					"heading": {
+						"headline": "2019 – 2022",
+						"title": "Senior Full-Stack Developer",
+						"subtitle": "<strong>Banyo</strong> — Digital Agency (Copenhagen, DK)"
+					},
+					"paragraphs": [
+						"<strong>Tech Stack:</strong> JavaScript, React, jQuery, Cordova, PHP, MySQL, Firebase, MobilePay API, SumUp API, Windcave API, Zebra API, Joomla Framework."
+					],
+					"list": [
+						"<strong>Developed and maintained a cross-platform mobile app for BAT UK</strong>, used by <strong>100+ field agents</strong> to manage sales, payments, and reporting. Integrated SumUp and Zebra APIs for seamless transactions and on-site receipt printing, reducing manual entry and <strong>improving transaction speed by over 60%</strong>.",
+						"<strong>Built a cross-platform Android/iOS gift suggestion and anniversary tracking app</strong>, reaching over <strong>5,000 users</strong>. Delivered personalized reminders and integrated MobilePay for instant gifting. Increased user engagement by <strong>40%</strong> through tailored content and cross-platform availability.",
+						"<strong>Created a support request WebApp for Volvo</strong>, used across multiple regions, that connected users to the nearest assistance center in real time. Helped reduce average customer response time by <strong>30–40%</strong>, streamlining support workflows and improving user satisfaction.",
+						"<strong>Delivered a local business discovery WebApp during the Covid-19 lockdown</strong>, helping <strong>200+ small businesses</strong> stay visible and accessible. The platform attracted <strong>over 5,000 local users</strong> in the first three months, supporting recovery during a critical period, <strong>promoted by the Danish national TV</strong>.",
+						"<strong>Designed and developed several custom websites and WebApps</strong> for a wide range of clients, using responsive layouts, CMS integration, and brand-aligned design systems."
+					]
+				},
+				{
+					"heading": {
+						"headline": "2008 – 2019",
+						"title": "Lead Full-Stack Developer, Digital Designer",
+						"subtitle": "<strong>Chimera</strong> — Digital Agency (Bari / Milan, IT)"
+					},
+					"list": [
+						"<strong>Developed over 200 websites and web applications</strong> for national and enterprise clients in retail, sports, and corporate sectors.",
+						"<strong>Built online contests with prize incentives</strong> for various clients, delivered as games (e.g., a Flappy Bird clone using Phaser.js) or interactive experiences. <strong>Demonstrated strong proficiency in game development</strong>, physics-based mechanics, and responsive gameplay design.",
+						"<strong>Delivered marketing platforms, custom CMS solutions, and interactive tools</strong> with a focus on fast load times (under 2s), WCAG-compliant accessibility, and brand-aligned UI.",
+						"Collaborated with cross-functional teams (design, content, dev) to build scalable, maintainable codebases, consistently delivering projects under 6–8 week timelines while meeting performance and UX standards."
+					]
+				},
+				{
+					"heading": {
+						"headline": "2002 – 2008",
+						"title": "Web Developer, Digital Designer",
+						"subtitle": "<strong>Jcom Italia</strong> — Web Agency (Bari / Milan, IT)"
+					},
+					"list": [
+						"<strong>Delivered hundreds of responsive, SEO-optimized websites</strong> for small to medium businesses across various industries. Included CMS integration, e-commerce, and brand-aligned design.",
+						"Collaborated with clients and designers for high-quality execution."
+					]
 				}
 			]
 		},

@@ -51,7 +51,7 @@ const Link = ({ type, highlight, title, link }: SocialInterface) => {
 				'btn btn-link disabled:text-(--color-theme-heading) !no-underline relative transition-[color] duration-500 ease-in-out',
 				!highlight
 					? 'text-(--color-theme-link) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active)'
-					: 'text-(--color-theme-link-hover) hover:text-(--color-theme-link) active:text-(--color-theme-link-active)',
+					: 'text-(--color-theme-heading) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active)',
 			])}
 			aria-label={title}
 			title={title}

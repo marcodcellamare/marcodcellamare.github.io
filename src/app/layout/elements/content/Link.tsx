@@ -3,13 +3,19 @@ import useScramble from '@/hooks/useScramble';
 import { useFirebase } from '@/contexts/firebase';
 import { openExternalLink } from '@/utils/misc';
 import { useNavigate } from 'react-router-dom';
+import { useSection } from '@/contexts/section';
+import { useUIStore } from '@/stores/useUIStore';
 
 interface LinkProps {
-	to?: string;
+	to?: number | string;
 	children?: string | ReactNode;
 }
 
 const Link = ({ to, children }: LinkProps) => {
+	const setIsDrawerOpened = useUIStore((state) => state.setIsDrawerOpened);
+	const setDrawerRootKey = useUIStore((state) => state.setDrawerRootKey);
+	const setDrawerTheme = useUIStore((state) => state.setDrawerTheme);
+	const { sectionId, theme } = useSection();
 	const navigate = useNavigate();
 	const { logEvent } = useFirebase();
 	const { setOriginalText, originalText, displayText, start, stop } =
@@ -23,23 +29,30 @@ const Link = ({ to, children }: LinkProps) => {
 			: '';
 
 	const handleClick = () => {
-		if (!to) return;
+		if (typeof to === 'undefined') return;
 
-		if (to.toLowerCase().startsWith('http')) {
-			openExternalLink(to);
+		if (typeof to === 'number') {
+			setIsDrawerOpened(true);
+			setDrawerRootKey(`sections.${sectionId}.drawer.${to}`);
+			setDrawerTheme(theme);
 		} else {
-			navigate(to);
+			if (to.toLowerCase().startsWith('http')) {
+				openExternalLink(to);
+			} else {
+				navigate(to);
+			}
 		}
 
 		logEvent('inline_link', {
 			url: to,
-			external: to.toLowerCase().startsWith('http'),
+			external:
+				typeof to === 'string' && to.toLowerCase().startsWith('http'),
 		});
 	};
 
 	useEffect(() => setOriginalText(text), [setOriginalText, text]);
 
-	if (!to) return originalText;
+	if (typeof to === 'undefined') return originalText;
 
 	return (
 		<button
@@ -50,7 +63,7 @@ const Link = ({ to, children }: LinkProps) => {
 			onPointerEnter={start}
 			onPointerLeave={stop}
 			onClick={handleClick}
-			title={to}>
+			title={typeof to === 'string' ? to : ''}>
 			<span className='invisible'>{originalText}</span>
 			<span className='absolute left-0 top-0 underline'>
 				{displayText}

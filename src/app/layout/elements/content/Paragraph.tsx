@@ -1,14 +1,23 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
+import classNames from 'classnames';
 
 interface ParagraphProps {
 	rootKey: string;
+	extra?: boolean;
+	extra2x?: boolean;
 	components: any;
 	className?: string;
 }
 
-const Paragraph = ({ rootKey, components, className }: ParagraphProps) => {
+const Paragraph = ({
+	rootKey,
+	extra,
+	extra2x,
+	components,
+	className,
+}: ParagraphProps) => {
 	const pageId = useUIStore((state) => state.pageId);
 	const { i18n } = useTranslation(pageId);
 
@@ -19,16 +28,23 @@ const Paragraph = ({ rootKey, components, className }: ParagraphProps) => {
 
 	if (!paragraphsExists || paragraphs.length === 0) return null;
 
-	return paragraphs.map((_, k) => (
-		<p
-			key={k}
-			className={className}>
-			<Trans
-				ns={pageId}
-				i18nKey={`${rootKey}.${k}`}
-				components={components}
-			/>
-		</p>
-	));
+	return (
+		<div className={classNames(['space-y-2', className])}>
+			{paragraphs.map((_, k) => (
+				<p
+					key={k}
+					className={classNames({
+						extra: extra,
+						'extra-2x': extra2x,
+					})}>
+					<Trans
+						ns={pageId}
+						i18nKey={`${rootKey}.${k}`}
+						components={components}
+					/>
+				</p>
+			))}
+		</div>
+	);
 };
 export default Paragraph;

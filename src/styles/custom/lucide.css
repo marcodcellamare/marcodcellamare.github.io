@@ -6,7 +6,6 @@
 		&.font-bold {
 			@apply stroke-3;
 		}
-		vector-effect: non-scaling-stroke;
 	}
 	.font-bold {
 		.lucide {
@@ -18,6 +17,12 @@
 			@apply inline-block
 				w-[1em]
 				h-[1em];
+
+			vector-effect: non-scaling-stroke;
+
+			&.text-svg-squared {
+				stroke-linecap: square;
+			}
 		}
 	}
 	.text-svg {
@@ -25,6 +30,13 @@
 			@apply inline-block
 				w-[1em]
 				h-[1em];
+
+			vector-effect: non-scaling-stroke;
+		}
+		&.text-svg-squared {
+			svg {
+				stroke-linecap: square;
+			}
 		}
 	}
 }
