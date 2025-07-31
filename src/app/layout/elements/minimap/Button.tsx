@@ -20,8 +20,6 @@ const Button = ({ sectionId }: ButtonProps) => {
 			behavior: 'smooth',
 		});
 
-	//py-2 px-3
-
 	return (
 		<button
 			type='button'

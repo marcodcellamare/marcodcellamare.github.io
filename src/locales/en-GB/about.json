@@ -112,7 +112,6 @@
 						"title": "Lead Senior Full-Stack Developer",
 						"subtitle": "<strong>Defensive Group</strong>"
 					},
-					"leading": "<strong>Cyber Security</strong> (Solrød Strand, DK)",
 					"paragraphs": [
 						"<strong>Tech Stack:</strong> JavaScript, TypeScript, React, Tailwindcss, Daisy UI, Vite, React Router, i18next, Phaser.js, Framer Motion, Howler, PHP, MySQL, SCORM, Google Maps API, Firebase."
 					],
@@ -128,7 +127,7 @@
 					"heading": {
 						"headline": "2019 – 2022",
 						"title": "Senior Full-Stack Developer",
-						"subtitle": "<strong>Banyo</strong> — Digital Agency (Copenhagen, DK)"
+						"subtitle": "<strong>Banyo</strong>"
 					},
 					"paragraphs": [
 						"<strong>Tech Stack:</strong> JavaScript, React, jQuery, Cordova, PHP, MySQL, Firebase, MobilePay API, SumUp API, Windcave API, Zebra API, Joomla Framework."
@@ -145,7 +144,7 @@
 					"heading": {
 						"headline": "2008 – 2019",
 						"title": "Lead Full-Stack Developer, Digital Designer",
-						"subtitle": "<strong>Chimera</strong> — Digital Agency (Bari / Milan, IT)"
+						"subtitle": "<strong>Chimera</strong>"
 					},
 					"list": [
 						"<strong>Developed over 200 websites and web applications</strong> for national and enterprise clients in retail, sports, and corporate sectors.",
@@ -158,7 +157,7 @@
 					"heading": {
 						"headline": "2002 – 2008",
 						"title": "Web Developer, Digital Designer",
-						"subtitle": "<strong>Jcom Italia</strong> — Web Agency (Bari / Milan, IT)"
+						"subtitle": "<strong>Jcom Italia</strong>"
 					},
 					"list": [
 						"<strong>Delivered hundreds of responsive, SEO-optimized websites</strong> for small to medium businesses across various industries. Included CMS integration, e-commerce, and brand-aligned design.",

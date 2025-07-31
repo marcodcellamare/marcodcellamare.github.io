@@ -98,7 +98,9 @@ const Cursor = () => {
 	}, []);
 
 	const mutationObserverThrottled = useThrottleCallback(() => {
-		const elements = document.querySelectorAll('a, button, .app .image');
+		const elements = document.querySelectorAll(
+			'a:not(.no-cursor-change), button:not(.no-cursor-change), .app .image:not(.no-cursor-change)'
+		);
 		setElements((prev) => {
 			if (prev && prev.length === elements.length) return prev;
 			return elements;
