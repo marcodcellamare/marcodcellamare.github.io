@@ -82,6 +82,19 @@ const useFormatDate = () => {
 		}).replace(', ', ' ');
 	};
 
+	const yearMonth = (date?: Date | string): string => {
+		return format(date, {
+			year: 'numeric',
+			month: '2-digit',
+		});
+	};
+
+	const year = (date?: Date | string): string => {
+		return format(date, {
+			year: 'numeric',
+		});
+	};
+
 	return {
 		format,
 		date,
@@ -90,6 +103,8 @@ const useFormatDate = () => {
 		datetime,
 		textDatetime,
 		textDatetimeShort,
+		yearMonth,
+		year,
 	};
 };
 export default useFormatDate;

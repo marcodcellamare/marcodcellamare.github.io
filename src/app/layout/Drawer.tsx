@@ -22,7 +22,7 @@ const Drawer = () => {
 				<div
 					data-theme={drawerTheme}
 					className={classNames([
-						'drawer fixed top-0 bottom-0 left-0 right-0',
+						'drawer absolute top-0 bottom-0 left-0 right-0',
 						{
 							'pointer-events-none': !isDrawerOpened,
 						},
@@ -50,7 +50,7 @@ const Drawer = () => {
 						<div
 							className={classNames([
 								'absolute top-0 bottom-0 left-0 right-0',
-								'overflow-x-hidden overflow-y-auto',
+								'overflow-x-hidden overflow-y-auto no-scrollbar',
 								spacing.drawer,
 							])}>
 							<Content rootKey={drawerRootKey} />

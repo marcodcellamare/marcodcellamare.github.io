@@ -44,7 +44,7 @@ const Main = () => {
 			{sections.length > 0 && (
 				<div
 					ref={setScrollContainerRef}
-					className='absolute top-0 bottom-0 left-0 right-0 overflow-x-hidden overflow-y-auto snap-y snap-proximity scroll-smooth'>
+					className='absolute top-0 bottom-0 left-0 right-0 overflow-x-hidden overflow-y-auto snap-y snap-proximity scroll-smooth no-scrollbar'>
 					{sections.map((_, k) => (
 						<SectionProvider
 							key={`${pageId}.${k}`}

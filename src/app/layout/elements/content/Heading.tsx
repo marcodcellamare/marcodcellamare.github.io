@@ -5,10 +5,11 @@ import classNames from 'classnames';
 interface HeadingProps {
 	rootKey: string;
 	extra?: boolean;
+	components: any;
 	className?: string;
 }
 
-const Heading = ({ rootKey, extra, className }: HeadingProps) => {
+const Heading = ({ rootKey, extra, components, className }: HeadingProps) => {
 	const pageId = useUIStore((state) => state.pageId);
 	const { i18n, t } = useTranslation(pageId);
 
@@ -30,7 +31,11 @@ const Heading = ({ rootKey, extra, className }: HeadingProps) => {
 						extra ? 'h2' : 'h5',
 						'block font-black',
 					])}>
-					{t(`${rootKey}.headline`)}
+					<Trans
+						ns={pageId}
+						i18nKey={`${rootKey}.headline`}
+						components={components}
+					/>
 				</span>
 			)}
 			<h2
@@ -47,6 +52,7 @@ const Heading = ({ rootKey, extra, className }: HeadingProps) => {
 					<Trans
 						ns={pageId}
 						i18nKey={`${rootKey}.subtitle`}
+						components={components}
 					/>
 				</h3>
 			)}

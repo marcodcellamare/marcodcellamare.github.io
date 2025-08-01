@@ -9,6 +9,7 @@ import Leading from './Leading';
 import Paragraph from './Paragraph';
 import List from './List';
 import Link from './Link';
+import DatesInterval from '@/app/misc/DatesInterval';
 import { ArrowRightIcon, PlusIcon } from 'lucide-react';
 
 interface ContentProps {
@@ -42,6 +43,7 @@ const Content = ({ rootKey, sectionId, className }: ContentProps) => {
 
 	const transComponents: Record<string, ReactNode> = {
 		linked: <Link />,
+		datesInterval: <DatesInterval />,
 		iconPlus: <PlusIcon className='text-svg text-svg-squared' />,
 		iconArrowRight: <ArrowRightIcon className='text-svg' />,
 	};
@@ -66,6 +68,7 @@ const Content = ({ rootKey, sectionId, className }: ContentProps) => {
 			<Heading
 				rootKey={`${rootKey}.heading`}
 				extra={sectionId === 0}
+				components={transComponents}
 				className={classNames({
 					'mb-6 lg:mb-10':
 						leadingExists || paragraphsExists || listExists,

@@ -1,5 +1,5 @@
 {
-	"title": "About TEST",
+	"title": "About",
 	"theme": "red",
 	"sections": [
 		{
@@ -55,7 +55,7 @@
 			"content": [
 				{
 					"heading": {
-						"headline": "2022 – Present",
+						"headline": "<datesInterval>2022/03</datesInterval>",
 						"title": "Lead Senior Full-Stack Developer",
 						"subtitle": "<strong>Defensive Group</strong> — Cyber Security (Solrød Strand, DK)"
 					},
@@ -66,7 +66,7 @@
 				},
 				{
 					"heading": {
-						"headline": "2019 – 2022",
+						"headline": "<datesInterval>2019/05:2022/02</datesInterval>",
 						"title": "Senior Full-Stack Developer",
 						"subtitle": "<strong>Banyo</strong> — Digital Agency (Copenhagen, DK)"
 					},
@@ -77,7 +77,7 @@
 				},
 				{
 					"heading": {
-						"headline": "2008 – 2019",
+						"headline": "<datesInterval>2008/11:2019/04</datesInterval>",
 						"title": "Lead Full-Stack Developer, Digital Designer",
 						"subtitle": "<strong>Chimera</strong> — Digital Agency (Bari / Milan, IT)"
 					},
@@ -88,14 +88,7 @@
 				},
 				{
 					"heading": {
-						"headline": "2008",
-						"title": "Web Developer, Digital Designer",
-						"subtitle": "<strong>Promostudio 360</strong> — Digital Agency (Bari, IT)"
-					}
-				},
-				{
-					"heading": {
-						"headline": "2002 – 2008",
+						"headline": "<datesInterval>2002/09:2008/08</datesInterval>",
 						"title": "Web Developer, Digital Designer",
 						"subtitle": "<strong>Jcom Italia</strong> — Web Agency (Bari / Milan, IT)"
 					},

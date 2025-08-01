@@ -60,7 +60,8 @@ const Carousel = ({ template, className }: CarouselProps) => {
 					'lg:scroll-pl-[max((100vw-var(--breakpoint-lg))/2,0rem)]',
 					'xl:scroll-pl-[max((100vw-var(--breakpoint-xl))/2,0rem)]',
 					'2xl:scroll-pl-[max((100vw-var(--breakpoint-2xl))/2,0rem)]',
-					'3xl:scroll-pl-0',
+					'3xl:scroll-pl-[max((100vw-var(--breakpoint-3xl))/2,0rem)]',
+					'4xl:scroll-pl-0',
 					spacing.section,
 				])}>
 				<div className='hidden sm:block shrink-0 w-1/2 snap-none' />
