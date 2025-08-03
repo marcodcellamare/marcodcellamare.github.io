@@ -50,7 +50,6 @@ const Main = () => {
 							key={`${pageId}.${k}`}
 							sectionId={k}>
 							<Section
-								sectionId={k}
 								isFirst={k === 0}
 								isLast={k === sections.length - 1}
 								className='snap-start'

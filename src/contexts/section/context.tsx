@@ -15,9 +15,6 @@ export interface SectionContextProps {
 	duotoneColorForeground: string;
 	hasImage: boolean;
 
-	getTheme: (sectionId: number) => ThemeType;
-	getTemplate: (sectionId: number) => TemplateType;
-
 	setSectionRef: (node: HTMLElement | null) => void;
 }
 

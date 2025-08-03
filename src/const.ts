@@ -52,4 +52,4 @@ export const THEMES: PaletteType[] = [
 	'yellow',
 ] as const;
 
-export const TEMPLATES = ['default', 'carousel'] as const;
+export const TEMPLATES = ['default', 'carousel', 'brands'] as const;

@@ -35,7 +35,7 @@ const Content = ({ rootKey, sectionId, className }: ContentProps) => {
 		ns: pageId,
 	});
 
-	const links = useTranslationFallback<(number | string)[]>(
+	const links = useTranslationFallback<string[]>(
 		`${rootKey}.links`,
 		[],
 		pageId
@@ -54,6 +54,7 @@ const Content = ({ rootKey, sectionId, className }: ContentProps) => {
 				<Link
 					key={`linked.${k}`}
 					to={link}
+					sectionId={sectionId}
 				/>
 			);
 		});

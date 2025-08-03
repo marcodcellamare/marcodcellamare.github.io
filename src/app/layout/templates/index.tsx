@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import Container from '@/app/layout/elements/Container';
 import Default from './default';
 import Carousel from './carousel';
+import Brands from './brands';
 
 const Templates = () => {
 	const spacing = useUIStore((state) => state.spacing);
@@ -35,15 +36,16 @@ const Templates = () => {
 	);
 	const filter = useTransform(blurAmount, (value) => `blur(${value})`);
 
+	const containerClassName = classNames([
+		'flex flex-col justify-center lg:flex-row lg:justify-normal lg:items-center relative',
+		spacing.content,
+		spacing.section,
+	]);
+
 	switch (template) {
 		case 'default':
 			content = (
-				<Container
-					className={classNames([
-						'flex flex-col justify-center lg:flex-row lg:justify-normal lg:items-center relative',
-						spacing.content,
-						spacing.section,
-					])}>
+				<Container className={containerClassName}>
 					<Default className='flex-1' />
 				</Container>
 			);
@@ -51,6 +53,14 @@ const Templates = () => {
 
 		case 'carousel':
 			content = <Carousel template={<Default />} />;
+			break;
+
+		case 'brands':
+			content = (
+				<Container className={containerClassName}>
+					<Brands />
+				</Container>
+			);
 			break;
 
 		default:

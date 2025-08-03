@@ -22,5 +22,8 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
+		"types": [
+			"vite-plugin-svgr/client"
+		]
 	}
 }

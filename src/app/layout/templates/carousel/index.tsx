@@ -81,7 +81,8 @@ const Carousel = ({ template, className }: CarouselProps) => {
 							'lg:max-w-(--breakpoint-lg)',
 							'xl:max-w-(--breakpoint-xl)',
 							'2xl:max-w-(--breakpoint-2xl)',
-							'3xl:max-w-[100vw]',
+							'3xl:max-w-(--breakpoint-3xl)',
+							'4xl:max-w-[100vw]',
 							'snap-start',
 							'transition-[opacity,filter] ease-in-out',
 							k === activeIdx

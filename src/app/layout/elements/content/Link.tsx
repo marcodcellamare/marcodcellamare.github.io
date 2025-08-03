@@ -3,21 +3,24 @@ import useScramble from '@/hooks/useScramble';
 import { useFirebase } from '@/contexts/firebase';
 import { openExternalLink } from '@/utils/misc';
 import { useNavigate } from 'react-router-dom';
-import { useSection } from '@/contexts/section';
+import { useSettings } from '@/contexts/settings';
 import { useUIStore } from '@/stores/useUIStore';
 
+import { LinkType } from '@/types/layout';
+
 interface LinkProps {
-	to?: number | string;
+	to?: LinkType;
+	sectionId?: number;
 	children?: string | ReactNode;
 }
 
-const Link = ({ to, children }: LinkProps) => {
+const Link = ({ to, sectionId, children }: LinkProps) => {
 	const setIsDrawerOpened = useUIStore((state) => state.setIsDrawerOpened);
 	const setDrawerRootKey = useUIStore((state) => state.setDrawerRootKey);
 	const setDrawerTheme = useUIStore((state) => state.setDrawerTheme);
-	const { sectionId, theme } = useSection();
 	const navigate = useNavigate();
 	const { logEvent } = useFirebase();
+	const { getTheme } = useSettings();
 	const { setOriginalText, originalText, displayText, start, stop } =
 		useScramble();
 
@@ -32,27 +35,32 @@ const Link = ({ to, children }: LinkProps) => {
 		if (typeof to === 'undefined') return;
 
 		if (typeof to === 'number') {
-			setIsDrawerOpened(true);
-			setDrawerRootKey(`sections.${sectionId}.drawer.${to}`);
-			setDrawerTheme(theme);
-		} else {
-			if (to.toLowerCase().startsWith('http')) {
-				openExternalLink(to);
-			} else {
-				navigate(to);
+			if (typeof sectionId === 'number') {
+				setIsDrawerOpened(true);
+				setDrawerRootKey(`sections.${sectionId}.drawer.${to}`);
+				setDrawerTheme(getTheme(sectionId));
 			}
+		} else if (to.toLowerCase().startsWith('http')) {
+			openExternalLink(to);
+		} else {
+			navigate(to);
 		}
 
-		logEvent('inline_link', {
-			url: to,
-			external:
-				typeof to === 'string' && to.toLowerCase().startsWith('http'),
-		});
+		if (typeof to === 'string') {
+			logEvent('inline_link', {
+				url: to,
+				external: to.toLowerCase().startsWith('http'),
+			});
+		}
 	};
 
 	useEffect(() => setOriginalText(text), [setOriginalText, text]);
 
-	if (typeof to === 'undefined') return originalText;
+	if (
+		typeof to === 'undefined' ||
+		(typeof to === 'number' && typeof sectionId === 'undefined')
+	)
+		return originalText;
 
 	return (
 		<button

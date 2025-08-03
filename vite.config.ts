@@ -4,6 +4,7 @@ import { aliases } from './vite.alias.ts';
 import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
+import svgr from 'vite-plugin-svgr';
 import { visualizer } from 'rollup-plugin-visualizer';
 
 import dotenv from 'dotenv';
@@ -20,6 +21,7 @@ export default defineConfig(({ mode }) => {
 			react(),
 			tailwindcss(),
 			tsconfigPaths(),
+			svgr(),
 			visualizer({ open: false }),
 		],
 		define: {

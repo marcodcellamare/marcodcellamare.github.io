@@ -28,7 +28,7 @@
 		{
 			"theme": "green",
 			"template": "default",
-			"title": "20+ years of experience",
+			"title": "20+ Years of Experience",
 			"content": [
 				{
 					"image": {
@@ -101,9 +101,9 @@
 			"drawer": [
 				{
 					"heading": {
-						"headline": "2022 – Present",
+						"headline": "<datesInterval>2022/03</datesInterval>",
 						"title": "Lead Senior Full-Stack Developer",
-						"subtitle": "<strong>Defensive Group</strong>"
+						"subtitle": "<strong>Defensive Group</strong> — Cyber Security (Solrød Strand, DK)"
 					},
 					"paragraphs": [
 						"<strong>Tech Stack:</strong> JavaScript, TypeScript, React, Tailwindcss, Daisy UI, Vite, React Router, i18next, Phaser.js, Framer Motion, Howler, PHP, MySQL, SCORM, Google Maps API, Firebase."
@@ -118,9 +118,9 @@
 				},
 				{
 					"heading": {
-						"headline": "2019 – 2022",
+						"headline": "<datesInterval>2019/05:2022/02</datesInterval>",
 						"title": "Senior Full-Stack Developer",
-						"subtitle": "<strong>Banyo</strong>"
+						"subtitle": "<strong>Banyo</strong> — Digital Agency (Copenhagen, DK)"
 					},
 					"paragraphs": [
 						"<strong>Tech Stack:</strong> JavaScript, React, jQuery, Cordova, PHP, MySQL, Firebase, MobilePay API, SumUp API, Windcave API, Zebra API, Joomla Framework."
@@ -135,9 +135,9 @@
 				},
 				{
 					"heading": {
-						"headline": "2008 – 2019",
+						"headline": "<datesInterval>2008/11:2019/04</datesInterval>",
 						"title": "Lead Full-Stack Developer, Digital Designer",
-						"subtitle": "<strong>Chimera</strong>"
+						"subtitle": "<strong>Chimera</strong> — Digital Agency (Bari / Milan, IT)"
 					},
 					"list": [
 						"<strong>Developed over 200 websites and web applications</strong> for national and enterprise clients in retail, sports, and corporate sectors.",
@@ -148,9 +148,9 @@
 				},
 				{
 					"heading": {
-						"headline": "2002 – 2008",
+						"headline": "<datesInterval>2002/09:2008/08</datesInterval>",
 						"title": "Web Developer, Digital Designer",
-						"subtitle": "<strong>Jcom Italia</strong>"
+						"subtitle": "<strong>Jcom Italia</strong> — Web Agency (Bari / Milan, IT)"
 					},
 					"list": [
 						"<strong>Delivered hundreds of responsive, SEO-optimized websites</strong> for small to medium businesses across various industries. Included CMS integration, e-commerce, and brand-aligned design.",
@@ -160,21 +160,37 @@
 			]
 		},
 		{
-			"theme": "dark-gray",
-			"template": "carousel",
-			"title": "Key Projects",
+			"theme": "purple",
+			"template": "brands",
+			"title": "Notable Collaborations",
 			"content": [
 				{
-					"paragraphs": [
-						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-					]
-				},
-				{
-					"paragraphs": [
-						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-					]
+					"heading": {
+						"headline": "xxx",
+						"title": "Test",
+						"subtitle": "xxxx"
+					}
 				}
-			]
+			],
+			"brands": {
+				"adecco": "Adecco",
+				"aeroporti-di-puglia": "Aeroporti di Puglia",
+				"anas": "Anas",
+				"bat": "BAT (Global, Nordics, UK)",
+				"borsci": "Borsci",
+				"danmarks-naturfredningsforening": "Danmarks Naturfredningsforening",
+				"dansk-retursystem": "Dansk Retursystem",
+				"gas-natural": "GasNatural",
+				"lakrids-by-bulow": "Lakrids by Bülow",
+				"legambiente": "Legambiente",
+				"lotto": "Lotto",
+				"natuzzi": "Natuzzi",
+				"new-york-yankees": "New York Yankees",
+				"regione-puglia": "Regione Puglia",
+				"rockwool": "Rockwool",
+				"teknologisk-institut": "Teknologisk Institut",
+				"volvo": "Volvo"
+			}
 		},
 		{
 			"theme": "green",

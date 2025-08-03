@@ -13,17 +13,16 @@ import Background from './elements/Background';
 import Container from './elements/Container';
 
 interface SectionProps {
-	sectionId: number;
 	isFirst: boolean;
 	isLast: boolean;
 	className?: string;
 }
 
-const Section = ({ sectionId, isFirst, isLast, className }: SectionProps) => {
+const Section = ({ isFirst, isLast, className }: SectionProps) => {
 	const spacing = useUIStore((state) => state.spacing);
 	const { setSectionRefs, sectionRefs, areAllSectionRefsReady } =
 		useUIStore();
-	const { theme, setSectionRef, nextBackgroundColor, hasImage } =
+	const { sectionId, theme, setSectionRef, nextBackgroundColor, hasImage } =
 		useSection();
 
 	return (

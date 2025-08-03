@@ -1,21 +1,12 @@
-import {
-	ReactNode,
-	useCallback,
-	useEffect,
-	useMemo,
-	useRef,
-	useState,
-} from 'react';
+import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { SectionContext } from './context';
 
 import { useUIStore } from '@/stores/useUIStore';
-import { useTranslation } from 'react-i18next';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
+import { useSettings } from '@/contexts/settings';
 import { cssVariable } from '@/utils/misc';
 
-import config from '@config';
-
-import { TemplateType, ThemeType } from '@/types/config.const';
+import { ThemeType } from '@/types/config.const';
 import {
 	BackgroundInterface,
 	ContentInterface,
@@ -31,9 +22,8 @@ export const SectionProvider = ({
 	sectionId,
 	children,
 }: SectionProviderProps) => {
-	const pageTheme = useUIStore((state) => state.pageTheme);
 	const pageId = useUIStore((state) => state.pageId);
-	const { t } = useTranslation(pageId);
+	const { getTheme, getTemplate } = useSettings();
 
 	const [duotoneColorBackground, setDuotoneColorBackground] =
 		useState<string>('#000');
@@ -47,21 +37,6 @@ export const SectionProvider = ({
 
 	const setSectionRef = (node: HTMLElement | null) =>
 		(sectionRef.current = node);
-
-	const getTheme = useCallback(
-		(sectionId: number): ThemeType =>
-			t(`sections.${sectionId}.theme`, pageTheme) as ThemeType,
-		[t, pageTheme]
-	);
-
-	const getTemplate = useCallback(
-		(sectionId: number): TemplateType =>
-			t(
-				`sections.${sectionId}.template`,
-				config.templates.default
-			) as TemplateType,
-		[t]
-	);
 
 	const theme = useMemo(() => getTheme(sectionId), [getTheme, sectionId]);
 	const template = useMemo(
@@ -125,9 +100,6 @@ export const SectionProvider = ({
 				duotoneColorBackground,
 				duotoneColorForeground,
 				hasImage,
-
-				getTheme,
-				getTemplate,
 
 				setSectionRef,
 			}}>
