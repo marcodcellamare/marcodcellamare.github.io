@@ -25,7 +25,7 @@ const ImageWrapper = ({ rootKey }: DefaultProps) => {
 							'flex flex-1 text-(--color-theme-link)',
 							'scale-150',
 							'@3xl:scale-115',
-							'min-w-50 max-w-[33vw]',
+							'min-w-50 max-w-1/3',
 							'@3xl:max-w-none',
 						])}
 					/>

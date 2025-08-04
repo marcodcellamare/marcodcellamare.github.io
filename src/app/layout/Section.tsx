@@ -52,10 +52,7 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 				])}>
 				{areAllSectionRefsReady() &&
 					Object.keys(sectionRefs.current).length > 0 && (
-						<Pager
-							isFirst={isFirst}
-							isLast={isLast}
-						/>
+						<Pager isFirst={isFirst} />
 					)}
 			</Container>
 			<Title isFirst={isFirst} />

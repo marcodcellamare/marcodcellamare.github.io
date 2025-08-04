@@ -51,7 +51,7 @@
 					"className": "lg:w-[60%] 2xl:w-[70%]"
 				}
 			},
-			"title": "Work Experiences & Key Projects",
+			"title": "Work Experiences",
 			"content": [
 				{
 					"heading": {
@@ -189,67 +189,57 @@
 			}
 		},
 		{
-			"theme": "green",
-			"template": "default",
-			"title": "Clients",
-			"content": [
-				{
-					"paragraphs": [
-						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
-					]
+			"theme": "blue",
+			"template": "carousel",
+			"title": "Tech Stack",
+			"settings": {
+				"children": {
+					"className": "lg:w-[60%] 2xl:w-[80%]"
 				}
-			]
-		},
-		{
-			"theme": "yellow",
-			"template": "default",
-			"title": "Hey there",
+			},
 			"content": [
 				{
 					"heading": {
-						"headline": "test",
-						"title": "Marco D. Cellamare",
-						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+						"title": "Front-End Development",
+						"subtitle": "<strong>TypeScript + React + Tailwind CSS</strong>"
 					},
-					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-					"paragraphs": [
-						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					"list": [
+						"HTML5, CSS3, Sass, Less",
+						"JavaScript (ES6+), TypeScript, Node.js",
+						"React, Vite, Next.js",
+						"Tailwind CSS, Daisy UI, Bootstrap",
+						"Redux, Zustand, Context API",
+						"React Router, i18next, Helmet",
+						"Axios, Firebase (Auth, Firestore, Analytics, Crashlytics, Push)",
+						"Framer Motion",
+						"SEO, WCAG, Lighthouse Audits",
+						"Cordova (Android/iOS)",
+						"SPAs and PWAs with a focus on UX, performance, maintainability"
 					]
-				}
-			]
-		},
-		{
-			"theme": "light-gray",
-			"template": "default",
-			"title": "Hey there",
-			"content": [
+				},
 				{
 					"heading": {
-						"headline": "test",
-						"title": "Marco D. Cellamare",
-						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+						"title": "Back-End Development",
+						"subtitle": "<strong>PHP8 + MySQL</strong>"
 					},
-					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-					"paragraphs": [
-						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					"list": [
+						"PHP8, Composer, LAMP stack",
+						"Slim Framework (RESTful API)",
+						"REST API, API Integration, Postman",
+						"JWT, OAuth, CORS, CSRF & XSS",
+						"MySQL, SQL Optimization, Indexing"
 					]
-				}
-			]
-		},
-		{
-			"theme": "gray",
-			"template": "default",
-			"title": "Hey there",
-			"content": [
+				},
 				{
 					"heading": {
-						"headline": "test",
-						"title": "Marco D. Cellamare",
-						"subtitle": "Senior Full-Stack Developer and Digital Designer"
+						"title": "Digital Design",
+						"subtitle": "<strong>Web + UI</strong>"
 					},
-					"leading": "Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design.",
-					"paragraphs": [
-						"Over <strong>20 years of experience</strong> as a Full-Stack Developer and Digital Designer, specializing in Front-End Development and creating scalable web applications with intuitive Web / UI design."
+					"list": [
+						"Web, UI, UX",
+						"Logo and Icons Design, Visuals and Illustrations",
+						"Figma, Illustrator, Photoshop",
+						"Premiere, After Effect"
 					]
 				}
 			]

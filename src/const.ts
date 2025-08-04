@@ -9,16 +9,13 @@ export const GROUPS = [
 	'about',
 	'portfolio',
 	'music',
-	'contacts',
 ] as const;
 
 export const PAGES = {
 	about: '/',
-	demo: '^/demo',
 	portfolio: '/portfolio',
 	portfolio_test: '^/portfolio/test',
 	music: '/music',
-	contacts: '/contacts',
 } as const;
 
 export const PALETTE = [
