@@ -17,21 +17,27 @@ import NewYorkYankees from '@/assets/brands/new-york-yankees.svg?react';
 import RegionePuglia from '@/assets/brands/regione-puglia.svg?react';
 import Volvo from '@/assets/brands/volvo.svg?react';
 
-type IconComponent = React.FC<React.SVGProps<SVGSVGElement>>;
+import TeknologiskInstitut from '@/assets/brands/teknologisk-institut.svg?react';
+import DanmarksNaturfredningsforening from '@/assets/brands/danmarks-naturfredningsforening.svg?react';
+import Rockwool from '@/assets/brands/rockwool.svg?react';
+import Realdania from '@/assets/brands/realdania.svg?react';
+import GammelDansk from '@/assets/brands/gammel-dansk.svg?react';
+
+export type BrandIconComponent = React.FC<React.SVGProps<SVGSVGElement>>;
 
 interface IconProps {
 	name: keyof typeof icons;
 	className?: string;
 }
 
-const icons: Record<string, IconComponent> = {
+const icons: Record<string, BrandIconComponent> = {
 	adecco: Adecco,
 	'aeroporti-di-puglia': AeroportiDiPuglia,
 	anas: ANAS,
 	'banca-popolare-di-bari': BancaPopolareDiBari,
 	bat: BAT,
 	'comune-di-bari': ComuneDiBari,
-	'dansk-retursistem': DanskRetursystem,
+	'dansk-retursystem': DanskRetursystem,
 	'di-leo': DiLeo,
 	framesi: Framesi,
 	'gas-natural': GasNatural,
@@ -42,7 +48,12 @@ const icons: Record<string, IconComponent> = {
 	natuzzi: Natuzzi,
 	'new-york-yankees': NewYorkYankees,
 	'regione-puglia': RegionePuglia,
-	voldo: Volvo,
+	volvo: Volvo,
+	'teknologisk-institut': TeknologiskInstitut,
+	'danmarks-naturfredningsforening': DanmarksNaturfredningsforening,
+	rockwool: Rockwool,
+	realdania: Realdania,
+	'gammel-dansk': GammelDansk,
 };
 const Icon = ({ name, className }: IconProps) => {
 	const SvgIcon = icons[name];

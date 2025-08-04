@@ -163,23 +163,18 @@
 			"theme": "purple",
 			"template": "brands",
 			"title": "Notable Collaborations",
-			"content": [
-				{
-					"heading": {
-						"headline": "xxx",
-						"title": "Test",
-						"subtitle": "xxxx"
-					}
-				}
-			],
 			"brands": {
 				"adecco": "Adecco",
 				"aeroporti-di-puglia": "Aeroporti di Puglia",
 				"anas": "Anas",
-				"bat": "BAT (Global, Nordics, UK)",
-				"borsci": "Borsci",
+				"banca-popolare-di-bari": "Banca Popolare di Bari",
+				"bat": "British American Tobacco",
+				"comune-di-bari": "Comune di Bari",
 				"danmarks-naturfredningsforening": "Danmarks Naturfredningsforening",
 				"dansk-retursystem": "Dansk Retursystem",
+				"di-leo": "DiLeo",
+				"framesi": "Framesi",
+				"gammel-dansk": "Gammel Dansk",
 				"gas-natural": "GasNatural",
 				"lakrids-by-bulow": "Lakrids by Bülow",
 				"legambiente": "Legambiente",
@@ -187,6 +182,7 @@
 				"natuzzi": "Natuzzi",
 				"new-york-yankees": "New York Yankees",
 				"regione-puglia": "Regione Puglia",
+				"realdania": "Realdania",
 				"rockwool": "Rockwool",
 				"teknologisk-institut": "Teknologisk Institut",
 				"volvo": "Volvo"

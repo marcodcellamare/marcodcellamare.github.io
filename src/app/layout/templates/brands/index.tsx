@@ -24,13 +24,13 @@ const Brands = () => {
 	if (!brandsExists) return null;
 
 	return (
-		<div className='brands flex-1 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 2xl:grid-cols-9 gap-2.5 sm:gap-5'>
+		<div className='brands flex-1 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 2xl:grid-cols-9 gap-x-10 gap-y-5'>
 			{Object.keys(brands).map((name, k) => (
 				<Brand
 					key={k}
 					name={name}
 					title={brands[name] ?? ''}
-					className='relative flex-1 aspect-square'
+					className='flex-1'
 				/>
 			))}
 		</div>

@@ -8,14 +8,19 @@ interface BrandProps {
 }
 
 const Brand = ({ name, title, className }: BrandProps) => (
-	<div className={classNames(['brand group', className])}>
+	<button
+		type='button'
+		className={classNames([
+			'brand relative aspect-square group',
+			className,
+		])}>
 		<Icon
 			name={name}
-			className='absolute top-1/2 left-1/2 -translate-1/2 w-9/10 h-6/10 fill-(--color-theme-content) transition-[filter,scale] duration-1000 ease-in-out group-hover:blur-xs group-hover:scale-200'
+			className='absolute top-1/2 left-1/2 -translate-1/2 w-full h-6/10 fill-(--color-theme-link) group-hover:fill-(--color-theme-foreground)/50 transition-[filter,scale,fill] duration-1000 ease-in-out group-hover:blur-xxs group-hover:scale-180 pointer-events-none'
 		/>
-		<h4 className='absolute border top-1/2 -left-10 -right-10 translate-y-3 px-2 py-1 text-xs uppercase font-black text-(--color-theme-link) text-center transition-[opacity,translate] duration-400 ease-in-out delay-100 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1/2'>
+		<h4 className='absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-3 min-w-2/1 px-2 py-1 text-xs uppercase font-black text-(--color-theme-link) text-center transition-[opacity,translate] duration-400 ease-in-out delay-100 opacity-0 group-hover:opacity-100 group-hover:-translate-y-1/2 pointer-events-none'>
 			{title}
 		</h4>
-	</div>
+	</button>
 );
 export default Brand;

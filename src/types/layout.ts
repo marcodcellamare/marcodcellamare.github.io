@@ -11,6 +11,7 @@ export interface SectionInterface {
 	settings?: SettingsInterface;
 	title?: string;
 	content?: ContentInterface[];
+	brands?: Record<string, string>;
 	drawer?: ContentInterface[];
 }
 
