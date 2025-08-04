@@ -1,0 +1,1 @@
+const e="Music",t="Lorem ipsum",i="purple",n=[{theme:"purple",template:"default",title:"Beat Maker",content:[{heading:{title:"Under Construction"}}]}],l={title:e,description:t,theme:i,sections:n};export{l as default,t as description,n as sections,i as theme,e as title};
