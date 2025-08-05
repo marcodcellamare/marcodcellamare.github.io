@@ -1,7 +1,7 @@
 {
 	"name": "marcodcellamare.github.io",
 	"private": false,
-	"version": "2025.1.9",
+	"version": "2025.1.11",
 	"repository": {
 		"url": "https://github.com/marcodcellamare/marcodcellamare.github.io.git"
 	},
@@ -12,15 +12,16 @@
 	},
 	"license": "UNLICENSED",
 	"created": "2025-02-13",
-	"homepage": "./",
+	"homepage": "https://marcodcellamare.github.io",
 	"type": "module",
 	"scripts": {
-		"tool:optimize.images": "tsx ./src/tools/image.optimizer.ts",
-		"tool:sitemap": "tsx ./src/tools/sitemap.ts",
+		"tool:optimize.images": "tsx --tsconfig tsconfig.node.json ./src/tools/image.optimizer.ts",
+		"tool:sitemap.generator": "tsx --tsconfig tsconfig.node.json ./src/tools/sitemap.generator.ts",
+		"tool:robots.generator": "tsx --tsconfig tsconfig.node.json ./src/tools/robots.generator.ts",
 		"dev": "vite",
 		"dev:host": "vite --host",
 		"lint": "eslint .",
-		"prebuild": "npm run tool:optimize.images && npm run tool:sitemap",
+		"tools": "npm run tool:optimize.images && npm run tool:sitemap.generator && npm run tool:robots.generator",
 		"build": "tsc -b && vite build",
 		"preview": "vite preview",
 		"deploy": "gh-pages -d dist"

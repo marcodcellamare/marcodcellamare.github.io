@@ -7,9 +7,10 @@
 			"DOM",
 			"DOM.Iterable"
 		],
-		"module": "ESNext",
+		"module": "esnext",
 		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
+		"allowJs": true,
 		"esModuleInterop": true,
 		"noEmit": true,
 		"jsx": "react-jsx",

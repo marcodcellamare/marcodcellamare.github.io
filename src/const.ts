@@ -14,7 +14,7 @@ export const GROUPS = [
 export const PAGES = {
 	about: '/',
 	portfolio: '/portfolio',
-	portfolio_test: '^/portfolio/test',
+	//portfolio_test: '^/portfolio/test',
 	music: '/music',
 } as const;
 

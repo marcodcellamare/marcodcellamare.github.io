@@ -6,6 +6,6 @@
 	"include": [
 		"vite.config.ts",
 		"vite.alias.ts",
-		"src/tools"
+		"src"
 	]
 }
