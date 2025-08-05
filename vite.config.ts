@@ -4,6 +4,7 @@ import { aliases } from './vite.alias.ts';
 import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
+import { VitePWA } from 'vite-plugin-pwa';
 import svgr from 'vite-plugin-svgr';
 import { visualizer } from 'rollup-plugin-visualizer';
 
@@ -21,6 +22,19 @@ export default defineConfig(({ mode }) => {
 			react(),
 			tailwindcss(),
 			tsconfigPaths(),
+			VitePWA({
+				devOptions: {
+					enabled: mode !== 'production',
+				},
+				registerType: 'autoUpdate',
+				workbox: {
+					globPatterns: [
+						'**/*.{js,css,html,svg,woff2,woff,ttf}',
+						'**/optimized/**/*.{jpg,jpeg,png,avif,webp}',
+					],
+					maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+				},
+			}),
 			svgr(),
 			visualizer({ open: false }),
 		],
