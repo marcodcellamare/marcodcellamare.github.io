@@ -8,7 +8,7 @@ import Pattern from './elements/Pattern';
 import Title from './elements/Title';
 import Templates from './templates';
 import Pager from './elements/Pager';
-import Polygons from './elements/Polygons';
+/* import Polygons from './elements/Polygons'; */
 import Background from './elements/Background';
 import Container from './elements/Container';
 
@@ -22,8 +22,12 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 	const spacing = useUIStore((state) => state.spacing);
 	const { setSectionRefs, sectionRefs, areAllSectionRefsReady } =
 		useUIStore();
-	const { sectionId, theme, setSectionRef, nextBackgroundColor, hasImage } =
-		useSection();
+	const {
+		sectionId,
+		theme,
+		setSectionRef,
+		nextBackgroundColor /* , hasImage */,
+	} = useSection();
 
 	return (
 		<section
@@ -44,6 +48,7 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 					)})`,
 				} as CSSProperties
 			}>
+			<Title isFirst={isFirst} />
 			<Background />
 			<Container
 				className={classNames([
@@ -55,9 +60,8 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 						<Pager isFirst={isFirst} />
 					)}
 			</Container>
-			<Title isFirst={isFirst} />
 			{!isLast && <Pattern />}
-			{!hasImage && !isFirst && !isLast && (
+			{/* {!hasImage && !isFirst && !isLast && (
 				<Polygons
 					mode='repel'
 					min={1}
@@ -65,7 +69,7 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 					ratio={10}
 					margin={-10}
 				/>
-			)}
+			)} */}
 			<Templates />
 		</section>
 	);

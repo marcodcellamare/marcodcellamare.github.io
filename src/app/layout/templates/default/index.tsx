@@ -31,10 +31,7 @@ const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 	const position = t(`${rootKey}.image.position`) as ImagePositionType;
 
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
-	const y = useTransform(scrollYProgress, [0, 1], ['-3rem', '3rem'], {
-		ease: easeInOut,
-	});
-	const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 1, 0.8], {
+	const y = useTransform(scrollYProgress, [0, 1], ['5rem', '-5rem'], {
 		ease: easeInOut,
 	});
 
@@ -55,7 +52,7 @@ const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 								'opacity-0': slideId !== activeIdx,
 							},
 						])}
-						style={{ y, scale }}>
+						style={{ y }}>
 						<ImageWrapper rootKey={`${rootKey}.image`} />
 					</motion.div>
 				)}

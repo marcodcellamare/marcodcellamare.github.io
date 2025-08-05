@@ -22,14 +22,22 @@ const Title = ({ isFirst }: TitleProps) => {
 	const y = useTransform(scrollYProgress, [0, 1], ['-20rem', '20rem']);
 	const opacity = useTransform(
 		scrollYProgress,
-		[0, 0.1, 0.75, 0.9],
-		[0.3, 1, 1, 0]
+		[0, 0.1, 0.6, 1],
+		[0, 1, 1, 0]
 	);
 	const zIndex = useTransform(scrollYProgress, [0.3, 0.35], [5, 0]);
+	const borderThickness = useTransform(
+		scrollYProgress,
+		[0, 0.4, 0.7, 1],
+		['0.5rem', '0.1rem', '0.1rem', '0.01rem'],
+		{
+			ease: easeOut,
+		}
+	);
 	const patternThickness = useTransform(
 		scrollYProgress,
-		[0, 0.5, 1],
-		['0.3rem', '0.05rem', '0.01rem'],
+		[0, 0.4, 0.5],
+		['0.5rem', '0.1rem', '0.01rem'],
 		{
 			ease: easeOut,
 		}
@@ -37,8 +45,8 @@ const Title = ({ isFirst }: TitleProps) => {
 
 	const blurAmount = useTransform(
 		scrollYProgress,
-		[0, 0.1],
-		['1rem', '0rem']
+		[0, 0.1, 0.4, 0.5, 1],
+		['1rem', '0rem', '0rem', '0.3rem', '1rem']
 	);
 	const filter = useTransform(blurAmount, (value) => `blur(${value})`);
 
@@ -60,13 +68,14 @@ const Title = ({ isFirst }: TitleProps) => {
 				opacity,
 				filter,
 				zIndex,
+				['--border-thickness' as string]: borderThickness,
 				['--pattern-thickness' as string]: patternThickness,
 				['--char-count' as string]: maxLength,
 			}}>
 			<h4
 				className={classNames([
 					'relative block font-black uppercase',
-					'text-(--color-theme-background-contrast)/10',
+					'text-(--color-theme-background-contrast)/20',
 					'-rotate-90 lg:-rotate-3 lg:-skew-x-3 origin-top lg:origin-center',
 					{
 						extra: isFirst,

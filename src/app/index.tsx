@@ -37,15 +37,7 @@ const App = () => {
 						? 'bg-(--color-theme-background-contrast)'
 						: 'bg-(--color-theme-background)',
 				])}>
-				<div
-					className={classNames([
-						'flex flex-1 h-full min-w-xs max-w-(--breakpoint-4xl) 4xl:max-h-(--breakpoint-xl) 4xl:shadow-2xl overflow-hidden relative',
-						'border-[calc(var(--spacing)*4)]',
-						'transition-[border-color] duration-700 ease-in-out',
-						!isNavOpened
-							? 'border-(--color-theme-background)'
-							: 'border-(--color-theme-link)',
-					])}>
+				<div className='flex flex-1 h-full min-w-xs max-w-(--breakpoint-4xl) 4xl:max-h-(--breakpoint-xl) 4xl:shadow-2xl 4xl:shadow-black/15 overflow-hidden relative'>
 					<Router />
 					<Footer />
 					<Header />

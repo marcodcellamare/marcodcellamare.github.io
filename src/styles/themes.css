@@ -6,7 +6,7 @@
 	}
 	[data-theme='purple'] {
 		--color-theme-background: var(--color-palette-purple);
-		--color-theme-background-contrast: var(--color-palette-dark-gray);
+		--color-theme-background-contrast: var(--color-palette-brown);
 		--color-theme-link: var(--color-palette-yellow);
 	}
 	[data-theme='blue'] {
@@ -82,6 +82,7 @@
 		--color-theme-foreground: var(--color-palette-gray);
 		--color-theme-duotone-black: var(--color-theme-background-contrast);
 		--color-theme-duotone-white: var(--color-theme-link);
+		--color-theme-shadow: var(--color-theme-background-contrast);
 
 		--color-theme-link-hover: color-mix(
 			in srgb,
@@ -104,6 +105,7 @@
 		--color-theme-foreground: var(--color-palette-dark-gray);
 		--color-theme-duotone-black: var(--color-theme-foreground);
 		--color-theme-duotone-white: var(--color-theme-link);
+		--color-theme-shadow: transparent;
 
 		--color-theme-link-hover: color-mix(
 			in srgb,

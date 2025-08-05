@@ -65,7 +65,11 @@ const Content = ({ rootKey, sectionId, className }: ContentProps) => {
 		return null;
 
 	return (
-		<div className={classNames(['content space-y-8', className])}>
+		<div
+			className={classNames([
+				'content drop-shadow-[0_0.25rem_0_--alpha(var(--color-theme-shadow)/30%)] space-y-8',
+				className,
+			])}>
 			<Heading
 				rootKey={`${rootKey}.heading`}
 				extra={sectionId === 0}
