@@ -24,12 +24,12 @@ const Background = () => {
 			mode='repel'
 			ratioX={50}
 			ratioY={50}
-			duration={0.1}
+			duration={0.2}
 			className={classNames([
-				'absolute top-0 bottom-0 left-0 right-0 pointer-events-none',
+				'absolute top-0 bottom-0 left-0 right-0 pointer-events-none will-change-transform',
 				background.className,
 				{
-					'm-10 lg:m-20': background?.contain,
+					'm-10 lg:m-15': background?.contain,
 				},
 			])}>
 			<Picture {...props} />

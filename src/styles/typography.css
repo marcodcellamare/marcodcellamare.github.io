@@ -15,7 +15,8 @@
 	}
 	h1,
 	.h1 {
-		@apply text-5xl leading-[0.9em]
+		@apply text-4xl leading-[0.9em]
+			sm:text-5xl 
 			xl:text-6xl xl:leading-[0.85em];
 
 		&.extra {
@@ -57,7 +58,7 @@
 		}
 
 		&.leading {
-			@apply text-xl;
+			@apply text-2xl;
 
 			&.extra {
 				@apply text-2xl xl:text-3xl;

@@ -203,6 +203,47 @@
 						"title": "Front-End Development",
 						"subtitle": "<strong>TypeScript + React + Tailwind CSS</strong>"
 					},
+					"leading": "Experienced in building modern, performant, and accessible web applications using technologies like TypeScript, React, and Tailwind CSS.",
+					"paragraphs": [
+						"Strong focus on UX, maintainability, and performance, with additional experience in tools like Vite, Next.js, Firebase, Zustand, and Framer Motion. <linked>Tech Stack</linked>"
+					],
+					"links": [
+						0
+					]
+				},
+				{
+					"heading": {
+						"title": "Back-End Development",
+						"subtitle": "<strong>PHP8 + Slim + MySQL</strong>"
+					},
+					"leading": "Experienced in developing secure and efficient APIs using PHP8 and the LAMP stack, with a strong focus on MySQL performance and optimization.",
+					"paragraphs": [
+						"Skilled in building RESTful services with Slim Framework and integrating APIs using tools like Postman. Solid understanding of web security best practices including JWT, OAuth, CORS, CSRF, and XSS protection. <linked>Tech Stack</linked>"
+					],
+					"links": [
+						1
+					]
+				},
+				{
+					"heading": {
+						"title": "Digital Design",
+						"subtitle": "<strong>Web + UI</strong>"
+					},
+					"leading": "Experienced in crafting clean, user-focused web and UI designs with attention to UX, accessibility, and visual consistency.",
+					"paragraphs": [
+						"Proficient with tools like Figma, Illustrator, and Photoshop, with additional experience in branding, icon design, and motion graphics using Premiere and After Effects. <linked>Tech Stack</linked>"
+					],
+					"links": [
+						2
+					]
+				}
+			],
+			"drawer": [
+				{
+					"heading": {
+						"headline": "Tech Stack",
+						"title": "Front-End Development"
+					},
 					"list": [
 						"HTML5, CSS3, Sass, Less",
 						"JavaScript (ES6+), TypeScript, Node.js",
@@ -219,8 +260,8 @@
 				},
 				{
 					"heading": {
-						"title": "Back-End Development",
-						"subtitle": "<strong>PHP8 + MySQL</strong>"
+						"headline": "Tech Stack",
+						"title": "Back-End Development"
 					},
 					"list": [
 						"PHP8, Composer, LAMP stack",
@@ -232,8 +273,8 @@
 				},
 				{
 					"heading": {
-						"title": "Digital Design",
-						"subtitle": "<strong>Web + UI</strong>"
+						"headline": "Tech Stack",
+						"title": "Digital Design"
 					},
 					"list": [
 						"Web, UI, UX",

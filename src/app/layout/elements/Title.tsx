@@ -29,7 +29,7 @@ const Title = ({ isFirst }: TitleProps) => {
 	const borderThickness = useTransform(
 		scrollYProgress,
 		[0, 0.4, 0.7, 1],
-		['0.5rem', '0.1rem', '0.1rem', '0.01rem'],
+		['0.4rem', '0.1rem', '0.1rem', '0.01rem'],
 		{
 			ease: easeOut,
 		}
@@ -37,7 +37,7 @@ const Title = ({ isFirst }: TitleProps) => {
 	const patternThickness = useTransform(
 		scrollYProgress,
 		[0, 0.4, 0.5],
-		['0.5rem', '0.1rem', '0.01rem'],
+		['0.4rem', '0.1rem', '0.01rem'],
 		{
 			ease: easeOut,
 		}

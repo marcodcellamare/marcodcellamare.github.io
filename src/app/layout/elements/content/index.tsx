@@ -67,7 +67,7 @@ const Content = ({ rootKey, sectionId, className }: ContentProps) => {
 	return (
 		<div
 			className={classNames([
-				'content drop-shadow-[0_0.25rem_0_--alpha(var(--color-theme-shadow)/30%)] space-y-8',
+				'content drop-shadow-[0_0.25rem_0_--alpha(var(--color-theme-shadow)/15%)] space-y-8',
 				className,
 			])}>
 			<Heading
