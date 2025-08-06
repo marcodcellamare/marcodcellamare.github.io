@@ -33,6 +33,20 @@ export default defineConfig(({ mode }) => {
 						'**/optimized/**/*.{jpg,jpeg,png,avif,webp}',
 					],
 					maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+					runtimeCaching: [
+						{
+							urlPattern:
+								/\/optimized\/.*\.(avif|webp|jpe?g|png)$/,
+							handler: 'CacheFirst',
+							options: {
+								cacheName: 'optimized-images',
+								expiration: {
+									maxEntries: 100,
+									maxAgeSeconds: 60 * 60 * 24 * 365,
+								},
+							},
+						},
+					],
 				},
 			}),
 			svgr(),
@@ -78,6 +92,8 @@ export default defineConfig(({ mode }) => {
 					format: 'es',
 					manualChunks(id) {
 						if (id.includes('node_modules')) {
+							if (id.includes('react-dom-server-legacy'))
+								return 'server-legacy';
 							if (id.includes('react-dom-server'))
 								return 'server';
 							if (id.includes('react-dom-client'))
@@ -92,6 +108,8 @@ export default defineConfig(({ mode }) => {
 							if (id.includes('culori')) return 'utils';
 
 							return 'vendor';
+						} else {
+							if (id.includes('assets')) return 'assets';
 						}
 					},
 				},

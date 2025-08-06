@@ -46,7 +46,7 @@ const Source = ({ path, name, format, hero }: SourceProps) => {
 
 	const preloadHref = useMemo(
 		() =>
-			`${path}/${optimizedDir}/${optimizedDefaultSize}/${name}.${format}`,
+			`${path}/${optimizedDir}/${optimizedDefaultSize.current}/${name}.${format}`,
 		[format, name, optimizedDir, path]
 	);
 
@@ -57,7 +57,7 @@ const Source = ({ path, name, format, hero }: SourceProps) => {
 				srcSet={srcSet}
 				sizes={sizes}
 			/>
-			{hero && ['avif', 'webp'].includes(format) && (
+			{hero && format === 'avif' && (
 				<link
 					rel='preload'
 					as='image'

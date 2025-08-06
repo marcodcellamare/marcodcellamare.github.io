@@ -95,6 +95,10 @@ const optimize = async () => {
 				);
 
 				const task = sharp(file)
+					.jpeg({ quality: 40, progressive: true, force: true })
+					.png({ quality: 20, progressive: true, force: true })
+					.webp({ quality: 20, force: true })
+					.avif({ quality: 20, force: true })
 					.resize({
 						width: size,
 						height: size,

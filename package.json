@@ -1,7 +1,7 @@
 {
 	"name": "marcodcellamare.github.io",
 	"private": false,
-	"version": "2025.1.12",
+	"version": "2025.1.13",
 	"repository": {
 		"url": "https://github.com/marcodcellamare/marcodcellamare.github.io.git"
 	},
@@ -20,7 +20,7 @@
 		"tool:robots.generator": "tsx --tsconfig tsconfig.node.json ./src/tools/robots.generator.ts",
 		"dev": "vite",
 		"dev:host": "vite --host",
-		"lint": "eslint .",
+		"lint": "eslint ./src",
 		"tools": "npm run tool:optimize.images && npm run tool:sitemap.generator && npm run tool:robots.generator",
 		"build": "tsc -b && vite build",
 		"preview": "vite preview",
