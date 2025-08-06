@@ -4,13 +4,19 @@ interface SourceProps {
 	path: string;
 	name: string;
 	format: string;
+	hero: boolean;
 }
 
-const Source = ({ path, name, format }: SourceProps) => {
+const Source = ({ path, name, format, hero }: SourceProps) => {
 	const optimizedDir = import.meta.env.VITE_OPTIMIZED_IMAGES_DIR ?? '';
 	const optimizedSizes = useRef<number[]>(
 		import.meta.env.VITE_OPTIMIZED_IMAGES_SIZES.split('|').map(Number) ?? []
 	);
+	const optimizedDefaultSize = useRef(
+		import.meta.env.VITE_OPTIMIZED_IMAGES_DEFAULT_SIZE ?? 0
+	);
+	const sizes =
+		'(min-width: 1920px) 1200px, (min-width: 1280px) 1000px, (min-width: 768px) 80vw, 100vw';
 
 	const mimetype = useMemo(() => {
 		switch (format) {
@@ -38,12 +44,31 @@ const Source = ({ path, name, format }: SourceProps) => {
 		return set.join(', ');
 	}, [optimizedSizes, path, optimizedDir, name, format]);
 
+	const preloadHref = useMemo(
+		() =>
+			`${path}/${optimizedDir}/${optimizedDefaultSize}/${name}.${format}`,
+		[format, name, optimizedDir, path]
+	);
+
 	return (
-		<source
-			type={mimetype}
-			srcSet={srcSet}
-			sizes='(min-width: 1920px) 1200px, (min-width: 1280px) 1000px, (min-width: 768px) 80vw, 100vw'
-		/>
+		<>
+			<source
+				type={mimetype}
+				srcSet={srcSet}
+				sizes={sizes}
+			/>
+			{hero && ['avif', 'webp'].includes(format) && (
+				<link
+					rel='preload'
+					as='image'
+					href={preloadHref}
+					type={mimetype}
+					imageSrcSet={srcSet}
+					imageSizes={sizes}
+					precedence='default'
+				/>
+			)}
+		</>
 	);
 };
 

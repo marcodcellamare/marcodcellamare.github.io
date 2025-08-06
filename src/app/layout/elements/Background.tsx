@@ -17,6 +17,7 @@ const Background = () => {
 			background?.pictureClassName,
 		]),
 		async: true,
+		hero: true,
 	} as PictureProps;
 
 	return background?.contain ? (

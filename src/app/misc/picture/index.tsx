@@ -7,6 +7,7 @@ export interface PictureProps {
 	src: string;
 	contain?: boolean;
 	async?: boolean;
+	hero?: boolean;
 	className?: string;
 	style?: CSSProperties;
 	pictureClassName?: string;
@@ -16,6 +17,7 @@ const Picture = ({
 	src,
 	contain = true,
 	async = false,
+	hero,
 	className = 'w-full h-full',
 	style,
 	pictureClassName,
@@ -36,11 +38,13 @@ const Picture = ({
 					path={path}
 					name={name}
 					format={format === '@own' ? ext : format}
+					hero={hero ?? false}
 				/>
 			))}
 			<img
 				src={src}
-				loading='lazy'
+				fetchPriority={!hero ? 'auto' : 'high'}
+				loading={!hero ? 'lazy' : 'eager'}
 				decoding={async ? 'async' : 'auto'}
 				className={classNames([
 					contain ? 'object-contain' : 'object-cover',
