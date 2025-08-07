@@ -1,12 +1,12 @@
 {
-	"title": "Portfolio",
+	"title": "Projects",
 	"description": "Lorem ipsum",
 	"theme": "blue",
 	"sections": [
 		{
 			"theme": "blue",
 			"template": "default",
-			"title": "Portfolio",
+			"title": "Projects",
 			"content": [
 				{
 					"heading": {

@@ -7,14 +7,14 @@ export const GROUPS = [
 	'default',
 	'demo',
 	'about',
-	'portfolio',
+	'projects',
 	'music',
 ] as const;
 
 export const PAGES = {
 	about: '/',
-	portfolio: '/portfolio',
-	//portfolio_test: '^/portfolio/test',
+	projects: '/projects',
+	//projects_test: '^/projects/test',
 	music: '/music',
 } as const;
 
@@ -49,4 +49,4 @@ export const THEMES: PaletteType[] = [
 	'yellow',
 ] as const;
 
-export const TEMPLATES = ['default', 'carousel', 'brands'] as const;
+export const TEMPLATES = ['default', 'carousel', 'brands', 'gallery'] as const;

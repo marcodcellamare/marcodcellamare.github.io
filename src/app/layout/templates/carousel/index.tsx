@@ -53,7 +53,7 @@ const Carousel = ({ template, className }: CarouselProps) => {
 			<div
 				ref={containerRef}
 				className={classNames([
-					'flex flex-1 items-center box-border w-full h-full overflow-x-auto touch-none no-scrollbar snap-x snap-mandatory',
+					'flex flex-1 items-center box-border w-full h-full overflow-x-auto pointer-events-none lg:pointer-events-auto no-scrollbar snap-x snap-mandatory',
 					'scroll-pl-0',
 					'sm:scroll-pl-[max((100vw-var(--breakpoint-sm))/2,0rem)]',
 					'md:scroll-pl-[max((100vw-var(--breakpoint-md))/2,0rem)]',

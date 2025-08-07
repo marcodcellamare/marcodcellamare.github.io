@@ -231,7 +231,7 @@ const Moods = ({ className }: MoodsProps) => {
 			type='button'
 			role={currentLink ? 'button' : undefined}
 			className={classNames([
-				'moods btn btn-link !no-underline max-w-full whitespace-nowrap transition-[color] duration-500 ease-in-out',
+				'moods btn btn-link !no-underline max-w-full whitespace-nowrap transition-[color] duration-500 ease-in-out contain-layout',
 				currentLink
 					? 'text-(--color-theme-link) cursor-pointer'
 					: 'text-(--color-theme-content) cursor-default',

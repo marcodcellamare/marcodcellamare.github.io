@@ -9,6 +9,7 @@ import Container from '@/app/layout/elements/Container';
 import Default from './default';
 import Carousel from './carousel';
 import Brands from './brands';
+import Gallery from './gallery';
 
 const Templates = () => {
 	const spacing = useUIStore((state) => state.spacing);
@@ -60,6 +61,18 @@ const Templates = () => {
 				<Container className={containerClassName}>
 					<Brands />
 				</Container>
+			);
+			break;
+
+		case 'gallery':
+			content = (
+				<Gallery
+					className={classNames([
+						'flex-1 h-full',
+						spacing.absEdge,
+						spacing.section,
+					])}
+				/>
 			);
 			break;
 

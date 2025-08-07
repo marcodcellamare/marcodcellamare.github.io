@@ -123,11 +123,8 @@ const Polygons = ({
 						opacity: polygon.opacity,
 					}}>
 					<Polygon
-						strokeWidth={1}
-						strokeOpacity={0.5}
 						fill='var(--color-theme-background-contrast)'
-						fillOpacity={0.15}
-						stroke='var(--color-theme-background-contrast)'
+						fillOpacity={0.3}
 					/>
 				</Floating>
 			))}

@@ -1,12 +1,14 @@
 import { writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import dotenv from 'dotenv';
 
 import { PAGES } from '@const';
-import pkg from '@package';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const env = dotenv.config().parsed;
 
 const rootDir = '../../';
 const publicDir = path.join(__dirname, rootDir, 'public');
@@ -19,7 +21,7 @@ const sitemapEntries = Object.values(PAGES)
 			`<loc lastmod="${
 				date.toISOString().split('T')[0]
 			}" priority="0.8">` +
-			`${pkg.homepage}/#${path.replace('^', '')}` +
+			`${env?.VITE_TOOLS_BASE}/#${path.replace('^', '')}` +
 			`</loc>` +
 			`</url>`
 	)

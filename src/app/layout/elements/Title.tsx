@@ -46,12 +46,12 @@ const Title = ({ isFirst }: TitleProps) => {
 	const blurAmount = useTransform(
 		scrollYProgress,
 		[0, 0.1, 0.4, 0.5, 1],
-		['1rem', '0rem', '0rem', '0.3rem', '1rem']
+		['1rem', '0rem', '0rem', '0.15rem', '1rem']
 	);
 	const filter = useTransform(blurAmount, (value) => `blur(${value})`);
 
 	const maxLength = t(`sections.${sectionId}.title`)
-		.split(/\s+/)
+		.split(/[\s\-–—/_]+/)
 		.reduce(
 			(longest, word) => (word.length > longest.length ? word : longest),
 			''
@@ -62,7 +62,7 @@ const Title = ({ isFirst }: TitleProps) => {
 
 	return (
 		<motion.div
-			className='title absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 lg:-translate-x-1/2'
+			className='title absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 lg:-translate-x-1/2 contain-layout'
 			style={{
 				y,
 				opacity,

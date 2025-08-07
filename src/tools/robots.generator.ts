@@ -1,11 +1,12 @@
 import { writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import path from 'path';
-
-import pkg from '@package';
+import dotenv from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const env = dotenv.config().parsed;
 
 const rootDir = '../../';
 const publicDir = path.join(__dirname, rootDir, 'public');
@@ -14,7 +15,7 @@ const robots = [
 	'# https://www.robotstxt.org/robotstxt.html',
 	'User-agent: *',
 	'Disallow:',
-	`Sitemap: ${pkg.homepage}/sitemap.xml`,
+	`Sitemap: ${env?.VITE_TOOLS_BASE}/sitemap.xml`,
 ].join('\n');
 
 writeFileSync(path.join(publicDir, 'robots.txt'), robots, 'utf8');

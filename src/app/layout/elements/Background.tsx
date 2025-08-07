@@ -27,7 +27,7 @@ const Background = () => {
 			ratioY={50}
 			duration={0.2}
 			className={classNames([
-				'absolute top-0 bottom-0 left-0 right-0 pointer-events-none will-change-transform',
+				'absolute top-0 bottom-0 left-0 right-0 pointer-events-none contain-layout',
 				background.className,
 				{
 					'm-10 lg:m-15': background?.contain,

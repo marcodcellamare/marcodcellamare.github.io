@@ -14,7 +14,7 @@ const Pattern = () => {
 	return (
 		<motion.div
 			style={{ height }}
-			className='pattern absolute bottom-0 left-0 right-0 flex flex-col pointer-events-none'>
+			className='pattern absolute bottom-0 left-0 right-0 flex flex-col pointer-events-none contain-layout'>
 			{Array.from({ length: 5 }).map((_, k) => (
 				<div
 					key={k}

@@ -17,23 +17,23 @@
 	.h1 {
 		@apply text-4xl leading-[0.9em]
 			sm:text-5xl 
-			xl:text-6xl xl:leading-[0.85em];
+			2xl:text-6xl 2xl:leading-[0.85em];
 
 		&.extra {
 			@apply text-5xl leading-[0.9em]
 				md:text-6xl md:leading-[0.85em]
-				xl:text-7xl;
+				2xl:text-7xl;
 		}
 	}
 	h2,
 	.h2 {
 		@apply text-3xl leading-[0.95em]
-			xl:text-4xl xl:leading-[0.9em];
+			2xl:text-4xl 2xl:leading-[0.9em];
 	}
 	h3,
 	.h3 {
 		@apply text-2xl leading-[1.1em]
-			xl:text-3xl xl:leading-[0.95em];
+			2xl:text-3xl 2xl:leading-[0.95em];
 	}
 	h4,
 	.h4 {
@@ -48,20 +48,20 @@
 		@apply text-lg leading-[1em];
 	}
 	p {
-		@apply text-base xl:text-lg;
+		@apply text-base 2xl:text-lg;
 
 		&.extra {
-			@apply text-lg xl:text-xl;
+			@apply text-lg 2xl:text-xl;
 		}
 		&.extra-2x {
-			@apply text-2xl xl:text-3xl;
+			@apply text-2xl 2xl:text-3xl;
 		}
 
 		&.leading {
-			@apply text-2xl;
+			@apply text-xl 2xl:text-2xl;
 
 			&.extra {
-				@apply text-2xl xl:text-3xl;
+				@apply text-2xl 2xl:text-3xl;
 			}
 		}
 	}

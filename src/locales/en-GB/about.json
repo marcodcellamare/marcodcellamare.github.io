@@ -59,7 +59,7 @@
 						"title": "Lead Senior Full-Stack Developer",
 						"subtitle": "<strong>Defensive Group</strong> — Cyber Security (Solrød Strand, DK)"
 					},
-					"leading": "<linked>Key Projects…</linked>",
+					"leading": "At Defensive Group, I lead front-end development of high-performance data dashboards and custom e-learning platforms tailored for cybersecurity training. <linked>Key Projects</linked>",
 					"links": [
 						0
 					]
@@ -70,7 +70,7 @@
 						"title": "Senior Full-Stack Developer",
 						"subtitle": "<strong>Banyo</strong> — Digital Agency (Copenhagen, DK)"
 					},
-					"leading": "<linked>Key Projects…</linked>",
+					"leading": "At Banyo, I developed cross-platform apps and web solutions for clients like BAT UK, Volvo, and local businesses. <linked>Key Projects</linked>",
 					"links": [
 						1
 					]
@@ -81,7 +81,7 @@
 						"title": "Lead Full-Stack Developer, Digital Designer",
 						"subtitle": "<strong>Chimera</strong> — Digital Agency (Bari / Milan, IT)"
 					},
-					"leading": "<linked>Key Projects…</linked>",
+					"leading": "At Chimera, I delivered over 200 websites and web apps for national brands, combining performance, accessibility, and UX. <linked>Key Projects</linked>",
 					"links": [
 						2
 					]
@@ -92,7 +92,7 @@
 						"title": "Web Developer, Digital Designer",
 						"subtitle": "<strong>Jcom Italia</strong> — Web Agency (Bari / Milan, IT)"
 					},
-					"leading": "<linked>Key Projects…</linked>",
+					"leading": "At Jcom Italia, I developed hundreds of responsive, SEO-optimized websites for SMEs, integrating CMS and e-commerce solutions. <linked>Key Projects</linked>",
 					"links": [
 						3
 					]
@@ -158,6 +158,11 @@
 					]
 				}
 			]
+		},
+		{
+			"theme": "gray",
+			"template": "gallery",
+			"title": "Photo-Gallery"
 		},
 		{
 			"theme": "purple",
