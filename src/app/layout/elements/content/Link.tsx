@@ -2,7 +2,7 @@ import { ReactNode, useEffect } from 'react';
 import useScramble from '@/hooks/useScramble';
 import { useFirebase } from '@/contexts/firebase';
 import { openExternalLink } from '@/utils/misc';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { useSettings } from '@/contexts/settings';
 import { useUIStore } from '@/stores/useUIStore';
 

@@ -23,15 +23,20 @@ export default defineConfig(({ mode }) => {
 			tailwindcss(),
 			tsconfigPaths(),
 			VitePWA({
+				outDir: 'dist',
 				devOptions: {
 					enabled: mode !== 'production',
 				},
 				registerType: 'autoUpdate',
+				injectRegister: false,
 				workbox: {
-					globPatterns: [
-						'**/*.{js,css,html,svg,woff2,woff,ttf}',
-						'**/optimized/**/*.{jpg,jpeg,png,avif,webp}',
-					],
+					globPatterns:
+						mode === 'production'
+							? [
+									'**/*.{js,css,html,svg,woff2,woff,ttf}',
+									'**/optimized/**/*.{jpg,jpeg,png,avif,webp}',
+							  ]
+							: [],
 					maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
 					runtimeCaching: [
 						{

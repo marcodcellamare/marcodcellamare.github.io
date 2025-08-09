@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router';
 import { AnimatePresence } from 'motion/react';
 
 import Main from '@/app/layout/Main';

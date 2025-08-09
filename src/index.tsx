@@ -1,6 +1,6 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router';
 import { RouterProvider } from './contexts/router';
 import { FirebaseProvider } from './contexts/firebase';
 import { SettingsProvider } from './contexts/settings';

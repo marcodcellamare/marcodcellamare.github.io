@@ -2,7 +2,7 @@ import { MouseEvent, useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import useScramble from '@/hooks/useScramble';
 import { useUIStore } from '@/stores/useUIStore';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 import classNames from 'classnames';
 
 import config from '@config';

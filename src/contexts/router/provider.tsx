@@ -1,5 +1,5 @@
 import { ReactNode, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router';
 import { useUIStore } from '@/stores/useUIStore';
 import { useDebounceCallback } from '@/hooks/useDebounceCallback';
 

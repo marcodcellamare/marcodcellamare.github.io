@@ -1,7 +1,7 @@
 import { TemplateType, ThemeType } from './config.const';
 
 export type ImagePositionType = 'left' | 'right';
-export type ImageIconType = 'HELLO' | string;
+export type ImageIconType = 'icon:hello';
 export type LinkType = number | string;
 
 export interface SectionInterface {
@@ -12,6 +12,7 @@ export interface SectionInterface {
 	title?: string;
 	content?: ContentInterface[];
 	brands?: Record<string, string>;
+	images?: string[];
 	drawer?: ContentInterface[];
 }
 
@@ -22,8 +23,7 @@ export interface HeadingInterface {
 }
 
 export interface ImageInterface {
-	src: string | 'ICON';
-	icon?: ImageIconType;
+	src: string | ImageIconType;
 	blob?: boolean;
 	position?: ImagePositionType;
 }

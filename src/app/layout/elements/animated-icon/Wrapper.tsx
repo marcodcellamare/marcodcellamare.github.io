@@ -14,7 +14,7 @@ const Wrapper = ({ icon, className }: WrapperProps) => {
 		className,
 	};
 	switch (icon) {
-		case 'HELLO':
+		case 'icon:hello':
 			return <Hello {...props} />;
 	}
 	return <Fragment />;

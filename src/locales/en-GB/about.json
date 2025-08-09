@@ -3,6 +3,20 @@
 	"theme": "red",
 	"sections": [
 		{
+			"theme": "gray",
+			"template": "gallery",
+			"title": "Photo-Gallery",
+			"images": [
+				"/images/marco-d-cellamare.png",
+				"/images/marco-d-cellamare.png",
+				"/images/marco-d-cellamare-full.jpg",
+				"/images/marco-d-cellamare.png",
+				"/images/marco-d-cellamare-full.jpg",
+				"/images/marco-d-cellamare.png",
+				"/images/marco-d-cellamare-full.jpg"
+			]
+		},
+		{
 			"theme": "red",
 			"template": "default",
 			"title": "Hello",
@@ -14,8 +28,7 @@
 			"content": [
 				{
 					"image": {
-						"src": "ICON",
-						"icon": "HELLO"
+						"src": "icon:hello"
 					},
 					"heading": {
 						"headline": "This is",
@@ -158,11 +171,6 @@
 					]
 				}
 			]
-		},
-		{
-			"theme": "gray",
-			"template": "gallery",
-			"title": "Photo-Gallery"
 		},
 		{
 			"theme": "purple",
