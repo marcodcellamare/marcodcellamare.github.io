@@ -1,9 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
 import { useSection } from '@/contexts/section';
+import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
-import Picture from '@/app/misc/picture';
+import Image from './Image';
+
+import { ImageType } from '@/types/layout';
 
 interface GalleryProps {
 	className?: string;
@@ -11,17 +14,19 @@ interface GalleryProps {
 
 const Gallery = ({ className }: GalleryProps) => {
 	const pageId = useUIStore((state) => state.pageId);
-	const { i18n, t } = useTranslation(pageId);
-	const { sectionId, sectionRef } = useSection();
+	const { i18n } = useTranslation(pageId);
+	const { sectionId } = useSection();
 
 	const rootKey = `sections.${sectionId}.images`;
 	const imagesExists = i18n.exists(rootKey, {
 		ns: pageId,
 	});
 
+	const images = useTranslationFallback<ImageType[]>(rootKey, [], pageId);
+
 	const gap = 'gap-5 md:gap-10 xl:gap-15';
 
-	if (!imagesExists) return null;
+	if (!imagesExists || images.length === 0) return null;
 
 	return (
 		<div
@@ -33,24 +38,22 @@ const Gallery = ({ className }: GalleryProps) => {
 			<div
 				className={classNames(['flex sm:basis-3/5 lg:basis-1/2', gap])}>
 				<div className='flex basis-1/2 lg:basis-7/12 items-center'>
-					<Picture
-						src={t(`${rootKey}.0`)}
-						className='rounded-md'
-					/>
+					{images[0] && <Image src={images[0]} />}
 				</div>
 				<div
 					className={classNames([
 						'flex flex-col flex-1 items-center',
 						gap,
 					])}>
-					<Picture
-						src={t(`${rootKey}.1`)}
-						className='rounded-md'
-					/>
-					<Picture
-						src={t(`${rootKey}.2`)}
-						className='rounded-md'
-					/>
+					{Array.from({ length: 2 }).map((_, k) => {
+						const kk = k + 1;
+
+						return images[kk] ? (
+							<Image src={images[kk]} />
+						) : (
+							<div />
+						);
+					})}
 				</div>
 			</div>
 			<div className='flex sm:basis-2/5 lg:basis-1/2'>
@@ -59,24 +62,15 @@ const Gallery = ({ className }: GalleryProps) => {
 						'grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-3 flex-1 h-fit items-center justify-items-center',
 						gap,
 					])}>
-					<div />
-					<Picture
-						src='/images/marco-d-cellamare-full.jpg'
-						className='rounded-md'
-					/>
-					<div />
-					<Picture
-						src='/images/marco-d-cellamare-full.jpg'
-						className='rounded-md'
-					/>
-					<Picture
-						src='/images/marco-d-cellamare-full.jpg'
-						className='rounded-md'
-					/>
-					<Picture
-						src='/images/marco-d-cellamare-full.jpg'
-						className='rounded-md'
-					/>
+					{Array.from({ length: 6 }).map((_, k) => {
+						const kk = k + 3;
+
+						return images[kk] ? (
+							<Image src={images[kk]} />
+						) : (
+							<div />
+						);
+					})}
 				</div>
 			</div>
 		</div>

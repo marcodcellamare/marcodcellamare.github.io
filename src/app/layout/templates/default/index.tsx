@@ -7,9 +7,9 @@ import { easeInOut, motion, useScroll, useTransform } from 'motion/react';
 import classNames from 'classnames';
 
 import Content from '@/app/layout/elements/content';
+import Wrapper from './Wrapper';
 
 import { ImagePositionType } from '@/types/layout';
-import ImageWrapper from './ImageWrapper';
 
 interface DefaultProps {
 	slideId?: number;
@@ -53,7 +53,7 @@ const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 							},
 						])}
 						style={{ y }}>
-						<ImageWrapper rootKey={`${rootKey}.image`} />
+						<Wrapper rootKey={`${rootKey}.image`} />
 					</motion.div>
 				)}
 				<Content

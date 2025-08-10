@@ -12,7 +12,7 @@ export interface SectionInterface {
 	title?: string;
 	content?: ContentInterface[];
 	brands?: Record<string, string>;
-	images?: string[];
+	images?: ImageType[];
 	drawer?: ContentInterface[];
 }
 
@@ -27,6 +27,8 @@ export interface ImageInterface {
 	blob?: boolean;
 	position?: ImagePositionType;
 }
+
+export type ImageType = string | false;
 
 export interface ContentInterface {
 	image?: ImageInterface;

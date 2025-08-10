@@ -6,11 +6,11 @@ import classNames from 'classnames';
 import AnimatedIcon from '@/app/layout/elements/animated-icon';
 import Image from '@/app/layout/elements/Image';
 
-interface DefaultProps {
+interface WrapperProps {
 	rootKey: string;
 }
 
-const ImageWrapper = ({ rootKey }: DefaultProps) => {
+const Wrapper = ({ rootKey }: WrapperProps) => {
 	const pageId = useUIStore((state) => state.pageId);
 	const image = useTranslationFallback<ImageInterface>(rootKey, {}, pageId);
 
@@ -73,4 +73,4 @@ const ImageWrapper = ({ rootKey }: DefaultProps) => {
 		);
 	}
 };
-export default ImageWrapper;
+export default Wrapper;

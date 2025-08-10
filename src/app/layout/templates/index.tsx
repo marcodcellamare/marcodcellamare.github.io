@@ -67,11 +67,7 @@ const Templates = () => {
 		case 'gallery':
 			content = (
 				<Gallery
-					className={classNames([
-						'flex-1 h-full',
-						spacing.absEdge,
-						spacing.section,
-					])}
+					className={classNames(['flex-1', spacing.absEdgePadding])}
 				/>
 			);
 			break;

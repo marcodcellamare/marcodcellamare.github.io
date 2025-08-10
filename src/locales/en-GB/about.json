@@ -3,20 +3,6 @@
 	"theme": "red",
 	"sections": [
 		{
-			"theme": "gray",
-			"template": "gallery",
-			"title": "Photo-Gallery",
-			"images": [
-				"/images/marco-d-cellamare.png",
-				"/images/marco-d-cellamare.png",
-				"/images/marco-d-cellamare-full.jpg",
-				"/images/marco-d-cellamare.png",
-				"/images/marco-d-cellamare-full.jpg",
-				"/images/marco-d-cellamare.png",
-				"/images/marco-d-cellamare-full.jpg"
-			]
-		},
-		{
 			"theme": "red",
 			"template": "default",
 			"title": "Hello",
@@ -170,6 +156,20 @@
 						"Collaborated with clients and designers for high-quality execution."
 					]
 				}
+			]
+		},
+		{
+			"theme": "gray",
+			"template": "gallery",
+			"title": "Photo-Gallery",
+			"images": [
+				"/images/marco-d-cellamare.png",
+				"/images/marco-d-cellamare.png",
+				"/images/marco-d-cellamare-full.jpg",
+				"/images/marco-d-cellamare.png",
+				"/images/marco-d-cellamare-full.jpg",
+				"/images/marco-d-cellamare.png",
+				"/images/marco-d-cellamare-full.jpg"
 			]
 		},
 		{
