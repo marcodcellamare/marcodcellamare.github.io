@@ -79,6 +79,10 @@ export default defineConfig(({ mode }) => {
 		esbuild: {
 			target: 'esnext',
 		},
+		test: {
+			globals: true,
+			environment: 'jsdom',
+		},
 		build: {
 			target: 'esnext',
 			emptyOutDir: true,

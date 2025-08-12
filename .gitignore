@@ -30,3 +30,9 @@ public/images/optimized
 public/images/**/optimized
 public/sitemap.xml
 public/robots.txt
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

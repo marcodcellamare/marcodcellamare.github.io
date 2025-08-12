@@ -16,7 +16,7 @@ export interface PictureProps {
 const Picture = ({
 	src,
 	contain = true,
-	async = false,
+	async = true,
 	hero,
 	className = 'w-full h-full',
 	style,
