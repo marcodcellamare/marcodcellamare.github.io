@@ -15,7 +15,7 @@ const Image = ({ src }: ImageProps) => {
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
-	const randomY = useRef(Math.round(random({ min: 3, max: 8 }) * 10) / 10);
+	const randomY = useRef(Math.round(random({ min: 5, max: 10 }) * 10) / 10);
 	const randomYRange = useRef(
 		[`${randomY.current}rem`, `-${randomY.current}rem`].sort(
 			() => Math.random() - 0.5
