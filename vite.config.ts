@@ -82,6 +82,18 @@ export default defineConfig(({ mode }) => {
 		test: {
 			globals: true,
 			environment: 'jsdom',
+			setupFiles: './vitest.setup.ts',
+			css: true,
+			include: ['src/**/*.{test,spec}.{ts,tsx}'],
+			coverage: {
+				reporter: ['text', 'json', 'html'],
+				exclude: [
+					'node_modules/',
+					'tests/',
+					'**/*.d.ts',
+					'**/*.config.{js,ts}',
+				],
+			},
 		},
 		build: {
 			target: 'esnext',
