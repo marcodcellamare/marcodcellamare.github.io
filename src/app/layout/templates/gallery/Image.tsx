@@ -1,10 +1,10 @@
+import { useRef } from 'react';
 import { motion, easeInOut, useScroll, useTransform } from 'motion/react';
 import { useParallax } from '@/contexts/parallax';
 import { useSection } from '@/contexts/section';
+import { random } from '@/utils/math';
 
 import Picture from '@/app/misc/picture';
-import { random } from '@/utils/math';
-import { useRef } from 'react';
 
 interface ImageProps {
 	src: string;
@@ -15,7 +15,7 @@ const Image = ({ src }: ImageProps) => {
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
-	const randomY = useRef(Math.round(random({ min: 7, max: 15 }) * 10) / 10);
+	const randomY = useRef(Math.round(random({ min: 3, max: 8 }) * 10) / 10);
 	const randomYRange = useRef(
 		[`${randomY.current}rem`, `-${randomY.current}rem`].sort(
 			() => Math.random() - 0.5
@@ -24,9 +24,10 @@ const Image = ({ src }: ImageProps) => {
 	const y = useTransform(scrollYProgress, [0, 1], randomYRange.current, {
 		ease: easeInOut,
 	});
+	const randomX = useRef(Math.round(random({ min: -1, max: 1 }) * 10) / 10);
 
 	return (
-		<motion.div style={{ y }}>
+		<motion.div style={{ y, x: `${randomX.current}rem` }}>
 			<Picture
 				src={src}
 				className='rounded-md'

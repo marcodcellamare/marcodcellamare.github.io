@@ -7,7 +7,7 @@ const Background = () => {
 	const overPageTheme = useUIStore((state) => state.overPageTheme);
 
 	return (
-		<div className='absolute top-0 bottom-0 left-0 right-0'>
+		<div className='nav-background absolute top-0 bottom-0 left-0 right-0'>
 			{Array.from({ length: 3 }).map((_, k) => (
 				<div
 					key={k}

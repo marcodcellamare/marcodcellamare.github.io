@@ -19,7 +19,7 @@ const Toggler = ({ className }: TogglerProps) => {
 			type='button'
 			role='button'
 			className={classNames([
-				'toggler block relative w-14 md:w-12 aspect-square transition-[border-width,border-color] duration-1000 ease-in-out cursor-pointer',
+				'nav-toggler block relative w-14 md:w-12 aspect-square transition-[border-width,border-color] duration-1000 ease-in-out cursor-pointer',
 				className,
 				{
 					active: isNavOpened,

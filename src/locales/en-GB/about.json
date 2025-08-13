@@ -163,13 +163,15 @@
 			"template": "gallery",
 			"title": "Photo-Gallery",
 			"images": [
-				"/images/marco-d-cellamare.png",
-				"/images/marco-d-cellamare.png",
-				"/images/marco-d-cellamare-full.jpg",
-				"/images/marco-d-cellamare.png",
-				"/images/marco-d-cellamare-full.jpg",
-				"/images/marco-d-cellamare.png",
-				"/images/marco-d-cellamare-full.jpg"
+				"/images/home/marco-d-cellamare-japan-01.jpg",
+				"/images/home/captain-toad.jpg",
+				"/images/home/marco-d-cellamare-rapping.jpg",
+				false,
+				"/images/home/marco-d-cellamare-live.jpg",
+				"/images/home/nature.jpg",
+				"/images/home/marco-d-cellamare-beat-maker.jpg",
+				"/images/home/marco-d-cellamare-japan-02.jpg",
+				"/images/home/sunset.jpg"
 			]
 		},
 		{
@@ -260,12 +262,14 @@
 					"list": [
 						"HTML5, CSS3, Sass, Less",
 						"JavaScript (ES6+), TypeScript, Node.js",
-						"React, Vite, Next.js",
+						"React, Vite, Next.js, ESLint",
 						"Tailwind CSS, Daisy UI, Bootstrap",
 						"Redux, Zustand, Context API",
 						"React Router, i18next, Helmet",
 						"Axios, Firebase (Auth, Firestore, Analytics, Crashlytics, Push)",
-						"Framer Motion",
+						"Framer Motion, Sharp.js, Chart.js, Phaser, Howler",
+						"Google Maps API + GeoJSON, PayPal API, MobilePay API, SumUp API, HubSpot API, Mailchimp API, Facebook API, LinkedIn API",
+						"Vitest, Playwright",
 						"SEO, WCAG, Lighthouse Audits",
 						"Cordova (Android/iOS)",
 						"SPAs and PWAs with a focus on UX, performance, maintainability"
@@ -281,7 +285,7 @@
 						"Slim Framework (RESTful API)",
 						"REST API, API Integration, Postman",
 						"JWT, OAuth, CORS, CSRF & XSS",
-						"MySQL, SQL Optimization, Indexing"
+						"MySQL, PostgreSQL, SQL Optimization, Indexing"
 					]
 				},
 				{
