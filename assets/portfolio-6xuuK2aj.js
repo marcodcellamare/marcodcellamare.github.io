@@ -1,1 +1,0 @@
-const t="Portfolio",e="Lorem ipsum",o="blue",i=[{theme:"blue",template:"default",title:"Portfolio",content:[{heading:{title:"Under Construction"}}]}],l={title:t,description:e,theme:o,sections:i};export{l as default,e as description,i as sections,o as theme,t as title};
