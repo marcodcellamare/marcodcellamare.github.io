@@ -1,7 +1,7 @@
 @reference '@/styles/index.css';
 
 .title {
-	> h4 {
+	h4 {
 		@apply text-[clamp(var(--text-6xl),calc(var(--main-vh,100vh)/var(--char-count)*0.8),20rem)]
 			lg:text-[clamp(var(--text-7xl),calc(var(--main-vw,100vw)/var(--char-count)*1.2),20rem)]
 			leading-[0.85em] md:leading-[0.8em]

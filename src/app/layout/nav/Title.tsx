@@ -11,7 +11,7 @@ const Title = () => {
 	return (
 		<h6
 			className={classNames([
-				'absolute left-full top-1/2 -translate-y-1/2 pl-0.5 hidden sm:block pointer-events-none',
+				'nav-title absolute left-full top-1/2 -translate-y-1/2 pl-0.5 hidden sm:block pointer-events-none',
 				'font-black uppercase text-nowrap',
 				'origin-[calc(var(--spacing)*14/2*-1)_center] md:origin-[calc(var(--spacing)*12/2*-1)_center] overflow-hidden',
 				'transition-[max-width,rotate,font-size] duration-500 ease-in-out',

@@ -46,7 +46,7 @@ const Carousel = ({ template, className }: CarouselProps) => {
 	return (
 		<div
 			className={classNames([
-				'carousel-wrapper flex relative w-full h-full',
+				'template-carousel flex relative w-full h-full',
 				settings?.className,
 				className,
 			])}>

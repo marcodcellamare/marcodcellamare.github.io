@@ -1,9 +1,9 @@
 import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
-import Nav from './nav';
-import Loader from './nav/Loader';
-import MiniMap from './elements/minimap';
+import Nav from './Nav';
+import Loader from './Nav/Loader';
+import MiniMap from './elements/MiniMap';
 
 const Header = () => {
 	const isNavOpened = useUIStore((state) => state.isNavOpened);

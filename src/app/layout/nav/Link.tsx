@@ -69,7 +69,7 @@ const Link = ({ id }: LinkProps) => {
 			onClick={handleClick}
 			className={({ isActive }) =>
 				classNames([
-					'relative uppercase font-black inline-block transition-[color,font-size,line-height,padding-left,margin-left] duration-250 ease-in-out',
+					'nav-link relative uppercase font-black inline-block transition-[color,font-size,line-height,padding-left,margin-left] duration-250 ease-in-out',
 					!isActive
 						? 'text-(--color-theme-link) hover:text-(--color-theme-link-hover) leading-[0.9em]'
 						: 'text-(--color-theme-link-active) text-[120%] lg:text-[150%] leading-[0.8em]',

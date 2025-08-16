@@ -1,9 +1,9 @@
 import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
-import Moods from './elements/moods';
+import Moods from './elements/Moods';
 import Container from './elements/Container';
-import Socials from './elements/socials';
+import Socials from './elements/Socials';
 
 const Footer = () => {
 	const spacing = useUIStore((state) => state.spacing);

@@ -22,7 +22,7 @@ const Leading = ({ rootKey, extra, components, className }: LeadingProps) => {
 	return (
 		<p
 			className={classNames([
-				'leading',
+				'content-leading leading',
 				className,
 				{
 					extra: extra,

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useParallax } from '@/contexts/parallax';
 import { useUIStore } from '@/stores/useUIStore';
 import { useSection } from '@/contexts/section';
+import useBreakpoints from '@/hooks/useBreakpoints';
 import { easeOut, motion, useScroll, useTransform } from 'framer-motion';
 import classNames from 'classnames';
 
@@ -18,6 +19,7 @@ const Title = ({ isFirst }: TitleProps) => {
 	const { sectionId, sectionRef } = useSection();
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
+	const { currentBreakpoint } = useBreakpoints();
 
 	const y = useTransform(scrollYProgress, [0, 1], ['-20rem', '20rem']);
 	const opacity = useTransform(
@@ -57,39 +59,46 @@ const Title = ({ isFirst }: TitleProps) => {
 			''
 		).length;
 
-	if (!i18n.exists(`sections.${sectionId}.title`, { ns: pageId }))
+	if (
+		!i18n.exists(`sections.${sectionId}.title`, { ns: pageId }) ||
+		currentBreakpoint === 'xs'
+	)
 		return null;
 
 	return (
-		<motion.div
-			className='title absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 lg:-translate-x-1/2 contain-layout'
-			style={{
-				y,
-				opacity,
-				filter,
-				zIndex,
-				['--border-thickness' as string]: borderThickness,
-				['--pattern-thickness' as string]: patternThickness,
-				['--char-count' as string]: maxLength,
-			}}>
-			<h4
-				className={classNames([
-					'relative block font-black uppercase',
-					'text-(--color-theme-background-contrast)/20',
-					'-rotate-90 lg:-rotate-3 lg:-skew-x-3 origin-top lg:origin-center',
-					{
-						extra: isFirst,
-					},
-				])}>
-				<div
-					className={classNames([
-						'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 min-w-fit max-w-(--main-vh) lg:max-w-(--main-vw)',
-						spacing.absEdgePadding,
-					])}>
-					{t(`sections.${sectionId}.title`)}
-				</div>
-			</h4>
-		</motion.div>
+		<div className='title absolute top-0 bottom-0 left-0 right-0'>
+			<div className='sticky top-0 left-0 right-0 h-(--main-vh)'>
+				<motion.div
+					className='absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 lg:-translate-x-1/2 contain-layout'
+					style={{
+						y,
+						opacity,
+						filter,
+						zIndex,
+						['--border-thickness' as string]: borderThickness,
+						['--pattern-thickness' as string]: patternThickness,
+						['--char-count' as string]: maxLength,
+					}}>
+					<h4
+						className={classNames([
+							'relative block font-black uppercase',
+							'text-(--color-theme-background-contrast)/20',
+							'-rotate-90 lg:-rotate-3 lg:-skew-x-3 origin-top lg:origin-center',
+							{
+								extra: isFirst,
+							},
+						])}>
+						<div
+							className={classNames([
+								'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 min-w-fit max-w-(--main-vh) lg:max-w-(--main-vw)',
+								spacing.absEdgePadding,
+							])}>
+							{t(`sections.${sectionId}.title`)}
+						</div>
+					</h4>
+				</motion.div>
+			</div>
+		</div>
 	);
 };
 export default Title;

@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 import Blob from '@/app/misc/Blob';
 import Duotone from '@/app/misc/Duotone';
-import Picture from '@/app/misc/picture';
+import Picture from '@/app/misc/Picture';
 
 interface ImageProps {
 	rootKey: string;

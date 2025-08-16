@@ -15,7 +15,7 @@ test.describe('Home Page', () => {
 		await page.goto('/');
 
 		const toggler = page.locator('.nav-toggler');
-		const menu = page.locator('nav .nav-menu');
+		const menu = page.locator('nav .nav-wrapper');
 
 		await expect(toggler).toBeAttached();
 		await expect(menu).toBeAttached();

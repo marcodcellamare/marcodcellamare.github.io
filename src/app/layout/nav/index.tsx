@@ -25,7 +25,7 @@ const Nav = () => {
 			<Background />
 			<div
 				className={classNames([
-					'nav-menu absolute top-0 left-0 right-0 bottom-0 flex overflow-x-hidden overflow-y-auto scrollbar',
+					'nav-wrapper absolute top-0 left-0 right-0 bottom-0 flex overflow-x-hidden overflow-y-auto scrollbar',
 					'transition-[translate] duration-500 ease-in-out ',
 					isNavOpened
 						? 'translate-x-0 delay-300'

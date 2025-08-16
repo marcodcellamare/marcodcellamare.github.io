@@ -3,14 +3,16 @@ import { motion, easeInOut, useScroll, useTransform } from 'motion/react';
 import { useParallax } from '@/contexts/parallax';
 import { useSection } from '@/contexts/section';
 import { random } from '@/utils/math';
+import classNames from 'classnames';
 
-import Picture from '@/app/misc/picture';
+import Picture from '@/app/misc/Picture';
 
 interface ImageProps {
 	src: string;
+	className?: string;
 }
 
-const Image = ({ src }: ImageProps) => {
+const Image = ({ src, className }: ImageProps) => {
 	const { sectionRef } = useSection();
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
@@ -24,10 +26,11 @@ const Image = ({ src }: ImageProps) => {
 	const y = useTransform(scrollYProgress, [0, 1], randomYRange.current, {
 		ease: easeInOut,
 	});
-	const randomX = useRef(Math.round(random({ min: -1, max: 1 }) * 10) / 10);
 
 	return (
-		<motion.div style={{ y, x: `${randomX.current}rem` }}>
+		<motion.div
+			className={classNames(['template-gallery-image', className])}
+			style={{ y }}>
 			<Picture
 				src={src}
 				className='rounded-md'

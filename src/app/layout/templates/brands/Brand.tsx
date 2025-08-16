@@ -32,7 +32,7 @@ const Brand = ({ name, title, className }: BrandProps) => {
 		<motion.button
 			type='button'
 			className={classNames([
-				'brand relative aspect-square group',
+				'template-brands-brand relative aspect-square group',
 				className,
 			])}
 			style={{ x }}>

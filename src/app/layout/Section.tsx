@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import Pattern from './elements/Pattern';
 import Title from './elements/Title';
-import Templates from './templates';
+import Templates from './Templates';
 import Pager from './elements/Pager';
 import Polygons from './elements/Polygons';
 import Background from './elements/Background';

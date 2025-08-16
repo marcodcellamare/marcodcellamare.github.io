@@ -108,7 +108,7 @@ const Polygons = ({
 	if (!polygons.length) return null;
 
 	return (
-		<div className='absolute -top-1/10 -bottom-1/10 -left-1/10 -right-1/10 pointer-events-none z-1'>
+		<div className='polygons absolute -top-1/10 -bottom-1/10 -left-1/10 -right-1/10 pointer-events-none z-1'>
 			{polygons.map((polygon, k) => (
 				<Floating
 					key={k}

@@ -1,78 +1,65 @@
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
 import { useSection } from '@/contexts/section';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
-import Image from './Image';
-
-import { ImageType } from '@/types/layout';
+import Cell from './Cell';
 
 interface GalleryProps {
 	className?: string;
+	children?: ReactNode;
 }
 
-const Gallery = ({ className }: GalleryProps) => {
+const Gallery = ({ className, children }: GalleryProps) => {
 	const pageId = useUIStore((state) => state.pageId);
 	const { i18n } = useTranslation(pageId);
 	const { sectionId } = useSection();
+
+	const [images, setImages] = useState<string[]>([]);
 
 	const rootKey = `sections.${sectionId}.images`;
 	const imagesExists = i18n.exists(rootKey, {
 		ns: pageId,
 	});
 
-	const images = useTranslationFallback<ImageType[]>(rootKey, [], pageId);
+	const rawImages = useTranslationFallback<string[]>(rootKey, [], pageId);
+	const rawImagesRef = useRef(rawImages);
 
-	const gap = 'gap-5 md:gap-10 xl:gap-15';
+	useEffect(() => {
+		if (rawImagesRef.current.length === 0) return;
+
+		const totalToAdd = Math.round(rawImagesRef.current.length * 0.4);
+
+		for (let i = 0; i < totalToAdd; i++) {
+			const pos = Math.floor(
+				Math.random() * (rawImagesRef.current.length + 1)
+			);
+			rawImagesRef.current.splice(pos, 0, '');
+		}
+		setImages(rawImagesRef.current as string[]);
+	}, []);
 
 	if (!imagesExists || images.length === 0) return null;
 
 	return (
 		<div
 			className={classNames([
-				'gallery flex flex-col sm:flex-row items-center justify-center',
-				gap,
+				'template-gallery grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 3xl:grid-cols-8 gap-5 md:gap-10 xl:gap-15 3xl:gap-20 flex-1 items-center justify-items-center',
 				className,
 			])}>
-			<div
-				className={classNames(['flex sm:basis-3/5 lg:basis-1/2', gap])}>
-				<div className='flex basis-1/2 lg:basis-7/12 items-center'>
-					{images[0] && <Image src={images[0]} />}
+			{images.map((image, k) => (
+				<Cell
+					key={k}
+					image={image as string}
+				/>
+			))}
+			{children && (
+				<div className='template-gallery-content absolute top-0 bottom-0 left-0 right-0'>
+					{children}
 				</div>
-				<div
-					className={classNames([
-						'flex flex-col flex-1 items-center',
-						gap,
-					])}>
-					{Array.from({ length: 2 }).map((_, k) => {
-						const kk = k + 1;
-
-						return images[kk] ? (
-							<Image src={images[kk]} />
-						) : (
-							<div />
-						);
-					})}
-				</div>
-			</div>
-			<div className='flex sm:basis-2/5 lg:basis-1/2'>
-				<div
-					className={classNames([
-						'grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-3 flex-1 h-fit items-center justify-items-center',
-						gap,
-					])}>
-					{Array.from({ length: 6 }).map((_, k) => {
-						const kk = k + 3;
-
-						return images[kk] ? (
-							<Image src={images[kk]} />
-						) : (
-							<div />
-						);
-					})}
-				</div>
-			</div>
+			)}
 		</div>
 	);
 };

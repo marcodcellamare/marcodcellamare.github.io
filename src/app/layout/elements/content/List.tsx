@@ -23,7 +23,7 @@ const List = ({ rootKey, components, className }: ListProps) => {
 	if (!listExists || list.length === 0) return null;
 
 	return (
-		<ul className={classNames(['space-y-2', className])}>
+		<ul className={classNames(['content-list space-y-2', className])}>
 			{list.map((_, k) => (
 				<li
 					key={k}

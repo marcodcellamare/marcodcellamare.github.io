@@ -3,7 +3,7 @@ import { ImageIconType, ImageInterface } from '@/types/layout';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
 import classNames from 'classnames';
 
-import AnimatedIcon from '@/app/layout/elements/animated-icon';
+import AnimatedIcon from '@/app/layout/elements/AnimatedIcon';
 import Image from '@/app/layout/elements/Image';
 
 interface WrapperProps {

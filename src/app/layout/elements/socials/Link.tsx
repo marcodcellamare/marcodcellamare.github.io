@@ -48,7 +48,7 @@ const Link = ({ type, highlight, title, link }: SocialInterface) => {
 			type='button'
 			role='button'
 			className={classNames([
-				'btn btn-link disabled:text-(--color-theme-heading) !no-underline relative transition-[color] duration-500 ease-in-out',
+				'socials-link btn btn-link disabled:text-(--color-theme-heading) !no-underline relative transition-[color] duration-500 ease-in-out',
 				!highlight
 					? 'text-(--color-theme-link) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active)'
 					: 'text-(--color-theme-heading) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active)',

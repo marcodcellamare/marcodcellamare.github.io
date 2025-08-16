@@ -66,7 +66,7 @@ const Link = ({ to, sectionId, children }: LinkProps) => {
 		<button
 			type='button'
 			role='button'
-			className='btn btn-link font-mono text-(--color-theme-link) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active) whitespace-nowrap relative transition-[color] duration-500'
+			className='content-link btn btn-link font-mono text-(--color-theme-link) hover:text-(--color-theme-link-hover) active:text-(--color-theme-link-active) whitespace-nowrap relative transition-[color] duration-500'
 			aria-label={displayText}
 			onPointerEnter={start}
 			onPointerLeave={stop}

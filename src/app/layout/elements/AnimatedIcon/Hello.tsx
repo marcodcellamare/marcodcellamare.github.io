@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { HandIcon, HandMetalIcon } from 'lucide-react';
 
 import { IntervalType } from '@/types/misc';
-import '@/styles/components/elements/animated-icon/Hello.css';
+import '@/styles/components/elements/AnimatedIcon/Hello.css';
 
 export type WrapperType = 'HELLO' | string;
 

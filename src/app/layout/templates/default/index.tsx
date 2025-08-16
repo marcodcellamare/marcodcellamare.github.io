@@ -6,7 +6,7 @@ import { useDevUtilities } from '@/contexts/dev-utilities';
 import { easeInOut, motion, useScroll, useTransform } from 'motion/react';
 import classNames from 'classnames';
 
-import Content from '@/app/layout/elements/content';
+import Content from '@/app/layout/elements/Content';
 import Wrapper from './Wrapper';
 
 import { ImagePositionType } from '@/types/layout';
@@ -36,7 +36,11 @@ const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 	});
 
 	return (
-		<div className={classNames('@container relative', className)}>
+		<div
+			className={classNames(
+				'template-default @container relative',
+				className
+			)}>
 			<DevBreakpoints subContainer={true} />
 			<div className='flex flex-1 flex-col @3xl:flex-row @3xl:items-center gap-8 @3xl:gap-12 @5xl:gap-17'>
 				{imageExists && (

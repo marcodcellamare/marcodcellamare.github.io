@@ -29,7 +29,8 @@ const Paragraph = ({
 	if (!paragraphsExists || paragraphs.length === 0) return null;
 
 	return (
-		<div className={classNames(['space-y-2', className])}>
+		<div
+			className={classNames(['content-paragraphs space-y-2', className])}>
 			{paragraphs.map((_, k) => (
 				<p
 					key={k}

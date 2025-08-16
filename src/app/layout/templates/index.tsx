@@ -6,10 +6,10 @@ import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
 import Container from '@/app/layout/elements/Container';
-import Default from './default';
-import Carousel from './carousel';
-import Brands from './brands';
-import Gallery from './gallery';
+import Default from './Default';
+import Carousel from './Carousel';
+import Brands from './Brands';
+import Gallery from './Gallery';
 
 const Templates = () => {
 	const spacing = useUIStore((state) => state.spacing);
@@ -67,8 +67,15 @@ const Templates = () => {
 		case 'gallery':
 			content = (
 				<Gallery
-					className={classNames(['flex-1', spacing.absEdgePadding])}
-				/>
+					className={classNames(['flex-1', spacing.absEdgePadding])}>
+					<Container
+						className={classNames(
+							'sticky top-0 left-0 right-0 h-(--main-vh)',
+							containerClassName
+						)}>
+						<Default className='flex-1' />
+					</Container>
+				</Gallery>
 			);
 			break;
 

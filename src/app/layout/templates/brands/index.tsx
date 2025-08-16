@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
-
-import Brand from './Brand';
 import { useSection } from '@/contexts/section';
 import useTranslationFallback from '@/hooks/useTranslationFallback';
+
+import Brand from './Brand';
 
 const Brands = () => {
 	const pageId = useUIStore((state) => state.pageId);
@@ -24,7 +24,7 @@ const Brands = () => {
 	if (!brandsExists) return null;
 
 	return (
-		<div className='brands flex-1 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-x-10 xl:gap-x-15 gap-y-5'>
+		<div className='template-brands flex-1 grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-x-10 xl:gap-x-15 gap-y-5'>
 			{Object.keys(brands).map((name, k) => (
 				<Brand
 					key={k}

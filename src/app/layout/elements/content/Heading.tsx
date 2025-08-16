@@ -22,7 +22,7 @@ const Heading = ({ rootKey, extra, components, className }: HeadingProps) => {
 	return (
 		<div
 			className={classNames([
-				'flex flex-col heading space-y-1 xl:space-y-2 text-(--color-theme-heading) uppercase',
+				'content-heading flex flex-col heading space-y-1 xl:space-y-2 text-(--color-theme-heading) uppercase',
 				className,
 			])}>
 			{headlineExists && (
@@ -48,7 +48,11 @@ const Heading = ({ rootKey, extra, components, className }: HeadingProps) => {
 				{t(`${rootKey}.title`)}
 			</h2>
 			{subtitleExists && (
-				<h3 className={classNames(['block', extra ? 'h3' : 'h4'])}>
+				<h3
+					className={classNames([
+						'block text-(--color-theme-link)',
+						extra ? 'h3' : 'h4',
+					])}>
 					<Trans
 						ns={pageId}
 						i18nKey={`${rootKey}.subtitle`}

@@ -2,7 +2,7 @@ import { useUIStore } from '@/stores/useUIStore';
 import classNames from 'classnames';
 
 import MountTransition from '@/app/misc/MountTransition';
-import Content from '@/app/layout/elements/content';
+import Content from '@/app/layout/elements/Content';
 import { MoveRightIcon } from 'lucide-react';
 
 import '@/styles/components/elements/Drawer.css';
@@ -58,7 +58,7 @@ const Drawer = () => {
 						<button
 							type='button'
 							className={classNames([
-								'absolute top-0 right-0 text-(--color-theme-link) text-7xl lg:text-6xl group',
+								'drawer-close absolute top-0 right-0 text-(--color-theme-link) text-7xl lg:text-6xl group',
 								spacing.absEdge,
 							])}
 							onClick={() => setIsDrawerOpened(false)}>

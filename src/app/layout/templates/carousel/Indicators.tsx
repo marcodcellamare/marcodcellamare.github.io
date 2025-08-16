@@ -6,7 +6,7 @@ interface IndicatorsProps {
 }
 
 const Indicators = ({ activeIdx = 0, totalSlides = 0 }: IndicatorsProps) => (
-	<div className='flex flex-col gap-0.5 pointer-events-none'>
+	<div className='template-carousel-indicators flex flex-col gap-0.5 pointer-events-none'>
 		{Array.from({ length: totalSlides }).map((_, k) => (
 			<div
 				key={k}

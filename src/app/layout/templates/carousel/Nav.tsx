@@ -98,7 +98,7 @@ const Nav = ({
 	return (
 		<div
 			className={classNames([
-				'absolute top-1/2 right-0 -translate-y-1/2 z-100',
+				'template-carousel-nav absolute top-1/2 right-0 -translate-y-1/2 z-100',
 				className,
 			])}>
 			<div

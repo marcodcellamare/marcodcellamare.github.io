@@ -27,7 +27,7 @@
 		{
 			"theme": "green",
 			"template": "default",
-			"title": "20+ Years of Experience",
+			"title": "20+ Years",
 			"content": [
 				{
 					"image": {
@@ -159,14 +159,21 @@
 			]
 		},
 		{
-			"theme": "gray",
+			"theme": "light-gray",
 			"template": "gallery",
 			"title": "Photo-Gallery",
+			"content": [
+				{
+					"heading": {
+						"title": "My life. My journey. Beat after beat. Becoming who I am.",
+						"subtitle": "Love, music, travel, and the little things that make it mine."
+					}
+				}
+			],
 			"images": [
 				"/images/home/marco-d-cellamare-japan-01.jpg",
 				"/images/home/captain-toad.jpg",
 				"/images/home/marco-d-cellamare-rapping.jpg",
-				false,
 				"/images/home/marco-d-cellamare-live.jpg",
 				"/images/home/nature.jpg",
 				"/images/home/marco-d-cellamare-beat-maker.jpg",

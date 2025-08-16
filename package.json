@@ -15,7 +15,7 @@
 	"homepage": "./",
 	"type": "module",
 	"scripts": {
-		"tool:optimize.images": "tsx --tsconfig tsconfig.node.json ./src/tools/image.optimizer.ts",
+		"tool:optimize.images": "tsx --tsconfig tsconfig.node.json ./src/tools/optimize.images.ts",
 		"tool:sitemap.generator": "tsx --tsconfig tsconfig.node.json ./src/tools/sitemap.generator.ts",
 		"tool:robots.generator": "tsx --tsconfig tsconfig.node.json ./src/tools/robots.generator.ts",
 		"tools": "npm run tool:optimize.images && npm run prebuild",
