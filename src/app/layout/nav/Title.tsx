@@ -1,11 +1,9 @@
 import { useUIStore } from '@/stores/useUIStore';
 import { useTranslation } from 'react-i18next';
-import { useScroll } from '@/contexts/scroll';
 import classNames from 'classnames';
 
 const Title = () => {
 	const isNavOpened = useUIStore((state) => state.isNavOpened);
-	const { isWheeling } = useScroll();
 	const { t } = useTranslation();
 
 	return (
@@ -15,7 +13,6 @@ const Title = () => {
 				'font-black uppercase text-nowrap',
 				'origin-[calc(var(--spacing)*14/2*-1)_center] md:origin-[calc(var(--spacing)*12/2*-1)_center] overflow-hidden',
 				'transition-[max-width,rotate,font-size] duration-500 ease-in-out',
-				!isWheeling || isNavOpened ? 'max-w-[100vh]' : 'max-w-[0vh]',
 				!isNavOpened ? 'rotate-90 text-xxs' : 'rotate-0 text-xs',
 			])}>
 			<div className='bg-(--color-palette-gray)'>

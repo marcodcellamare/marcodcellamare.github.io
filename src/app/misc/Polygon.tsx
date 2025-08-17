@@ -13,13 +13,6 @@ interface PolygonProps {
 	className?: string;
 }
 
-const getRandomPoint = (size: number): [number, number] => {
-	const padding = size * 0.1; // Avoid points being too close to edges
-	const x = padding + Math.random() * (size - 2 * padding);
-	const y = padding + Math.random() * (size - 2 * padding);
-	return [x, y];
-};
-
 const Polygon = ({
 	sides = 0,
 	maxSides = 5,
@@ -32,54 +25,50 @@ const Polygon = ({
 	className,
 }: PolygonProps) => {
 	const size = useRef(100);
-
 	const [actualSides, setActualSides] = useState(0);
 
-	// Generate random points
-	const points: [number, number][] = useMemo(
-		() =>
-			Array.from({ length: actualSides }, () =>
-				getRandomPoint(size.current)
-			),
-		[actualSides]
-	);
+	const points: [number, number][] = useMemo(() => {
+		if (actualSides < 3) return [];
 
-	// Compute centroid
-	const centroid: [number, number] = useMemo(
-		() =>
-			points.reduce(
-				([cx, cy], [x, y]) => [
-					cx + x / actualSides,
-					cy + y / actualSides,
-				],
-				[0, 0]
-			),
-		[actualSides, points]
-	);
+		const radius = size.current / 2;
+		const center = radius;
 
-	// Sort points by angle from centroid
-	const sortedPoints = useMemo(
-		() =>
-			points.sort(([x1, y1], [x2, y2]) => {
-				const angle1 = Math.atan2(y1 - centroid[1], x1 - centroid[0]);
-				const angle2 = Math.atan2(y2 - centroid[1], x2 - centroid[0]);
-				return angle1 - angle2;
-			}),
-		[centroid, points]
-	);
+		// Generate random angles, enforcing some spacing
+		const angles: number[] = [];
+		while (angles.length < actualSides) {
+			const a = Math.random() * Math.PI * 2;
+			if (
+				angles.every(
+					(existing) =>
+						Math.abs(existing - a) > (Math.PI / actualSides) * 0.5
+				)
+			) {
+				angles.push(a);
+			}
+		}
+
+		// Sort them so polygon doesn't cross over
+		angles.sort((a, b) => a - b);
+
+		return angles.map((angle) => {
+			// jitter radius to make it more irregular
+			const r = radius * (0.5 + Math.random() * 0.5);
+			const x = center + r * Math.cos(angle);
+			const y = center + r * Math.sin(angle);
+			return [x, y];
+		});
+	}, [actualSides]);
 
 	const pointsString = useMemo(
-		() => sortedPoints.map(([x, y]) => `${x},${y}`).join(' '),
-		[sortedPoints]
+		() => points.map(([x, y]) => `${x},${y}`).join(' '),
+		[points]
 	);
 
-	useEffect(
-		() =>
-			setActualSides(
-				sides < 3 ? Math.floor(Math.random() * maxSides + 3) : sides
-			),
-		[sides, maxSides]
-	);
+	useEffect(() => {
+		setActualSides(
+			sides < 3 ? Math.floor(Math.random() * (maxSides - 2) + 3) : sides
+		);
+	}, [sides, maxSides]);
 
 	return (
 		<svg
@@ -94,8 +83,8 @@ const Polygon = ({
 				strokeOpacity={strokeOpacity}
 				strokeWidth={strokeWidth}
 				strokeDasharray={strokeDasharray}
-				strokeLinejoin='miter'
-				strokeLinecap='square'
+				strokeLinejoin='round'
+				strokeLinecap='round'
 				vectorEffect='non-scaling-stroke'
 			/>
 		</svg>

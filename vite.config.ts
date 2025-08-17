@@ -34,7 +34,8 @@ export default defineConfig(({ mode }) => {
 						mode === 'production'
 							? [
 									'**/*.{js,css,html,svg,woff2,woff,ttf}',
-									'**/optimized/**/*.{jpg,jpeg,png,avif,webp}',
+									'**/optimized/*.{jpg,jpeg,png}',
+									'**/optimized/**/*.{avif,webp}',
 							  ]
 							: [],
 					maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,

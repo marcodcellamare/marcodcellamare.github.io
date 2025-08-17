@@ -1,11 +1,11 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { motion, easeInOut, useScroll, useTransform } from 'motion/react';
 import { useParallax } from '@/contexts/parallax';
-import { useSection } from '@/contexts/section';
 import { random } from '@/utils/math';
 import classNames from 'classnames';
 
 import Picture from '@/app/misc/Picture';
+import { useSection } from '@/contexts/section';
 
 interface ImageProps {
 	src: string;
@@ -13,19 +13,22 @@ interface ImageProps {
 }
 
 const Image = ({ src, className }: ImageProps) => {
-	const { sectionRef } = useSection();
+	const { sectionFullRef } = useSection();
 	const { getScrollConfig } = useParallax();
-	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
+	const { scrollYProgress } = useScroll(getScrollConfig(sectionFullRef));
 
-	const randomY = useRef(Math.round(random({ min: 5, max: 10 }) * 10) / 10);
-	const randomYRange = useRef(
-		[`${randomY.current}rem`, `-${randomY.current}rem`].sort(
-			() => Math.random() - 0.5
-		)
+	const isMoving = useMemo(() => Math.random() < 0.5, []);
+	const randomY = useRef(
+		Math.round(random({ min: 0, max: isMoving ? 50 : 5 }) * 10) / 10
 	);
-	const y = useTransform(scrollYProgress, [0, 1], randomYRange.current, {
-		ease: easeInOut,
-	});
+	const y = useTransform(
+		scrollYProgress,
+		[0, 1],
+		[`0rem`, `-${randomY.current}rem`],
+		{
+			ease: easeInOut,
+		}
+	);
 
 	return (
 		<motion.div

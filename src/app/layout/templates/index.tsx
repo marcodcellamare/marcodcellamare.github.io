@@ -13,11 +13,11 @@ import Gallery from './Gallery';
 
 const Templates = () => {
 	const spacing = useUIStore((state) => state.spacing);
-	const { template } = useSection();
+	const { template, sectionRef } = useSection();
 	const { getScrollConfig } = useParallax();
 
 	const targetRef = useRef<HTMLDivElement>(null);
-	const { scrollYProgress } = useScroll(getScrollConfig(targetRef));
+	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
 	let content: JSX.Element;
 

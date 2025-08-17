@@ -30,7 +30,7 @@ const Gallery = ({ className, children }: GalleryProps) => {
 	useEffect(() => {
 		if (rawImagesRef.current.length === 0) return;
 
-		const totalToAdd = Math.round(rawImagesRef.current.length * 0.4);
+		const totalToAdd = Math.round(rawImagesRef.current.length * 0.2);
 
 		for (let i = 0; i < totalToAdd; i++) {
 			const pos = Math.floor(
@@ -46,7 +46,7 @@ const Gallery = ({ className, children }: GalleryProps) => {
 	return (
 		<div
 			className={classNames([
-				'template-gallery grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 3xl:grid-cols-8 gap-5 md:gap-10 xl:gap-15 3xl:gap-20 flex-1 items-center justify-items-center',
+				'template-gallery grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 4xl:grid-cols-6 gap-5 md:gap-10 xl:gap-15 3xl:gap-20 flex-1 items-center justify-items-center !py-[calc(var(--main-vh)*0.7)]',
 				className,
 			])}>
 			{images.map((image, k) => (
@@ -56,7 +56,7 @@ const Gallery = ({ className, children }: GalleryProps) => {
 				/>
 			))}
 			{children && (
-				<div className='template-gallery-content absolute top-0 bottom-0 left-0 right-0'>
+				<div className='template-gallery-content absolute top-0 bottom-0 left-0 right-0 z-1'>
 					{children}
 				</div>
 			)}

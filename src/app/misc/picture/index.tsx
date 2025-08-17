@@ -22,6 +22,7 @@ const Picture = ({
 	style,
 	pictureClassName,
 }: PictureProps) => {
+	const optimizedDir = import.meta.env.VITE_OPTIMIZED_IMAGES_DIR ?? '';
 	const optimizedFormats: string[] =
 		import.meta.env.VITE_OPTIMIZED_IMAGES_FORMATS.split('|') ?? [];
 
@@ -32,17 +33,20 @@ const Picture = ({
 
 	return (
 		<picture className={classNames(['block', pictureClassName])}>
-			{optimizedFormats.map((format, k) => (
-				<Source
-					key={k}
-					path={path}
-					name={name}
-					format={format === '@own' ? ext : format}
-					hero={hero ?? false}
-				/>
-			))}
+			{optimizedFormats.map(
+				(format) =>
+					format !== '@own' && (
+						<Source
+							key={format}
+							path={path}
+							name={name}
+							format={format === '@own' ? ext : format}
+							hero={hero ?? false}
+						/>
+					)
+			)}
 			<img
-				src={src}
+				src={`${path}/${optimizedDir}/${name}.${ext}`}
 				fetchPriority={!hero ? 'auto' : 'high'}
 				loading={!hero ? 'lazy' : 'eager'}
 				decoding={async ? 'async' : 'auto'}

@@ -22,13 +22,19 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 	const spacing = useUIStore((state) => state.spacing);
 	const { setSectionRefs, sectionRefs, areAllSectionRefsReady } =
 		useUIStore();
-	const { sectionId, theme, setSectionRef, nextBackgroundColor, hasImage } =
-		useSection();
+	const {
+		sectionId,
+		theme,
+		setSectionRef,
+		setSectionFullRef,
+		nextBackgroundColor,
+		hasImage,
+	} = useSection();
 
 	return (
 		<section
 			ref={(node) => {
-				setSectionRef(node);
+				setSectionFullRef(node);
 				setSectionRefs(sectionId, node);
 			}}
 			data-id={sectionId}
@@ -44,6 +50,12 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 					)})`,
 				} as CSSProperties
 			}>
+			<div className='absolute top-0 bottom-0 left-0 right-0'>
+				<div
+					ref={setSectionRef}
+					className='sticky top-0 bottom-0 left-0 right-0 h-(--main-vh)'
+				/>
+			</div>
 			<Title isFirst={isFirst} />
 			<Background />
 			<Container
@@ -62,8 +74,10 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 					mode='repel'
 					min={1}
 					max={3}
-					ratio={10}
-					margin={-10}
+					minSize={25}
+					maxSize={35}
+					ratio={4}
+					margin={10}
 				/>
 			)}
 			<Templates />

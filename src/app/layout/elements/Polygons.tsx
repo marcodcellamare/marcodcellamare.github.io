@@ -108,26 +108,31 @@ const Polygons = ({
 	if (!polygons.length) return null;
 
 	return (
-		<div className='polygons absolute -top-1/10 -bottom-1/10 -left-1/10 -right-1/10 pointer-events-none z-1'>
-			{polygons.map((polygon, k) => (
-				<Floating
-					key={k}
-					mode={mode}
-					ratioX={ratio}
-					ratioY={ratio}
-					className='absolute'
-					style={{
-						left: `${polygon.x}%`,
-						top: `${polygon.y}%`,
-						width: `${polygon.width}%`,
-						opacity: polygon.opacity,
-					}}>
-					<Polygon
-						fill='var(--color-theme-background-contrast)'
-						fillOpacity={0.3}
-					/>
-				</Floating>
-			))}
+		<div className='polygons absolute -top-[calc(var(--main-vh)/20)] bottom-0 -left-1/15 -right-1/15 pointer-events-none z-1'>
+			<div className='sticky top-0 left-0 right-0 h-(--main-vh)'>
+				{polygons.map((polygon, k) => (
+					<Floating
+						key={k}
+						mode={mode}
+						ratioX={ratio}
+						ratioY={ratio}
+						changeOpacity={true}
+						minOpacity={0.5}
+						maxOpacity={1}
+						className='absolute'
+						style={{
+							left: `${polygon.x}%`,
+							top: `${polygon.y}%`,
+							width: `${polygon.width}%`,
+							opacity: polygon.opacity,
+						}}>
+						<Polygon
+							fill='var(--color-theme-background)'
+							className='drop-shadow-2xl drop-shadow-black/5'
+						/>
+					</Floating>
+				))}
+			</div>
 		</div>
 	);
 };

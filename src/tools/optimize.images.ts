@@ -17,6 +17,8 @@ const imageDirs: Set<string> = new Set();
 const optimizedDir = env?.VITE_OPTIMIZED_IMAGES_DIR ?? '';
 const optimizedSizes: number[] =
 	env?.VITE_OPTIMIZED_IMAGES_SIZES.split('|').map(Number) ?? [];
+const optimizedSizeDefault: number =
+	Number(env?.VITE_OPTIMIZED_IMAGES_DEFAULT_SIZE) && 1200;
 const optimizedFormats: string[] =
 	env?.VITE_OPTIMIZED_IMAGES_FORMATS.split('|') ?? [];
 
@@ -72,6 +74,51 @@ const getImageFiles = (dir: string): string[] => {
 	return imageFiles;
 };
 
+const optimizeFile = (
+	file: string,
+	format: string,
+	size: number,
+	destination: string
+) =>
+	sharp(file)
+		.jpeg({ quality: 40, progressive: true, force: true })
+		.png({ quality: 20, progressive: true, force: true })
+		.webp({ quality: 30, force: true })
+		.avif({ quality: 30, force: true })
+		.resize({
+			width: size,
+			height: size,
+			fit: 'inside',
+			kernel: sharp.kernel.nearest,
+			withoutEnlargement: true,
+			fastShrinkOnLoad: true,
+		})
+		.toFormat(format as keyof sharp.FormatEnum)
+		.toFile(destination)
+		.then(() => {
+			console.log(
+				`✅ ${file.replace(
+					imagesDir,
+					''
+				)} → .${format}/${size}px → ${destination.replace(
+					imagesDir,
+					''
+				)}`
+			);
+		})
+		.catch((err) => {
+			console.error(
+				`❌ ${file.replace(
+					imagesDir,
+					''
+				)} → .${format}/${size}px → ${destination.replace(
+					imagesDir,
+					''
+				)}`,
+				err
+			);
+		});
+
 // Perform optimization
 const optimize = async () => {
 	if (!isValid || !imageFiles) return;
@@ -87,54 +134,35 @@ const optimize = async () => {
 			const actualFormat =
 				format === '@own' ? parsed.ext.replace('.', '') : format;
 
-			optimizedSizes.forEach((size) => {
+			if (format !== '@own') {
+				optimizedSizes.forEach((size) => {
+					const destinationFile = path.join(
+						optimizedPath,
+						`${size}`,
+						`${parsed.name}.${actualFormat}`
+					);
+
+					const task = optimizeFile(
+						file,
+						actualFormat,
+						size,
+						destinationFile
+					);
+					tasks.push(task);
+				});
+			} else {
 				const destinationFile = path.join(
 					optimizedPath,
-					`${size}`,
 					`${parsed.name}.${actualFormat}`
 				);
-
-				const task = sharp(file)
-					.jpeg({ quality: 40, progressive: true, force: true })
-					.png({ quality: 20, progressive: true, force: true })
-					.webp({ quality: 30, force: true })
-					.avif({ quality: 30, force: true })
-					.resize({
-						width: size,
-						height: size,
-						fit: 'inside',
-						kernel: sharp.kernel.nearest,
-						withoutEnlargement: true,
-						fastShrinkOnLoad: true,
-					})
-					.toFormat(actualFormat as keyof sharp.FormatEnum)
-					.toFile(destinationFile)
-					.then(() => {
-						console.log(
-							`✅ ${file.replace(
-								imagesDir,
-								''
-							)} → .${actualFormat}/${size}px → ${destinationFile.replace(
-								imagesDir,
-								''
-							)}`
-						);
-					})
-					.catch((err) => {
-						console.error(
-							`❌ ${file.replace(
-								imagesDir,
-								''
-							)} → .${actualFormat}/${size}px → ${destinationFile.replace(
-								imagesDir,
-								''
-							)}`,
-							err
-						);
-					});
-
+				const task = optimizeFile(
+					file,
+					actualFormat,
+					optimizedSizeDefault,
+					destinationFile
+				);
 				tasks.push(task);
-			});
+			}
 		});
 	});
 	await Promise.all(tasks);

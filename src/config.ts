@@ -63,6 +63,7 @@ const config = {
 				"font-src 'self' https://fonts.gstatic.com",
 				"frame-src 'self'",
 				"object-src 'none'",
+				"worker-src 'self' blob:",
 				"base-uri 'self'",
 				"form-action 'self'",
 				'upgrade-insecure-requests',

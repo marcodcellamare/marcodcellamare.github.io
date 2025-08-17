@@ -34,9 +34,12 @@ export const SectionProvider = ({
 	>('#FFF');
 
 	const sectionRef = useRef<HTMLElement | null>(null);
+	const sectionFullRef = useRef<HTMLElement | null>(null);
 
 	const setSectionRef = (node: HTMLElement | null) =>
 		(sectionRef.current = node);
+	const setSectionFullRef = (node: HTMLElement | null) =>
+		(sectionFullRef.current = node);
 
 	const theme = useMemo(() => getTheme(sectionId), [getTheme, sectionId]);
 	const template = useMemo(
@@ -91,6 +94,7 @@ export const SectionProvider = ({
 		<SectionContext.Provider
 			value={{
 				sectionRef,
+				sectionFullRef,
 				sectionId,
 				template,
 				background,
@@ -102,6 +106,7 @@ export const SectionProvider = ({
 				hasImage,
 
 				setSectionRef,
+				setSectionFullRef,
 			}}>
 			{children}
 		</SectionContext.Provider>
