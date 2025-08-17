@@ -157,7 +157,7 @@ const Loader = () => {
 	return (
 		<div
 			className={classNames([
-				'nav-loader absolute top-0 bottom-0 left-0 right-0 overflow-hidden pointer-events-none transition-[background-color,backdrop-filter] duration-700',
+				'nav-loader absolute top-0 bottom-0 left-0 right-0 overflow-hidden pointer-events-none transition-[background-color,backdrop-filter] duration-700 contain-layout',
 				isNavOpened || isLoading
 					? 'bg-(--color-palette-dark-gray)/50 backdrop-blur-[0.2rem]'
 					: 'bg-(--color-palette-dark-gray)/0 backdrop-blur-[0rem] delay-600',

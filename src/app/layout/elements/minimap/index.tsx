@@ -21,7 +21,7 @@ const MiniMap = () => {
 	return (
 		<div
 			className={classNames([
-				'minimap absolute top-0 right-0 flex flex-col gap-0.5 items-end mix-blend-difference',
+				'minimap absolute top-0 right-0 flex flex-col gap-0.5 items-end mix-blend-difference contain-layout',
 				spacing.absEdge,
 			])}>
 			{sections.map((_, k) => (

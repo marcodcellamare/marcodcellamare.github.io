@@ -10,7 +10,11 @@ interface AnimatedIconProps {
 }
 
 const AnimatedIcon = ({ icon, className }: AnimatedIconProps) => (
-	<div className={classNames(['animated-icon relative', className])}>
+	<div
+		className={classNames([
+			'animated-icon relative contain-layout',
+			className,
+		])}>
 		<Wrapper
 			icon={icon}
 			className='flex-1 h-full stroke-[0.3]'

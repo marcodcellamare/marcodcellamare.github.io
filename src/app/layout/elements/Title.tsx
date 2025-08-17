@@ -27,7 +27,7 @@ const Title = ({ isFirst }: TitleProps) => {
 		[0, 0.1, 0.6, 1],
 		[0, 1, 1, 0]
 	);
-	const zIndex = useTransform(scrollYProgress, [0.3, 0.35], [5, 0]);
+	const zIndex = useTransform(scrollYProgress, [0.4, 0.5], [3, 0]);
 	const borderThickness = useTransform(
 		scrollYProgress,
 		[0, 0.4, 0.7, 1],
@@ -66,7 +66,9 @@ const Title = ({ isFirst }: TitleProps) => {
 		return null;
 
 	return (
-		<div className='title absolute top-0 bottom-0 left-0 right-0'>
+		<motion.div
+			className='title absolute top-0 bottom-0 left-0 right-0 pointer-events-none'
+			style={{ zIndex }}>
 			<div className='sticky top-0 left-0 right-0 h-(--main-vh)'>
 				<motion.div
 					className='absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 lg:-translate-x-1/2 contain-layout'
@@ -74,7 +76,6 @@ const Title = ({ isFirst }: TitleProps) => {
 						y,
 						opacity,
 						filter,
-						zIndex,
 						['--border-thickness' as string]: borderThickness,
 						['--pattern-thickness' as string]: patternThickness,
 						['--char-count' as string]: maxLength,
@@ -98,7 +99,7 @@ const Title = ({ isFirst }: TitleProps) => {
 					</h4>
 				</motion.div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 export default Title;

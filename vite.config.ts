@@ -25,10 +25,10 @@ export default defineConfig(({ mode }) => {
 			VitePWA({
 				outDir: 'dist',
 				devOptions: {
-					enabled: mode !== 'production',
+					enabled: true,
 				},
 				registerType: 'autoUpdate',
-				injectRegister: false,
+				injectRegister: 'script-defer',
 				workbox: {
 					globPatterns:
 						mode === 'production'

@@ -32,7 +32,7 @@ const Socials = ({ className }: SocialsProps) => {
 
 	return (
 		<div className={classNames(['socials', className])}>
-			<ul className='flex flex-row gap-1.5 md:gap-2 flex-nowrap'>
+			<ul className='flex flex-row gap-5 md:gap-2 flex-wrap md:flex-nowrap'>
 				{socials.map(
 					(social, k) =>
 						social?.type &&
