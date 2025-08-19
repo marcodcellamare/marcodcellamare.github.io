@@ -81,10 +81,6 @@ const optimizeFile = (
 	destination: string
 ) =>
 	sharp(file)
-		.jpeg({ quality: 40, progressive: true, force: true })
-		.png({ quality: 20, progressive: true, force: true })
-		.webp({ quality: 30, force: true })
-		.avif({ quality: 30, force: true })
 		.resize({
 			width: size,
 			height: size,
@@ -92,6 +88,32 @@ const optimizeFile = (
 			kernel: sharp.kernel.nearest,
 			withoutEnlargement: true,
 			fastShrinkOnLoad: true,
+		})
+		.jpeg({
+			quality: 50,
+			progressive: true,
+			mozjpeg: true,
+			chromaSubsampling: '4:2:0',
+		})
+		.png({
+			quality: 50,
+			compressionLevel: 9,
+			adaptiveFiltering: true,
+			palette: true,
+			effort: 7,
+		})
+		.webp({
+			quality: 50,
+			alphaQuality: 50,
+			nearLossless: true,
+			smartSubsample: true,
+			smartDeblock: true,
+			effort: 5,
+		})
+		.avif({
+			quality: 30,
+			chromaSubsampling: '4:2:0',
+			effort: 8,
 		})
 		.toFormat(format as keyof sharp.FormatEnum)
 		.toFile(destination)

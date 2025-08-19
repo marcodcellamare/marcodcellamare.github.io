@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
 	const firebaseEnv = dotenv.config({ path: '.env.firebase' }).parsed || {};
 
 	return {
-		base: mode === 'production' ? '/' : './',
+		base: '/',
 		plugins: [
 			react(),
 			tailwindcss(),

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimationGeneratorType, motion } from 'framer-motion';
 import useIsTouch from '@/hooks/useIsTouch';
 import { useUIStore } from '@/stores/useUIStore';
 import useThrottleCallback from '@/hooks/useThrottleCallback';
@@ -24,6 +24,8 @@ const Cursor = () => {
 		borderRadius: 0,
 	});
 
+	const [type, setType] = useState<AnimationGeneratorType>('spring');
+	const [duration, setDuration] = useState(0.3);
 	const [damping, setDamping] = useState(50);
 	const [stiffness, setStiffness] = useState(500);
 
@@ -43,8 +45,10 @@ const Cursor = () => {
 			height: 5,
 			borderRadius: 50,
 		});
-		setDamping(100);
-		setStiffness(2000);
+		setType('tween');
+		setDuration(0);
+		setDamping(500);
+		setStiffness(1000);
 		setStatus('relaxed');
 	}, []);
 
@@ -89,6 +93,8 @@ const Cursor = () => {
 				borderRadius:
 					status === 'image' ? Math.max(rect.width, rect.height) : 5,
 			});
+			setType('spring');
+			setDuration(0.3);
 			setDamping(25);
 			setStiffness(1000);
 			setStatus(status);
@@ -198,8 +204,8 @@ const Cursor = () => {
 				borderRadius: cursorStyles.borderRadius,
 			}}
 			transition={{
-				x: { type: 'spring', damping, stiffness },
-				y: { type: 'spring', damping, stiffness },
+				x: { type, damping, stiffness, duration },
+				y: { type, damping, stiffness, duration },
 				width: { duration: 0.3 },
 				height: { duration: 0.3 },
 				borderRadius: { duration: 0.3 },

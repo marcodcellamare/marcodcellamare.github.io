@@ -20,7 +20,7 @@ interface DefaultProps {
 const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 	const pageId = useUIStore((state) => state.pageId);
 	const { i18n, t } = useTranslation(pageId);
-	const { sectionId, sectionRef } = useSection();
+	const { sectionId, sectionRef, setContentRef } = useSection();
 	const { getScrollConfig } = useParallax();
 	const { DevBreakpoints } = useDevUtilities();
 
@@ -37,6 +37,7 @@ const Default = ({ slideId = 0, activeIdx = 0, className }: DefaultProps) => {
 
 	return (
 		<div
+			ref={setContentRef}
 			className={classNames(
 				'template-default @container relative',
 				className

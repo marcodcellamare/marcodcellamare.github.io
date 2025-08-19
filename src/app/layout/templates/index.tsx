@@ -1,4 +1,4 @@
-import { Fragment, JSX, useRef } from 'react';
+import { Fragment, JSX } from 'react';
 import { useParallax } from '@/contexts/parallax';
 import { motion, easeInOut, useScroll, useTransform } from 'motion/react';
 import { useSection } from '@/contexts/section';
@@ -15,8 +15,6 @@ const Templates = () => {
 	const spacing = useUIStore((state) => state.spacing);
 	const { template, sectionRef } = useSection();
 	const { getScrollConfig } = useParallax();
-
-	const targetRef = useRef<HTMLDivElement>(null);
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
 	let content: JSX.Element;
@@ -85,7 +83,6 @@ const Templates = () => {
 
 	return (
 		<motion.div
-			ref={targetRef}
 			style={{ y, scale, opacity, filter }}
 			className='template-wrapper flex items-center w-full relative z-2'>
 			{content}

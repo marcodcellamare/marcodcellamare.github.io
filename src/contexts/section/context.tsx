@@ -6,6 +6,7 @@ import { BackgroundInterface, SettingsInterface } from '@/types/layout';
 export interface SectionContextProps {
 	sectionRef: RefObject<HTMLElement | null>;
 	sectionFullRef: RefObject<HTMLElement | null>;
+	contentRef: RefObject<HTMLElement | null>;
 	sectionId: number;
 	template: TemplateType;
 	background: Partial<BackgroundInterface>;
@@ -18,6 +19,7 @@ export interface SectionContextProps {
 
 	setSectionRef: (node: HTMLElement | null) => void;
 	setSectionFullRef: (node: HTMLElement | null) => void;
+	setContentRef: (node: HTMLElement | null) => void;
 }
 
 export const SectionContext = createContext<SectionContextProps | undefined>(
