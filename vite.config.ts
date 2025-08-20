@@ -30,6 +30,10 @@ export default defineConfig(({ mode }) => {
 				registerType: 'autoUpdate',
 				injectRegister: 'script-defer',
 				workbox: {
+					navigateFallbackDenylist: [
+						/^\/infinite-nonogram/,
+						/^\/ig-followers-check/,
+					],
 					globPatterns:
 						mode === 'production'
 							? [
