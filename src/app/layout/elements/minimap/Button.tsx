@@ -24,7 +24,7 @@ const Button = ({ sectionId }: ButtonProps) => {
 		<button
 			type='button'
 			role='button'
-			className='minimap-section min-w-8 min-h-2 bg-(--color-palette-gray) flex flex-col items-end'
+			className='minimap-section min-w-8 min-h-2 bg-(--color-palette-gray) flex flex-col items-end cursor-pointer'
 			disabled={activeSectionId === sectionId}
 			onPointerEnter={() => setIsOver(true)}
 			onPointerLeave={() => setIsOver(false)}

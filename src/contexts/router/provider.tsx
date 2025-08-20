@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import { useUIStore } from '@/stores/useUIStore';
 import { useDebounceCallback } from '@/hooks/useDebounceCallback';
+import { windowSize } from '@/utils/misc';
 
 import config from '@config';
 
@@ -59,13 +60,20 @@ export const RouterProvider = ({ children }: RouterProviderProps) => {
 
 	const intersectionObserverDebounced = useDebounceCallback(
 		(entries: IntersectionObserverEntry[]) => {
-			const visible = entries
-				.filter((e) => e.isIntersecting)
-				.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+			const visible = entries.filter((e) => e.isIntersecting);
 
 			if (visible.length > 0) {
-				const target = visible[0].target as HTMLElement;
-				setActiveSectionId(Number(target.dataset.id));
+				// Get the section that contains the viewport midpoint
+				const viewportMid = windowSize.height() / 2;
+				const sectionAtMid = visible.find((entry) => {
+					const rect = entry.target.getBoundingClientRect();
+					return rect.top <= viewportMid && rect.bottom > viewportMid;
+				});
+				if (sectionAtMid) {
+					const target = sectionAtMid.target as HTMLElement;
+
+					if (target) setActiveSectionId(Number(target.dataset.id));
+				}
 			}
 		},
 		50
@@ -77,8 +85,9 @@ export const RouterProvider = ({ children }: RouterProviderProps) => {
 		let frameId: number;
 		const observer = new IntersectionObserver(
 			intersectionObserverDebounced,
-			{ threshold: 0.5 }
+			{ threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] }
 		);
+
 		const waitForRefs = () => {
 			if (!areAllSectionRefsReady()) {
 				frameId = requestAnimationFrame(waitForRefs);

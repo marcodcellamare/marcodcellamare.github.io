@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Behance, Github, Instagram, Linkedin } from 'react-bootstrap-icons';
 import {
 	FileTextIcon,
+	Grid3X3Icon,
 	MailIcon,
 	MapPinIcon,
 	Music4Icon,
@@ -40,6 +41,9 @@ const Icon = ({ type, title, className }: IconProps) => {
 
 		case 'music':
 			return <Music4Icon {...props} />;
+
+		case 'nonogram':
+			return <Grid3X3Icon {...props} />;
 
 		case 'phone':
 			return <VibrateIcon {...props} />;

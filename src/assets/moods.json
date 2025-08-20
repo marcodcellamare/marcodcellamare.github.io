@@ -99,7 +99,11 @@
 		"Super Nintendo",
 		"The legend of Zelda",
 		"Zak McKracken",
-		"Foosball"
+		"Foosball",
+		{
+			"title": "Inifinite Nonogram",
+			"link": "https://marcodcellamare.github.io/infinite-nonogram/"
+		}
 	],
 	"design": [
 		"Figma",

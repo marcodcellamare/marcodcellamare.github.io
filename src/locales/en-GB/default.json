@@ -44,6 +44,12 @@
 			"link": "drive.google.com/file/d/1fzQbn8t9KuHLYAr4wR2qltVh8biNf73k/view?usp=drive_link"
 		},
 		{
+			"type": "nonogram",
+			"highlight": true,
+			"title": "Infinite Nonogram",
+			"link": "marcodcellamare.github.io/infinite-nonogram/"
+		},
+		{
 			"type": "phone",
 			"highlight": true,
 			"title": "Let's talk",

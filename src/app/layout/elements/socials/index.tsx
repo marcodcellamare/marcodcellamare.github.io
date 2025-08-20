@@ -10,6 +10,7 @@ export type SocialType =
 	| 'behance'
 	| 'instagram'
 	| 'music'
+	| 'nonogram'
 	| 'phone'
 	| 'email'
 	| 'location';
