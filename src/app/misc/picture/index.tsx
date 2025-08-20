@@ -50,6 +50,7 @@ const Picture = ({
 				fetchPriority={!hero ? 'auto' : 'high'}
 				loading={!hero ? 'lazy' : 'eager'}
 				decoding={async ? 'async' : 'auto'}
+				alt={name}
 				className={classNames([
 					contain ? 'object-contain' : 'object-cover',
 					className,

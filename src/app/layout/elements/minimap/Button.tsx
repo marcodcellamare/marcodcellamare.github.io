@@ -28,17 +28,18 @@ const Button = ({ sectionId }: ButtonProps) => {
 			disabled={activeSectionId === sectionId}
 			onPointerEnter={() => setIsOver(true)}
 			onPointerLeave={() => setIsOver(false)}
-			onClick={handleClick}>
-			<h6
+			onClick={handleClick}
+			aria-hidden={true}>
+			<span
 				className={classNames([
-					'block mr-3 text-xxs font-black uppercase text-nowrap text-end overflow-hidden text-(--color-palette-gray) mix-blend-difference',
+					'h6 block mr-3 text-xxs font-black uppercase text-nowrap text-end overflow-hidden text-(--color-palette-gray) mix-blend-difference',
 					'transition-[max-width,padding] duration-800 ease-in-out',
 					activeSectionId !== sectionId && !isOver
 						? 'max-w-0 py-0 pl-0'
 						: 'max-w-100 py-2 pl-3',
 				])}>
 				{t(`sections.${sectionId}.title`)}
-			</h6>
+			</span>
 		</button>
 	);
 };

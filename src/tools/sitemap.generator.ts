@@ -21,7 +21,7 @@ const sitemapEntries = Object.values(PAGES)
 			`<loc lastmod="${
 				date.toISOString().split('T')[0]
 			}" priority="0.8">` +
-			`${env?.VITE_TOOLS_BASE}/#${path.replace('^', '')}` +
+			`${env?.VITE_BASE ?? '.'}/#${path.replace('^', '')}` +
 			`</loc>` +
 			`</url>`
 	)

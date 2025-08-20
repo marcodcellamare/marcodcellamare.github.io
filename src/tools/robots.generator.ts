@@ -15,7 +15,7 @@ const robots = [
 	'# https://www.robotstxt.org/robotstxt.html',
 	'User-agent: *',
 	'Disallow:',
-	`Sitemap: ${env?.VITE_TOOLS_BASE}/sitemap.xml`,
+	`Sitemap: ${env?.VITE_BASE ?? '.'}/sitemap.xml`,
 ].join('\n');
 
 writeFileSync(path.join(publicDir, 'robots.txt'), robots, 'utf8');
