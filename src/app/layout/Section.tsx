@@ -8,7 +8,7 @@ import Pattern from './elements/Pattern';
 import Title from './elements/Title';
 import Templates from './Templates';
 import Pager from './elements/Pager';
-import Polygons from './elements/Polygons';
+//import Polygons from './elements/Polygons';
 import Background from './elements/Background';
 import Container from './elements/Container';
 
@@ -28,7 +28,7 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 		setSectionRef,
 		setSectionFullRef,
 		nextBackgroundColor,
-		hasImage,
+		//hasImage,
 	} = useSection();
 
 	return (
@@ -69,7 +69,7 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 					)}
 			</Container>
 			{!isLast && <Pattern />}
-			{!hasImage && !isFirst && !isLast && (
+			{/* {!hasImage && !isFirst && !isLast && (
 				<Polygons
 					mode='repel'
 					min={1}
@@ -79,7 +79,7 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 					ratio={4}
 					margin={10}
 				/>
-			)}
+			)} */}
 			<Templates />
 		</section>
 	);

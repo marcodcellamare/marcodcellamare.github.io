@@ -52,11 +52,6 @@ const Source = ({ path, name, format, hero }: SourceProps) => {
 
 	return (
 		<>
-			<source
-				type={mimetype}
-				srcSet={srcSet}
-				sizes={sizes}
-			/>
 			{hero && format === 'avif' && (
 				<link
 					rel='preload'
@@ -68,6 +63,11 @@ const Source = ({ path, name, format, hero }: SourceProps) => {
 					precedence='default'
 				/>
 			)}
+			<source
+				type={mimetype}
+				srcSet={srcSet}
+				sizes={sizes}
+			/>
 		</>
 	);
 };

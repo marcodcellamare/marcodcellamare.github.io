@@ -45,6 +45,19 @@ export default defineConfig(({ mode }) => {
 					maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
 					runtimeCaching: [
 						{
+							urlPattern: ({ request }) =>
+								request.mode === 'navigate',
+							handler: 'NetworkFirst',
+							options: {
+								cacheName: 'html-cache',
+								networkTimeoutSeconds: 3,
+								expiration: {
+									maxEntries: 20,
+									maxAgeSeconds: 60 * 60 * 24,
+								},
+							},
+						},
+						{
 							urlPattern:
 								/\/optimized\/.*\.(avif|webp|jpe?g|png)$/,
 							handler: 'CacheFirst',
@@ -52,6 +65,20 @@ export default defineConfig(({ mode }) => {
 								cacheName: 'optimized-images',
 								expiration: {
 									maxEntries: 100,
+									maxAgeSeconds: 60 * 60 * 24 * 365,
+								},
+							},
+						},
+						{
+							urlPattern: ({ request }) =>
+								['script', 'style', 'font', 'image'].includes(
+									request.destination
+								) && !/\/optimized\//.test(request.url),
+							handler: 'CacheFirst',
+							options: {
+								cacheName: 'static-assets',
+								expiration: {
+									maxEntries: 200,
 									maxAgeSeconds: 60 * 60 * 24 * 365,
 								},
 							},

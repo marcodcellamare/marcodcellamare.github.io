@@ -3,6 +3,8 @@ import { spline } from '@georgedoescode/spline';
 import { createNoise2D } from 'simplex-noise';
 import classNames from 'classnames';
 
+import { TimeoutType } from '@/types/misc';
+
 type PointType = {
 	x: number;
 	y: number;
@@ -64,7 +66,22 @@ const Blob = ({
 	) => ((n - start1) / (end1 - start1)) * (end2 - start2) + start2;
 
 	useEffect(() => {
-		let frameId: number;
+		let frameId: TimeoutType = null;
+		let isVisible = false;
+
+		const observer = new IntersectionObserver(([entry]) => {
+			isVisible = entry.isIntersecting;
+
+			if (isVisible) {
+				animate();
+			} else {
+				if (frameId !== null) clearTimeout(frameId);
+			}
+		});
+
+		if (pathRef.current) {
+			observer.observe(pathRef.current);
+		}
 
 		const animate = () => {
 			const path = pathRef.current;
@@ -93,12 +110,12 @@ const Blob = ({
 				point.noiseOffsetX += noiseStepRef.current;
 				point.noiseOffsetY += noiseStepRef.current;
 			});
-			frameId = requestAnimationFrame(animate);
+			frameId = setTimeout(() => requestAnimationFrame(animate), 33);
 		};
-		animate();
 
 		return () => {
-			cancelAnimationFrame(frameId);
+			observer.disconnect();
+			if (frameId !== null) clearTimeout(frameId);
 		};
 	}, []);
 

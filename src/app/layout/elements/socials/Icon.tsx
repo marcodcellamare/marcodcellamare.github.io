@@ -1,6 +1,10 @@
 import classNames from 'classnames';
 
-import { Behance, Github, Instagram, Linkedin } from 'react-bootstrap-icons';
+import Behance from 'react-bootstrap-icons/dist/icons/behance';
+import Github from 'react-bootstrap-icons/dist/icons/github';
+import Instagram from 'react-bootstrap-icons/dist/icons/instagram';
+import Linkedin from 'react-bootstrap-icons/dist/icons/linkedin';
+
 import {
 	FileTextIcon,
 	Grid3X3Icon,

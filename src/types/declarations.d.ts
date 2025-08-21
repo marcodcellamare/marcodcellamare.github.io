@@ -16,3 +16,8 @@ declare module '*.svg?react' {
 	const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
 	export default ReactComponent;
 }
+declare module 'react-bootstrap-icons/dist/icons/*' {
+	import * as React from 'react';
+	const Icon: React.FC<React.SVGProps<SVGSVGElement>>;
+	export default Icon;
+}

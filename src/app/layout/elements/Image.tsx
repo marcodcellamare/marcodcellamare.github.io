@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { useSection } from '@/contexts/section';
 import { useTranslation } from 'react-i18next';
 import { useUIStore } from '@/stores/useUIStore';
@@ -6,9 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 import { colorToRgb } from '@/utils/colors';
 import classNames from 'classnames';
 
-import Blob from '@/app/misc/Blob';
 import Duotone from '@/app/misc/Duotone';
 import Picture from '@/app/misc/Picture';
+
+const Blob = lazy(() => import('@/app/misc/Blob'));
 
 interface ImageProps {
 	rootKey: string;
@@ -26,11 +27,11 @@ const Image = ({ rootKey, className }: ImageProps) => {
 		ns: pageId,
 	});
 	const id = uuidv4();
-	const blob =
+	const isBlob =
 		(t(`${rootKey}.blob`, {
 			returnObjects: true,
 		}) as unknown as boolean) === true;
-	const duotone =
+	const isDuotone =
 		(t(`${rootKey}.duotone`, {
 			returnObjects: true,
 		}) as unknown as boolean) === true;
@@ -45,15 +46,17 @@ const Image = ({ rootKey, className }: ImageProps) => {
 			])}
 			onPointerEnter={() => setIsOver(true)}
 			onPointerLeave={() => setIsOver(false)}>
-			{blob && (
-				<Blob
-					mask={`mask.${id}`}
-					speed={!isOver ? 0.001 : 0.007}
-					numPoints={8}
-					className='absolute top-1/2 left-1/2 -translate-1/2 pointer-events-none'
-				/>
+			{isBlob && (
+				<Suspense fallback={null}>
+					<Blob
+						mask={`mask.${id}`}
+						speed={!isOver ? 0.001 : 0.007}
+						numPoints={8}
+						className='absolute top-1/2 left-1/2 -translate-1/2 pointer-events-none'
+					/>
+				</Suspense>
 			)}
-			{duotone && (
+			{isDuotone && (
 				<Duotone
 					id={`duotone.${id}`}
 					bgColor={colorToRgb(duotoneColorBackground)}
@@ -64,11 +67,11 @@ const Image = ({ rootKey, className }: ImageProps) => {
 				<Picture
 					src={t(`${rootKey}.src`)}
 					style={{
-						clipPath: blob ? `url(#mask.${id})` : undefined,
-						filter: duotone ? `url(#duotone.${id})` : undefined,
+						clipPath: isBlob ? `url(#mask.${id})` : undefined,
+						filter: isDuotone ? `url(#duotone.${id})` : undefined,
 					}}
 				/>
-				{duotone && (
+				{isDuotone && (
 					<Picture
 						src={t(`${rootKey}.src`)}
 						pictureClassName={classNames([
@@ -76,7 +79,7 @@ const Image = ({ rootKey, className }: ImageProps) => {
 							!isOver ? 'opacity-0' : 'opacity-100 delay-100',
 						])}
 						style={{
-							clipPath: blob ? `url(#mask.${id})` : undefined,
+							clipPath: isBlob ? `url(#mask.${id})` : undefined,
 						}}
 					/>
 				)}
