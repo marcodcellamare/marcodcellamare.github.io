@@ -25,7 +25,7 @@ export default defineConfig(({ mode }) => {
 			VitePWA({
 				outDir: 'dist',
 				devOptions: {
-					enabled: true,
+					enabled: false,
 				},
 				registerType: 'autoUpdate',
 				injectRegister: 'script-defer',

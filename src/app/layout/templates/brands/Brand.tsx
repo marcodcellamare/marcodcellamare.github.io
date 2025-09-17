@@ -18,15 +18,28 @@ const Brand = ({ name, title, className }: BrandProps) => {
 	const { getScrollConfig } = useParallax();
 	const { scrollYProgress } = useScroll(getScrollConfig(sectionRef));
 
-	const randomX = useRef(Math.round(random({ min: 0, max: 2 }) * 10) / 10);
-	const randomXRange = useRef(
-		[`${randomX.current}rem`, `-${randomX.current}rem`].sort(
-			() => Math.random() - 0.5
-		)
+	const randomScale = useRef(
+		Math.round(random({ min: 0.2, max: 0.9 }) * 10) / 10
 	);
-	const x = useTransform(scrollYProgress, [0, 1], randomXRange.current, {
-		ease: easeInOut,
-	});
+	const randomStart = useRef(
+		Math.round(random({ min: 0, max: 0.35 }) * 10) / 10
+	);
+	const scale = useTransform(
+		scrollYProgress,
+		[randomStart.current, 0.5],
+		[randomScale.current, 1],
+		{
+			ease: easeInOut,
+		}
+	);
+	const opacity = useTransform(
+		scrollYProgress,
+		[randomStart.current, 0.5],
+		[0, 1],
+		{
+			ease: easeInOut,
+		}
+	);
 
 	return (
 		<motion.button
@@ -35,7 +48,7 @@ const Brand = ({ name, title, className }: BrandProps) => {
 				'template-brands-brand relative aspect-square group',
 				className,
 			])}
-			style={{ x }}>
+			style={{ scale, opacity }}>
 			<Icon
 				name={name}
 				className='absolute top-1/2 left-1/2 -translate-1/2 w-full h-6/10 fill-(--color-theme-link) group-hover:fill-(--color-theme-foreground)/50 transition-[filter,scale,fill] duration-1000 ease-in-out group-hover:blur-xxs group-hover:scale-180 pointer-events-none'
