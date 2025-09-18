@@ -39,7 +39,7 @@
 		"firebase": "^12.0.0",
 		"i18next": "^25.0.0",
 		"i18next-browser-languagedetector": "^8.0.2",
-		"lucide-react": "^0.540.0",
+		"lucide-react": "^0.544.0",
 		"motion": "^12.15.0",
 		"react": "^19.1.0",
 		"react-bootstrap-icons": "^1.11.6",
@@ -47,7 +47,7 @@
 		"react-i18next": "^15.4.0",
 		"react-router": "^7.8.0",
 		"simplex-noise": "^4.0.3",
-		"uuid": "^11.1.0",
+		"uuid": "^13.0.0",
 		"zustand": "^5.0.6"
 	},
 	"devDependencies": {
@@ -78,7 +78,7 @@
 		"eslint-plugin-react-refresh": "^0.4.19",
 		"gh-pages": "^6.3.0",
 		"globals": "^16.0.0",
-		"jsdom": "^26.1.0",
+		"jsdom": "^27.0.0",
 		"rollup-plugin-visualizer": "^6.0.0",
 		"sharp": "^0.34.3",
 		"svgo": "^4.0.0",
