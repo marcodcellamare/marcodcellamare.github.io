@@ -4,8 +4,7 @@
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
 	},
 	"include": [
-		"vite.config.ts",
-		"vite.alias.ts",
+		"tests",
 		"src"
 	]
 }

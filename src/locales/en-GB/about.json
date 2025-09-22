@@ -282,9 +282,9 @@
 						"Axios, Firebase (Auth, Firestore, Analytics, Crashlytics, Push)",
 						"Framer Motion, Sharp.js, Chart.js, Phaser, Howler",
 						"Google Maps API + GeoJSON, PayPal API, MobilePay API, SumUp API, HubSpot API, Mailchimp API, Facebook API, LinkedIn API",
-						"Vitest, Playwright",
+						"Jest, Vitest, Playwright",
 						"SEO, WCAG, Lighthouse Audits",
-						"Cordova (Android/iOS)",
+						"Capacitor, Cordova (Android/iOS)",
 						"SPAs and PWAs with a focus on UX, performance, maintainability"
 					]
 				},
