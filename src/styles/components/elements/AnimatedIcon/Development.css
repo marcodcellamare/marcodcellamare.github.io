@@ -1,0 +1,151 @@
+@reference '@/styles/index.css';
+
+.animated-icon {
+	&.development {
+		@apply transition-[filter] duration-200 ease-in-out blur-none;
+
+		&.changing {
+			@apply blur-sm;
+		}
+
+		&.idea {
+			svg {
+				animation-name: pulsing;
+				animation-duration: 0.2s;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+			}
+		}
+		&.design {
+			svg {
+				@apply origin-[center_20%];
+
+				animation-name: compass;
+				animation-duration: 2.5s;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+			}
+		}
+		&.code {
+			svg {
+				animation-name: code;
+				animation-duration: 0.8s;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+			}
+		}
+		&.performance {
+			svg {
+				animation-name: performance;
+				animation-duration: 2s;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+			}
+		}
+		&.repeat {
+			svg {
+				animation-name: repeat;
+				animation-duration: 1.5s;
+				animation-timing-function: ease-in-out;
+				animation-iteration-count: infinite;
+			}
+		}
+	}
+}
+@keyframes pulsing {
+	0%,
+	100% {
+		scale: 1;
+		rotate: 0deg;
+	}
+	25% {
+		rotate: -3deg;
+	}
+	50% {
+		scale: 1.05;
+		rotate: 0deg;
+	}
+	75% {
+		scale: 1.05;
+		rotate: 3deg;
+	}
+}
+@keyframes compass {
+	0%,
+	100% {
+		rotate: -30deg;
+	}
+	50% {
+		rotate: 30deg;
+	}
+}
+@keyframes code {
+	0% {
+		transform: translate(0rem, 0rem);
+	}
+	10% {
+		transform: translate(0.2rem, -0.3rem);
+	}
+	20% {
+		transform: translate(-0.25rem, 0.25rem);
+	}
+	30% {
+		transform: translate(0.3rem, 0.1rem);
+	}
+	40% {
+		transform: translate(-0.2rem, -0.2rem);
+	}
+	50% {
+		transform: translate(0.25rem, -0.15rem);
+	}
+	60% {
+		transform: translate(-0.15rem, 0.3rem);
+	}
+	70% {
+		transform: translate(0.2rem, -0.25rem);
+	}
+	80% {
+		transform: translate(-0.3rem, 0.5rem);
+	}
+	90% {
+		transform: translate(0.15rem, 0.2rem);
+	}
+	100% {
+		transform: translate(0rem, 0rem);
+	}
+}
+@keyframes performance {
+	0%,
+	100% {
+		rotate: 0deg;
+	}
+	10% {
+		rotate: 80deg;
+	}
+	15% {
+		rotate: 70deg;
+	}
+	20% {
+		rotate: 75deg;
+	}
+	25% {
+		rotate: 70deg;
+	}
+	30% {
+		rotate: 85deg;
+	}
+	35% {
+		rotate: 80deg;
+	}
+}
+@keyframes repeat {
+	0% {
+		rotate: 0deg;
+	}
+	60% {
+		rotate: 359deg;
+	}
+	100% {
+		rotate: 360deg;
+	}
+}

@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import { performance } from 'perf_hooks';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -100,7 +101,7 @@ const optimizeFile = (
 			compressionLevel: 9,
 			adaptiveFiltering: true,
 			palette: true,
-			effort: 7,
+			effort: 6,
 		})
 		.webp({
 			quality: 50,
@@ -108,12 +109,12 @@ const optimizeFile = (
 			nearLossless: true,
 			smartSubsample: true,
 			smartDeblock: true,
-			effort: 5,
+			effort: 4,
 		})
 		.avif({
 			quality: 30,
 			chromaSubsampling: '4:2:0',
-			effort: 8,
+			effort: 7,
 		})
 		.toFormat(format as keyof sharp.FormatEnum)
 		.toFile(destination)
@@ -191,7 +192,15 @@ const optimize = async () => {
 };
 
 // Run
+const start = performance.now();
+
 getImageFiles(imagesDir);
 optimize().then(() => {
+	const end = performance.now();
+	const duration = end - start;
+	const minutes = Math.floor(duration / 60000);
+	const seconds = ((duration % 60000) / 1000).toFixed(2);
+
 	console.log('✅✅ Image optimization completed.');
+	console.log(`⏱️ Total time: ${minutes}m ${seconds}s`);
 });
