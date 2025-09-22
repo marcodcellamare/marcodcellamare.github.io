@@ -32,6 +32,6 @@ const testPage = (link: string, heading: string) =>
 afterEach(cleanup);
 describe('Check navigation', () => {
 	testPage('About', 'Marco D. Cellamare');
-	testPage('Projects', 'Under Construction');
+	testPage('Projects', 'Design meets performance');
 	testPage('Music', 'Under Construction');
 });
