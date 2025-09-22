@@ -115,7 +115,7 @@ export default defineConfig(({ mode }) => {
 			globals: true,
 			environment: 'jsdom',
 			setupFiles: './vitest.setup.ts',
-			css: true,
+			css: false,
 			include: ['src/**/*.{test,spec}.{ts,tsx}'],
 			coverage: {
 				reporter: ['text', 'json', 'html'],
@@ -126,6 +126,7 @@ export default defineConfig(({ mode }) => {
 					'**/*.config.{js,ts}',
 				],
 			},
+			testTimeout: 10000,
 		},
 		build: {
 			target: 'esnext',

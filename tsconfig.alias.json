@@ -7,10 +7,10 @@
 				"package.json"
 			],
 			"@config": [
-				"src/config.ts"
+				"src/config/index.ts"
 			],
 			"@const": [
-				"src/const.ts"
+				"src/config/const.ts"
 			],
 			"@/app/*": [
 				"src/app/*"
@@ -35,6 +35,9 @@
 			],
 			"@/utils/*": [
 				"src/utils/*"
+			],
+			"@/tests/*": [
+				"tests/*"
 			]
 		}
 	}

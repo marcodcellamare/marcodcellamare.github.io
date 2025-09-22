@@ -2,7 +2,11 @@
 
 .animated-icon {
 	&.hello {
-		@apply transition-[rotate,translate] duration-200 ease-in-out;
+		@apply transition-[filter,rotate,translate] duration-200 ease-in-out;
+
+		&.changing {
+			@apply blur-sm;
+		}
 
 		&.waving {
 			@apply rotate-15 -translate-x-5;

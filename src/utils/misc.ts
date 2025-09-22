@@ -2,6 +2,8 @@ export const cssVariable = (
 	variableName: string,
 	selector?: string | HTMLElement
 ): string => {
+	if (typeof document === 'undefined') return '';
+
 	if (typeof selector === 'string') {
 		const selected = document.querySelector<HTMLElement>(selector);
 		selector = selected ?? undefined;

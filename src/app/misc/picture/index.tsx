@@ -46,7 +46,7 @@ const Picture = ({
 					)
 			)}
 			<img
-				src={`${path}/${optimizedDir}/${name}.${ext}`}
+				src={`${path}/${optimizedDir}/${name}.${optimizedFormats[0]}`}
 				fetchPriority={!hero ? 'auto' : 'high'}
 				loading={!hero ? 'lazy' : 'eager'}
 				decoding={async ? 'async' : 'auto'}

@@ -1,4 +1,4 @@
-import { PaletteType } from './types/config.const';
+import { PaletteType } from '@/types/config.const';
 
 export const CHARACTERS =
 	'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' as const;
