@@ -95,7 +95,7 @@ export const useUIStore = create<UIStoreInterface>((set, get) => ({
 		absEdge: 'm-5 md:m-10',
 		absEdgePadding: 'p-5 md:p-10',
 		nav: 'p-5 md:p-10 lg:p-27 pt-24 md:pt-32 lg:pt-40',
-		section: 'py-30 lg:py-35 xl:py-40',
+		section: 'pt-20 pb-40 lg:pt-30 xl:pt-40',
 		container: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:px-50 3xl:px-80',
 		drawer: 'px-5 md:px-10 xl:px-20 py-30 lg:py-35 xl:py-40',
 		carouselItem: 'px-5 md:px-10 lg:px-20 xl:px-30 2xl:pl-50 3xl:pl-80',

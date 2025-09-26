@@ -47,6 +47,27 @@
 					]
 				}
 			]
+		},
+		{
+			"theme": "dark-gray",
+			"template": "default",
+			"title": "Brand Service",
+			"content": [
+				{
+					"image": {
+						"src": "/images/projects/brand-service.jpg",
+						"position": "left"
+					},
+					"heading": {
+						"headline": "Brand Service",
+						"title": "High-Performance Analytics Dashboard",
+						"subtitle": "1M+ Records, Interactive Views, Streamlined Imports"
+					},
+					"paragraphs": [
+						"Developed a real-time analytics dashboard with advanced data handling, Excel import flow, and map/table views — enabling visualization of 1M+ records and reducing manual processing by 80%."
+					]
+				}
+			]
 		}
 	]
 }

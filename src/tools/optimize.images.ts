@@ -23,6 +23,8 @@ const optimizedSizeDefault: number =
 const optimizedFormats: string[] =
 	env?.VITE_OPTIMIZED_IMAGES_FORMATS.split('|') ?? [];
 
+const args = process.argv.slice(2);
+
 const isValid = () => {
 	if (!optimizedDir || !optimizedSizes || !optimizedFormats) {
 		console.error('❌❌ No .env VITE_OPTIMIZED_IMAGES_ found.');
@@ -73,6 +75,17 @@ const getImageFiles = (dir: string): string[] => {
 		}
 	});
 	return imageFiles;
+};
+
+// Parse CLI args
+// Add -- filename1.ext folder/filename2.ext ... filenameN.ext to optimize specific images
+const getImageFilesFromArgs = () => {
+	const files = [...new Set(args)];
+
+	files.map((file) => {
+		if (/\.(jpe?g|png)$/i.test(file))
+			imageFiles.push(path.join(imagesDir, file));
+	});
 };
 
 const optimizeFile = (
@@ -144,9 +157,8 @@ const optimizeFile = (
 
 // Perform optimization
 const optimize = async () => {
-	if (!isValid || !imageFiles) return;
+	if (!isValid || imageFiles.length === 0) return;
 
-	cleanup();
 	const tasks: Promise<unknown>[] = [];
 
 	imageFiles.forEach((file) => {
@@ -194,13 +206,24 @@ const optimize = async () => {
 // Run
 const start = performance.now();
 
-getImageFiles(imagesDir);
-optimize().then(() => {
-	const end = performance.now();
-	const duration = end - start;
-	const minutes = Math.floor(duration / 60000);
-	const seconds = ((duration % 60000) / 1000).toFixed(2);
+// Cleanup
+if (args?.[0] !== 'cleanup') {
+	// Collect files
+	if (args.length > 0) {
+		getImageFilesFromArgs();
+	} else {
+		getImageFiles(imagesDir);
+	}
 
-	console.log('✅✅ Image optimization completed.');
-	console.log(`⏱️ Total time: ${minutes}m ${seconds}s`);
-});
+	optimize().then(() => {
+		const end = performance.now();
+		const duration = end - start;
+		const minutes = Math.floor(duration / 60000);
+		const seconds = ((duration % 60000) / 1000).toFixed(2);
+
+		console.log('✅✅ Image optimization completed.');
+		console.log(`⏱️ Total time: ${minutes}m ${seconds}s`);
+	});
+} else {
+	cleanup();
+}

@@ -16,14 +16,28 @@
 				bg-size-[0.5rem_0.5rem] lg:bg-size-[0.7rem_0.7rem];
 
 			text-stroke: var(--border-thickness)
-				var(--color-theme-background-contrast);
+				var(
+					--color-theme-background-title,
+					var(--color-theme-background-contrast)
+				);
 			-webkit-text-stroke: var(--border-thickness)
-				var(--color-theme-background-contrast);
+				var(
+					--color-theme-background-title,
+					var(--color-theme-background-contrast)
+				);
 
 			background-image: repeating-linear-gradient(
 				45deg,
-				var(--color-theme-background-contrast) 0,
-				var(--color-theme-background-contrast) var(--pattern-thickness),
+				var(
+						--color-theme-background-title,
+						var(--color-theme-background-contrast)
+					)
+					0,
+				var(
+						--color-theme-background-title,
+						var(--color-theme-background-contrast)
+					)
+					var(--border-thickness),
 				transparent 0,
 				transparent 50%
 			);

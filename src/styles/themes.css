@@ -22,7 +22,10 @@
 	[data-theme='dark-gray'] {
 		--color-theme-background: var(--color-palette-dark-gray);
 		--color-theme-background-contrast: var(--color-palette-darker-gray);
-		--color-theme-link: var(--color-palette-red);
+		--color-theme-background-title: --alpha(
+			var(--color-theme-background-contrast) / 30%
+		);
+		--color-theme-link: var(--color-palette-green);
 	}
 	[data-theme='darker-gray'] {
 		--color-theme-background: var(--color-palette-darker-gray);
@@ -67,8 +70,11 @@
 	}
 	[data-theme='gray'] {
 		--color-theme-background: var(--color-palette-gray);
-		--color-theme-background-contrast: var(--color-palette-light-gray3);
-		--color-theme-link: var(--color-palette-red);
+		--color-theme-background-contrast: var(--color-palette-light-gray);
+		--color-theme-background-title: --alpha(
+			var(--color-theme-background-contrast) / 50%
+		);
+		--color-theme-link: var(--color-palette-purple);
 	}
 
 	/**/
