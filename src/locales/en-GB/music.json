@@ -1,17 +1,28 @@
 {
 	"title": "Music",
-	"description": "Lorem ipsum",
+	"description": "Discover my passion for music through curated tracks, personal compositions, and creative explorations. A space where sound meets creativity beyond code.",
 	"theme": "purple",
 	"sections": [
 		{
 			"theme": "purple",
 			"template": "default",
-			"title": "Beat Maker",
+			"title": "Music Hub",
 			"content": [
 				{
+					"image": {
+						"src": "icon:music"
+					},
 					"heading": {
-						"title": "Under Construction"
-					}
+						"title": "Beats, Rhymes & Electro Funk",
+						"subtitle": "Ruffiano / Stuta P"
+					},
+					"paragraphs": [
+						"I’ve been creating music as a beatmaker and rapper since 1997, producing raw hip hop beats and groovy electro funk. This page is a showcase of my sound—where rhythm, storytelling, and energy collide.",
+						"<linked>Music Hub</linked>"
+					],
+					"links": [
+						"https://beacons.ai/ruffiano.stuta.p"
+					]
 				}
 			]
 		}

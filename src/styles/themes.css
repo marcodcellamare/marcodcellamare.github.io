@@ -7,7 +7,7 @@
 	[data-theme='purple'] {
 		--color-theme-background: var(--color-palette-purple);
 		--color-theme-background-contrast: var(--color-palette-brown);
-		--color-theme-link: var(--color-palette-yellow);
+		--color-theme-link: var(--color-palette-green);
 	}
 	[data-theme='blue'] {
 		--color-theme-background: var(--color-palette-blue);
