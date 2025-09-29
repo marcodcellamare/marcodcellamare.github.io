@@ -50,27 +50,20 @@ const Nav = ({
 		isWheelScroll.current = false;
 		setActiveIdx((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
 	};
+
+	const itemWidth = itemRefs.current[0]?.offsetWidth ?? 0;
+	const firstItemLeft = itemRefs.current[0]?.offsetLeft ?? 0;
+
 	const handleWheelThrottled = useThrottleCallback(() => {
 		const container = containerRef.current;
-		if (!container) return;
+		if (!container || !itemWidth) return;
 
 		isWheelScroll.current = true;
 
-		let closestIdx = 0;
-		let closestDistance = Infinity;
-
-		itemRefs.current.forEach((item, index) => {
-			if (item) {
-				const itemLeft = item.offsetLeft;
-				const distance = Math.abs(container.scrollLeft - itemLeft);
-				if (distance < closestDistance) {
-					closestDistance = distance;
-					closestIdx = index;
-				}
-			}
-		});
-
-		setActiveIdx(closestIdx);
+		const closestIdx = Math.round(
+			(container.scrollLeft - firstItemLeft) / itemWidth
+		);
+		setActiveIdx(Math.max(0, Math.min(totalSlides - 1, closestIdx)));
 	}, 50);
 
 	useEffect(handleWheelThrottled, [isWheeling, handleWheelThrottled]);

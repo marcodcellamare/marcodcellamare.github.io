@@ -52,7 +52,7 @@ const Source = ({ path, name, format, hero }: SourceProps) => {
 
 	return (
 		<>
-			{hero && format === 'avif' && (
+			{hero && format === 'webp' && (
 				<link
 					rel='preload'
 					as='image'

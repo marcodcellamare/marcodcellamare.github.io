@@ -38,7 +38,6 @@ export default defineConfig(({ mode }) => {
 						mode === 'production'
 							? [
 									'**/*.{js,css,html,svg,woff2,woff,ttf}',
-									'**/optimized/*.{jpg,jpeg,png}',
 									'**/optimized/**/*.{avif,webp}',
 							  ]
 							: [],
@@ -47,19 +46,20 @@ export default defineConfig(({ mode }) => {
 						{
 							urlPattern: ({ request }) =>
 								request.mode === 'navigate',
-							handler: 'NetworkFirst',
+							handler: 'StaleWhileRevalidate',
 							options: {
 								cacheName: 'html-cache',
-								networkTimeoutSeconds: 3,
-								expiration: {
-									maxEntries: 20,
-									maxAgeSeconds: 60 * 60 * 24,
-								},
 							},
 						},
 						{
-							urlPattern:
-								/\/optimized\/.*\.(avif|webp|jpe?g|png)$/,
+							urlPattern: /manifest\.webmanifest$/,
+							handler: 'StaleWhileRevalidate',
+							options: {
+								cacheName: 'manifest',
+							},
+						},
+						{
+							urlPattern: /\/optimized\/.*\.(avif|webp)$/,
 							handler: 'CacheFirst',
 							options: {
 								cacheName: 'optimized-images',
