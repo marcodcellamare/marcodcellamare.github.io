@@ -33,5 +33,5 @@ afterEach(cleanup);
 describe('Check navigation', () => {
 	testPage('About', 'Marco D. Cellamare');
 	testPage('Projects', 'Design meets performance');
-	testPage('Music', 'Under Construction');
+	testPage('Music', 'Beats, Rhymes & Electro Funk');
 });
