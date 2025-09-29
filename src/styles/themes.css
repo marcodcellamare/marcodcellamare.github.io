@@ -85,7 +85,7 @@
 	[data-theme='brown'],
 	[data-theme='dark-gray'],
 	[data-theme='darker-gray'] {
-		--color-theme-foreground: var(--color-palette-gray);
+		--color-theme-foreground: var(--color-palette-light-gray);
 		--color-theme-duotone-black: var(--color-theme-background-contrast);
 		--color-theme-duotone-white: var(--color-theme-link);
 		--color-theme-shadow: var(--color-theme-background-contrast);

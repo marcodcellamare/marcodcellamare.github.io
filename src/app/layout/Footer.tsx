@@ -8,7 +8,6 @@ import Socials from './elements/Socials';
 const Footer = () => {
 	const spacing = useUIStore((state) => state.spacing);
 	const activeSectionTheme = useUIStore((state) => state.activeSectionTheme);
-	const pageTheme = useUIStore((state) => state.pageTheme);
 
 	return (
 		<footer
@@ -25,10 +24,6 @@ const Footer = () => {
 				</div>
 				<Socials className='md:ml-auto' />
 			</Container>
-			<div
-				data-theme={pageTheme}
-				className='absolute left-0 right-0 bottom-0 h-1 bg-(--color-theme-background)'
-			/>
 		</footer>
 	);
 };

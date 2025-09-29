@@ -10,21 +10,25 @@
 	}
 
 	html {
-		@apply scroll-smooth
-			w-[-webkit-fill-available]
-			h-[-webkit-fill-available];
+		@apply scroll-smooth;
 	}
 
 	body {
 		@apply overscroll-x-none
 			overscroll-y-none
-			min-h-screen
-			min-w-[-webkit-fill-available]
-			max-w-screen
+			min-w-xs
 			overflow-hidden
 			select-none
 			bg-base-100
 			font-(family-name:--font-body);
+	}
+
+	html,
+	body,
+	#root,
+	.app {
+		@apply h-[100dvh]
+			w-[100dvw];
 	}
 
 	* {

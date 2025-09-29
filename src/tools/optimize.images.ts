@@ -157,7 +157,8 @@ const optimizeFile = (
 
 // Perform optimization
 const optimize = async () => {
-	if (!isValid || imageFiles.length === 0) return;
+	if (!isValid || imageFiles.length === 0)
+		throw new Error('❌ No images found.');
 
 	const tasks: Promise<unknown>[] = [];
 
@@ -203,11 +204,14 @@ const optimize = async () => {
 	await Promise.all(tasks);
 };
 
-// Run
-const start = performance.now();
-
-// Cleanup
 if (args?.[0] !== 'cleanup') {
+	// Run
+	const start: number = performance.now();
+	let end: number;
+	let duration: number;
+	let minutes: number;
+	let seconds: number;
+
 	// Collect files
 	if (args.length > 0) {
 		getImageFilesFromArgs();
@@ -215,15 +219,18 @@ if (args?.[0] !== 'cleanup') {
 		getImageFiles(imagesDir);
 	}
 
-	optimize().then(() => {
-		const end = performance.now();
-		const duration = end - start;
-		const minutes = Math.floor(duration / 60000);
-		const seconds = ((duration % 60000) / 1000).toFixed(2);
+	optimize()
+		.then(() => {
+			end = performance.now();
+			duration = end - start;
+			minutes = Math.floor(duration / 60000);
+			seconds = Number(((duration % 60000) / 1000).toFixed(2));
 
-		console.log('✅✅ Image optimization completed.');
-		console.log(`⏱️ Total time: ${minutes}m ${seconds}s`);
-	});
+			console.log(
+				`✅✅ Image optimization completed in ⏱️ ${minutes}m ${seconds}s.`
+			);
+		})
+		.catch((error) => console.error(error));
 } else {
 	cleanup();
 }

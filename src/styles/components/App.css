@@ -1,3 +1,13 @@
+@reference '@/styles/index.css';
+
 .app {
-	height: var(--dvh, 100dvh);
+	@apply bg-left bg-fixed bg-size-[0.7rem_0.7rem];
+
+	background-image: repeating-linear-gradient(
+		45deg,
+		--alpha(var(--color-black) / 10%) 0,
+		--alpha(var(--color-black) / 10%) 0.05rem,
+		transparent 0,
+		transparent 50%
+	);
 }
