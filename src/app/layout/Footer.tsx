@@ -13,7 +13,9 @@ const Footer = () => {
 		<footer
 			data-theme={activeSectionTheme}
 			className={classNames([
-				'absolute bottom-0 left-0 right-0 text-(--color-theme-content) text-xl md:text-lg pointer-events-none transition-[color] duration-500 ease-in-out',
+				'absolute bottom-0 left-0 right-0 text-(--color-theme-content) text-xl md:text-lg pointer-events-none',
+				'backdrop-blur-xs md:backdrop-blur-none',
+				'transition-[color] duration-500 ease-in-out',
 				spacing.footer,
 			])}>
 			<Container className='flex flex-col md:flex-row gap-2 md:items-center relative'>

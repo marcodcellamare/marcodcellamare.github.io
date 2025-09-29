@@ -1,6 +1,6 @@
 {
 	"title": "Projects",
-	"description": "Lorem ipsum",
+	"description": "Explore a selection of my projects showcasing expertise in React, TypeScript, and full-stack development. From interactive front-end applications to scalable web solutions, each project highlights creativity, performance, and attention to detail.",
 	"theme": "blue",
 	"sections": [
 		{
@@ -44,6 +44,27 @@
 					"links": [
 						"https://github.com/marcodcellamare/infinite-nonogram/",
 						"https://marcodcellamare.github.io/infinite-nonogram/"
+					]
+				}
+			]
+		},
+		{
+			"theme": "dark-gray",
+			"template": "default",
+			"title": "Brand Service",
+			"content": [
+				{
+					"image": {
+						"src": "/images/projects/brand-service.jpg",
+						"position": "left"
+					},
+					"heading": {
+						"headline": "Brand Service",
+						"title": "High-Performance Analytics Dashboard",
+						"subtitle": "1M+ Records, Interactive Views, Streamlined Imports"
+					},
+					"paragraphs": [
+						"Developed a real-time analytics dashboard with advanced data handling, Excel import flow, and map/table views — enabling visualization of 1M+ records and reducing manual processing by 80%."
 					]
 				}
 			]

@@ -41,6 +41,7 @@ export const ResizeProvider = ({ children }: ResizeProviderProps) => {
 		};
 	}, [resizeObserverThrottled]);
 
+	/*
 	useEffect(
 		() => document.documentElement.style.setProperty('--dvw', `${width}px`),
 		[width]
@@ -51,6 +52,7 @@ export const ResizeProvider = ({ children }: ResizeProviderProps) => {
 			document.documentElement.style.setProperty('--dvh', `${height}px`),
 		[height]
 	);
+	*/
 
 	return (
 		<ResizeContext.Provider

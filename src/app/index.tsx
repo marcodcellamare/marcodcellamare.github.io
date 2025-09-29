@@ -31,13 +31,19 @@ const App = () => {
 			<div
 				data-theme={pageTheme}
 				className={classNames([
-					'app flex 4xl:justify-center 4xl:items-center 4xl:p-10 5xl:p-20 6xl:p-30 select-none',
+					'app flex 7xl:justify-center 4xl:p-10 5xl:p-20 6xl:p-30 7xl:p-60 select-none',
 					'transition-[background-color] duration-500 ease-in-out',
 					!isNavOpened
 						? 'bg-(--color-theme-background-contrast)'
 						: 'bg-(--color-theme-background)',
 				])}>
-				<div className='flex flex-1 h-full min-w-xs max-w-(--breakpoint-4xl) 4xl:max-h-(--breakpoint-xl) 4xl:shadow-2xl 4xl:shadow-black/15 overflow-hidden relative'>
+				<div
+					className={classNames([
+						'app-wrapper flex flex-1 h-full overflow-hidden relative',
+						'max-w-(--breakpoint-7xl)',
+						'4xl:shadow-2xl 4xl:shadow-black/15',
+						'border-5 border-(--color-theme-background) border-l-0',
+					])}>
 					<Router />
 					<Footer />
 					<Header />

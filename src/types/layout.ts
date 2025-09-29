@@ -1,7 +1,7 @@
 import { TemplateType, ThemeType } from './config.const';
 
 export type ImagePositionType = 'left' | 'right';
-export type ImageIconType = 'icon:hello' | 'icon:development';
+export type ImageIconType = 'icon:hello' | 'icon:development' | 'icon:music';
 export type LinkType = number | string;
 
 export interface SectionInterface {
