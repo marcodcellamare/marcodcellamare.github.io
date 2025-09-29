@@ -47,7 +47,7 @@ const Gallery = ({ className, children }: GalleryProps) => {
 		<div
 			className={classNames([
 				'template-gallery grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 4xl:grid-cols-6 gap-5 md:gap-10',
-				'flex-1 items-center justify-items-center !py-[calc(var(--main-vh)*0.7)]',
+				'flex-1 items-center justify-items-center !py-[calc(var(--main-h)*0.7)]',
 				className,
 			])}>
 			{images.map((image, k) => (

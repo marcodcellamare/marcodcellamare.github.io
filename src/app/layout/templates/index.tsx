@@ -68,7 +68,7 @@ const Templates = () => {
 					className={classNames(['flex-1', spacing.absEdgePadding])}>
 					<Container
 						className={classNames(
-							'sticky top-0 left-0 right-0 h-(--main-vh)',
+							'sticky top-0 left-0 right-0 h-(--main-h)',
 							containerClassName
 						)}>
 						<Default className='flex-1' />

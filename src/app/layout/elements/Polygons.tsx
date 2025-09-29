@@ -108,8 +108,8 @@ const Polygons = ({
 	if (!polygons.length) return null;
 
 	return (
-		<div className='polygons absolute -top-[calc(var(--main-vh)/20)] bottom-0 -left-1/15 -right-1/15 pointer-events-none z-1 contain-layout'>
-			<div className='sticky top-0 left-0 right-0 h-(--main-vh)'>
+		<div className='polygons absolute -top-[calc(var(--main-h)/20)] bottom-0 -left-1/15 -right-1/15 pointer-events-none z-1 contain-layout'>
+			<div className='sticky top-0 left-0 right-0 h-(--main-h)'>
 				{polygons.map((polygon, k) => (
 					<Floating
 						key={k}

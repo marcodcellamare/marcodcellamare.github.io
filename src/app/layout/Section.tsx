@@ -53,7 +53,7 @@ const Section = ({ isFirst, isLast, className }: SectionProps) => {
 			<div className='absolute top-0 bottom-0 left-0 right-0'>
 				<div
 					ref={setSectionRef}
-					className='sticky top-0 bottom-0 left-0 right-0 h-(--main-vh)'
+					className='sticky top-0 bottom-0 left-0 right-0 h-(--main-h)'
 				/>
 			</div>
 			<Title isFirst={isFirst} />

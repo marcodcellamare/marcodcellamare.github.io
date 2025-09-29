@@ -61,7 +61,7 @@ const Title = ({ isFirst }: TitleProps) => {
 		<motion.div
 			className='title absolute top-0 bottom-0 left-0 right-0 pointer-events-none'
 			style={{ zIndex }}>
-			<div className='sticky top-0 left-0 right-0 h-(--main-vh)'>
+			<div className='sticky top-0 left-0 right-0 h-(--main-h)'>
 				<motion.div
 					className='absolute top-1/2 left-0 lg:left-1/2 -translate-y-1/2 lg:-translate-x-1/2 contain-layout'
 					style={{
@@ -82,7 +82,7 @@ const Title = ({ isFirst }: TitleProps) => {
 						])}>
 						<div
 							className={classNames([
-								'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 min-w-fit max-w-(--main-vh) lg:max-w-(--main-vw)',
+								'absolute top-0 lg:top-1/2 left-1/2 -translate-x-1/2 lg:-translate-y-1/2 min-w-fit max-w-[100dvh] lg:max-w-full',
 								spacing.absEdgePadding,
 							])}>
 							{t(`sections.${sectionId}.title`)}

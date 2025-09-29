@@ -27,11 +27,11 @@ const Main = () => {
 		const rect = container.getBoundingClientRect();
 
 		document.documentElement.style.setProperty(
-			'--main-vw',
+			'--main-w',
 			`${rect.width}px`
 		);
 		document.documentElement.style.setProperty(
-			'--main-vh',
+			'--main-h',
 			`${rect.height}px`
 		);
 	});

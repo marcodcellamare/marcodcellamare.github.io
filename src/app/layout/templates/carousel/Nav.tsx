@@ -98,7 +98,7 @@ const Nav = ({
 				className={classNames([
 					'absolute top-1/2 right-0 -translate-y-1/2 h-0.5 bg-(--color-theme-link)/35 hidden md:block pointer-events-none',
 					'transform-[width] duration-500 ease-in-out',
-					!isOver ? 'w-full' : 'w-(--main-vw)',
+					!isOver ? 'w-full' : 'w-[100dvw]',
 				])}
 			/>
 			<div
